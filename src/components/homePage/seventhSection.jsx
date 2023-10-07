@@ -46,7 +46,7 @@ function SeventhSection() {
           </div>
           <div className="h-2"></div>
           <div className=" max-md:text-base text-xl">
-            access to India's best teachers with a record of
+            {`access to India's best teachers with a record of`}
             <span className=" md:hidden max-md:text-base text-xl">
               {" "}
               producing top rankers year on year.
