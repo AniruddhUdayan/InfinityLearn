@@ -319,7 +319,7 @@ function Header() {
             height={70}
           />
 
-          <div className="flex-grow">
+          <div className="flex-grow  z-30">
             <ul className="flex max-md:hidden justify-evenly">
               {items.map((item, index) => (
                 <div key={index} className="relative">
