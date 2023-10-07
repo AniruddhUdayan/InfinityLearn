@@ -78,7 +78,7 @@ function OtpComponent({ onClose }) {
       className={`fixed inset-0  bg-black max-md:z-50 max-md:flex-col bg-opacity-50 flex items-center justify-center`}
     >
       <div className="bg-white max-md:h-screen max-md:rounded-none  max-md:w-screen  gap-5 flex p-8 rounded justify-evenly relative">
-        <img
+        <Image
           src="/login/mobVer/mobVer2.png"
           height={400}
           width={400}
@@ -91,7 +91,7 @@ function OtpComponent({ onClose }) {
             <div className=" flex flex-col gap-5">
               <div>
                 <h2 className="text-2xl font-extrabold mb-2">
-                  just ensuring it's our genius
+                  {`just ensuring it's our genius`}
                 </h2>
                 <h2 className="text-2xl font-extrabold mb-4">
                   student. enter the OTP

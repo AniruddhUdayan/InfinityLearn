@@ -113,7 +113,7 @@ function Card(props) {
     >
       <div className="">
         {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
-          <img
+          <Image
             src={props.data?.svg}
             height={208}
             width={svgWidth}
@@ -174,7 +174,7 @@ function Courses() {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [scrollPos]);
+  }, [activeDash, scrollPos]);
 
   return (
     <div className="flex max-md:hidden flex-col justify-center w-full items-center h-ull bg-blue-200">
@@ -237,6 +237,7 @@ function ScrollableDiv() {
     scrollRef.current.addEventListener("scroll", handleScroll);
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       scrollRef.current.removeEventListener("scroll", handleScroll);
     };
   }, [cardWidth]);
@@ -292,7 +293,7 @@ function FourthSection() {
       <div className="w-full max-md:border-t-4 border-blue-400 py-10 min-h-screen overflow-hidden mx-auto bg-blue-200 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center">
           <div className="flex items-center mb-10">
-            <img
+            <Image
               src="fire.svg"
               className=" w-auto h-auto"
               height={40}
