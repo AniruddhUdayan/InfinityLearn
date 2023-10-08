@@ -1,6 +1,6 @@
 import React from "react";
 import "./globals.css";
-import { Provider } from "react-redux";
+import { Providers } from "./Provider";
 import { store } from "../store/store.js"; // Adjust path as needed
 import './globals.css'
 import type { Metadata } from 'next'
@@ -28,13 +28,13 @@ IT IS ALSO RESPNSOVE ALSO
  */
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    // <Provider store={store}> STORE ISSUE IN LAYOUT.TSX
     <html lang="en">
+      <Providers>
       <ThemeRegistry>
         <body className={inter.className}>{children}</body>
       </ThemeRegistry>
+    </Providers>
     </html>
-    // </Provider>
   );
 };
 
