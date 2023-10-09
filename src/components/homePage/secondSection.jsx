@@ -69,38 +69,32 @@ function SecondSecCard(props) {
     return () => window.removeEventListener("resize", updateWidth);
   }, []); // Empty dependency ar
   return (
-    <div className=" card flex flex-col card hover:cursor-pointer max-md:w-[161px]  max-md:h-60  max-md:flex-shrink-0 max-md:pt-5   hover:bg-blue-500 bg-blue-200 max-md:px-4  md:px-16 md:py-20 md:w-1/3 rounded-2xl">
+    <div className="flex   card flex-col justify-evenly items-start hover:cursor-pointer  max-md:h-60 max-md:flex-shrink-0 max-md:pt-5 hover:bg-blue-500 bg-blue-200 max-md:px-4 md:px-16 md:py-20 md:w-1/3 rounded-2xl sm:px-8 sm:py-10">
       <Image
         src={props.data.svg}
-        className=" "
         width={svgWidth}
         height={svgWidth}
         alt="secondSec.svg"
-        color="white"
       />
-      <div className=" max-md:mt-4">
-        <h1
-          className={`card-text text-black text-xl max-md:text-2xl   mt-4 font-medium`}
-        >
-          {props.data.name}
-        </h1>
-        <div className={`card-text text-black   text-sm mb-5 max-md:mb-3`}>
-          {props.data.subItemAbout}
-        </div>
-        <div className={`card-text text-black max-md:text-sm text-lg `}>
-          {props.data.examTime}
-        </div>
+      <h1 className="text-black card-text text-xl max-md:text-2xl mt-4 font-medium sm:mt-2 sm:text-lg">
+        {props.data.name}
+      </h1>
+      <div className="text-black card-text text-sm mb-5 max-md:mb-3 sm:mb-2">
+        {props.data.subItemAbout}
+      </div>
+      <div className="text-black card-text max-md:text-sm text-lg sm:text-base">
+        {props.data.examTime}
       </div>
     </div>
   );
 }
 function Class11to12() {
   return (
-    <div className=" flex flex-col pb-20 justify-start ">
-      <div className="  max-md:text-3xl max-md:ml-4 text-4xl text-black mb-6 font-semibold ">
+    <div className=" flex flex-col   md:px10 max-lg:w-scr   pb-20 justify-start ">
+      <div className="  max-md:text-3xl  max-md:ml-4 text-4xl text-black mb-6 font-semibold ">
         competitive exam
       </div>
-      <div className=" flex max-md:px-4  max  w-full max-md:w-auto max-md:overflow-x-auto no-scrollbar gap-5  ">
+      <div className=" flex max-md:px-4 md:w-full    max-md:w-auto max-md:overflow-x-auto no-scrollbar gap-5  ">
         {items[0]?.subItems[0]?.lists?.map((item, index) => (
           <SecondSecCard data={item} key={index} />
         ))}
@@ -125,12 +119,12 @@ function Class9to10() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
   return (
-    <div className=" flex flex-col pb-20 justify-start ">
+    <div className=" flex  flex-col pb-20 justify-start ">
       <div className=" max-md:text-3xl max-md:ml-4 text-4xl text-black mb-6 font-semibold ">
         competitive exam
       </div>
       <div className=" flex flex-col gap-8">
-        <div className="max-md:px-4 no-scrollbar  flex max-md:overflow-x-auto  w-full gap-5  ">
+        <div className="max-md:px-4  no-scrollbar  flex max-md:overflow-x-auto  w-full gap-5  ">
           {items[0]?.subItems[1]?.lists?.map((item, index) => (
             <SecondSecCard data={item} key={index} />
           ))}
@@ -205,7 +199,7 @@ function Class4to8() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
   return (
-    <div className=" flex flex-col pb-20 justify-start ">
+    <div className=" flex  flex-col pb-20 justify-start ">
       <div className=" max-md:text-3xl max-md:ml-4 text-4xl text-black mb-6 font-semibold ">
         competitive exam
       </div>
@@ -348,7 +342,7 @@ function SecondSection() {
   };
   return (
     <div className="items-center md:min-h-screen max-md:h-full  bg-gray-200">
-      <div className="w-[70%] max-w-[1000px] max-md:w-[100%] mx-auto">
+      <div className="max-w-[1000px] px-4   max-lg: max-md:w-[100%] mx-auto">
         <div className="flex justify-evenly p-6 text-center max-md:hidden font-bold text-4xl gap-4 relative bottom-[4.5rem] mx-auto flex-row items-center h-36 bg-yellow-300 px-4 rounded-2xl">
           <div className="text-black flex flex-col border-black">
             <div className="text-center font-normal text-2xl text-[#080E14]">
@@ -376,7 +370,7 @@ function SecondSection() {
           select your learning <span className=" text-blue-500 "> goal </span>
           grade-wise
         </h1>
-        <div className=" h-full flex justify-center mb-9   items-center">
+        <div className=" h-full flex max-lg:w-full justify-center mb-9   items-center">
           {/* {std.map((item) => (
             <button className=" bg-white rounded-3xl px-4 py-2 mx-3 text-black hover:bg-yellow-300">
               {item}
@@ -385,10 +379,12 @@ function SecondSection() {
           <SwitchTabs data={std} onTabChange={handleTabChange} />
         </div>
         {/* {"empty"} */}
-        {activeTab === 0 && <Class11to12 />}
-        {activeTab === 1 && <Class9to10 />}
-        {activeTab === 2 && <Class4to8 />}
-        {activeTab === 3 && <Class1to3 />}
+        <div className="">
+          {activeTab === 0 && <Class11to12 />}
+          {activeTab === 1 && <Class9to10 />}
+          {activeTab === 2 && <Class4to8 />}
+          {activeTab === 3 && <Class1to3 />}
+        </div>
         {/* <Class11to12 /> */}
       </div>
     </div>
