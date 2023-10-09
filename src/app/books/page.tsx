@@ -5,11 +5,10 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import Review from "@/components/Review&Detail/Review";
-import BookDemo from "@/components/BookDemo/BookDemo"
+import BookDemo from "@/components/BookDemo/BookDemo";
+import Download from "@/components/examPage/Download";
 // import Review from "@/components/Review&Detail/Review";
 // import Bookdemo from "@/components/BookDemo/Bookdemo";
-
-
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -54,11 +53,11 @@ export default function Home() {
         setIsSlideDown(false);
         setTimeout(() => {
           slideDown();
-           // Repeat the animation
+          // Repeat the animation
         }, 2000);
         // Stay for 2 seconds before sliding down
       }, 2000);
-       // Slide down duration
+      // Slide down duration
     };
 
     slideDown(); // Start the animation
@@ -69,7 +68,7 @@ export default function Home() {
   }, []);
   return (
     <>
-    <Header></Header>
+      <Header></Header>
       <div className="h-full bg-[#007BFF] pb-[61px] flex justify-center">
         <div className="sm:flex sm:flex-col lg:flex-row sm:gap-[40px] sm:mx-[112px] sm:pt-[28px]">
           <div className="flex flex-col gap-[20px]">
@@ -125,13 +124,13 @@ export default function Home() {
               <div className="hidden sm:w-[588px] sm:h-[60px] sm:rounded-[12px] sm:bg-[#00364E] sm:flex sm:justify-center sm:items-center sm:text-[#FFF] sm:text-[16px] sm:font-normal sm:flex-row gap-[20px]">
                 <div>{`what's in it for you?`}</div>
                 <div className="flex justify-center items-center  rounded-[12px] bg-[#007BFF] text-[12px] font-[500] px-[8px] py-[4px] gap-1">
-                <Image
-                        src="/images/play.png"
-                        alt="Your Logo"
-                        width={15}
-                        height={15}
-                      />
-                      see now
+                  <Image
+                    src="/images/play.png"
+                    alt="Your Logo"
+                    width={15}
+                    height={15}
+                  />
+                  see now
                 </div>
               </div>
             </div>
@@ -140,7 +139,7 @@ export default function Home() {
             <div
               className={`${poppins.className} w-auto text-white sm:text-[48px] text-[20px] font-bold leading-60 `}
             >
-             <div > IL books for</div>
+              <div> IL books for</div>
               <div className="h-[72px] overflow-hidden w-auto relative">
                 <span
                   className={`text-[#FCDE5A] inline-block transition-transform transform duration-[1000ms] ${
@@ -482,24 +481,8 @@ export default function Home() {
           height={332}
         />
       </div>
-      <div className="bg-[#F1F2F6] pt-[80px] h-auto w-full sm:flex justify-center hidden">
-        <Image
-          src="/images/app.png"
-          alt="Your Logo"
-          width={1040}
-          height={659}
-        />
-      </div>
-      <div className="bg-[#F1F2F6] h-auto w-full flex justify-center sm:hidden">
-        <Image
-          src="/images/app2.png"
-          alt="Your Logo"
-          width={375}
-          height={3023}
-        />
-      </div>
-      <BookDemo/>
-     <Footer></Footer>
+      <Download />
+      <Footer />
     </>
   );
 }

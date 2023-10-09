@@ -12,16 +12,16 @@ const Download = () => {
 				<div className='flex flex-col gap-2 lg:gap-8 w-full lg:w-6/12 px-0 lg:px-10'>
 					<div className='font-bold text-4xl lg:text-5xl text-[#007BFF] mb-4 leading-[2.5rem] lg:leading-[3.6rem]'>best study material, <span className='text-[#080E14]'>now at your finger tips!</span></div>
 					<div className='flex gap-2'>
-						<Image src={check} alt="check" width={20} height={0} className='lg:hidden' />
-						<div className='text-[#6B6E72] text-lg lg:ms-12'>live classes</div>
+						<Image src='/images/checklist1.png' alt="check" width={40} height={40}  />
+						<div className='text-[#6B6E72] text-lg flex items-center'>live classes</div>
 					</div>
 					<div className='flex gap-2'>
-						<Image src={check} alt="check" width={20} height={0} className='lg:hidden' />
-						<div className='text-[#6B6E72] text-lg lg:ms-12'>progress tracking</div>
+						<Image src='/images/checklist1.png' alt="check" width={40} height={40}  />
+						<div className='text-[#6B6E72] text-lg flex items-center'>progress tracking</div>
 					</div>
 					<div className='flex gap-2'>
-						<Image src={check} alt="check" width={20} height={0} className='lg:hidden' />
-						<div className='text-[#6B6E72] text-lg lg:ms-12'>diverse question banks</div>
+						<Image src='/images/checklist1.png' alt="check" width={40} height={40}  />
+						<div className='text-[#6B6E72] text-lg flex items-center'>diverse question banks</div>
 					</div>
 					<div className='hidden lg:block'>
 						<div className='text-xl font-bold'>download the app</div>
