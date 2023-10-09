@@ -305,7 +305,7 @@ function Class1to3() {
                 Young Product
               </div>
               <div className="card-text font-semibold max-md:text-lg text-2xl text-black ">
-                Designer's Program
+                {` Designer's Program`}
               </div>
             </div>
           </div>
