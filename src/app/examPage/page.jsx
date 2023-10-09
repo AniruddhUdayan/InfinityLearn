@@ -1,11 +1,7 @@
-import LandingExam from '@/components/landingExam'
+// import LandingExam from '@/components/landingExam'
 
 const ExamPage = () => {
-    return (
-        <>
-            <LandingExam />
-        </>
-    )
-}
+  return <>{/* //<LandingExam /> */}</>;
+};
 
-export default ExamPage
+export default ExamPage;
