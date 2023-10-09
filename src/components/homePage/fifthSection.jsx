@@ -179,7 +179,7 @@ function Reviews() {
       <div className="  flex relative  max-md:h-full top-40 flex-col justify-center items-center ">
         <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto w-screen  relative w-5/">
           <div
-            className="flex gap-8 max-md:gap-16 max-md:px-5 transition-transform duration-1000"
+            className="flex  gap-8 max-md:gap-16 max-md:px-5 transition-transform duration-1000"
             style={{ transform: `translateX(-${scrollPos * sN}%)` }}
           >
             {reviews.map((review, index) => (
