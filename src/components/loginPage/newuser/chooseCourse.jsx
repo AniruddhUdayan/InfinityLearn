@@ -95,7 +95,7 @@ function ChooseCourse({ handleBack }) {
   
     Exams();
   
-  },[])
+  },[userGrade])
 
   const dispatch = useDispatch();
   // const storeNameHandler = () => {
@@ -139,7 +139,7 @@ function ChooseCourse({ handleBack }) {
                 every champion sets a{" "}
               </h2>
               <h2 className="text-2xl font-extrabold mb-4">
-                goal. let's define yours
+                {`goal. let's define yours`}
               </h2>
             </div>
             <div>

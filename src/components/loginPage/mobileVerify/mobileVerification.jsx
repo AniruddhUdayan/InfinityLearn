@@ -22,7 +22,7 @@ function MobileVerification() {
       // When number becomes valid, send OTP
       phoneNumberHandler();
     }
-  }, [isNumberValid1]);
+  }, [isNumberValid1, phoneNumberHandler]);
 
   const showOverlay = useSelector(
     (state) => state.mobileVerification.showOverlay
@@ -33,22 +33,23 @@ function MobileVerification() {
     dispatch(showOverlayMode(!showOverlay));
   };
 
-  const phoneNumberHandler = async () => {
+  const phoneNumberHandler = useCallback(async () => {
     dispatch(storePhoneNumber(number));
     let body = {
-        isdCode:'+91',
-        phone: phoneNumber
-      }
-      try {
-        const response = await sendOtp(body);
-        console.log(response);
-        setOtpSent(response);
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
-      } finally {
-        // setLoading(false);
-      }
-  };
+      isdCode: '+91',
+      phone: phoneNumber
+    };
+    try {
+      const response = await sendOtp(body);
+      console.log(response);
+      setOtpSent(response);
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    } finally {
+      // setLoading(false);
+    }
+  }, [dispatch,  number, phoneNumber,  setOtpSent]);
+  
 
   const handleNumberChange = (e) => {
     const value = e.target.value;
@@ -79,7 +80,7 @@ function MobileVerification() {
           <div className=" flex flex-col gap-3">
             <div>
               <h2 className="text-2xl font-extrabold mb-2">
-                drop your number, we've{" "}
+                {" drop your number, we've"}
               </h2>
               <h2 className="text-2xl font-extrabold mb-4">got the rest</h2>
             </div>
