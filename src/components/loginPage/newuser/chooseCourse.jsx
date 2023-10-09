@@ -9,6 +9,8 @@ import { FaCheck } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
 import ChooseClass from "./chooseClass";
 import MobileVerification from "../mobileVerify/mobileVerification";
+import { getExams } from "../../../services/userServics";
+import { allowedExamNamesCT } from "../../../services/app.constants";
 const course = [
   {
     id: 0,
@@ -32,7 +34,7 @@ const course = [
 
 function Card(props) {
   const { data, isSelected, onClick } = props;
-
+  console.log(data)
   return (
     <div
       className={`flex cursor-pointer p-2 border-2 rounded-xl items-center ${
@@ -43,7 +45,7 @@ function Card(props) {
       <Image src={data.svg} width={50} height={50} alt="card svg" />
       <div className="flex flex-col ml-4 flex-grow items-start justify-center">
         <div>{data.name}</div>
-        <div>{data.about}</div>
+        <div>{data.description}</div>
       </div>
       <div
         className={`ml-4 w-6 h-6 flex items-center justify-center border rounded-full ${
@@ -62,6 +64,38 @@ function ChooseCourse({ handleBack }) {
   );
   const [name, setName] = useState("");
   const [selectedClass, setSelectedClass] = useState(null);
+
+  const userGrade = useSelector(
+    (state) => state.newUser.class?.name?.replace(/[^0-9]/g, '')
+  );
+  const [exams, setExams] = useState([]);
+  console.log(userGrade)
+  useEffect(()=>{
+    async function Exams() {
+      try {
+        const response = await getExams();
+        const exams = await response?.filter(ex => {
+          const isCBSE = ex?.name?.replace(/[^a-z]/ig, '').toUpperCase().includes("CBSE");
+          if(isCBSE) {
+            ex.displayName = "CBSE";
+          }
+          if(isCBSE){
+            return (allowedExamNamesCT[userGrade]?.indexOf('CBSE') > -1 );
+          }else{
+            return (allowedExamNamesCT[userGrade]?.indexOf(ex?.name?.replace(/[^a-z]/ig, '').toUpperCase()) > -1 );
+          }
+        }).sort((a, b) => allowedExamNamesCT[userGrade]?.indexOf(a?.name?.replace(/[^a-z]/ig, '').toUpperCase())<allowedExamNamesCT[userGrade]?.indexOf(b?.name?.replace(/[^a-z]/ig, '').toUpperCase()) ? -1 : 1);
+        setExams(exams)
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      } finally {
+  
+      }
+    }
+  
+    Exams();
+  
+  },[])
 
   const dispatch = useDispatch();
   // const storeNameHandler = () => {
@@ -113,7 +147,7 @@ function ChooseCourse({ handleBack }) {
                 select learning goal (choose at least one)
               </div>
               <div className="grid grid-cols-1 gap-4 ">
-                {course.map((item, index) => (
+                {exams.map((item, index) => (
                   <Card
                     key={index}
                     data={item}
