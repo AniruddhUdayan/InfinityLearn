@@ -8,6 +8,8 @@ import { storePhoneNumber } from "@/store/mobVeriSlice";
 import Verified from "./verified";
 import { BiArrowBack } from "react-icons/bi";
 import Tick from "./tick";
+import { sendSQSMsg, validateOTP } from "../../../services/userServics";
+import * as moment from 'moment';
 
 function OtpComponent({ onClose }) {
   const dummyOtp = ["1", "2", "3", "4"];
@@ -60,19 +62,61 @@ function OtpComponent({ onClose }) {
     }
   };
 
-  const verifyOtp = () => {
-    if (JSON.stringify(otp) === JSON.stringify(dummyOtp)) {
-      // OTP is correct
-      setOtpError(false);
-      // TODO: Handle what happens after successful OTP verification
-      setShowOverlay(true);
-    } else {
-      // If OTP is incorrect
-      setOtpError(true);
+  const verifyOtp = async () => {
+
+    let body = {
+      isdCode:'+91',
+      phone: phoneNumber,
+      userOtp: otp.join(',').replace(/[^0-9]/g, '')
     }
+
+    try {
+      const response = await validateOTP(body);
+      console.log(response)
+      setOtpError(false);
+      setShowOverlay(true);
+      localStorage.setItem('user_details_from_server', JSON.stringify(response?.userDto));
+      sendLsq();
+    } catch (error) {
+      setOtpError(true);
+      console.error('Error fetching data:', error.message);
+    } finally {
+      // setLoading(false);
+    }
+    // if (JSON.stringify(otp) === JSON.stringify(dummyOtp)) {
+    //   // OTP is correct
+    //   setOtpError(false);
+    //   // TODO: Handle what happens after successful OTP verification
+    //   setShowOverlay(true);
+    // } else {
+    //   // If OTP is incorrect
+    //   setOtpError(true);
+    // }
   };
 
   const [otpError, setOtpError] = useState(false);
+
+  const sendLsq = async ()=>{
+    let userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
+    let Fields = {
+      mx_Grade : userDetails?.name?.replace(/[^0-9]/g, ''),
+      mx_Custom_6 : "website",
+    }
+    let Payload = {
+      "ActivityDateTime": moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+      "Fields": Fields,
+      "FirstName": userDetails?.firstName,
+      "LastName": userDetails?.lastName,
+      "environment": 'staging',
+      "phone": userDetails?.phone,
+      "productId": 1,
+      "Source": "IL Website",
+      "type": "Lead",
+    }
+
+    sendSQSMsg(Payload);
+
+  }
   return (
     <div
       className={`fixed inset-0  bg-black max-md:z-50 max-md:flex-col bg-opacity-50 flex items-center justify-center`}

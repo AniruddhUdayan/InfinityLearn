@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-// import { useDispatch, useSelector } from "react-redux";
-// import { showOverlayMode } from "@/store/mobVeriSlice";
-// import { storePhoneNumber } from "@/store/mobVeriSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { showOverlayMode } from "@/store/mobVeriSlice";
+import { storePhoneNumber } from "@/store/mobVeriSlice";
+import LoginPage from "../loginPage";
 function Trial() {
   return (
     <div className="flex mt-10 max-lg:w-full mb-6 max-lg:mx-10 max-lg:h-24 justify-evenly text-[#007BFF] p-6  text-center  font-bold text-base gap-3 mx-auto flex-row items-center h-20 bg-white px-4 rounded-2xl">
@@ -29,10 +30,10 @@ function Trial() {
 }
 function FirstSection() {
   const [query, setQuery] = useState("");
-  // const showOverlay = useSelector(
-  //   (state) => state.mobileVerification.showOverlay
-  // );
-  // const dispatch = useDispatch();
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
@@ -42,13 +43,15 @@ function FirstSection() {
 
   const handleToggleOverlay = () => {
     if (query.length === 10) {
-      // dispatch(storePhoneNumber(query));
-      // dispatch(showOverlayMode(!showOverlay));
+      dispatch(storePhoneNumber(query));
+      dispatch(showOverlayMode(!showOverlay));
     } else {
       console.error("Phone number should be 10 digits!");
     }
   };
-
+  if(showOverlay){
+    return <div><LoginPage /></div>
+  }
   return (
     <div className="flex pb-32 max-md:pt-9  max-md:pb-8 w-full max-md:min-h-screen items-center justify-around bg-[#007BFF] max-md:flex-col max-md:h-fit">
       <div className="flex flex-col">

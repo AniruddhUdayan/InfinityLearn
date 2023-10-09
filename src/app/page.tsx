@@ -11,6 +11,7 @@ import SixthSection from "../components/homePage/sixthSection.jsx";
 import SeventhSection from "../components/homePage/seventhSection.jsx";
 
 import Head from "next/head";
+import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Home() {
   return (
     <div className=" no-scrollbar max-md:w-full">
@@ -24,7 +25,7 @@ export default function Home() {
       <FirstSection />
       <SecondSection />
       <ThirdSection />
-      <FourthSection />
+      {/* <FourthSection /> */}
       <FifthSection />
       <SixthSection />
       <SeventhSection />
