@@ -7,6 +7,7 @@ import { MdCall, MdClose } from "react-icons/md";
 import { BsArrowLeft } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import subItem from "../utils/infoHeader";
+import Link from "next/link";
 
 const items = ["courses", "study material", "results", "more"];
 function BooksCard(props) {
@@ -26,6 +27,7 @@ function BooksCard(props) {
 }
 
 function SubItemCard(props) {
+  const [selectedItem, setSelectedItem] = useState(null);
   const handleClick = () => {
     if (props.subItem) {
       props.onSubMenuToggle(props.index, props.subIndex);
@@ -33,11 +35,19 @@ function SubItemCard(props) {
     if (props.onDoubtClick) {
       props.onDoubtClick();
     }
+    if (selectedItem === props.index) {
+      setSelectedItem(null); // Deselect if clicked again
+    } else {
+      setSelectedItem(props.index); // Select the new item
+    }
   };
-
+  const isSelected = selectedItem === props.index;
+  const backgroundColor = isSelected ? "#F1F2F6" : "transparent";
   return (
     <div
-      className="flex items-center hover:cursor-pointer  justify-between w-96 h-20 p-1 bg-white text-black rounded-lg cursor-pointer z-50"
+      className={`flex items-center cursor-pointer justify-between w-96 h-20 p-1 text-black rounded-lg z-50 ${
+        isSelected ? "bg-[#F1F2F6]" : ""
+      } hover:bg-[#D4E9FF]`}
       onClick={handleClick}
     >
       {props.data.listHeading === true ? (
@@ -120,7 +130,7 @@ function ResHeader({
     <div className="md:hidden fixed  overflow-y-auto no-scrollbar flex-col top-0 left-0 w-full h-screen  bg-white text-black z-50 flex ">
       <div className=" flex py-7 px-2 bg-white justify-end">
         <button
-          className=" justify-end items-end close-button"
+          className=" justify-end items-end close-button "
           onClick={closeResHeader}
         >
           <MdClose size={24} />
@@ -340,11 +350,11 @@ function Header() {
           />
 
           <div className="flex-grow  z-30">
-            <ul className="flex text-white max-md:hidden justify-evenly">
+            <ul className="flex text-white mb-0 max-md:hidden justify-evenly ">
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
-                    className={`flex px-7 items-center group hover:cursor-pointer hover:bg-blue-400 hover:border-white hover:border-2  hover:rounded-3xl p-1 `}
+                    className={`flex px-7 items-center group hover:cursor-pointer  hover:border-white hover:border-[1px] border-solid  hover:rounded-3xl p-1 transform hover:scale-105 transition-transform duration-300`}
                     onClick={() => toggleSubMenu(index)}
                     onMouseEnter={() => hoverHandler1(index)}
                   >
@@ -353,7 +363,7 @@ function Header() {
                   </li>
                   {index === activeItem && foundItem && (
                     <ul
-                      className="absolute w-fit z-20  left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg"
+                      className="absolute w-fit z-20  left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg p-0"
                       onMouseLeave={() => hoverHandler1(null)}
                     >
                       {foundItem?.subItems.map((subItem, subIndex) => (
@@ -371,7 +381,7 @@ function Header() {
                             onSubMenuToggle={toggleSubMenuItems}
                           />
                           {activeSubItem != null && (
-                            <ul className=" z-20 rounded-lg absolute w-fit bg-white  border-white border-2 top-0 left-full flex flex-col  ">
+                            <ul className=" z-20 rounded-lg rounded-tl-none rounded-bl-none absolute w-fit bg-white   border-white border-2 top-[-2px] left-full flex flex-col p-2">
                               {foundSubItem?.map((subItem, listItemIndex) => (
                                 <div
                                   key={listItemIndex}
@@ -426,7 +436,7 @@ function Header() {
             className="rounded-xl max-md:bg-[#007BFF] max-md:border-2 bg-white"
             style={{ height: 32 }}
           >
-            <p className="text-blue-500 max-md:text-white px-5">sign-in</p>
+            <div className="text-blue-500 max-md:text-white px-5">sign-in</div>
           </button>
           <div className="md:hidden hover:cursor-pointer ml-5">
             <SlMenu size={20} onClick={handleMenuClick} />

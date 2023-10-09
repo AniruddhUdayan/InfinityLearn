@@ -67,17 +67,22 @@ function Card(props) {
 
   if (check) {
     return (
-      <div className="flex mb-12 mx-auto  max-md:h-full max-md:py-4 shadow-lg max-md:w-full   flex-col md:px-9 flex-shrink-0  my-4 rounded-2xl w-1/4 bg-white text-black ">
+      <div
+        className="flex mb-12  h-min  
+      max-md:h-full max-md:py-4  max-xl:w-96  shadow-lg max-md:w-full   
+      flex-col px-3  flex-shrink-0
+       my-4 rounded-2xl w-1/4 bg-white text-black "
+      >
         <Image
           src={props.data.image}
           // className=" rounded-full"
           height={120}
           width={200}
-          className="  mt-6 max-md:mt-1  w-[100%] h-[100%]"
+          className="   mt-6 max-md:mt-1  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
         />
-        <div className=" ml-4 max-md:text-base  text-start">
+        <div className=" mt-3  max-md:text-base  text-start">
           {props.data.review}
         </div>
 
@@ -86,7 +91,7 @@ function Card(props) {
           height={52}
           width={40}
           alt="inverted commas "
-          className=" w-[15%] bottom-12 max-md:left-[299px] opacity-75 left left64 left-[265px]  relative"
+          className=" w-[15%] bottom-12 max-md:left-[299px] opacity-75 left left64 left-[295px]  relative"
         />
         <div className=" flex  items-center ">
           <div className="flex z-50 ml-4  flex-col flex-grow">
@@ -102,7 +107,10 @@ function Card(props) {
   }
 
   return (
-    <div className="flex mb-12 max-md:w-80 shadow-lg gap-5  flex-col px-5 max-md:px-2 flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-black ">
+    <div
+      className="flex mb-12  max-xl:w-96 max-md:w-80 h-min px-3 gap-4  shadow-lg   flex-col  max-md:px-2 flex-shrink-0 py-8
+     my-4 rounded-2xl w-1/4 bg-white text-black "
+    >
       <div className="flex  items-center gap-6 max-md:gap-2 px-7 max-md:px-2 ">
         <Image
           src={props.data.image}
@@ -126,61 +134,66 @@ function Card(props) {
         alt="inverted commas"
         className=" w-[15%]"
       />
-      <div className=" max-md:text-base  text-start">{props.data.review}</div>
+      <div className=" max-md:text-base w-full  text-start">
+        {props.data.review}
+      </div>
     </div>
   );
 }
 
 function Reviews() {
-  const [lineWidth, setLineWidth] = useState(" w-4 ");
-  const [cN, setCN] = useState(3);
-  const [pN, setPN] = useState(4);
-  const [sN, setSN] = useState(10);
+  // const [lineWidth, setLineWidth] = useState(" w-4 ");
+  const [scrollPos, setScrollPos] = useState(0);
+  const [cardsToScroll, setCardsToScroll] = useState(3); // Default to scrolling 3 cards at a time
 
-  const updateWidth = () => {
-    setLineWidth(window.innerWidth <= 768 ? 20 : 48);
-    setCN(window.innerWidth <= 768 ? 1 : 3);
-    setPN(window.innerWidth <= 768 ? 1 : 4);
-    setSN(window.innerWidth <= 768 ? 95 : 15);
-  };
   useEffect(() => {
-    // Update width on mount
-    updateWidth();
+    // Update the number of cards to scroll based on window width
+    const updateCardsToScroll = () => {
+      const width = window.innerWidth;
+      if (width <= 768) {
+        setCardsToScroll(1); // Scroll 1 card at a time for small screens
+      } else if (width <= 1024) {
+        setCardsToScroll(2); // Scroll 2 cards at a time for medium screens
+      } else {
+        setCardsToScroll(3); // Scroll 3 cards at a time for large screens
+      }
+    };
+
+    updateCardsToScroll(); // Update on mount
 
     // Add resize event listener
-    window.addEventListener("resize", updateWidth);
+    window.addEventListener("resize", updateCardsToScroll);
 
     // Cleanup: remove event listener on unmount
-    return () => window.removeEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateCardsToScroll);
   }, []);
-  const [scrollPos, setScrollPos] = useState(0);
-  const [lineLength, setLineLength] = useState(9);
+
   useEffect(() => {
-    const maxScroll = reviews.length - cN;
+    const maxScroll = reviews.length - cardsToScroll;
     const interval = setInterval(() => {
       if (scrollPos >= maxScroll) {
         setScrollPos(0);
-        setLineLength(" w-4 ");
+        // setLineLength(" w-4 ");
       } else {
-        setScrollPos((prev) => prev + pN);
-        setLineLength(` w-48  max-md:w-28 `);
+        setScrollPos((prev) => prev + cardsToScroll);
+        // setLineLength(` w-48  max-md:w-28 `);
       }
-      return () => clearInterval(interval);
-    }, 1500);
+    }, 2000); // Scroll every 2 seconds
 
     return () => clearInterval(interval);
-  }, [scrollPos, cN, pN]);
+  }, [scrollPos, cardsToScroll]);
 
   return (
     <div>
+      {/* ... other components ... */}
       <div className=" bg-[#00364E] px-36 max-md:px-6 max-md:mt-12  ">
-        <LevelShower data={lineLength} />
+        {/* <LevelShower data={lineLength} /> */}
       </div>
-      <div className="  flex relative  max-md:h-full top-40 flex-col justify-center items-center ">
-        <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto w-screen  relative w-5/">
+      <div className="flex relative max-md:h-full top-40 flex-col justify-center items-center">
+        <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto w-screen relative w-5/">
           <div
-            className="flex  gap-8 max-md:gap-16 max-md:px-5 transition-transform duration-1000"
-            style={{ transform: `translateX(-${scrollPos * sN}%)` }}
+            className="flex gap-8 max-md:gap-16 max-md:px-5 transition-transform duration-1000"
+            style={{ transform: `translateX(-${scrollPos * 20}%)` }} // Assume each card takes about 20% of the container width
           >
             {reviews.map((review, index) => (
               <Card key={index} data={review} />
@@ -191,11 +204,12 @@ function Reviews() {
     </div>
   );
 }
+
 function FifthSection() {
   return (
-    <div className=" mb-40 max-md:h-min w-full bg-[#00364E]">
+    <div className=" mb-40 h-min w-full bg-[#00364E]">
       <div className=" bg-[#00364E] flex max-md:pt-10  justify-evenly max-md:ml-3 max-md:justify-start text-start items-start pt-20 ">
-        <div className=" flex max-md:ml- flex-col">
+        <div className=" text-white flex max-md:ml- flex-col">
           <div className=" text-6xl max-md:text-4xl font-extrabold">
             inspring
             <span className=" md:hidden ml-2">stories of</span>
@@ -207,7 +221,7 @@ function FifthSection() {
             <span className=" md:hidden mr-2">our</span>toppers{" "}
           </div>
         </div>
-        <Image
+        <img
           src="/homePage/fifthSection/topper.svg"
           className="max-md:hidden "
           height={400}

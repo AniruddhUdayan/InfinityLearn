@@ -7,8 +7,9 @@ import items from "@/utils/infoSecSection";
 export const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
+
   const activeTab = (tab, index) => {
-    const multiplier = window.innerWidth <= 640 ? 100 : 148; // 640px as a common breakpoint for small screens
+    const multiplier = window.innerWidth <= 640 ? 100 : 148;
     setLeft(index * multiplier);
 
     setTimeout(() => {
@@ -16,33 +17,33 @@ export const SwitchTabs = ({ data, onTabChange }) => {
     }, 300);
     onTabChange(tab, index);
   };
+
   return (
     <div>
       <div
-        className="rounded-2xl    bg-gray-200 text-black  "
+        className="rounded-2xl bg-gray-200 text-black"
         style={{ height: 34 }}
       >
-        <div className="h-full mt-1 gap-12 max-md:gap-3   flex items-center relative">
+        <div className="h-full mt-1 gap-12 max-md:gap-3 flex items-center relative">
           {data.map((tab, index) => (
             <div
               key={index}
-              className={` h-8 max-md:h-9 max-md:px-1   py-1 max-md:py-2 w-[100px]    max-md:w-[70px] text-sm text-center cursor-pointer
+              className={`h-8 max-md:h-9 max-md:px-1 py-1 max-md:py-2 w-[100px] max-md:w-[70px] text-sm text-center cursor-pointer
               ${
-                selectedTab == index ? " bg-yellow-300 " : ""
-              } bg-white rounded-2xl  mt-2 justify-center items-center 
-            `}
+                selectedTab === index
+                  ? "bg-yellow-300 text-black"
+                  : "bg-white text-black"
+              } rounded-2xl mt-2 justify-center items-center`}
               onClick={() => activeTab(tab, index)}
-              style={{ zIndex: selectedTab === index ? 1 : 0 }}
+              style={{ zIndex: selectedTab === index ? 10 : 1 }}
             >
               {tab}
             </div>
           ))}
           <span
-            className=" h-8  bg-yellow-300 w-[100px] max-md:w-[5px] text-black  absolute transition-all cubic-bezier[0.88, -0.35, 0.565, 1.35] duration-500 rounded-2xl mt-2"
+            className="h-8 z-0 bg-yellow-300 w-[100px] max-md:w-[5px] text-black absolute transition-all cubic-bezier[0.88, -0.35, 0.565, 1.35] duration-500 rounded-2xl mt-2"
             style={{ left }}
-          >
-            {/* // {data[left / 100]} */}
-          </span>
+          />
         </div>
       </div>
     </div>
@@ -51,43 +52,88 @@ export const SwitchTabs = ({ data, onTabChange }) => {
 
 function SecondSecCard(props) {
   const [svgWidth, setSvgWidth] = useState(96.74);
-  const [textColor, settextColor] = useState(true);
-  const handleTextColor = () => {
-    settextColor(!textColor);
-  };
+
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 45 : 96.74);
   };
+
   useEffect(() => {
-    // Update width on mount
     updateWidth();
-
-    // Add resize event listener
     window.addEventListener("resize", updateWidth);
-
-    // Cleanup: remove event listener on unmount
     return () => window.removeEventListener("resize", updateWidth);
-  }, []); // Empty dependency ar
+  }, []);
+  const [isHovered, setIsHovered] = useState(false);
+  const handleHover = () => {
+    setIsHovered(!isHovered);
+  };
+
   return (
-    <div className="flex   card flex-col justify-evenly items-start hover:cursor-pointer  max-md:h-60 max-md:flex-shrink-0 max-md:pt-5 hover:bg-blue-500 bg-blue-200 max-md:px-4 md:px-16 md:py-20 md:w-1/3 rounded-3xl sm:px-8 sm:py-10">
+    <div
+      onMouseEnter={handleHover}
+      onMouseLeave={handleHover}
+      className={`flex hover:cursor-pointer flex-col justify-evenly items-start 
+      flex-grow max-md:flex-shrink-0 bg-blue-200 max-md:px-4 md:px-16 
+      max-md:py-16 md:w-1/3 rounded-[1.5rem] sm:px-8 sm:py-10 ${
+        isHovered ? "text-white bg-blue-500" : "text-black"
+      }`}
+    >
       <Image
         src={props.data.svg}
         width={svgWidth}
         height={svgWidth}
         alt="secondSec.svg"
       />
-      <h1 className="text-black card-text text-xl max-md:text-2xl mt-4 font-medium sm:mt-2 sm:text-lg">
+      <h1 className=" text-xl max-md:text-2xl mt-4 font-medium sm:mt-2 sm:text-lg">
         {props.data.name}
       </h1>
-      <div className="text-black card-text text-sm mb-5 max-md:mb-3 sm:mb-2">
+      <div className=" text-sm mb-5 max-md:mb-3 sm:mb-2">
         {props.data.subItemAbout}
       </div>
-      <div className="text-black card-text max-md:text-sm text-lg sm:text-base">
+      <div className=" max-md:text-sm text-lg sm:text-base">
         {props.data.examTime}
       </div>
     </div>
   );
 }
+const Card2 = ({ src, altText, title, subtitle }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`flex hover:cursor-pointer flex-col p-20 max-md:p-8 gap-3 items-center bg-blue-200 rounded-3xl border-2 w-full ${
+        isHovered ? "hover:bg-blue-500 text-white" : "text-black"
+      }`}
+    >
+      <Image src={src} width={100} height={100} alt={altText} />
+      <div className="card-text text-2xl font-semibold">{title}</div>
+      <div className="card-text opacity-50">{subtitle}</div>
+    </div>
+  );
+};
+const Card1 = ({ src, altText, text }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`hover:cursor-pointer max-md:h-32 flex max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 gap-7 justify-evenly w-full items-center rounded-[2rem] border-black ${
+        isHovered ? "bg-blue-500 text-white" : "bg-blue-200 text-black"
+      }`}
+    >
+      <Image
+        src={src}
+        height={100} // Adjust according to your needs
+        width={100} // Adjust according to your needs
+        alt={altText}
+      />
+      <div className="card-text font-semibold text-2xl">{text}</div>
+    </div>
+  );
+};
+
 function Class11to12() {
   return (
     <div className=" flex flex-col   md:px10 max-lg:w-scr   pb-20 justify-start ">
@@ -133,47 +179,22 @@ function Class9to10() {
           tutions{" "}
           <span className=" font-normal opacity-50 text-2xl">(cbse)</span>
         </div>
-        <div className="  max-md:px-4 w-full max-md:pl-3 max-md:pr-6  flex gap-4">
-          <Link
-            href="/livecourses"
-            passHref
-            className=" card hover:cursor-pointer flex max-md:h-32 hover:bg-blue-500 hover:text-white  max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black"
-          >
-            {/* <div className=" card hover:cursor-pointer flex max-md:h-32 hover:bg-blue-500 hover:text-white  max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black"> */}
-            <Image
-              src="/homePage/secondSection/math1.svg"
-              className=""
-              height={svgWidth}
-              width={svgWidth}
-              alt="math"
-            />
-            <div className="card-text font-semibold text-2xl text-black ">
-              Math
-            </div>
-            {/* </div> */}
-          </Link>
-          <div className=" card  hover:cursor-pointer max-md:h-32 hover:bg-blue-500 hover:text-white flex max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
-            <Image
-              src="/homePage/secondSection/science1.svg"
-              className=""
-              height={svgWidth}
-              width={svgWidth}
-              alt="math"
-            />
-            <div className="card-text font-semibold text-2xl text-black ">
-              science
-            </div>
-          </div>
-          <div className=" card  hover:cursor-pointer max-md:h-32 hover:bg-blue-500 text-black hover:text-white flex max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
-            <Image
-              src="/homePage/secondSection/english1.svg"
-              className=""
-              height={svgWidth}
-              width={svgWidth}
-              alt="math"
-            />
-            <div className="card-text font-semibold text-2xl  ">english</div>
-          </div>
+        <div className="  no-scrollbar    max-md:overflow-x-auto max-md:px-2 w-full max-md:pl-3 max-md:pr-6  flex gap-4">
+          <Card1
+            src="/homePage/secondSection/math1.svg"
+            altText="math"
+            text="Math"
+          />
+          <Card1
+            src="/homePage/secondSection/science1.svg"
+            altText="english"
+            text="Science"
+          />
+          <Card1
+            src="/homePage/secondSection/english1.svg"
+            altText="math"
+            text="English"
+          />
         </div>
       </div>
     </div>
@@ -205,14 +226,12 @@ function Class4to8() {
       </div>
       <div className=" flex flex-col gap-8">
         <div className=" flex  w-full gap-5 hover:text-white hover:cursor-pointer max-md:px-4  ">
-          <div className=" card flex flex-col p-16 max-md:p-6  gap-3 hover:bg-blue-500  items-center bg-blue-200 rounded-3xl border-2  text-black w-full ">
-            <Image src="/header/iit.svg" width={100} height={100} alt="found" />
-            <div className=" card-text text-2xl font-bold">Foundation</div>
-            <div className=" card-text opacity-50 text-lg">
-              engineering+medical
-            </div>
-            <div className=" card-text text-blue-500 text-xl">class 8 only</div>
-          </div>
+          <Card2
+            src="/header/iit.svg"
+            altText="An alternative text for image"
+            title="Headstart Program"
+            subtitle="english +math +science +coding"
+          />
         </div>
         <div className="max-md:ml-4 font-bold text-4xl text-black">
           tutions{" "}
@@ -228,43 +247,22 @@ function Class4to8() {
             tutions{" "}
             <span className=" font-normal opacity-50 text-2xl">(cbse)</span>
           </div>
-          <div className=" max-md:px-4 w-full  flex gap-4">
-            <div className=" hover:bg-blue-500 hover:cursor-pointer card flex max-md:h-32 max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
-              <Image
-                src="/homePage/secondSection/math1.svg"
-                className=""
-                height={svgWidth}
-                width={svgWidth}
-                alt="math"
-              />
-              <div className="card-text  hover:bg-blue-500 font-semibold text-2xl text-black ">
-                Math
-              </div>
-            </div>
-            <div className="max-md:h-32 hover:bg-blue-500 hover:cursor-pointer card flex max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
-              <Image
-                src="/homePage/secondSection/science1.svg"
-                className=""
-                height={svgWidth}
-                width={svgWidth}
-                alt="math"
-              />
-              <div className="card-text   font-semibold text-2xl text-black ">
-                science
-              </div>
-            </div>
-            <div className="max-md:h-32 hover:bg-blue-500 hover:cursor-pointer card flex max-md:flex-col max-md:gap-2 max-md:w-1/3 p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
-              <Image
-                src="/homePage/secondSection/english1.svg"
-                className=""
-                height={svgWidth}
-                width={svgWidth}
-                alt="math"
-              />
-              <div className="  card-text font-semibold text-2xl text-black ">
-                english
-              </div>
-            </div>
+          <div className=" no-scrollbar    max-md:overflow-x-auto  max-md:px-4 w-full max-md:pl-3 max-md:pr-6  flex gap-4">
+            <Card1
+              src="/homePage/secondSection/math1.svg"
+              altText="math"
+              text="Math"
+            />
+            <Card1
+              src="/homePage/secondSection/science1.svg"
+              altText="english"
+              text="Science"
+            />
+            <Card1
+              src="/homePage/secondSection/english1.svg"
+              altText="math"
+              text="English"
+            />
           </div>
         </div>
       </div>
@@ -279,21 +277,18 @@ function Class1to3() {
       </div>
       <div className=" flex flex-col gap-8">
         <div className=" flex  w-full gap-5 max-md:px-4   ">
-          <div className=" flex card hover:cursor-pointer  hover:bg-blue-500  flex-col p-20 max-md:p-8  gap-3  items-center bg-blue-200 rounded-3xl border-2  text-black w-full ">
-            <Image src="/header/iit.svg" width={100} height={100} alt="found" />
-            <div className="card-text text-2xl font-semibold">
-              Headstart Program
-            </div>
-            <div className="card-text opacity-50">
-              english +math +science +coding
-            </div>
-          </div>
+          <Card2
+            src="/header/iit.svg"
+            altText="An alternative text for image"
+            title="Headstart Program"
+            subtitle="english +math +science +coding"
+          />
         </div>
         <div className=" font-semibold text-4xl  max-md:ml-4 max-md:text-3xl text-black">
           infinity futurz
         </div>
         <div className="max-md:px-3 flex max-md:overflow-x-auto gap-6">
-          <div className=" hover:cursor-pointer card hover:bg-blue-500 flex max-md:flex-col p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
+          <div className=" hover:cursor-pointer hover:bg-blue-500 flex max-md:flex-col p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
             <Image
               src="/homePage/secondSection/math1.svg"
               height={90}
@@ -309,7 +304,8 @@ function Class1to3() {
               </div>
             </div>
           </div>
-          <div className="card hover:cursor-pointer   hover:bg-blue-500 max-md:flex-col flex p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
+
+          <div className=" hover:cursor-pointer   hover:bg-blue-500 max-md:flex-col flex p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
             <Image
               src="/homePage/secondSection/hots1.svg"
               height={70}
@@ -341,7 +337,7 @@ function SecondSection() {
     setEndpoint(tab === "Day" ? "day" : "week");
   };
   return (
-    <div className="items-center md:min-h-screen max-md:h-full  bg-gray-200">
+    <div className="items-center md:min-h-screen max-md:-full  bg-gray-200">
       <div className="max-w-[1000px] px-4   max-lg: max-md:w-[100%] mx-auto">
         <div className="flex justify-evenly p-6 text-center max-md:hidden font-bold text-4xl gap-4 relative bottom-[4.5rem] mx-auto flex-row items-center h-36 bg-yellow-300 px-4 rounded-2xl">
           <div className="text-black flex flex-col border-black">
