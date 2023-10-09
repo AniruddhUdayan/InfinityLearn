@@ -109,7 +109,7 @@ function ResHeader({
       setTexthead(tryy.name);
     } else {
     }
-  }, [activeItem, activeSubItem]);
+  }, [activeSubItem]);
   const [show1, setShow1] = useState(" hidden ");
   function showHeader2() {
     setShow1(show1 == " hidden " ? "" : " hidden ");
@@ -254,7 +254,7 @@ function Header() {
     } else {
       setFoundItem(null);
     }
-  }, [activeItem,activeSubItem]);
+  }, [activeItem]);
 
   useEffect(() => {
     // Whenever activeItem changes, update foundItem
@@ -340,11 +340,11 @@ function Header() {
           />
 
           <div className="flex-grow">
-            <ul className="flex max-md:hidden justify-evenly">
+            <ul className="flex text-white max-md:hidden justify-evenly">
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
-                    className={`flex text-white lex px-7 items-center group hover:cursor-pointer hover:bg-blue-400 hover:border-white hover:border-2  hover:rounded-3xl p-1 `}
+                    className={`flex px-7 items-center group hover:cursor-pointer hover:bg-blue-400 hover:border-white hover:border-2  hover:rounded-3xl p-1 `}
                     onClick={() => toggleSubMenu(index)}
                     onMouseEnter={() => hoverHandler1(index)}
                   >
