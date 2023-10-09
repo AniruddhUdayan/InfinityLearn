@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
 const options = [
   "personal attention",
   "india's top faculty",
@@ -29,7 +28,7 @@ function OptionOne() {
       <div className="text-4xl text-blue-500 mb-5 font-bold">experts</div>
       <div className="text-xl text-black max-md:text-base font-thin">
         learn from the finest faculty in jee/neet/cbse. our faculty consists of
-       {` the country's most seasoned and insightful educators.`}
+        {` the country's most seasoned and insightful educators.`}
       </div>
     </div>
   );
@@ -227,7 +226,7 @@ function ThirdSection() {
   };
 
   return (
-    <div className="items-center min-h-screen py-16 bg-white">
+    <div className="items-center h-min py-16 bg-white">
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />

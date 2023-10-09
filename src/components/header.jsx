@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { SlMenu } from "react-icons/sl";
 import { IoIosArrowDown } from "react-icons/io";
-import { MdClose } from "react-icons/md";
+import { MdCall, MdClose } from "react-icons/md";
 import { BsArrowLeft } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import subItem from "../utils/infoHeader";
@@ -118,7 +118,7 @@ function ResHeader({
 
   return (
     <div className="md:hidden fixed  overflow-y-auto no-scrollbar flex-col top-0 left-0 w-full h-screen  bg-white text-black z-50 flex ">
-      <div className=" flex py-7 px-8 bg-white justify-end">
+      <div className=" flex py-7 px-2 bg-white justify-end">
         <button
           className=" justify-end items-end close-button"
           onClick={closeResHeader}
@@ -126,97 +126,117 @@ function ResHeader({
           <MdClose size={24} />
         </button>
       </div>
-      <div className="flex max-md:hidde flex-col justify-evenly">
-        {items?.map((item, index) => (
-          <div key={index} className="relative">
-            <li
-              className={`flex px7 py-4 justify-normal hover:cursor-pointer items-center border-b-2 border-opacity-50   hover:border-2  p-1 `}
-              onClick={() => toggleSubMenu(index)}
-              // onMouseEnter={() => hoverHandler1(index)}
-            >
-              <div className="px-2 w-1/2">{item}</div>
-              <div className=" w-1/2 flex px-2 justify-end ">
-                <IoIosArrowDown size={15} />
-              </div>
-            </li>
-            {index === activeItem && foundItem && (
-              <ul className=" w-fit    left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg">
-                {foundItem?.subItems.map((subItem, subIndex) => (
-                  <li
-                    key={subIndex}
-                    className="px-4  py-2 hover:cursor-pointer  "
-                    onClick={showHeader2}
-                    // onClick={() => toggleSubMenuItems(index, subItem.id)}
-                    // onMouseEnter={() => hoverHandler2(index)}
-                  >
-                    <SubItemCard
-                      data={subItem}
-                      subItem={true}
-                      index={index}
-                      subIndex={subItem.id}
-                      onSubMenuToggle={toggleSubMenuItems}
-                    />
-                    <div
-                      onClick={innerClickHandler}
-                      className={` ${show1}  md:hidden fixed hover:cursor-auto overflow-y-auto no-scrollbar flex-col top-0 left-0 w-full h-screen bg-opacity-75 bg-white text-black z-50 flex `}
+      <div className=" flex-grow">
+        <div className="flex max-md:hidde flex-col justify-evenly">
+          {items?.map((item, index) => (
+            <div key={index} className="relative">
+              <li
+                className={`flex px7 py-4 justify-normal hover:cursor-pointer items-center border-b-2 border-opacity-50   hover:border-2  p-1 `}
+                onClick={() => toggleSubMenu(index)}
+                // onMouseEnter={() => hoverHandler1(index)}
+              >
+                <div className="px-2 w-1/2">{item}</div>
+                <div className=" w-1/2 flex px-2 justify-end ">
+                  <IoIosArrowDown size={15} />
+                </div>
+              </li>
+              {index === activeItem && foundItem && (
+                <ul className=" w-fit    left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg">
+                  {foundItem?.subItems.map((subItem, subIndex) => (
+                    <li
+                      key={subIndex}
+                      className="px-4  py-2 hover:cursor-pointer  "
+                      onClick={showHeader2}
+                      // onClick={() => toggleSubMenuItems(index, subItem.id)}
+                      // onMouseEnter={() => hoverHandler2(index)}
                     >
-                      <div className="  flex py-7 w-full items-center justify-stretch">
-                        <div className=" flex px-6">
+                      <SubItemCard
+                        data={subItem}
+                        subItem={true}
+                        index={index}
+                        subIndex={subItem.id}
+                        onSubMenuToggle={toggleSubMenuItems}
+                      />
+                      <div
+                        onClick={innerClickHandler}
+                        className={` ${show1}  md:hidden fixed hover:cursor-auto overflow-y-auto no-scrollbar flex-col top-0 left-0 w-full h-screen bg-opacity-75 bg-white text-black z-50 flex `}
+                      >
+                        <div className="  flex py-7 w-full items-center justify-stretch">
+                          <div className=" flex px-6">
+                            <button
+                              className=" justify-end items-start close-button"
+                              onClick={showHeader2}
+                            >
+                              <BsArrowLeft size={24} />
+                            </button>
+                            <div className=" px-2 pl-4">{textHead}</div>
+                          </div>
                           <button
-                            className=" justify-end items-start close-button"
+                            className=" pl-40 ml-3 justify-end items-end close-button"
                             onClick={showHeader2}
                           >
-                            <BsArrowLeft size={24} />
+                            <MdClose size={24} />
                           </button>
-                          <div className=" px-2 pl-4">{textHead}</div>
                         </div>
-                        <button
-                          className=" pl-40 ml-3 justify-end items-end close-button"
-                          onClick={showHeader2}
-                        >
-                          <MdClose size={24} />
-                        </button>
-                      </div>
-                      {activeSubItem != null && (
-                        <ul className=" rounded-lg max-md:w-full max-md:items-start  w-fit bg-white  border-white border-2 top-0 left-full flex flex-col  ">
-                          {Array.isArray(foundSubItem) &&
-                            foundSubItem.map((subItem, listItemIndex) => (
-                              <div
-                                key={listItemIndex}
-                                className="flex items-center flex-col"
-                              >
+                        {activeSubItem != null && (
+                          <ul className=" rounded-lg max-md:w-full max-md:items-start  w-fit bg-white  border-white border-2 top-0 left-full flex flex-col  ">
+                            {Array.isArray(foundSubItem) &&
+                              foundSubItem.map((subItem, listItemIndex) => (
                                 <div
-                                  // onClick={() =>
-                                  //   toggleBooksCardVisibility(listItemIndex)
-                                  // }
-                                  className=" doubt "
+                                  key={listItemIndex}
+                                  className="flex items-center flex-col"
                                 >
-                                  <SubItemCard
-                                    data={subItem}
-                                    onDoubtClick={() =>
-                                      toggleBooksCardVisibility(listItemIndex)
-                                    }
-                                    // bookPresent={subItem.listPresent}
-                                  />
+                                  <div
+                                    // onClick={() =>
+                                    //   toggleBooksCardVisibility(listItemIndex)
+                                    // }
+                                    className=" doubt "
+                                  >
+                                    <SubItemCard
+                                      data={subItem}
+                                      onDoubtClick={() =>
+                                        toggleBooksCardVisibility(listItemIndex)
+                                      }
+                                      // bookPresent={subItem.listPresent}
+                                    />
+                                  </div>
+                                  {visibleBooksCards.includes(
+                                    listItemIndex
+                                  ) && (
+                                    <BooksCard
+                                      data={subItem.books}
+                                      svgPresent={subItem.svg}
+                                    />
+                                  )}
                                 </div>
-                                {visibleBooksCards.includes(listItemIndex) && (
-                                  <BooksCard
-                                    data={subItem.books}
-                                    svgPresent={subItem.svg}
-                                  />
-                                )}
-                              </div>
-                            ))}
-                        </ul>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
+                              ))}
+                          </ul>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
+      <footer className=" md:hidden gap-3 flex border-opacity-20 justify-center  border-t-2  border-black h-20 w-full bg-white ">
+        <Image
+          src="/header/whatsapp.svg"
+          height={48}
+          width={48}
+          alt="whatsapp"
+        />
+        <button
+          className={`my-4 gap-3 p-2 w-72 flex rounded-2xl justify-center items-center bg-blue-500  text-white`}
+        >
+          <div>
+            <MdCall size={20} />
+          </div>
+          <div>1800-419-427</div>
+        </button>
+      </footer>
     </div>
   );
 }
@@ -238,7 +258,7 @@ function Header() {
 
   useEffect(() => {
     // Whenever activeItem changes, update foundItem
-    console.log("activeSubItem Updated:    3", activeSubItem);
+    // console.log("activeSubItem Updated:    3", activeSubItem);
     if (activeSubItem !== null && activeItem !== null) {
       // const item = foundItem.subItems?.find(
       //   (item) => item.id === activeSubItem
@@ -275,7 +295,7 @@ function Header() {
   // console.log("active SubItem", activeSubItem);
 
   // console.log("foundItem", foundItem);
-  console.log("foundSubItem     4", foundSubItem);
+  // console.log("foundSubItem     4", foundSubItem);
   const [visibleBooksCards, setVisibleBooksCards] = useState([]);
   const [isResHeaderVisible, setIsResHeaderVisible] = useState(false);
 
@@ -301,11 +321,11 @@ function Header() {
   return (
     <div>
       <nav
-        className={`bg-[#007BFF] z-50 max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4 px-14 w-screen max-md:border-b-0 border-b-2`}
+        className={`bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 max-lg:w-full max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4 px-14 w-screen max-md:border-b-0 border-b-2`}
       >
         <div className="flex justify-evenly   items-center">
           <Image
-            className="mx-6 max-md:hidden"
+            className="mx-6 lg:mx-0 max-md:hidden"
             src="./logo/logo.svg"
             alt="My Logo"
             width={230}
@@ -320,7 +340,7 @@ function Header() {
           />
 
           <div className="flex-grow  z-30">
-            <ul className="flex max-md:hidden justify-evenly">
+            <ul className="flex text-white max-md:hidden justify-evenly">
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
@@ -333,7 +353,7 @@ function Header() {
                   </li>
                   {index === activeItem && foundItem && (
                     <ul
-                      className="absolute w-fit  left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg"
+                      className="absolute w-fit z-20  left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg"
                       onMouseLeave={() => hoverHandler1(null)}
                     >
                       {foundItem?.subItems.map((subItem, subIndex) => (
@@ -351,7 +371,7 @@ function Header() {
                             onSubMenuToggle={toggleSubMenuItems}
                           />
                           {activeSubItem != null && (
-                            <ul className=" rounded-lg absolute w-fit bg-white  border-white border-2 top-0 left-full flex flex-col  ">
+                            <ul className=" z-20 rounded-lg absolute w-fit bg-white  border-white border-2 top-0 left-full flex flex-col  ">
                               {foundSubItem?.map((subItem, listItemIndex) => (
                                 <div
                                   key={listItemIndex}
@@ -390,7 +410,7 @@ function Header() {
               ))}
             </ul>
           </div>
-          <div className="flex mx-7 max-md:hidden">
+          <div className="flex mx-7 max-xl:hidden max-lg:hidden max-md:hidden">
             <Image
               src="/header/call.svg"
               width={50}

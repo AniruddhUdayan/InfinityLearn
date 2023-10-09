@@ -1,4 +1,4 @@
-"use client"
+"use client";
 // import LandingExam from "../../components/LandingExam"
 import LandingExam from '@/components/examPage/LandingExam'
 import Header from '@/components/header'
@@ -22,4 +22,4 @@ const ExamPage = () => {
     )
 }
 
-export default ExamPage
+export default ExamPage;
