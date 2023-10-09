@@ -341,7 +341,7 @@ function SecondSection() {
     setEndpoint(tab === "Day" ? "day" : "week");
   };
   return (
-    <div className="items-center md:min-h-screen max-md:h-full  bg-gray-200">
+    <div className="items-center md:min-h-screen  max-md:h-full  bg-gray-200">
       <div className="max-w-[1000px] px-4   max-lg: max-md:w-[100%] mx-auto">
         <div className="flex justify-evenly p-6 text-center max-md:hidden font-bold text-4xl gap-4 relative bottom-[4.5rem] mx-auto flex-row items-center h-36 bg-yellow-300 px-4 rounded-2xl">
           <div className="text-black flex flex-col border-black">

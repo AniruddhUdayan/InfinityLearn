@@ -80,7 +80,7 @@ function FirstSection() {
 
   return (
     <div className="flex max-xl:px-5 pb-32 max-md:pt-16  max-md:pb-8 w-full max-md:min-h-screen items-center justify-around bg-[#007BFF] max-md:flex-col max-md:h-fit">
-      <div className="flex flex-col">
+      <div className="flex flex-col text-white">
         <div className="max-md:pt-6 pt-9   max-md:pl-3 text-7xl max-md:text-5xl font-bold">
           power up your
         </div>

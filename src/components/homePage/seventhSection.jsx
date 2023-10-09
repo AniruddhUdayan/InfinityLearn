@@ -34,7 +34,7 @@ function SeventhSection() {
   return (
     <div className="bg-[#00364E] min-h-max">
       <div className="flex max-md:flex-col max-md:py-12 max-md:px-2 max-md:ml-2 justify-evenly py-40">
-        <div className="flex flex-col">
+        <div className="flex flex-col text-white">
           <div className="tracking-wider text-4xl max-md:text-3xl font-extrabold">
             speak to our{" "}
             <span className="text-yellow-400 max-md:hidden">academic</span>

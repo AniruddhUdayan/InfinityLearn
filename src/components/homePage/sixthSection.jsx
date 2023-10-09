@@ -74,7 +74,7 @@ function SixthSection() {
             <div className="mb-4 ml-3 tracking-wider text-black font-bold">
               download the app
             </div>
-            <div className="flex items-center  justify-between">
+            <div className="flex items-center  justify-evenly">
               <a
                 href="https://apps.apple.com/sg/app/infinity-learn/id1642492194"
                 target="_blank"

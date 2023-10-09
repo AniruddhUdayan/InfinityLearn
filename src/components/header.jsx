@@ -344,7 +344,7 @@ function Header() {
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
-                    className={`flex px-7 items-center group hover:cursor-pointer hover:bg-blue-400 hover:border-white hover:border-2  hover:rounded-3xl p-1 `}
+                    className={`flex text-white lex px-7 items-center group hover:cursor-pointer hover:bg-blue-400 hover:border-white hover:border-2  hover:rounded-3xl p-1 `}
                     onClick={() => toggleSubMenu(index)}
                     onMouseEnter={() => hoverHandler1(index)}
                   >
