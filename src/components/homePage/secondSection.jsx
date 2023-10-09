@@ -366,7 +366,7 @@ function SecondSection() {
           </div>
         </div>
 
-        <h1 className=" text-black mx-auto max-md:mx-3 max-md:py-5 md:mb-6 max-md:w-full max-md:text-start tracking-wide max-md:tracking-normal  text-center text-5xl max-md:text-3xl font-black">
+        <h1 className=" text-black max-xl:text-center mx-auto max-md:mx-3 max-md:py-5 md:mb-6 max-md:w-full max-md:text-center tracking-wide max-md:tracking-normal  text-center text-5xl max-md:text-3xl font-black">
           select your learning <span className=" text-blue-500 "> goal </span>
           grade-wise
         </h1>
