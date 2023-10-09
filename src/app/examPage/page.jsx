@@ -1,4 +1,5 @@
-import LandingExam from '@/components/landingExam'
+"use client"
+import LandingExam from "../../components/landingExam"
 
 const ExamPage = () => {
     return (
