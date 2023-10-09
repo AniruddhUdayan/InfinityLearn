@@ -40,7 +40,7 @@ function SixthSection() {
           </div>
           <div>
             <div className="items-center text-black space-x-4 mb-5 flex">
-              <img
+              <Image
                 src="/homePage/sixthSection/tick.svg"
                 height={30}
                 width={30}
@@ -50,7 +50,7 @@ function SixthSection() {
               <div className=" text-sm  opacity-50">live classes</div>
             </div>
             <div className="items-center space-x-4 mb-5 text-black flex">
-              <img
+              <Image
                 src="/homePage/sixthSection/tick.svg"
                 height={30}
                 width={30}
@@ -61,7 +61,7 @@ function SixthSection() {
             </div>
           </div>
           <div className="items-center space-x-4  text-black flex">
-            <img
+            <Image
               src="/homePage/sixthSection/tick.svg"
               height={30}
               width={30}
@@ -80,7 +80,7 @@ function SixthSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
                   src="/homePage/sixthSection/apple.svg"
                   height={50}
                   width={180}
@@ -94,7 +94,7 @@ function SixthSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
                   src="/homePage/sixthSection/playstore.svg"
                   height={50}
                   width={186}
@@ -107,7 +107,7 @@ function SixthSection() {
         </div>
         <div>
           <div className=" md:mt-10 mt-3 relative">
-            <img
+            <Image
               src="/homePage/sixthSection/sixthSec1.svg"
               alt="Sixth Section Background"
               height={730}
@@ -127,7 +127,7 @@ function SixthSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="/homePage/sixthSection/apple1.svg"
                 height={20}
                 width={160}
@@ -141,7 +141,7 @@ function SixthSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="/homePage/sixthSection/playstore1.svg"
                 height={20}
                 width={150}

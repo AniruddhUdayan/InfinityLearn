@@ -27,8 +27,8 @@ function OptionOne() {
       <div className="text-4xl text-black font-bold">learn from the</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">experts</div>
       <div className="text-xl text-black max-md:text-base font-thin">
-        learn from the finest faculty in jee/neet/cbse. our faculty consists of
-        the country's most seasoned and insightful educators.
+        {` learn from the finest faculty in jee/neet/cbse. our faculty consists of
+        the country's most seasoned and insightful educators.`}
       </div>
     </div>
   );
@@ -238,7 +238,7 @@ function ThirdSection() {
         </div>
       </div>
       <div className="flex md:px-20  max-md:flex-col max-md:w-full   justify-between  items-center rowww">
-        <img
+        <Image
           src="/homePage/thirdSection/thirdSection.png"
           height={svgWidth}
           width={svgWidth}
