@@ -1,0 +1,121 @@
+/* .modal-content{
+    width: 1000px;
+} */
+.modal-header {
+    border: none;
+}
+.btn-close{
+    opacity: 1;
+}
+.otp_heading {
+    padding: 50px 30px 50px 30px;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: #080E14;
+}
+.otp_mob_input {
+    padding: 30px;
+}
+.otp_mob_input label{
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    color: #080E14;
+
+}
+.otp_button_row{
+    padding: 30px;
+    text-align: center;
+    margin-top: 100px;
+}
+.otp_button {
+    width: 100%;
+    color: aliceblue;
+    background: #007BFF;
+    box-shadow: 0px 7px 7px 0px #007BFF1F;
+    border-radius: 12px;
+    padding: 12px;
+}
+.otp_mobile_input {
+    display: flex;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #9C9FA1, #9C9FA1);
+    border: 1px solid #9C9FA1;
+    border-radius: 12px;
+  }
+  .resend_otp_row{
+    margin-top: 20px;
+  }
+.otp_flex{
+    display: flex;
+    justify-content: center;
+}
+.resend_otp_text{
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: 14px;
+}
+.success_Icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.success_heading {
+    padding: 10px;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: #080E14;
+    text-align: center;
+}
+.class_lable {
+    font-weight: 400;
+    font-size: 18px;
+    color: #080E14;
+    margin-bottom: 10px;
+}
+.select_exam_row{
+    padding: 0px 10px 0px 30px;;
+}
+  @media only screen and (min-width: 320px) and (max-width: 480px) {
+    
+.modal .modal-dialog {
+    transform: none;
+    margin: 0px;
+    margin-left: auto;
+    height: 100%;
+    align-items: stretch !important;
+    border: none;
+}
+.modal-content{
+    border: none !important;
+    overflow: auto;
+    border-radius: 0px;
+}
+    .otp_heading {
+        padding: 20px 0px 20px 0px;
+        font-size: 19px;
+        line-height: 30px;
+    }
+    .otp_mob_input{
+        padding: 0px;
+    }
+    .otp_button_row{
+        margin-top: 0px;
+    }
+    .text-black{
+        padding: 0px;
+    }
+    .gap-28{
+        gap: 5rem;
+    }
+    .w-20{
+        width: 4rem;
+    }
+    .success_Icon{
+        margin-top: 50px;
+    }
+  } 
