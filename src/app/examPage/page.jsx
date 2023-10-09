@@ -1,10 +1,10 @@
 "use client"
-import LandingExam from "../../components/landingExam"
+// import LandingExam from "../../components/LandingExam"
 
 const ExamPage = () => {
     return (
         <>
-            <LandingExam />
+            {/* <LandingExam /> */}
         </>
     )
 }
