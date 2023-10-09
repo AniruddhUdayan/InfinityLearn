@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 const options = [
   "personal attention",
@@ -13,7 +13,7 @@ function OptionZero() {
     <div className="flex max-md:flex-grow     flex-col 4">
       <div className="text-4xl text-black font-bold">focused</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
-      <div className="text-xl text-black max-md:text-base font-thin">
+      <div className="text-xl text-black max-md:text-base">
         Experience tailored guidance designed to cater to unique learning needs.
         We ensure every student receives the individual attention they deserve.
       </div>
@@ -26,7 +26,7 @@ function OptionOne() {
     <div className="flex   flex-col ">
       <div className="text-4xl text-black font-bold">learn from the</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">experts</div>
-      <div className="text-xl text-black max-md:text-base font-thin">
+      <div className="text-xl text-black max-md:text-base ">
         learn from the finest faculty in jee/neet/cbse. our faculty consists of
         {` the country's most seasoned and insightful educators.`}
       </div>
@@ -40,7 +40,7 @@ function OptionTwo() {
       <div className="text-4xl text-blue-500 mb-5 font-bold">
         clear concepts
       </div>
-      <div className="text-xl text-black max-md:text-base font-thin">
+      <div className="text-xl text-black max-md:text-base ">
         we prioritise understanding over rote learning. our dedicated doubt
         resolution sessions ensure all your queries are addressed for a clear
         path to success.
@@ -50,10 +50,10 @@ function OptionTwo() {
 }
 function OptionThree() {
   return (
-    <div className="flex 6  flex-col ">
+    <div className="flex 6 min-h-64  flex-col ">
       <div className="text-4xl text-black font-bold">premium learning,</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
-      <div className="text-xl text-black max-md:text-base font-thin">
+      <div className="text-xl text-black max-md:text-base ">
         gain access to top-notch learning resources. our study materials are
         meticulously curated by experts to provide comprehensive coverage of all
         topics.
@@ -66,7 +66,7 @@ function OptionFour() {
     <div className="flex   flex-col ">
       <div className="text-4xl text-black font-bold">structured success</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold"> plan</div>
-      <div className="text-xl text-black max-md:text-base font-thin">
+      <div className="text-xl text-black max-md:text-base ">
         follow a structured study plan designed for assured success in jee neet
         academics. our test series and question bank are crafted to boost exam
         readiness.
@@ -74,92 +74,107 @@ function OptionFour() {
     </div>
   );
 }
+
 const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
+  const [widths, setWidths] = useState([]);
+  const tabsRef = useRef([]);
   const activeTab = (tab, index) => {
-    setLeft(index * 200);
-    setTimeout(() => {
-      setSelectedTab(index);
-    }, 300);
+    setLeft(calculateLeftPosition(index));
+    setSelectedTab(index);
     onTabChange(tab, index);
   };
-  return (
-    <div>
-      <div className=" max-md:hidden bg-white  text-black  ">
-        <div className=" h-full mt-1 flex items-center relative">
-          {data.map((tab, index) => (
-            <span
-              key={index}
-              className={`h-full px-1 text-center text-base cursor-pointer   mt-2 justify-center items-center
-              ${selectedTab == index ? " text-black" : ""}  `}
-              onClick={() => activeTab(tab, index)}
-              style={{ zIndex: selectedTab === index ? 1 : 0, width: 200 }}
-            >
-              {tab}
-            </span>
-          ))}
-          <span
-            className=" border-b-2   border-blue-500 text-black  absolute transition-all cubic-bezier[0.88, -0.35, 0.565, 1.35] duration-500  mt-2"
-            style={{ left, height: 30, width: 190 }}
-          ></span>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-const SwitchTabs1 = ({ onTabChange, data = options }) => {
-  const [selectedTab, setSelectedTab] = useState(0);
-  const tabWidth = 100; // Assume each tab has a width of 100px
-  const gap = 100; // Assume a 10px gap between tabs
-  const containerWidth = window.innerWidth; // Assume the container takes up the whole window width
+  const calculateLeftPosition = (index) => {
+    return widths.slice(0, index).reduce((acc, w) => acc + w, 0);
+  };
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setSelectedTab((prev) => (prev + 1) % data.length);
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, [data.length]);
-
-  useEffect(() => {
-    onTabChange && onTabChange(data[selectedTab], selectedTab);
-  }, [selectedTab, onTabChange, data]);
+    setWidths(tabsRef.current.map((tab) => tab.offsetWidth));
+  }, [data]);
 
   return (
-    <div className="bg-white md:hidden text-black h-11 relative overflow-hidden w-full flex justify-center">
-      <div
-        style={{
-          transform: `translateX(-${
-            selectedTab * (tabWidth + gap) -
-            containerWidth / 2 +
-            (tabWidth / 2 + gap)
-          }px)`,
-          transition: "transform 1s ease",
-          whiteSpace: "nowrap",
-          display: "flex",
-        }}
-      >
-        {data.map((option, index) => (
+    <div className="max-md:hidden bg-white text-black relative">
+      <div className="h-full mt-1 whitespace-nowrap  flex items-center">
+        {data.map((tab, index) => (
           <span
             key={index}
-            className={`inline-block px-4 w-full text-center ${
-              index === selectedTab
-                ? "text-blue-500 border-blue-500 border-b-2"
-                : "text-gray-400"
-            } hover:cursor-pointer`}
-            style={{ width: `${tabWidth}px`, marginRight: `${gap}px` }}
-            onClick={() => setSelectedTab(index)}
+            ref={(el) => (tabsRef.current[index] = el)}
+            className={`h-full w-full   fle-grow px-4  text-center text-base cursor-pointer 
+            ${selectedTab === index ? "text-black" : ""}`}
+            onClick={() => activeTab(tab, index)}
           >
-            {option}
+            {tab}
           </span>
         ))}
+        <span
+          className="border-b-2 border-blue-500 absolute bottom-0 transition-all duration-500"
+          style={{ left, width: widths[selectedTab] }}
+        ></span>
       </div>
     </div>
   );
 };
 
+const SwitchTabs1 = ({ data, onTabChange }) => {
+  const [selectedTab, setSelectedTab] = useState(0);
+  const [highlightStyle, setHighlightStyle] = useState({});
+  const tabsRef = useRef([]);
+
+  const activeTab = (tab, index) => {
+    setSelectedTab(index);
+    onTabChange(tab, index);
+
+    // Update highlight style
+    const { offsetLeft, offsetWidth } = tabsRef.current[index];
+    setHighlightStyle({ left: offsetLeft, width: offsetWidth });
+
+    // Ensure the selected tab scrolls into view in the center
+    tabsRef.current[index].scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  };
+
+  //Add refs dynamically
+  useEffect(() => {
+    tabsRef.current = tabsRef.current.slice(0, data.length);
+  }, [data]);
+
+  // Automatic tab switching
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const nextTab = (selectedTab + 1) % data.length; // Cycle through tabs
+      activeTab(data[nextTab], nextTab);
+    }, 2000); // Switch tab every 2 seconds
+
+    return () => clearInterval(intervalId); // Cleanup: clear interval on unmount
+  }, [selectedTab, data]);
+
+  return (
+    <div className="bg-white text-black relative overflow-x-auto">
+      <div className="h-full mt-1 no-scrollbar flex items-center whitespace-nowrap">
+        {data.map((tab, index) => (
+          <span
+            key={index}
+            ref={(el) => (tabsRef.current[index] = el)}
+            className={`h-full px-4 py-2 text-center text-base cursor-pointer 
+                        ${selectedTab === index ? "text-black" : ""}`}
+            onClick={() => activeTab(tab, index)}
+          >
+            {tab}
+          </span>
+        ))}
+        <span
+          className="border-b-2 border-blue-500 absolute bottom-0 transition-all duration-500"
+          style={highlightStyle}
+        ></span>
+      </div>
+    </div>
+  );
+};
 function ThirdSection() {
   const optionComponents = {
     0: <OptionZero />,
@@ -246,7 +261,14 @@ function ThirdSection() {
           className="my-image  md:w-1/2"
         />
         <div className=" flex md:w-1/2 md:pr-36 md:items-start items-center max-md:mt-8 max-md:ml-6 flex-col">
-          {optionComponents[selectedOption]}
+          <div className="optionContainer">
+            {selectedOption === 0 && <OptionZero />}
+            {selectedOption === 1 && <OptionOne />}
+            {selectedOption === 2 && <OptionTwo />}
+            {selectedOption === 3 && <OptionThree />}
+            {selectedOption === 4 && <OptionFour />}
+            {/* ... other options ... */}
+          </div>
           <button className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
             <div>
               start learning for free <span>&#8599;</span>

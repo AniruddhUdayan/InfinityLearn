@@ -48,7 +48,10 @@ function SubItemCard(props) {
       className={`flex items-center cursor-pointer justify-between w-96 h-20 p-1 text-black rounded-lg z-50 ${
         isSelected ? "bg-[#F1F2F6]" : ""
       } hover:bg-[#D4E9FF]`}
+<<<<<<< HEAD
       
+=======
+>>>>>>> 5f1267185d20446a666f331b58127a2790f12129
       onClick={handleClick}
     >
       {props.data.listHeading === true ? (

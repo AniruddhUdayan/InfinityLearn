@@ -19,9 +19,9 @@ function SixthSection() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
   return (
-    <div className=" h-full bg-gray-200 ">
+    <div className=" h-min bg-gray-200 ">
       <div className=" max-w-screen-xl mx-auto px-4 flex max-md:flex-col  justify-between relative">
-        <div className=" flex flex-col  mt-10  ">
+        <div className=" flex flex-col max-md:justify-end  mt-20  ">
           <div className=" text-6xl max-md:text-4xl   font-bold md:mb-4  text-blue-500">
             best study
             <span className="text-blue-500 ml-2 max-md:text-4xl md:hidden  mb-4 font-bold text-6xl">
@@ -32,46 +32,53 @@ function SixthSection() {
             material,{" "}
             <span className="text-black font-bold text-6xl">now at</span>
           </div>
-          <div className=" text-black max-md:text-4xl font-bold md:mb-20 max-md:mb-6  text-6xl">
+          <div className=" text-black max-md:text-4xl font-bold md:mb-10 max-md:mb-6  text-6xl">
             <span className=" md:hidden text-black max-md:text-4xl font-bold text-6xl">
               now at
             </span>{" "}
             your finger tips!
           </div>
-          <div>
-            <div className="items-center text-black space-x-4 mb-5 flex">
-              <Image
-                src="/homePage/sixthSection/tick.svg"
-                height={30}
-                width={30}
-                alt="tick.svg"
-                className="my-image-6"
-              />
-              <div className=" text-sm  opacity-50">live classes</div>
+          <div className="flex max-md:flex-col flex-wrap">
+            <div className="w-1/2 p-2">
+              <div className="flex items-center space-x-4 mb-5 text-black">
+                <Image
+                  src="/homePage/sixthSection/tick.svg"
+                  height={30}
+                  width={30}
+                  alt="tick.svg"
+                  className="my-image-6"
+                />
+                <div className="text-sm opacity-50">live classes</div>
+              </div>
+              <div className="flex items-center space-x-4 mb-5 text-black">
+                <Image
+                  src="/homePage/sixthSection/tick.svg"
+                  height={30}
+                  width={30}
+                  alt="tick.svg"
+                  className="my-image-6"
+                />
+                <div className="text-sm opacity-50">progress tracking</div>
+              </div>
             </div>
-            <div className="items-center space-x-4 mb-5 text-black flex">
-              <Image
-                src="/homePage/sixthSection/tick.svg"
-                height={30}
-                width={30}
-                alt="tick.svg"
-                className="my-image-6"
-              />
-              <div className="text-sm opacity-50">progress tracking</div>
+
+            <div className="w-1/2 p-2">
+              <div className="flex items-center space-x-4 mb-5 text-black">
+                <Image
+                  src="/homePage/sixthSection/tick.svg"
+                  height={30}
+                  width={30}
+                  alt="tick.svg"
+                  className="my-image-6"
+                />
+                <div className="text-sm opacity-50">diverse question bank</div>
+              </div>
+              {/* Add another div here if needed */}
             </div>
           </div>
-          <div className="items-center space-x-4  text-black flex">
-            <Image
-              src="/homePage/sixthSection/tick.svg"
-              height={30}
-              width={30}
-              alt="tick.svg"
-              className="my-image-6"
-            />
-            <div className="text-sm opacity-50">diverse question bank</div>
-          </div>
+
           <div className="download max-md:hidden py-16  flex flex-col text-start">
-            <div className="mb-4 ml-3 tracking-wider text-black font-bold">
+            <div className="mb-4 ml-3 tracking-wider text-black font-extrabold">
               download the app
             </div>
             <div className="flex items-center  justify-evenly">
@@ -85,7 +92,7 @@ function SixthSection() {
                   height={50}
                   width={180}
                   alt="Download on the Apple App Store"
-                  className=" pb-5"
+                  className=" pb-3 "
                 />
               </a>
 
@@ -105,7 +112,7 @@ function SixthSection() {
             </div>
           </div>
         </div>
-        <div>
+        <div className=" flex flex-col justify-end">
           <div className=" md:mt-10 mt-3 relative">
             <Image
               src="/homePage/sixthSection/sixthSec1.svg"

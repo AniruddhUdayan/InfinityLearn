@@ -1,20 +1,16 @@
+/* Global Styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global Styles */
-
-.no-scrollbar::-webkit-scrollbar {
+/* div::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* Global Styles */
 :root {
@@ -275,7 +271,10 @@ body {
 .word-exiting {
   position: relative;
 }
-
+.optionContainer {
+  display: flex;
+  min-height: 300px; /* Adjust as per your requirement */
+}
 .word-entering {
   animation: slideIn 1s forwards;
 }
