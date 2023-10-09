@@ -2,10 +2,10 @@ import React from "react";
 import "./globals.css";
 import { Providers } from "./Provider";
 import { store } from "../store/store.js"; // Adjust path as needed
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import ThemeRegistry from "../components/ThemeRegistry/ThemeRegistry";
 
 // If 'next/font/google' doesn't have TypeScript definitions, you might use any
 const inter = Inter({ subsets: ["latin"] }) as any;
@@ -30,10 +30,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <Providers>
-      <ThemeRegistry>
-        <body className={inter.className}>{children}</body>
-      </ThemeRegistry>
-    </Providers>
+        <ThemeRegistry>
+          <body className={inter.className}>{children}</body>
+        </ThemeRegistry>
+      </Providers>
     </html>
   );
 };
