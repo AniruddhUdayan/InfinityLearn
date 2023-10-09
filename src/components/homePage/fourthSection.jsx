@@ -174,7 +174,7 @@ function Courses() {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [activeDash, scrollPos]);
+  }, [scrollPos, activeDash]);
 
   return (
     <div className="flex max-md:hidden flex-col justify-center w-full items-center h-ull bg-blue-200">

@@ -1,12 +1,8 @@
-"use client"
+"use client";
 // import LandingExam from "../../components/LandingExam"
 
 const ExamPage = () => {
-    return (
-        <>
-            {/* <LandingExam /> */}
-        </>
-    )
-}
+  return <>{/* <LandingExam /> */}</>;
+};
 
-export default ExamPage
+export default ExamPage;

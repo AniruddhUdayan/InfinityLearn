@@ -5,13 +5,13 @@ import FirstSection from "../components/homePage/firstSection.jsx";
 import SecondSection from "../components/homePage/secondSection.jsx";
 import ThirdSection from "../components/homePage/thirdSection.jsx";
 import FourthSection from "../components/homePage/fourthSection.jsx";
-
+import React from "react";
 import FifthSection from "../components/homePage/fifthSection.jsx";
 import SixthSection from "../components/homePage/sixthSection.jsx";
 import SeventhSection from "../components/homePage/seventhSection.jsx";
 
 import Head from "next/head";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 export default function Home() {
   return (
     <div className=" no-scrollbar max-md:w-full">
@@ -19,7 +19,6 @@ export default function Home() {
         <title>Your Page Title</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Description of your page for SEO" />
-        {/* Other meta tags */}
       </Head>
       <Header />
       <FirstSection />
