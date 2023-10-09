@@ -108,7 +108,7 @@ function ChooseClass({ handleBack }) {
                     every champion sets a{" "}
                   </h2>
                   <h2 className="text-2xl font-extrabold mb-4">
-                    goal. let's define yours
+                    {`goal. let's define yours`}
                   </h2>
                 </div>
                 <div>

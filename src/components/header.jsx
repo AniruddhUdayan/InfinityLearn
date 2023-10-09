@@ -109,7 +109,7 @@ function ResHeader({
       setTexthead(tryy.name);
     } else {
     }
-  }, [activeSubItem]);
+  }, [activeItem, activeSubItem]);
   const [show1, setShow1] = useState(" hidden ");
   function showHeader2() {
     setShow1(show1 == " hidden " ? "" : " hidden ");
@@ -249,7 +249,7 @@ function Header() {
     } else {
       setFoundSubItem(null);
     }
-  }, [activeSubItem]);
+  }, [activeItem, activeSubItem]);
 
   const toggleSubMenu = (index) => {
     setActiveItem(index === activeItem ? null : index);
