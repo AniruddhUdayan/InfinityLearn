@@ -221,7 +221,7 @@ function FifthSection() {
             <span className=" md:hidden mr-2">our</span>toppers{" "}
           </div>
         </div>
-        <img
+        <Image
           src="/homePage/fifthSection/topper.svg"
           className="max-md:hidden "
           height={400}
