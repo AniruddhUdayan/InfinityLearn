@@ -109,7 +109,7 @@ function ResHeader({
       setTexthead(tryy.name);
     } else {
     }
-  }, [activeSubItem]);
+  }, [activeItem, activeSubItem]);
   const [show1, setShow1] = useState(" hidden ");
   function showHeader2() {
     setShow1(show1 == " hidden " ? "" : " hidden ");
@@ -254,7 +254,7 @@ function Header() {
     } else {
       setFoundItem(null);
     }
-  }, [activeItem]);
+  }, [activeItem,activeSubItem]);
 
   useEffect(() => {
     // Whenever activeItem changes, update foundItem
