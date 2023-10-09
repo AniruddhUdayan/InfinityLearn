@@ -109,7 +109,7 @@ function ResHeader({
       setTexthead(tryy.name);
     } else {
     }
-  }, [activeSubItem]);
+  }, [activeItem, activeSubItem]);
   const [show1, setShow1] = useState(" hidden ");
   function showHeader2() {
     setShow1(show1 == " hidden " ? "" : " hidden ");
@@ -269,7 +269,7 @@ function Header() {
     } else {
       setFoundSubItem(null);
     }
-  }, [activeSubItem]);
+  }, [activeItem, activeSubItem]);
 
   const toggleSubMenu = (index) => {
     setActiveItem(index === activeItem ? null : index);
@@ -339,7 +339,7 @@ function Header() {
             height={70}
           />
 
-          <div className="flex-grow">
+          <div className="flex-grow  z-30">
             <ul className="flex text-white max-md:hidden justify-evenly">
               {items.map((item, index) => (
                 <div key={index} className="relative">

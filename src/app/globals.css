@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 /* Global Styles */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-end-rgb: 255, 255, 255;
@@ -274,13 +288,4 @@ body {
   animation-duration: 1000ms;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }

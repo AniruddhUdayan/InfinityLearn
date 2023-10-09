@@ -5,6 +5,7 @@ export const mobVeriSlice = createSlice({
   initialState: {
     showOverlay: false,
     phoneNumber: "",
+    isExitingUser: true
   },
   reducers: {
     // Note this change
@@ -14,8 +15,12 @@ export const mobVeriSlice = createSlice({
     storePhoneNumber(state, action) {
       state.phoneNumber = action.payload;
     },
+    setIsExitingUser(state, action) {
+      state.isExitingUser = action.payload;
+      console.log(state)
+    },
   },
 });
 
-export const { showOverlayMode, storePhoneNumber } = mobVeriSlice.actions;
+export const { showOverlayMode, storePhoneNumber, setIsExitingUser } = mobVeriSlice.actions;
 export default mobVeriSlice.reducer;

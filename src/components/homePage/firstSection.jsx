@@ -1,39 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-
-// import { useDispatch, useSelector } from "react-redux";
-// import { showOverlayMode } from "@/store/mobVeriSlice";
-// import { storePhoneNumber } from "@/store/mobVeriSlice";
-
-const words = ["learning", "academic"];
-const duration = 2000; // Duration in milliseconds for each word
-
-function WordSlider() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [animating, setAnimating] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAnimating(false);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
-        setAnimating(true);
-      }, 1000); // waits for the animation to complete
-    }, duration + 1000); // adds the animation duration to the waiting duration
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="slider-container z-0 h-24 max-md:h-12 max-md:pl-3 max-md:text-5xl text-yellow-400 flex items-center justify-start text-7xl font-bold">
-      <div className={animating ? "word-entering z-0" : " z-0 word-exiting"}>
-        {words[currentIndex]}
-      </div>
-    </div>
-  );
-}
-
+import WordSlider from "./wordSlider";
+import { useDispatch, useSelector } from "react-redux";
+import { showOverlayMode } from "@/store/mobVeriSlice";
+import { storePhoneNumber } from "@/store/mobVeriSlice";
+import LoginPage from "../loginPage";
 function Trial() {
   return (
     <div className="flex mt-10 max-lg:w-full mb-6 max-lg:mx-10 max-lg:h-24 justify-evenly text-[#007BFF] p-6  text-center  font-bold text-base gap-3 mx-auto flex-row items-center h-20 bg-white px-4 rounded-2xl">
@@ -58,10 +30,10 @@ function Trial() {
 }
 function FirstSection() {
   const [query, setQuery] = useState("");
-  // const showOverlay = useSelector(
-  //   (state) => state.mobileVerification.showOverlay
-  // );
-  // const dispatch = useDispatch();
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
@@ -71,16 +43,22 @@ function FirstSection() {
 
   const handleToggleOverlay = () => {
     if (query.length === 10) {
-      // dispatch(storePhoneNumber(query));
-      // dispatch(showOverlayMode(!showOverlay));
+      dispatch(storePhoneNumber(query));
+      dispatch(showOverlayMode(!showOverlay));
     } else {
       console.error("Phone number should be 10 digits!");
     }
   };
-
+  if (showOverlay) {
+    return (
+      <div>
+        <LoginPage />
+      </div>
+    );
+  }
   return (
-    <div className="flex max-xl:px-5 pb-32 max-md:pt-16  max-md:pb-8 w-full max-md:min-h-screen items-center justify-around bg-[#007BFF] max-md:flex-col max-md:h-fit">
-      <div className="flex flex-col text-white">
+    <div className="flex pb-32 max-md:pt-9  max-md:pb-8 w-full max-md:min-h-screen items-center justify-around bg-[#007BFF] max-md:flex-col max-md:h-fit">
+      <div className=" text-white flex flex-col">
         <div className="max-md:pt-6 pt-9   max-md:pl-3 text-7xl max-md:text-5xl font-bold">
           power up your
         </div>
@@ -93,7 +71,7 @@ function FirstSection() {
         </div>
         <div className="mt-12 lg:ml-7 pr-0 md:hidden">
           <Image
-            className=" w-screen"
+            className="my-image"
             src="/homepage/firstSection/imageRes.png"
             width={600}
             height={350}
