@@ -52,6 +52,11 @@ body {
 .card:hover .card-text {
   color: white;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+}
 @layer utilities {
   .bg-apple {
     background-image: url("/apple1.svg");
