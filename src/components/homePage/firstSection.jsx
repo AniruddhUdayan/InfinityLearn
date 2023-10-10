@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "@/store/mobVeriSlice";
 import { storePhoneNumber } from "@/store/mobVeriSlice";
 import LoginPage from "../loginPage";
-import LoginPopup from "../LoginPopup";
 const words = ["learning", "academic"];
 const duration = 2000; // Duration in milliseconds for each word
 
@@ -80,12 +79,9 @@ function FirstSection() {
   };
   if (showOverlay) {
     return (
-      // <div>
-      //   <LoginPage />
-      // </div>
       <div>
-      <LoginPopup />
-    </div>
+        <LoginPage />
+      </div>
     );
   }
   return (

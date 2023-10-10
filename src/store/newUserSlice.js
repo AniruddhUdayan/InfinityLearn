@@ -3,11 +3,8 @@ export const newUserSlice = createSlice({
   name: "new user",
   initialState: {
     name: "",
-    class: {},
-    course: [],
-    isNameEntered:false,
-    isGradeSelected:false,
-    isExamSelected:false
+    class: "",
+    course: "",
   },
   reducers: {
     // Note this change
@@ -20,16 +17,7 @@ export const newUserSlice = createSlice({
     storeCourse(state, action) {
       state.course = action.payload;
     },
-    setIsNameEntered(state, action) {
-      state.isNameEntered = action.payload;
-    },
-    setIsGradeSelected(state, action) {
-      state.isGradeSelected = action.payload;
-    },
-    setIsExamSelected(state, action) {
-      state.isExamSelected = action.payload;
-    },
   },
 });
-export const { storeName, storeClass, storeCourse, setIsNameEntered, setIsGradeSelected, setIsExamSelected } = newUserSlice.actions;
+export const { storeName, storeClass, storeCourse } = newUserSlice.actions;
 export default newUserSlice.reducer;

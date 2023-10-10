@@ -18,7 +18,6 @@ const subItem = [
             subItemAbout: "engineering exam preparation",
             listPresent: "false",
             svg: "./header/iit.svg",
-            path:'/examPage'
           },
           {
             lid: 1,
@@ -26,7 +25,6 @@ const subItem = [
             subItemAbout: "medical exam preparation",
             listPresent: "false",
             svg: "./header/medical.svg",
-            path:'/examPage'
           },
           {
             lid: 2,
@@ -34,7 +32,6 @@ const subItem = [
             subItemAbout: "common university entrance test",
             listPresent: "false",
             svg: "./header/cuet.svg",
-            path:'/examPage'
           },
         ],
       },
@@ -71,7 +68,7 @@ const subItem = [
             lid: 2,
             name: "English",
             listPresent: "false",
-            svg: "./header/science.svg",
+            svg: "./header/english.svg",
           },
           {
             lid: 3,
@@ -113,7 +110,7 @@ const subItem = [
             lid: 2,
             name: "English",
             listPresent: "false",
-            svg: "./header/science.svg",
+            svg: "./header/english.svg",
           },
           {
             lid: 3,

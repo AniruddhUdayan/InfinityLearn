@@ -19,7 +19,7 @@ function Footer() {
       className={`${poppins.className} bg-white w-full mb-0 py-4 text-black text-sm`}
     >
       <div className="w-[90%] m-auto">
-        <div className="flex md:flex-row flex-col w-full">
+        <div className="flex md:flex-row flex-col">
           <div className="md:basis-2/4 my-4">
             <Image
               src="/images/footer-logo.svg"
@@ -61,8 +61,8 @@ function Footer() {
               </div> */}
             </div>
 
-            <div className="flex flex-row gap-4 mt-4 ">
-              <Link  href="https://www.facebook.com/InfinityLearn.SriChaitanya/">
+            <div className="flex flex-row gap-4 mt-4">
+              <Link href="https://www.facebook.com/InfinityLearn.SriChaitanya/">
                 {" "}
                 <Image
                   src="/images/facebook.png"
@@ -110,12 +110,10 @@ function Footer() {
           </div>
 
           <div className="md:basis-2/4 mb-4 mt-6">
-            <div className="flex flex-col gap-6 ">
-              <div className="flex flex-row w-full flex-wrap   text-[14px] lg:text-[16px]  font-normal mt-4">
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
-                  <div className="font-[600] text-[16px] lg:text-[18px] ">
-                    company
-                  </div>
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-row  text-[16px]  font-normal mt-4">
+                <div className="flex flex-col gap-3">
+                  <div className="font-[600] text-[18px]">company</div>
                   <Link href="https://infinitylearn.com/about">
                     <p>about us</p>
                   </Link>
@@ -138,7 +136,7 @@ function Footer() {
                     <p>become a Teacher</p>
                   </Link>
                 </div>
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
+                <div className="flex flex-col gap-3">
                   <div className="font-[600] text-[18px]">support</div>
                   <Link href="/">
                     <p>get in touch</p>
@@ -156,7 +154,7 @@ function Footer() {
                     <p>terms and conditions</p>
                   </Link>
                 </div>
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
+                <div className="flex flex-col gap-3">
                   <div className="font-[600] text-[18px]">courses</div>
                   <Link href="/">
                     <p>IIT JEE</p>
@@ -183,7 +181,7 @@ function Footer() {
                     <p>CBSE tutions</p>
                   </Link>
                 </div>
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
+                <div className="flex flex-col gap-3">
                   <div className="font-[600] text-[18px]">more</div>
                   <Link href="/">
                     <p>IL for schools</p>
@@ -207,8 +205,8 @@ function Footer() {
           <h2 className={`md:text-2xl sm:text-xl text-lg font-[700]`}>
             free study <span className="text-[#007BFF]">material</span>
           </h2>
-          <div className=" flex md:flex-row flex-wrap justify-between gap-2  text-[16px] font-light">
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+          <div className="flex md:flex-row flex-col gap-2 justify-between text-[16px] font-light">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">JEE</div>
 
               <Link href="/">
@@ -230,7 +228,7 @@ function Footer() {
                 <p>{`JEE Previous Year's Papers`}</p>
               </Link>
             </div>
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">NEET</div>
 
               <Link href="/">
@@ -252,7 +250,7 @@ function Footer() {
                 <p>NEET mock tests</p>
               </Link>
             </div>
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">CUET</div>
 
               <Link href="/">
@@ -274,7 +272,7 @@ function Footer() {
                 <p>CUET mock tests</p>
               </Link>
             </div>
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">CBSE</div>
 
               <Link href="/">
@@ -297,8 +295,8 @@ function Footer() {
               </Link>
             </div>
           </div>
-          <div className="flex md:flex-row flex-wrap justify-between gap-2 text-[16px] font-light">
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+          <div className="flex md:flex-row flex-col gap-2 justify-between text-[16px] font-light">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 Popular Books
               </div>
@@ -327,7 +325,7 @@ function Footer() {
                 TS Grewal
               </a>
             </div>
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 NCERT solutions
               </div>
@@ -353,7 +351,7 @@ function Footer() {
                 Class 6 NCERT Solutions
               </a>
             </div>
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 NCERT exempler
               </div>
@@ -379,7 +377,7 @@ function Footer() {
                 Class 6 NCERT Exemplar
               </a>
             </div>
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+            <div className="flex flex-col gap-1 font-[400]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 State Board
               </div>
@@ -404,8 +402,8 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row flex-wrap justify-s gap-2 text-[16px] font-light">
-          <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+        <div className="flex md:flex-row flex-col gap-2 justify-between text-[16px] font-light">
+          <div className="flex flex-col gap-1 font-[400]">
             <div className="font-[600] text-[18px] mb-[20px]">Subject</div>
             <a href="">Maths</a>
             <a href="">Science</a>
@@ -418,11 +416,9 @@ function Footer() {
         </div>
 
         <hr className="mt-[40px] h-px border-0 bg-slate-500" />
-        <div className="flex justify-center items-center">
-          <a className="text-xs  text-[#007BFF]   m-auto mt-[20px] text-center font-extralight">
-            2023 | www.infinitylearn.com
-          </a>
-        </div>
+        <p className="text-xs m-auto mt-[20px] text-center font-extralight">
+          Copyright &copy; 2021. All Rights Reserved 2021
+        </p>
       </div>
     </div>
   );

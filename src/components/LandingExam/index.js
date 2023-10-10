@@ -1,8 +1,8 @@
 import LandingCard from "./LandingCard"
-import orange from './../../../../public/images/orange-girl-1.svg'
-import date from './../../../../public/images/date-icon.svg'
-import pcb from './../../../../public/images/pcb-icon.svg'
-import people from './../../../../public/images/people-icon.svg'
+import orange from './../../../public/images/orange-girl-1.svg'
+import date from './../../../public/images/date-icon.svg'
+import pcb from './../../../public/images/pcb-icon.svg'
+import people from './../../../public/images/people-icon.svg'
 import Image from "next/image"
 import { Button } from "@mui/material"
 
