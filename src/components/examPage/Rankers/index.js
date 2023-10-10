@@ -6,8 +6,11 @@ import rs2 from './../../../../public/images/result-guy-2.svg'
 import rs3 from './../../../../public/images/result-guy-3.svg'
 import starBig from './../../../../public/images/star-big.svg'
 import { Button, Chip } from '@mui/material'
+import { useState } from 'react'
 
 const Rankers = () => {
+    const [selectedTags, setSelectedTags] = useState([ 'visual learner', 'theoretical', 'physical books needed', 'daily classes', 'synced with school' ])
+    const allTags = ['visual learner', 'maximum revision', 'mcq solver', 'solo learner', 'theoretical', 'need a schedule', 'learning should be fun', 'group study', 'physical books needed', 'serious student', 'faculty interaction', 'daily classes', 'boards + competitive', 'synced with school', 'weekend classes', 'other']
     return (
         <>
             <div className="lg:px-36 py-10">
@@ -44,22 +47,9 @@ const Rankers = () => {
                         </div>
                     </div>
                     <div className='w-full lg:w-[60%] flex flex-wrap gap-5 justify-start'>
-                        <Chip label="visual learner" variant="contained" color='yellow' />
-                        <Chip label="maximum revision" variant="outlined" color='black' />
-                        <Chip label="mcq solver" variant="outlined" color='black' />
-                        <Chip label="solo learner" variant="outlined" color='black' />
-                        <Chip label="theoretical" variant="contained" color='yellow' />
-                        <Chip label="need a schedule!" variant="outlined" color='black' />
-                        <Chip label="learning should be fun" variant="outlined" color='black' />
-                        <Chip label="group study" variant="outlined" color='black' />
-                        <Chip label="physical books needed" variant="contained" color='yellow' />
-                        <Chip label="serious student" variant="outlined" color='black' />
-                        <Chip label="faculty interaction" variant="outlined" color='black' />
-                        <Chip label="daily classes" variant="contained" color='yellow' />
-                        <Chip label="board + competitive" variant="outlined" color='black' />
-                        <Chip label="synced with school" variant="contained" color='yellow' />
-                        <Chip label="weekend classes" variant="outlined" color='black' />
-                        <Chip label="other" variant="outlined" color='black' />
+                        {allTags.map((tag, i) => 
+                            <Chip key={`tag-${i}`} label={tag} variant={selectedTags.includes(tag) ? 'contained' : 'outlined'} color={selectedTags.includes(tag) ? 'yellow' : 'black'} onClick={() => selectedTags.includes(tag) ? setSelectedTags(selectedTags.filter(t => t !== tag)) : setSelectedTags([...selectedTags, tag])} />
+                        )}
                     </div>
                     <div className='lg:hidden self-stretch'>
                         <Button variant='contained' fullWidth color='primary' sx={{ borderRadius: '0.5rem' }} className=''>
