@@ -8,6 +8,7 @@ import School from '@/components/examPage/School'
 import Promise from '@/components/examPage/Promise'
 import Rankers from '@/components/examPage/Rankers'
 import Courses from '@/components/examPage/Courses'
+import Study from '@/components/examPage/Study'
 
 const ExamPage = () => {
     return (
@@ -16,6 +17,7 @@ const ExamPage = () => {
             <LandingExam />
             <Promise />
             <Courses />
+            <Study />
             <Rankers />
             <School />
             <Download />
