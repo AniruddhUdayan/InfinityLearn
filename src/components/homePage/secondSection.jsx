@@ -190,11 +190,7 @@ function Class9to10() {
             altText="english"
             text="Science"
           />
-          <Card1
-            src="/../homePage/english1.svg"
-            altText="math"
-            text="English"
-          />
+          <Card1 src="/homePage/english1.svg" altText="math" text="English" />
         </div>
       </div>
     </div>
