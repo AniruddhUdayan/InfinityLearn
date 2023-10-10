@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { storePhoneNumber, setIsOtpVerified } from "../../store/mobVeriSlice";
 import { BiArrowBack } from "react-icons/bi";
 import Tick from "../loginPage/mobileVerify/tick";
-import { sendSQSMsg, validateOTP } from "../../services/userServics";
+import { sendSQSMsg,sendOtp, validateOTP, updateUserProfile } from "../../services/userServics";
 import * as moment from 'moment';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -20,6 +20,15 @@ const OtpVerification = () => {
     const phoneNumber = useSelector(
       (state) => state.mobileVerification.phoneNumber
     );
+    const selectedGrade = useSelector(
+      (state) => state.newUser.class
+  );
+  const selectedExams = useSelector(
+    (state) => state.newUser.course
+);
+const isExitingUser = useSelector(
+  (state) => state.mobileVerification.isExitingUser
+);
   
     const [tempNumber, setTempNumber] = useState("");
     const [showOverlay, setShowOverlay] = useState(false);
@@ -60,6 +69,9 @@ const OtpVerification = () => {
         if (value === "" && index > 0) {
           otpRefs.current[index - 1].focus();
         }
+        if(value.length < 4){
+          setOtpError(false);
+        }
       }
     };
   
@@ -76,24 +88,26 @@ const OtpVerification = () => {
         console.log(response)
         setOtpError(false);
         setShowOverlay(true);
+      //   if(!isExitingUser){
+      //   let profileUpdate = { ...response?.userDto,
+      //     exams: selectedExams,
+      //     grade: selectedGrade
+      //   }
+      //     const updatedUserData = await updateUserProfile(response?.token,profileUpdate,response?.userDto?.userId);
+      //     localStorage.setItem('user_details_from_server', JSON.stringify(updatedUserData?.userDto));
+      //     sendLsq();
+      //     dispatch(setIsOtpVerified(true));
+      // } else {
         localStorage.setItem('user_details_from_server', JSON.stringify(response?.userDto));
         sendLsq();
         dispatch(setIsOtpVerified(true));
+      // }
       } catch (error) {
         setOtpError(true);
         console.error('Error fetching data:', error.message);
       } finally {
         // setLoading(false);
       }
-      // if (JSON.stringify(otp) === JSON.stringify(dummyOtp)) {
-      //   // OTP is correct
-      //   setOtpError(false);
-      //   // TODO: Handle what happens after successful OTP verification
-      //   setShowOverlay(true);
-      // } else {
-      //   // If OTP is incorrect
-      //   setOtpError(true);
-      // }
     };
   
     const [otpError, setOtpError] = useState(false);
@@ -115,9 +129,23 @@ const OtpVerification = () => {
         "Source": "IL Website",
         "type": "Lead",
       }
-  
       sendSQSMsg(Payload);
-  
+    }
+
+    const resendOtp = async ()=>{
+      let body = {
+        isdCode:'+91',
+        phone: phoneNumber
+      }
+      try {
+        const response = await sendOtp(body);
+        console.log(response);
+        setOtp(Array(4).fill(""));
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      } finally {
+        // setLoading(false);
+      }
     }
   return (
     <div>
@@ -179,7 +207,7 @@ const OtpVerification = () => {
                       maxLength={1}
                       ref={(el) => (otpRefs.current[index] = el)}
                       className={`border rounded-xl w-20  h-12 mr-2 text-center text-base ${
-                        otpError ? "border-red-500" : "border-gray-300"
+                        otpError ? "otp_border_error" : "otp_border_blue"
                       }`}
                       onChange={handleOtpChange(index)}
                     />
@@ -193,26 +221,65 @@ const OtpVerification = () => {
               </div>
 
               <div className="flex items-center">
-                <button
-                  className={`text-blue-500 mr-1 resend_otp_text ${
-                    timer === 0 ? " cursor-pointer" : "cursor-not-allowed"
-                  }`}
+                {
+                  timer !== 0 ? <button
+                  className={`text-blue-500 mr-1 resend_otp_text cursor-not-allowed"`}
                   disabled={timer !== 0}
                 >
                   <span style={{color:'#52565B'}}>resend OTP in</span>
-                   <span className="text-sm" style={{color:'#080E14'}}>{timer} sec</span>
+                   <span className="text-sm otp_time">00:{timer} sec</span>
+                </button> : <button onClick={resendOtp}
+                  className={`text-blue-500 mr-1 resend_otp_text cursor-pointer"
+                  }`}
+                >
+                  <span style={{color:'#52565B'}}>resend OTP</span>
                 </button>
+                }
+
               </div>
             </div>
           </div>
               </Col>
             </Row>
-            <Row>
+            <Row className="mt-5">
+              <Col xs={12} md={12} lg={12}>
+                <div className="term_flex">
+                <Image
+          src="/login/mobVer/check_box.svg"
+          height={14}
+          width={17}
+          alt="mob-ver-otp"
+        />
+        <label className="term_label">By signing up you agree to our <a>T&C</a> <a>and Privacy Policy</a></label>
+                </div>
+              </Col>
+            </Row>
+            <Row className="mt-2">
+              <Col xs={12} md={12} lg={12}>
+                <div className="term_flex">
+                <Image
+          src="/login/mobVer/check_box.svg"
+          height={14}
+          width={17}
+          alt="mob-ver-otp"
+        />
+        <label className="term_label term_label_flex">Receive updates on Whatsapp
+        <Image
+          src="/login/mobVer/whatsapp_icon.svg"
+          height={20}
+          width={15}
+          alt="mob-ver-otp"
+        />
+        </label>
+                </div>
+              </Col>
+            </Row>
+            <Row className="button_mobile_none">
               <Col xs={12} md={12}>
                 <div className="otp_button_row">
                   <button
                     onClick={verifyOtp}
-                    className={`otp_button`}
+                    className={`otp_button ${otp == "" ? 'opacity_off':''}`}
                   >
                     Verify OTP <span>&#8599;</span>
                   </button>
@@ -222,6 +289,18 @@ const OtpVerification = () => {
           </Col>
         </Row>
       </Container>
+      <div class="marketpr_show">
+        <div class="feslofrbottom">
+          <div class="pac_festpr_flexshow">
+            <button
+              onClick={verifyOtp}
+              className={`otp_button ${otp == "" ? 'opacity_off' : ''}`}
+            >
+              Verify OTP <span>&#8599;</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
