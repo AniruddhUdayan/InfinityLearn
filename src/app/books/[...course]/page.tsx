@@ -7,21 +7,25 @@ import { Poppins } from "next/font/google";
 import Review from "@/components/Review&Detail/Review";
 import BookDemo from "@/components/BookDemo/BookDemo";
 import Download from "@/components/examPage/Download";
-import Link from "next/link";
+import subItem from "@/utils/infoHeader";
 // import Review from "@/components/Review&Detail/Review";
 // import Bookdemo from "@/components/BookDemo/Bookdemo";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
 
-export default function Home() {
+export default function Home({params}:any) {
   const [imagePath, setImagePath] = useState("/images/book.png");
   const [isAnimating, setIsAnimating] = useState(false);
   const [animationDirection, setAnimationDirection] = useState("left");
   const [text, setText] = useState("NEET Foundation");
   const [isSlideDown, setIsSlideDown] = useState(false);
+
+
+
 
   const toggleImage = () => {
     if (isAnimating) return;
@@ -69,7 +73,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Header></Header>
+      <Header/>
       <div className="h-full bg-[#007BFF] pb-[61px] flex justify-center">
         <div className="sm:flex sm:flex-col lg:flex-row sm:gap-[40px] sm:mx-[112px] sm:pt-[28px]">
           <div className="flex flex-col gap-[20px]">
@@ -148,12 +152,12 @@ export default function Home() {
                   }`}
                   style={{ position: "absolute", top: 0, left: 0 }}
                 >
-                  {text}
+                  {params.course[0]} FOUNDATION
                 </span>
               </div>
               <span className="sm:text-[32px] font-[400]">
                 {" "}
-                - class 8, 9 & 10
+                - class {params.course[1]} , {params.course[2]} & {params.course[3]}
               </span>
             </div>
             <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap">
@@ -386,11 +390,11 @@ export default function Home() {
               </div>
               <div className="flex px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#FFF] transform hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-row gap-2">
-                  <Link href="/books/JEE/8/9/10"
+                  <div
                     className={`${poppins.className} text-[#007BFF] text-[16px] font-[600]`}
                   >
                     buy now
-                  </Link>
+                  </div>
                   <Image
                     src="/images/buy.png"
                     alt="Your Logo"

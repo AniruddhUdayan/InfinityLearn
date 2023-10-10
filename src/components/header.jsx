@@ -48,7 +48,6 @@ function SubItemCard(props) {
       className={`flex items-center cursor-pointer justify-between w-96 h-20 p-1 text-black rounded-lg z-50 ${
         isSelected ? "bg-[#F1F2F6]" : ""
       } hover:bg-[#D4E9FF]`}
-      
       onClick={handleClick}
     >
       {props.data.listHeading === true ? (
@@ -385,7 +384,9 @@ function Header() {
                             <ul className=" z-20 rounded-lg rounded-tl-none rounded-bl-none absolute w-fit bg-white   border-white border-2 top-[-2px] left-full flex flex-col p-2">
                               {foundSubItem?.map((subItem, listItemIndex) => (
                                 <div
-                               
+                                  onClick={() => {
+                                    console.log(subItem.path);
+                                  }}
                                   key={listItemIndex}
                                   className="flex items-center flex-col"
                                 >
@@ -405,10 +406,13 @@ function Header() {
                                   {visibleBooksCards.includes(
                                     listItemIndex
                                   ) && (
-                                    <BooksCard
-                                      data={subItem.books}
-                                      svgPresent={subItem.svg}
-                                    />
+                                    <Link href={subItem.path}>
+                                      {" "}
+                                      <BooksCard
+                                        data={subItem.books}
+                                        svgPresent={subItem.svg}
+                                      />
+                                    </Link>
                                   )}
                                 </div>
                               ))}
