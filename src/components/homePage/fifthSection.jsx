@@ -222,7 +222,7 @@ function FifthSection() {
           </div>
         </div>
         <Image
-          src="/homePage/fifthSection/topper.svg"
+          src="/../homePage/fifthSection/topper.svg"
           className="max-md:hidden "
           height={400}
           width={600}
