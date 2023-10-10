@@ -79,10 +79,10 @@ const SelectExam = () => {
     // const storeNameHandler = () => {
     //   dispatch(storeClass(name));
     // };
-    const handleToggleOverlay = () => {
-        dispatch(showOverlayMode(true));
-        return <MobileVerification />;
-    };
+    // const handleToggleOverlay = () => {
+    //     dispatch(showOverlayMode(true));
+    //     return <MobileVerification />;
+    // };
     const [selectedCourses, setSelectedCourses] = useState([]);
 
     const handleClassClick = (course) => {
