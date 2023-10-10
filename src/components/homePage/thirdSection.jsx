@@ -254,7 +254,7 @@ function ThirdSection() {
       </div>
       <div className="flex md:px-20  max-md:flex-col max-md:w-full   justify-between  items-center rowww">
         <Image
-          src="/../homepage/thirdSection/thirdSection.png"
+          src="/homepage/thirdSection/thirdSection.png"
           height={svgWidth}
           width={svgWidth}
           alt="thirdSection"

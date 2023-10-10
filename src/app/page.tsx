@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "../components/header.jsx";
-import Footer from "@/components/footer";
+// import Footer from "@/components/footer";
+import Footer from "../components/homePage/footer.jsx";
 import FirstSection from "../components/homePage/firstSection.jsx";
 import SecondSection from "../components/homePage/secondSection.jsx";
 import ThirdSection from "../components/homePage/thirdSection.jsx";
