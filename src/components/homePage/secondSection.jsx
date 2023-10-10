@@ -191,7 +191,7 @@ function Class9to10() {
             text="Science"
           />
           <Card1
-            src="/homePage/secondSection/english1.svg"
+            src="/../homePage/english1.svg"
             altText="math"
             text="English"
           />
