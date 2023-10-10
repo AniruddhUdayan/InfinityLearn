@@ -27,7 +27,8 @@ export default function Home() {
       <ThirdSection />
       <FourthSection />
       <FifthSection />
-      <Download/>
+      {/* <Download /> */}
+      <SixthSection />
       <SeventhSection />
       <Footer />
     </div>
