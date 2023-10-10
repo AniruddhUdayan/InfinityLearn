@@ -25,7 +25,6 @@ const School = () => {
 						<Image src={check} alt="check" width={20} height={0} className='' />
 						<div className=' lg:text-lg '>progress analysis</div>
 					</div>
-
 				</div>
 				<div className="self-stretch">
 					<Button variant="contained" color="primary" disableElevation sx={{ borderRadius: '0.5rem', paddingX: '4rem'}} className="w-full lg:w-auto">

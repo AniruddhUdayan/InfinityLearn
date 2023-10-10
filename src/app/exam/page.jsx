@@ -9,6 +9,7 @@ import Promise from '@/components/examPage/Promise'
 import Rankers from '@/components/examPage/Rankers'
 import Courses from '@/components/examPage/Courses'
 import Study from '@/components/examPage/Study'
+import Revise from '@/components/examPage/Revise'
 import Masterclasses from '@/components/examPage/Masterclasses';
 
 const ExamPage = () => {
@@ -19,6 +20,7 @@ const ExamPage = () => {
             <Promise />
             <Courses />
             <Masterclasses />
+            <Revise />
             <Study />
             <Rankers />
             <School />
