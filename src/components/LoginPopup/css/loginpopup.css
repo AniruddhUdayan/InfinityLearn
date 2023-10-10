@@ -4,9 +4,11 @@
 .modal-header {
     border: none;
 }
-.btn-close{
+
+.btn-close {
     opacity: 1;
 }
+
 .otp_heading {
     padding: 50px 30px 50px 30px;
     font-size: 24px;
@@ -15,21 +17,25 @@
     text-transform: lowercase;
     color: #080E14;
 }
+
 .otp_mob_input {
     padding: 30px;
 }
-.otp_mob_input label{
+
+.otp_mob_input label {
     margin-bottom: 10px;
     font-weight: 400;
     font-size: 15px;
     color: #080E14;
 
 }
-.otp_button_row{
+
+.otp_button_row {
     padding: 30px;
     text-align: center;
     margin-top: 100px;
 }
+
 .otp_button {
     width: 100%;
     color: aliceblue;
@@ -38,30 +44,36 @@
     border-radius: 12px;
     padding: 12px;
 }
+
 .otp_mobile_input {
     display: flex;
     background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #9C9FA1, #9C9FA1);
     border: 1px solid #9C9FA1;
     border-radius: 12px;
-  }
-  .resend_otp_row{
+}
+
+.resend_otp_row {
     margin-top: 20px;
-  }
-.otp_flex{
+}
+
+.otp_flex {
     display: flex;
     justify-content: center;
 }
-.resend_otp_text{
+
+.resend_otp_text {
     text-decoration: underline;
     font-weight: 400;
     font-size: 14px;
 }
-.success_Icon{
+
+.success_Icon {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
 }
+
 .success_heading {
     padding: 10px;
     font-size: 24px;
@@ -71,51 +83,193 @@
     color: #080E14;
     text-align: center;
 }
+
 .class_lable {
     font-weight: 400;
     font-size: 18px;
     color: #080E14;
     margin-bottom: 10px;
 }
-.select_exam_row{
-    padding: 0px 10px 0px 30px;;
+
+.select_exam_scroll {
+    height: 250px;
+    overflow-y: auto;
 }
-  @media only screen and (min-width: 320px) and (max-width: 480px) {
-    
-.modal .modal-dialog {
-    transform: none;
-    margin: 0px;
-    margin-left: auto;
-    height: 100%;
-    align-items: stretch !important;
-    border: none;
-}
-.modal-content{
-    border: none !important;
-    overflow: auto;
+
+.select_exam_scroll::-webkit-scrollbar-thumb {
+    background-color: #888;
     border-radius: 0px;
 }
+
+.select_exam_row {
+    padding: 0px 10px 0px 30px;
+    ;
+}
+
+.otp_border_blue {
+    border: 1px solid #007BFF !important;
+}
+
+.otp_border_error {
+    border: 1px solid #ED4337 !important;
+}
+
+.opacity_off {
+    opacity: 0 !important;
+}
+
+.otp_time {
+    color: #080E14;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 3px;
+}
+
+.term_flex {
+    display: flex;
+    align-items: baseline;
+}
+
+.term_label {
+    font-weight: 600;
+    font-size: 10px;
+    color: #3A3A3A;
+    margin-left: 5px;
+    text-transform: lowercase;
+}
+
+.term_label_flex {
+    display: flex;
+}
+
+/* Mob show btn start*/
+.marketpr_show {
+    display: none;
+}
+
+.feslofrbottom {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    z-index: 222;
+}
+
+.pac_festpr_flexshow {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 0px 0px 20px 0px #9AA0D34D;
+    text-align: center;
+    padding: 15px;
+}
+
+.pac_festpr_mobshwbtn {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1.5px solid #3378FD;
+    margin-bottom: 0;
+    padding: 15px 10px;
+    width: 100%;
+    background: #3378FD;
+    border-radius: 6px;
+}
+/* Mob show btn  end*/
+.exam_card_head {
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+}
+
+.exam_card_dec {
+    font-weight: 400;
+    font-size: 12px;
+    color: #080E14;
+}
+
+.exam_card_active {
+    border: 1px solid #06AA2F;
+    background: #D6F4DE;
+}
+.exam_card_active_tick{
+    background: #06AA2F;
+}
+.button_mobile_none{
+    display: block;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .modal-body{
+        padding: 0px;
+    }
+    .modal .modal-dialog {
+        transform: none;
+        margin: 0px;
+        margin-left: auto;
+        height: 100%;
+        align-items: stretch !important;
+        border: none;
+    }
+
+    .modal-content {
+        border: none !important;
+        overflow: auto;
+        border-radius: 0px;
+    }
+
     .otp_heading {
-        padding: 20px 0px 20px 0px;
+        padding: 0px 0px 20px 0px;
         font-size: 19px;
         line-height: 30px;
     }
-    .otp_mob_input{
+
+    .otp_mob_input {
         padding: 0px;
     }
-    .otp_button_row{
+
+    .otp_button_row {
         margin-top: 0px;
     }
-    .text-black{
+
+    .text-black {
         padding: 0px;
     }
-    .gap-28{
+
+    .gap-28 {
         gap: 5rem;
     }
-    .w-20{
+
+    .gap-4 {
+        gap: 1rem;
+    }
+
+    .w-20 {
         width: 4rem;
     }
-    .success_Icon{
+
+    .select_exam_row {
+        padding: 0px;
+        margin-bottom: 100px;
+    }
+
+    .success_Icon {
         margin-top: 50px;
     }
-  } 
+
+    .button_mobile_none {
+        display: none;
+    }
+
+    .marketpr_show {
+        display: block;
+    }
+
+    .exam_card_active {
+        border: 2px solid #007BFF;
+        background: #E6F2FF;
+    }
+    .exam_card_active_tick{
+        background: #007BFF;
+    }
+
+}

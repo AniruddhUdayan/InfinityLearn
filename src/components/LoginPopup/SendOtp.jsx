@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode, storePhoneNumber, setIsOtpSent } from "../../store/mobVeriSlice";
+import { showOverlayMode, storePhoneNumber, setIsOtpSent, setIsExitingUser,setIsOtpVerified } from "../../store/mobVeriSlice";
 import Image from "next/image";
-import { sendOtp } from "@/services/userServics";
+import { sendOtp, verifyPhone } from "../../services/userServics";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -25,8 +25,32 @@ const SendOtp = () => {
     }
   }, [isNumberValid1]);
 
-  const showOverlay = useSelector(
-    (state) => state.mobileVerification.showOverlay
+  const verifyMobileNumber = async ()=>{
+    let body = {
+      isdCode:'+91',
+      phone: phoneNumber
+    }
+    try {
+      const userData = await verifyPhone(body);
+      setExitingUser(userData?.existingUser);
+      dispatch(setIsExitingUser(userData?.existingUser));
+      dispatch(setIsPhoneVerified(true));
+      if(userData?.existingUser){
+        phoneNumberHandler()
+      }
+      console.log(isExitingUser)
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    } finally {
+      // setLoading(false);
+    }
+  }
+
+  const isExitingUser = useSelector(
+    (state) => state.mobileVerification.isExitingUser
+  );
+  const isGradeSelected = useSelector(
+    (state) => state.newUser.isGradeSelected
   );
   const dispatch = useDispatch();
 
@@ -35,10 +59,9 @@ const SendOtp = () => {
   };
 
   const phoneNumberHandler = async () => {
-    dispatch(storePhoneNumber(number));
     let body = {
         isdCode:'+91',
-        phone: phoneNumber
+        phone: number
       }
       try {
         const response = await sendOtp(body);
@@ -58,7 +81,7 @@ const SendOtp = () => {
       setNumber(value);
     }
     if(value?.length == 10){
-        setIsNumber(false)
+      setIsNumber(false);
     }else{
         setIsNumber(true)
     }
@@ -98,7 +121,7 @@ const SendOtp = () => {
                 </select>
                 <input
                   className="appearance-none  border-l-0 flex-grow p-2 focus:outline-none"
-                  placeholder="Your number..."
+                  placeholder="Your number..." maxLength={10} 
                   value={number}
                   onChange={handleNumberChange}
                 />
@@ -106,7 +129,7 @@ const SendOtp = () => {
                     </div>
                 </Col>
               </Row>
-              <Row>
+              <Row className="button_mobile_none">
                 <Col xs={12} md={12}>
                     <div className="otp_button_row">
                     <button
@@ -124,6 +147,20 @@ const SendOtp = () => {
             </Col>
           </Row>
         </Container>
+      <div class="marketpr_show">
+        <div class="feslofrbottom">
+          <div class="pac_festpr_flexshow">
+            <button
+              className={`otp_button ${isNumberValid ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"
+                }`}
+              disabled={!isNumberValid}
+              onClick={phoneNumberHandler}
+            >
+              Send OTP <span>&#8599;</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
