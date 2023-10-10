@@ -74,7 +74,7 @@ const SelectGrade = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="/../login/newUser/newUser2.png"
+                            src="/login/newUser/newUser2.png"
                             height={250}
                             width={600}
                             alt="mob-ver-1"

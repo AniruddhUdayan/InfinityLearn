@@ -69,7 +69,7 @@ const SendOtp = () => {
           <Row>
             <Col xs={12} md={6}>
             <Image
-          src="../login/mobVer/mobVer1.svg"
+          src="/login/mobVer/mobVer1.svg"
           height={250}
           width={600}
           alt="mob-ver-1"
