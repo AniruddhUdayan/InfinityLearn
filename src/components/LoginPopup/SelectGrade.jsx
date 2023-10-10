@@ -106,7 +106,7 @@ const SelectGrade = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="button_mobile_none">
                             <Col xs={12} md={12}>
                                 <div className="otp_button_row">
                                     <button
@@ -123,6 +123,20 @@ const SelectGrade = () => {
                     </Col>
                 </Row>
             </Container>
+            <div class="marketpr_show">
+                <div class="feslofrbottom">
+                    <div class="pac_festpr_flexshow">
+                        <button
+                            className={`otp_button ${!selectedClass ? "opacity-50 cursor-not-allowed" : ""
+                                }`}
+                            disabled={!selectedClass}
+                            onClick={handleContinue}
+                        >
+                            continue <span>&#8599;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

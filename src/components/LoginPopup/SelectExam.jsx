@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeClass, setIsExamSelected } from "../../store/newUserSlice";
+import { storeCourse, setIsExamSelected } from "../../store/newUserSlice";
+import { setIsOtpSent } from "../../store/mobVeriSlice";
 import { IoClose } from "react-icons/io5";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
@@ -10,24 +11,24 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { FaCheck } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
-import { getExams } from "../../services/userServics";
+import { getExams, sendOtp } from "../../services/userServics";
 import { allowedExamNamesCT } from "../../services/app.constants";
 
 function Card(props) {
     const { data, isSelected, onClick } = props;
     return (
         <div
-            className={`flex cursor-pointer p-2 border-2 rounded-xl items-center ${isSelected ? "bg-green-400 bg-opacity-25" : "bg-white"
+            className={`flex cursor-pointer p-2 border-2 rounded-xl items-center ${isSelected ? "exam_card_active" : "bg-white"
                 }`}
             onClick={onClick}
         >
-            <Image src={data.svg} width={50} height={50} alt="card svg" />
+            <Image src="./iit.svg" width={50} height={50} alt="card svg" />
             <div className="flex flex-col ml-4 flex-grow items-start justify-center">
-                <div>{data.name}</div>
-                <div>{data.description}</div>
+                <div className="exam_card_head">{data.name}</div>
+                <div className="exam_card_dec">{data.description}</div>
             </div>
             <div
-                className={`ml-4 w-6 h-6 flex items-center justify-center border rounded-full ${isSelected ? "bg-green-500" : "bg-white"
+                className={`ml-4 w-6 h-6 flex items-center justify-center border rounded-full ${isSelected ? "exam_card_active_tick" : "bg-white"
                     }`}
             >
                 {isSelected && <FaCheck color="white" />}
@@ -42,10 +43,18 @@ const SelectExam = () => {
     const [name, setName] = useState("");
     const [selectedClass, setSelectedClass] = useState(null);
     const [selectedExams, setselectedExams] = useState([]);
-    // const userGrade = useSelector(
-    //     (state) => state.newUser.class?.name?.replace(/[^0-9]/g, '')
-    // );
-    const userGrade = 11;
+    const phoneNumber = useSelector(
+        (state) => state.mobileVerification.phoneNumber
+    );
+    const userName = useSelector(
+        (state) => state.newUser.name
+    );
+    const userGrade = useSelector(
+        (state) => state.newUser.class?.name?.replace(/[^0-9]/g, '')
+    );
+    const selectedGrade = useSelector(
+        (state) => state.newUser.class
+    );
     const [exams, setExams] = useState([]);
     console.log(userGrade)
     useEffect(() => {
@@ -100,12 +109,30 @@ const SelectExam = () => {
         if (selectedObject) {
             setselectedExams((prevArray) => [...prevArray, selectedObject]);
         }
-        console.log(selectedExams, 'selectedExams')
+        console.log(selectedExams, 'selectedExams');
+
         
     }
-    const handleContinue = () => {
-        dispatch(storeClass(selectedExams));
-        dispatch(setIsExamSelected(true))
+    const handleContinue = async () => {
+        dispatch(storeCourse(selectedExams));
+        dispatch(setIsExamSelected(true));
+        let body = {
+            isdCode:'+91',
+            firstName: userName,
+            lastName:'ildefaultfield',
+            gradeId: selectedGrade?.gradeId,
+            phone: phoneNumber,
+            whatsappConsent:true
+          }
+          try {
+            const response = await sendOtp(body);
+            console.log(response);
+            dispatch(setIsOtpSent(true));
+          } catch (error) {
+            console.error('Error fetching data:', error.message);
+          } finally {
+            // setLoading(false);
+          }
       };
     return (
         <div>
@@ -113,7 +140,7 @@ const SelectExam = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="/login/newUser/newUser3.svg"
+                            src="./login/newUser/newUser3.svg"
                             height={250}
                             width={600}
                             alt="mob-ver-1"
@@ -132,7 +159,7 @@ const SelectExam = () => {
                                     <label className="class_lable">
                                         select learning goal (choose at least one)
                                     </label>
-                                    <div className="grid grid-cols-1 gap-4 ">
+                                    <div className="grid grid-cols-1 gap-4 select_exam_scroll">
                                         {exams.map((item, index) => (
                                             <Card
                                                 key={index}
@@ -145,7 +172,7 @@ const SelectExam = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="button_mobile_none">
                             <Col xs={12} md={12}>
                                 <div className="otp_button_row">
                                     <button
@@ -165,6 +192,22 @@ const SelectExam = () => {
                     </Col>
                 </Row>
             </Container>
+            <div class="marketpr_show">
+                <div class="feslofrbottom">
+                    <div class="pac_festpr_flexshow">
+                        <button
+                            className={`otp_button ${selectedCourses.length > 0
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-blue-200 text-gray-400 cursor-not-allowed"
+                                }`}
+                            disabled={selectedCourses.length === 0}
+                            onClick={handleContinue}
+                        >
+                            continue <span>&#8599;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

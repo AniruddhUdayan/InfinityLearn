@@ -52,7 +52,7 @@ function EnterName() {
                             <Col xs={12} md={12}>
                                 <div className="otp_mob_input">
                                     <label className="">
-                                        enter your mobile number
+                                        enter your name
                                     </label>
                                     <div className="otp_mobile_input">
                                         <input
@@ -65,7 +65,7 @@ function EnterName() {
                                 </div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="button_mobile_none">
                             <Col xs={12} md={12}>
                                 <div className="otp_button_row">
                                     <button
@@ -83,6 +83,20 @@ function EnterName() {
                     </Col>
                 </Row>
             </Container>
+            <div class="marketpr_show">
+                <div class="feslofrbottom">
+                    <div class="pac_festpr_flexshow">
+                        <button
+                            className={`otp_button ${!name ? "opacity-50 cursor-not-allowed" : ""
+                                }`}
+                            onClick={storeNameHandler}
+                            disabled={!name}
+                        >
+                            continue <span>&#8599;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

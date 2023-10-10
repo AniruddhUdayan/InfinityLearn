@@ -22,7 +22,7 @@ const Success = () => {
                 <Col xs={12} md={12}>
                     <div className="success_Icon">
                     <Image
-          src="../login/mobVer/SuccessIcon.svg"
+          src="./login/mobVer/SuccessIcon.svg"
           height={200}
           width={200}
           alt="mob-ver-1"
