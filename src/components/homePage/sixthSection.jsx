@@ -42,7 +42,7 @@ function SixthSection() {
             <div className="w-1/2 p-2">
               <div className="flex items-center space-x-4 mb-5 text-black">
                 <Image
-                  src="/homePage/sixthSection/tick.svg"
+                  src="/../homePage/sixthSection/tick.svg"
                   height={30}
                   width={30}
                   alt="tick.svg"
@@ -52,7 +52,7 @@ function SixthSection() {
               </div>
               <div className="flex items-center space-x-4 mb-5 text-black">
                 <Image
-                  src="/homePage/sixthSection/tick.svg"
+                  src="/../homePage/sixthSection/tick.svg"
                   height={30}
                   width={30}
                   alt="tick.svg"
@@ -65,7 +65,7 @@ function SixthSection() {
             <div className="w-1/2 p-2">
               <div className="flex items-center space-x-4 mb-5 text-black">
                 <Image
-                  src="/homePage/sixthSection/tick.svg"
+                  src="/../homePage/sixthSection/tick.svg"
                   height={30}
                   width={30}
                   alt="tick.svg"
@@ -88,7 +88,7 @@ function SixthSection() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/homePage/sixthSection/apple.svg"
+                  src="/../homePage/sixthSection/apple.svg"
                   height={50}
                   width={180}
                   alt="Download on the Apple App Store"
@@ -102,7 +102,7 @@ function SixthSection() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/homePage/sixthSection/playstore.svg"
+                  src="/../homePage/sixthSection/playstore.svg"
                   height={50}
                   width={186}
                   alt="playsto.svg"
@@ -115,7 +115,7 @@ function SixthSection() {
         <div className=" flex flex-col justify-end">
           <div className=" md:mt-10 mt-3 relative">
             <Image
-              src="/homePage/sixthSection/sixthSec1.svg"
+              src="/../homePage/sixthSection/sixthSec1.svg"
               alt="Sixth Section Background"
               height={730}
               width={491}
@@ -135,7 +135,7 @@ function SixthSection() {
               rel="noopener noreferrer"
             >
               <Image
-                src="/homePage/sixthSection/apple1.svg"
+                src="/../homePage/sixthSection/apple1.svg"
                 height={20}
                 width={160}
                 alt="apple1.svg"
@@ -149,7 +149,7 @@ function SixthSection() {
               rel="noopener noreferrer"
             >
               <Image
-                src="/homePage/sixthSection/playstore1.svg"
+                src="/../homePage/sixthSection/playstore1.svg"
                 height={20}
                 width={150}
                 alt="playsto.svg"
