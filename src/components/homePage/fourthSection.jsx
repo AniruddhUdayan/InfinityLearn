@@ -20,14 +20,14 @@ const courses = [
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/../courses/image1.png",
+    svg: "/courses/image1.png",
   },
   {
     id: 4,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/../courses/image1.png",
+    svg: "/courses/image1.png",
   },
   {
     id: 5,
