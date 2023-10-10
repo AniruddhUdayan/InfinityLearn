@@ -8,15 +8,66 @@ import pcbB from './../../../../public/images/pcb-icon-blue.svg'
 import peopleB from './../../../../public/images/people-icon-blue.svg'
 import Image from "next/image"
 import { Button } from "@mui/material"
+import { useEffect, useRef, useState } from "react"
 
 const LandingExam = () => {
+	const [activeIndex, setActiveIndex] = useState(0)
+	const carousel = useRef(null)
+	const carouselEle = useRef(null)
+	const banners = [
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : 'IIT JEE 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : 'IIT JEE 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : 'IIT JEE 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : 'IIT JEE 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : 'IIT JEE 2024' },
+	]
+  
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (activeIndex === banners.length - 1) {
+				setActiveIndex(0)
+				carousel.current.scrollTo({
+					left: 0,
+					behavior: "smooth",
+				})
+			} else if (activeIndex == 0) {
+				setActiveIndex(activeIndex + 1)
+				carousel.current.scrollTo({
+					left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+					behavior: "smooth",
+				})
+			} else {
+				setActiveIndex(activeIndex + 1)
+				carousel.current.scrollTo({
+					left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+					behavior: "smooth",
+				})
+			}
+		}, 3000)
+		return () => clearInterval(interval)
+	}, [activeIndex])
+	
 	return (
 		<div className="w-full text-[#EFEFEF] bg-[#007BFF] mt-[4.8rem] lg:mt-0">
-			<div className="overflow-x-auto no-scrollbar flex gap-4 py-8 px-4">
-				<LandingCard pic={orange} rank='1' name='Anamika Rai' batch='IIT JEE 2024' />
-				<LandingCard pic={orange} rank='1' name='Anamika Rai' batch='IIT JEE 2024' />
-				<LandingCard pic={orange} rank='1' name='Anamika Rai' batch='IIT JEE 2024' />
+
+			<div ref={carousel} className="overflow-x-auto no-scrollbar flex gap-4 py-8 px-4 snap-x">
+				{banners.map((banner, index) => (
+					<LandingCard key={index} pic={banner.pic} rank={banner.rank} name={banner.name} batch={banner.batch} ref2={carouselEle} />
+				))}
 			</div>
+			<div className=" flex justify-center mb-6">
+				{Array.from({ length: banners.length }, (_, index) => (
+				<div
+					key={index}
+					className={`dash h-1 rounded-full mx-2 b ${
+					index === activeIndex
+						? "active w-16 bg-white "
+						: " bg-[#76B8FF] w-10"
+					}`}
+				></div>
+				))}
+			</div>
+
 			<div className=" py-0 lg:py-8">
 				<div className="px-4 lg:px-36 text-5xl lg:text-7xl font-bold text-white">power up your <span className="text-[#FCDE5A]">IITJEE PREP</span> with Infinity Learn</div>
 				<div className="px-4 lg:px-36 py-4 text-lg"><span className="text-[#FCDE5A]">NEET</span> (national entrance cum eligibility test) is an important medical entrance examination conducted in India.</div>
