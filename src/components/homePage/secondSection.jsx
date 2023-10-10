@@ -181,16 +181,20 @@ function Class9to10() {
         </div>
         <div className="  no-scrollbar    max-md:overflow-x-auto max-md:px-2 w-full max-md:pl-3 max-md:pr-6  flex gap-4">
           <Card1
-            src="/homePage/secondSection/math1.svg"
+            src="/../homepage/secondSection/math1.svg"
             altText="math"
             text="Math"
           />
           <Card1
-            src="/homePage/secondSection/science1.svg"
+            src="/../homepage/secondSection/science1.svg"
             altText="english"
             text="Science"
           />
-          <Card1 src="/homePage/english1.svg" altText="math" text="English" />
+          <Card1
+            src="/../homepage/secondSection/english1.svg"
+            altText="math"
+            text="English"
+          />
         </div>
       </div>
     </div>
@@ -245,17 +249,17 @@ function Class4to8() {
           </div>
           <div className=" no-scrollbar    max-md:overflow-x-auto  max-md:px-4 w-full max-md:pl-3 max-md:pr-6  flex gap-4">
             <Card1
-              src="/homePage/secondSection/math1.svg"
+              src="/../homepage/secondSection/math1.svg"
               altText="math"
               text="Math"
             />
             <Card1
-              src="/homePage/secondSection/science1.svg"
+              src="/../homepage/secondSection/science1.svg"
               altText="english"
               text="Science"
             />
             <Card1
-              src="/homePage/secondSection/english1.svg"
+              src="/../homepage/secondSection/english1.svg"
               altText="math"
               text="English"
             />
@@ -286,7 +290,7 @@ function Class1to3() {
         <div className="max-md:px-3 flex max-md:overflow-x-auto gap-6">
           <div className=" hover:cursor-pointer hover:bg-blue-500 flex max-md:flex-col p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
             <Image
-              src="/homePage/secondSection/math1.svg"
+              src="/../homepage/secondSection/math1.svg"
               height={90}
               width={90}
               alt="math"
@@ -303,7 +307,7 @@ function Class1to3() {
 
           <div className=" hover:cursor-pointer   hover:bg-blue-500 max-md:flex-col flex p-7 bg-blue-200 gap-7 justify-evenly w-full   items-center  rounded-[2rem] border-black">
             <Image
-              src="/homePage/secondSection/hots1.svg"
+              src="/../homepage/secondSection/hots1.svg"
               height={70}
               width={70}
               alt="science"
