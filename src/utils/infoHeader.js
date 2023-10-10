@@ -18,7 +18,6 @@ const subItem = [
             subItemAbout: "engineering exam preparation",
             listPresent: "false",
             svg: "./header/iit.svg",
-            path:'/examPage'
           },
           {
             lid: 1,
@@ -26,7 +25,6 @@ const subItem = [
             subItemAbout: "medical exam preparation",
             listPresent: "false",
             svg: "./header/medical.svg",
-            path:'/examPage'
           },
           {
             lid: 2,
@@ -34,7 +32,6 @@ const subItem = [
             subItemAbout: "common university entrance test",
             listPresent: "false",
             svg: "./header/cuet.svg",
-            path:'/examPage'
           },
         ],
       },
@@ -223,6 +220,7 @@ const subItem = [
               "sample paper",
               "past year paper",
             ],
+            path:'./books/JEE/11/12/12plus'
           },
           {
             lid: 1,
@@ -237,6 +235,7 @@ const subItem = [
               "sample paper",
               "past year paper",
             ],
+            path:'./books/NEET/11/12/12plus'
           },
           {
             lid: 2,
@@ -253,6 +252,7 @@ const subItem = [
               "buisness studies",
               "past year paper",
             ],
+            path:'./books/CUET/11/12/12plus'
           },
           {
             lid: 3,
@@ -268,6 +268,7 @@ const subItem = [
               "buisness studies",
               "past year paper",
             ],
+            path:'./books/CBSE/11/12/12plus'
           },
           {
             lid: 4,
@@ -275,6 +276,7 @@ const subItem = [
             listPresent: "true",
             svg: "null",
             books: ["physics", "maths", "chemistry", "biology"],
+            path:'./books/ICSE/11/12/12plus'
           },
           {
             lid: 5,
@@ -282,6 +284,7 @@ const subItem = [
             listPresent: "true",
             svg: "null",
             books: ["Maths", "Science"],
+            path:'./books/STATE/11/12/12plus'
           },
           {
             lid: 6,
@@ -296,6 +299,7 @@ const subItem = [
               "gujrat",
               "Telengana",
             ],
+            path:'./books/OLYMPIADS/11/12/12plus'
           },
         ],
       },
@@ -321,6 +325,7 @@ const subItem = [
             listPresent: "true",
             svg: "./iit.svg",
             books: ["physics", "maths", "chemistry"],
+            path:'./books/IITJEE/9/10/'
           },
           {
             lid: 1,
@@ -328,6 +333,7 @@ const subItem = [
             listPresent: "true",
             svg: "./medical.svg",
             books: ["physics", "maths", "chemistry"],
+            path:'./books/NEET/9/10/'
           },
           {
             lid: 2,
@@ -342,6 +348,7 @@ const subItem = [
               "accounting",
               "buisness studies",
             ],
+            path:'./books/CUET/9/10/'
           },
           {
             lid: 3,
@@ -349,6 +356,7 @@ const subItem = [
             listPresent: "true",
             svg: "null",
             books: ["physics", "maths", "chemistry", "biology"],
+            path:'./books/ICSE/9/10/'
           },
           {
             lid: 4,
@@ -356,6 +364,7 @@ const subItem = [
             listPresent: "true",
             svg: "null",
             books: ["Maths", "Science"],
+            path:'./books/STATE/9/10/'
           },
           {
             lid: 5,
@@ -370,6 +379,7 @@ const subItem = [
               "gujrat",
               "Telengana",
             ],
+            path:'./books/Olympiads/9/10/'
           },
         ],
       },
@@ -387,6 +397,7 @@ const subItem = [
             listPresent: "true",
             svg: "null",
             books: ["english", "maths", "science", "social science"],
+            path:'./books/CBSE/6/7/8'
           },
         ],
       },
