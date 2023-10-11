@@ -42,7 +42,7 @@ const SelectExam = () => {
     );
     const [name, setName] = useState("");
     const [selectedClass, setSelectedClass] = useState(null);
-    const [selectedExams, setselectedExams] = useState([]);
+    const [selectedExams, setSelectedExams] = useState([]);
     const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
     );
@@ -103,16 +103,16 @@ const SelectExam = () => {
             setSelectedCourses((prevCourses) => [...prevCourses, course.name]);
         }
     };
-    const  selectedTargetExamp = (exam) => {
-        const selectedObject = exams.find((item) => item.examId == exam.examId);
-
-        if (selectedObject) {
-            setselectedExams((prevArray) => [...prevArray, selectedObject]);
+    const selectedTargetExamp = (exam) => {
+        const index = selectedExams.findIndex((ind) => ind.examId === exam.examId);
+        if (index > -1) {
+          const updatedExams = [...selectedExams];
+          updatedExams.splice(index, 1);
+          setSelectedExams(updatedExams);
+        } else {
+          setSelectedExams([...selectedExams, exam]);
         }
-        console.log(selectedExams, 'selectedExams');
-
-        
-    }
+      };
     const handleContinue = async () => {
         dispatch(storeCourse(selectedExams));
         dispatch(setIsExamSelected(true));
@@ -140,7 +140,7 @@ const SelectExam = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="./login/newUser/newUser3.svg"
+                            src="/login/mobVer/SuccessImage.png"
                             height={250}
                             width={600}
                             alt="mob-ver-1"
@@ -192,9 +192,9 @@ const SelectExam = () => {
                     </Col>
                 </Row>
             </Container>
-            <div class="marketpr_show">
-                <div class="feslofrbottom">
-                    <div class="pac_festpr_flexshow">
+            <div className="marketpr_show">
+                <div className="feslofrbottom">
+                    <div className="pac_festpr_flexshow">
                         <button
                             className={`otp_button ${selectedCourses.length > 0
                                     ? "bg-blue-500 text-white"

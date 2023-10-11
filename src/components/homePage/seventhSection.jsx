@@ -1,16 +1,17 @@
 "use client";
 import React, { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { showOverlayMode } from "@/store/mobVeriSlice";
-// import { storePhoneNumber } from "@/store/mobVeriSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { showOverlayMode } from "@/store/mobVeriSlice";
+import { storePhoneNumber } from "@/store/mobVeriSlice";
+import LoginPopup from "../LoginPopup";
 function SeventhSection() {
   // Added useState for 'query'
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
-  // const showOverlay = useSelector(
-  //   (state) => state.mobileVerification.showOverlay
-  // );
-  // const dispatch = useDispatch();
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
@@ -27,10 +28,18 @@ function SeventhSection() {
       setError("Number should be of 10 digits.");
     } else {
       setError("");
-      // dispatch(storePhoneNumber(query));
-      // dispatch(showOverlayMode(!showOverlay));
+      dispatch(storePhoneNumber(query));
+      dispatch(showOverlayMode(!showOverlay));
     }
   };
+
+  if (showOverlay) {
+    return (
+      <div>
+        <LoginPopup />
+      </div>
+    );
+  }
   return (
     <div className="bg-[#00364E] min-h-max h-min">
       <div className="flex max-md:flex-col max-md:py-12 max-md:px-2 max-md:ml-2 justify-evenly py-40">
@@ -62,7 +71,7 @@ function SeventhSection() {
               className="rounded-l-lg max-md:h-12 max-md:placeholder:text-sm max-md:rounded-l-3xl max-md:bg-white max-md:placeholder-gray-500 bg-blue-500 text-black w-full sm:w-1/2 md:w-96 h-10 md:h-12 pl-4 md:pl-6 text-base md:text-lg border-2 placeholder-white"
               type="text"
               placeholder="enter your mobile number"
-              value={query}
+              value={query} maxLength={10}
               onChange={handleInputChange}
             />
             <button

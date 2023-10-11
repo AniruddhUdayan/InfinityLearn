@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode, storePhoneNumber, setIsOtpSent, setIsExitingUser,setIsOtpVerified } from "../../store/mobVeriSlice";
+import { showOverlayMode, storePhoneNumber, setIsOtpSent, setIsExitingUser,setIsPhoneVerified } from "../../store/mobVeriSlice";
 import Image from "next/image";
 import { sendOtp, verifyPhone } from "../../services/userServics";
 import Col from 'react-bootstrap/Col';
@@ -11,11 +11,11 @@ const SendOtp = () => {
     const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
       );
-  const [number, setNumber] = useState(phoneNumber);
+  const [number, setNumber] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const isNumberValid = number.length === 10 && /^\d+$/.test(number);
   const isNumberValid1 = phoneNumber.length === 10 && /^\d+$/.test(phoneNumber);
-  const [isNumber, setIsNumber] = useState(true);
+  const [isNumber, setIsNumber] = useState(false);
 
 
   useEffect(() => {
@@ -28,13 +28,13 @@ const SendOtp = () => {
   const verifyMobileNumber = async ()=>{
     let body = {
       isdCode:'+91',
-      phone: phoneNumber
+      phone: number
     }
     try {
       const userData = await verifyPhone(body);
-      setExitingUser(userData?.existingUser);
       dispatch(setIsExitingUser(userData?.existingUser));
-      dispatch(setIsPhoneVerified(true));
+      dispatch(setIsPhoneVerified(!isPhoneVerified));
+      dispatch(storePhoneNumber(number));
       if(userData?.existingUser){
         phoneNumberHandler()
       }
@@ -49,8 +49,8 @@ const SendOtp = () => {
   const isExitingUser = useSelector(
     (state) => state.mobileVerification.isExitingUser
   );
-  const isGradeSelected = useSelector(
-    (state) => state.newUser.isGradeSelected
+  const isPhoneVerified = useSelector(
+    (state) => state.newUser.isPhoneVerified
   );
   const dispatch = useDispatch();
 
@@ -61,7 +61,7 @@ const SendOtp = () => {
   const phoneNumberHandler = async () => {
     let body = {
         isdCode:'+91',
-        phone: number
+        phone: phoneNumber || number
       }
       try {
         const response = await sendOtp(body);
@@ -77,13 +77,20 @@ const SendOtp = () => {
 
   const handleNumberChange = (e) => {
     const value = e.target.value;
-    if (value === "" || /^\d+$/.test(value)) {
-      setNumber(value);
-    }
+    const numericValue = value.replace(/\D/g, '');
+    setNumber(numericValue);
+    console.log(value.length);
     if(value?.length == 10){
-      setIsNumber(false);
+      setIsNumber(true);
     }else{
-        setIsNumber(true)
+        setIsNumber(false)
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    const charCode = e.charCode;
+    if (charCode < 48 || charCode > 57) {
+      e.preventDefault();
     }
   };
   return (
@@ -121,9 +128,9 @@ const SendOtp = () => {
                 </select>
                 <input
                   className="appearance-none  border-l-0 flex-grow p-2 focus:outline-none"
-                  placeholder="Your number..." maxLength={10} 
+                  placeholder="Your number..." maxLength={10} pattern="[6-9]\\d{9}"
                   value={number}
-                  onChange={handleNumberChange}
+                  onChange={handleNumberChange} onKeyUp={handleKeyPress}
                 />
               </div>
                     </div>
@@ -134,10 +141,10 @@ const SendOtp = () => {
                     <div className="otp_button_row">
                     <button
             className={`otp_button ${
-              isNumberValid ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"
+              isNumber ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"
             }`}
-            disabled={!isNumberValid}
-            onClick={phoneNumberHandler}
+            disabled={!isNumber}
+            onClick={verifyMobileNumber}
           >
             Send OTP <span>&#8599;</span>
           </button>
@@ -147,14 +154,14 @@ const SendOtp = () => {
             </Col>
           </Row>
         </Container>
-      <div class="marketpr_show">
-        <div class="feslofrbottom">
-          <div class="pac_festpr_flexshow">
+      <div className="marketpr_show">
+        <div className="feslofrbottom">
+          <div className="pac_festpr_flexshow">
             <button
               className={`otp_button ${isNumberValid ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"
                 }`}
               disabled={!isNumberValid}
-              onClick={phoneNumberHandler}
+              onClick={verifyMobileNumber}
             >
               Send OTP <span>&#8599;</span>
             </button>

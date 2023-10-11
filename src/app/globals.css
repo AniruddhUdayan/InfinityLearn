@@ -4,6 +4,7 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 /* div::-webkit-scrollbar {
   display: none;
 } */
@@ -84,6 +85,9 @@ a {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+  }
+  .poppins {
+    font-family: "Poppins", sans-serif;
   }
 
   .dash {

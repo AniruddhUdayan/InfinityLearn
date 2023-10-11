@@ -9,6 +9,18 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
+const poppins700 = Poppins({
+  subsets: ["latin"],
+  weight: "700",
+});
+const poppins400 = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+});
+const poppins600 = Poppins({
+  subsets: ["latin"],
+  weight: "600",
+});
 
 const Bookdemo = () => {
   const [query, setQuery] = useState("");
@@ -57,9 +69,9 @@ const Bookdemo = () => {
         </div>
       </div>
       <div className="flex flex-col gap-1 w-auto justify-center mt-5">
-        <div className="flex flex-row">
+        <div className="flex flex-row px-[12px] py-[14px]">
           <div
-            className={`${poppins.className} sm:h-[56px] sm:w-auto bg-white rounded-tl-[20px] rounded-bl-[20px] flex justify-center items-center px-2 py-2 sm:px-[28px] text-[14px] sm:text-[16px] font-[500]  sm:gap-1`}
+            className={`${poppins.className} sm:h-[56px] h-[48px] sm:w-auto bg-white rounded-tl-[20px] rounded-bl-[20px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500]  sm:gap-1`}
           >
             <span>+91 </span>
             <input
