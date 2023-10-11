@@ -5,6 +5,24 @@ import check from "./../../../../public/images/check-icon.svg";
 import Image from "next/image";
 import { Button, Input, InputBase } from "@mui/material";
 import Link from "next/link";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+	subsets: ["latin"],
+	weight: "500",
+  });
+  const poppins700 = Poppins({
+	subsets: ["latin"],
+	weight: "700",
+  });
+  const poppins400 = Poppins({
+	subsets: ["latin"],
+	weight: "400",
+  });
+  const poppins600 = Poppins({
+	subsets: ["latin"],
+	weight: "600",
+  });
 
 const Download = () => {
   return (
@@ -142,24 +160,27 @@ const Download = () => {
             }
           </div>
         </div>
-        <div className="flex flex-col gap-2 justify-center">
-          <div className="mb-1 items-stretch flex">
-            <div className="rounded-s-2xl rounded-e-none bg-white px-4 py-2 text-[#080E14] pe-2 flex justify-center items-center">
-              +91
-            </div>
+        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px]">
+		<div className="flex flex-row ">
+          <div
+            className={`${poppins.className} sm:h-[56px] h-[48px] w-[335px] sm:w-auto bg-white rounded-tl-[12px] rounded-bl-[12px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500]  sm:gap-1`}
+          >
+            <span className="text-[#080E14] mr-[6px]">+91 </span>
             <input
+              className="outline-none w-auto"
+              type="text"
               placeholder="enter your mobile number"
-              className="bg-[#FFFFFF] rounded-none px-4 py-2 outline-none border-none text-[#080E14] min-w-0 grow lg:grow-0"
+            //   value={query}
+            //   onChange={handleInputChange}
             />
-            <Button
-              variant="contained"
-              disableElevation
-              className="px-1 lg:px-4 py-2"
-              sx={{ borderRadius: "0px 1rem 1rem 0" }}
-            >
-              book now
-            </Button>
           </div>
+          <button
+            // onClick={handleToggleOverlay1}
+            className="bg-[#007BFF] text-white px-[24px] text-[14px] sm:text-[16px] sm:px-[28px] rounded-tr-[12px] rounded-br-[12px]"
+          >
+            book now
+          </button>
+        </div>
           <div className="hidden lg:block">
             we will send an otp for verification
           </div>

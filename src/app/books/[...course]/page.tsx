@@ -15,14 +15,43 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
-
+const poppins700 = Poppins({
+  subsets: ["latin"],
+  weight: "700",
+});
+const poppins400 = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+});
+const poppins600 = Poppins({
+  subsets: ["latin"],
+  weight: "600",
+});
+const imagePaths = [
+  "/images/book.png",
+  "/images/bio.svg",
+  // Add more image paths as needed
+];
 export default function Home({ params }: any) {
-  const [imagePath, setImagePath] = useState("/images/book.png");
   const [isAnimating, setIsAnimating] = useState(false);
   const [animationDirection, setAnimationDirection] = useState("left");
   const [text, setText] = useState("NEET Foundation");
   const [isSlideDown, setIsSlideDown] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagePath, setImagePath] = useState(imagePaths[currentImageIndex]);
 
+  useEffect(() => {
+    // Define the interval (in milliseconds) to change the image (e.g., every 5 seconds)
+    const interval = setInterval(() => {
+      // Calculate the next image index (loop back to the first image if needed)
+      const nextIndex = (currentImageIndex + 1) % imagePaths.length;
+      setCurrentImageIndex(nextIndex);
+      setImagePath(imagePaths[nextIndex]);
+    }, 2000); // Change image every 5000 milliseconds (5 seconds)
+
+    // Clear the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, [currentImageIndex]);
   const toggleImage = () => {
     if (isAnimating) return;
 
@@ -36,13 +65,13 @@ export default function Home({ params }: any) {
 
     setTimeout(() => {
       if (imagePath === "/images/book.png") {
-        setImagePath("/images/book2.png");
+        setImagePath("/images/bio.svg");
       } else {
         setImagePath("/images/book.png");
       }
 
       setIsAnimating(false);
-    }, 0); // Adjust the delay duration as needed
+    }, 2000); // Adjust the delay duration as needed
   };
 
   useEffect(() => {
@@ -75,7 +104,7 @@ export default function Home({ params }: any) {
           <div className="flex flex-col gap-[20px]">
             <div className="flex h-full flex-col ">
               <div className="">
-                <div className="flex flex-row gap-[55px] justify-center w-full   sm:h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
+                <div className="flex flex-col sm:flex-row gap-[55px] justify-center w-full  sm:h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
                   <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
                     <div
                       className={`h-[32px] w-[32px] bg-white rounded-[8px] transform ${
@@ -94,7 +123,7 @@ export default function Home({ params }: any) {
                     </div>
                   </div>
                   <div
-                    className={`max-sm:hidden h-auto flex justify-center items-center max-sm:items-end  sm:left-2 sm:top-0  overflow-hidden`}
+                    className={`max-sm:hidden h-auto flex justify-center items-center max-sm:items-center  sm:left-2 sm:top-0  overflow-hidden`}
                   >
                     <Image
                       src={imagePath}
@@ -103,13 +132,15 @@ export default function Home({ params }: any) {
                       height={442}
                     />
                   </div>
-                  <div className="sm:hidden relative h-[366px] flex justify-center items-end top-6 mt-[32px]">
-                    <Image
-                      src={imagePath}
-                      alt="Your Logo"
-                      width={250}
-                      height={334}
-                    />
+                  <div className="px-[20px] py-[15px] sm:hidden ">
+                    <div className="sm:hidden relative h-[366px] flex flex-col justify-center items-center top-14  mt-[32px] rounded-[20px] border-[5px] border-solid border-[#FCDE5A] bg-opacity-0 py-[16px] px-[42px]">
+                      <Image
+                        src={imagePath}
+                        alt="Your Logo"
+                        width={250}
+                        height={334}
+                      />
+                    </div>
                   </div>
                   <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
                     <div
@@ -128,6 +159,31 @@ export default function Home({ params }: any) {
                       />
                     </div>
                   </div>
+                  <div className="sm:hidden flex  justify-center gap-[14px] items-center">
+                    <div className="text-[#FFF] text-[12px] font-semibold">
+                      01
+                    </div>
+                    <div className="flex flex-row w-[93.5px] border-gray-400 h-[4px] rounded-[4px] bg-gray-400">
+                      {imagePath === "/images/book.png" ? (
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
+                      ) : (
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
+                      )}
+                      {imagePath === "/images/bio.svg" ? (
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
+                      ) : (
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
+                      )}
+                      {imagePath === "/images/bio2.svg" ? (
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
+                      ) : (
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
+                      )}
+                    </div>
+                    <div className="text-[#FFF] text-[12px] font-semibold">
+                      03
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="hidden sm:w-[588px] sm:h-[60px] sm:rounded-[12px] sm:bg-gradient-to-r from-[#00364E] to-[#2B636B] sm:flex sm:justify-center sm:items-center sm:text-[#FFF] sm:text-[16px] sm:font-normal sm:flex-row gap-[20px]">
@@ -144,9 +200,9 @@ export default function Home({ params }: any) {
               </div>
             </div>
           </div>
-          <div className="mx-[20px] sm:flex sm:flex-col sm:h-auto sm:min-w-[410px]">
+          <div className="mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:h-auto sm:min-w-[410px]">
             <div
-              className={`${poppins.className} w-auto text-white sm:text-[48px] text-[20px] font-bold leading-60 `}
+              className={`${poppins700.className} w-auto text-white sm:text-[48px] text-[20px] font-bold leading-60 `}
             >
               <div> IL books for</div>
               <div className="sm:h-[72px] h-[36px] overflow-hidden w-auto relative">
@@ -167,7 +223,7 @@ export default function Home({ params }: any) {
             </div>
             <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap">
               <div
-                className={`${poppins.className} text-[14px] sm:text-[18px] text-[#FFF] font-[600]`}
+                className={`${poppins600.className} text-[14px] sm:text-[18px] text-[#FFF] font-[600]`}
               >
                 4.5
               </div>
@@ -225,8 +281,8 @@ export default function Home({ params }: any) {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row flex-wrap mt-[25.5px] w-auto gap-3">
-              <div className="flex w-full sm:w-[188px] sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300">
+            <div className="flex flex-row max-sm:flex-col max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
+              <div className="flex w-full sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300">
                 <div>
                   {" "}
                   <div className="relative right-[21.5px]">
@@ -239,7 +295,7 @@ export default function Home({ params }: any) {
                     />
                   </div>
                   <div
-                    className={`${poppins.className} text-[#080E14] text-[14px] font-[600]`}
+                    className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                   >
                     class 8, 9 & 10
                   </div>
@@ -247,13 +303,13 @@ export default function Home({ params }: any) {
                 <div>
                   {" "}
                   <div
-                    className={`${poppins.className} text-[#06AA2F] text-[14px] font-[600]`}
+                    className={`${poppins600.className} text-[#06AA2F] text-[14px] font-[600]`}
                   >
                     save 33%
                   </div>
                   <div className="flex flex-row items-center justify-center gap-1">
                     <div
-                      className={`${poppins.className} text-[#007BFF] text-[18px] font-[700]`}
+                      className={`${poppins700.className} text-[#007BFF] text-[18px] font-[700]`}
                     >
                       ₹ 8,660
                     </div>
@@ -270,20 +326,20 @@ export default function Home({ params }: any) {
               </div>
               <div className="relative  flex justify-between w-full max-sm:h-auto sm:w-[188px] h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
-                  className={`${poppins.className} text-[#080E14] text-[14px] font-[600]`}
+                  className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
                   class 8 & 9
                 </div>
                 <div>
                   {" "}
                   <div
-                    className={`${poppins.className} text-[#06AA2F] text-[14px] font-[600]`}
+                    className={`${poppins600.className} text-[#06AA2F] text-[14px] font-[600]`}
                   >
                     save 12%
                   </div>
                   <div className="flex flex-row items-center justify-center gap-1">
                     <div
-                      className={`${poppins.className} text-[#080E14] text-[18px] font-[700]`}
+                      className={`${poppins700.className} text-[#080E14] text-[18px] font-[700]`}
                     >
                       ₹ 6,660
                     </div>
@@ -298,20 +354,20 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="relative  flex w-full md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="relative  flex w-full  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
-                  className={`${poppins.className} text-[#080E14] text-[14px] font-[600]`}
+                  className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
                   class 8
                 </div>
                 <div>
                   {" "}
                   <div
-                    className={`${poppins.className} text-[#06AA2F] text-[14px] font-[600]`}
+                    className={`${poppins600.className} text-[#06AA2F] text-[14px] font-[600]`}
                   ></div>
                   <div className="flex flex-row items-center justify-center gap-1">
                     <div
-                      className={`${poppins.className} text-[#080E14] text-[18px] font-[700]`}
+                      className={`${poppins600.className} text-[#080E14] sm:text-[18px] text-[16px] font-semibold  sm:font-[700] `}
                     >
                       ₹ 5,000
                     </div>
@@ -347,7 +403,7 @@ export default function Home({ params }: any) {
                   height={24}
                 />
                 <div
-                  className={` ${poppins.className} text-[#FFF] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#FFF] text-[14px] font-normal`}
                 >
                   based on latest neet pattern
                 </div>
@@ -360,7 +416,7 @@ export default function Home({ params }: any) {
                   height={24}
                 />
                 <div
-                  className={` ${poppins.className} text-[#FFF] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#FFF] text-[14px] font-normal`}
                 >
                   concise theory + practice questions
                 </div>
@@ -373,7 +429,7 @@ export default function Home({ params }: any) {
                   height={24}
                 />
                 <div
-                  className={` ${poppins.className} text-[#FFF] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#FFF] text-[14px] font-normal`}
                 >
                   topic-wise Detailed MCQs for revision
                 </div>
@@ -383,7 +439,7 @@ export default function Home({ params }: any) {
               <div className="flex px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#FFF] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-row gap-2 hover:gap-3">
                   <div
-                    className={`${poppins.className} text-[#FFF] text-[16px] font-[600]`}
+                    className={`${poppins600.className} text-[#FFF] text-[16px] font-[600]`}
                   >
                     download sample
                   </div>
@@ -398,7 +454,7 @@ export default function Home({ params }: any) {
               <div className="flex px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#FFF] transform hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-row gap-2">
                   <div
-                    className={`${poppins.className} text-[#007BFF] text-[16px] font-[600]`}
+                    className={`${poppins600.className} text-[#007BFF] text-[16px] font-[600]`}
                   >
                     buy now
                   </div>
@@ -431,7 +487,7 @@ export default function Home({ params }: any) {
               height={18}
             />
             <div
-              className={` ${poppins.className} text-[#000] text-[14px] font-normal`}
+              className={` ${poppins400.className} text-[#000] text-[14px] font-normal`}
             >
               based on latest neet pattern
             </div>
@@ -444,7 +500,7 @@ export default function Home({ params }: any) {
               height={18}
             />
             <div
-              className={` ${poppins.className} text-[#000] text-[14px] font-normal`}
+              className={` ${poppins400.className} text-[#000] text-[14px] font-normal`}
             >
               concise theory + practice questions
             </div>
@@ -457,23 +513,52 @@ export default function Home({ params }: any) {
               height={18}
             />
             <div
-              className={` ${poppins.className} text-[#000] text-[14px] font-normal`}
+              className={` ${poppins400.className} text-[#000] text-[14px] font-normal`}
             >
               topic-wise Detailed MCQs for revision
             </div>
           </div>
         </div>
-        <Image
-          src="/images/seeNow.png"
-          alt="Your Logo"
-          width={335}
-          height={160}
-        />
+        <div className="h-[124px] w-[335px] bg-gradient-to-r from-[#00364E] to-[#2B636B] rounded-[20px] px-[16px] py-[20px] flex flex-row">
+          <div className="flex flex-col gap-3">
+            <div
+              className={`${poppins600.className} text-[20px] font-semibold text-[white]`}
+            >{`what’s in it for you?`}</div>
+            <div className="flex flex-row gap-3">
+              {" "}
+              <button className="flex justify-center items-center gap-1 px-[8px] py-[4px] bg-[#007BFF] w-auto rounded-[12px]">
+                <Image
+                  src="/images/play.png"
+                  alt="Your Logo"
+                  width={16}
+                  height={16}
+                />
+                <div className={`${poppins.className} text-[12px] font-n[500]`}>
+                  see now
+                </div>
+              </button>
+              <Image
+                src="/images/swing.svg"
+                alt="Your Logo"
+                width={32}
+                height={26}
+              />
+            </div>
+          </div>
+          <div className="relative bottom-[45px]">
+            <Image
+              src="/images/teacher.svg"
+              alt="Your Logo"
+              width={130}
+              height={160}
+            />
+          </div>
+        </div>
       </div>
       <Review />
       <div className=" bg-[#00364E] flex flex-col justify-center items-center sm:py-[80px] py-[32px] gap-[40px]">
         <div
-          className={`${poppins.className} text-[#FFF] sm:text-[48px] text-[30px] font-[700] px-[20px]`}
+          className={`${poppins700.className} text-[#FFF] sm:text-[48px] text-[30px] font-[700] px-[20px]`}
         >
           boost your revision with{" "}
           <span className="text-[#FCDE5A]">
@@ -526,12 +611,12 @@ export default function Home({ params }: any) {
               />
               <div className="flex flex-col">
                 <div
-                  className={`${poppins.className} text-[#FFF] text-[18px] font-bold`}
+                  className={`${poppins700.className} text-[#FFF] sm:text-[18px] text-[14px] `}
                 >
                   32.4K Students
                 </div>
                 <div
-                  className={`${poppins.className} text-[#FFF] text-[16px] font-normal`}
+                  className={`${poppins400.className} text-[#FFF] sm:text-[16px] text-[14px] font-normal`}
                 >
                   Revise with IL Mock Tests
                 </div>
@@ -539,7 +624,7 @@ export default function Home({ params }: any) {
             </div>
             <div className="flex justify-center items-center gap-2 bg-[#007BFF] rounded-[12px] py-[12px] sm:px-[64px] px-[34px] transform hover:scale-105 transition-transform duration-300">
               <div
-                className={`${poppins.className} text-[16px] text-[#FFF] font-[600]`}
+                className={`${poppins600.className} text-[16px] text-[#FFF] font-[600]`}
               >
                 explore test series
               </div>
@@ -556,7 +641,6 @@ export default function Home({ params }: any) {
 
       <Download />
       <Footer />
-     
     </>
   );
 }
