@@ -462,7 +462,7 @@ function Header() {
             style={{ height: 32 }}
           >
 
-            <div className="text-blue-500 max-2xl:px-4 items-center max-md:text-white max-md:px-3 ">
+            <div className="text-blue-500 sm:bg-white max-2xl:px-4 items-center max-md:text-white max-md:px-3 rounded-[20px] px-[20px]">
               sign-in
             </div>
           </button>
