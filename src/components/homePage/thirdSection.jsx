@@ -129,44 +129,55 @@ const SwitchTabs = ({ data, onTabChange }) => {
   );
 };
 
-const SwitchTabs1 = ({ options }) => {
+const SwitchTabs1 = ({ onTabChange, data = options }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const tabsRef = useRef(null);
+  const tabWidth = 100; // Assume each tab has a width of 100px
+  const gap = 20; // Adjusted gap between tabs
+  const containerWidth = window.innerWidth; // Assume the container takes up the whole window width
 
   useEffect(() => {
-    const offsetLeft = tabsRef.current.children[selectedTab].offsetLeft;
-    const halfTabWidth = tabsRef.current.children[selectedTab].offsetWidth / 2;
-    tabsRef.current.scrollLeft =
-      offsetLeft - window.innerWidth / 2 + halfTabWidth;
-  }, [selectedTab]);
+    const intervalId = setInterval(() => {
+      setSelectedTab((prev) => (prev + 1) % data.length);
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, [data.length]);
+
+  useEffect(() => {
+    onTabChange && onTabChange(data[selectedTab], selectedTab);
+  }, [selectedTab, onTabChange, data]);
+
+  // Calculate the transform offset for the tabs container
+  const calculateOffset = () => {
+    let offset =
+      selectedTab * (tabWidth + gap) - (containerWidth - tabWidth - gap) / 2;
+    return -Math.max(offset, 0); // Ensure the offset is not negative
+  };
 
   return (
-    <div className="w-full overflow-x-auto relative whitespace-nowrap">
-      <div className="flex" ref={tabsRef}>
-        {options.map((option, index) => (
-          <div
+    <div className="bg-white md:hidden text-black h-11 relative overflow-hidden w-full flex justify-center">
+      <div
+        style={{
+          transform: `translateX(${calculateOffset()}px)`,
+          transition: "transform 1s ease",
+        }}
+        className="flex space-x-4 whitespace-nowrap" // Tailwind CSS for horizontal spacing instead of marginRight
+      >
+        {data.map((option, index) => (
+          <span
             key={index}
-            className={`p-2 w-24 text-center ${
+            className={`inline-flex items-center justify-center px-4 py-2 ${
               index === selectedTab
                 ? "text-blue-500 border-b-2 border-blue-500"
                 : "text-gray-400"
-            }`}
+            } cursor-pointer`}
+            style={{ minWidth: `${tabWidth}px` }} // Ensure each tab has at least 100px width
             onClick={() => setSelectedTab(index)}
           >
             {option}
-          </div>
+          </span>
         ))}
-        <div
-          className="absolute bottom-0 w-24 text-center text-blue-500"
-          style={{
-            transform: `translateX(${selectedTab * 100}%)`,
-            transition: "transform 0.3s ease",
-          }}
-        >
-          —
-        </div>
       </div>
-      <div className="p-2 mt-2">{`Selected tab: ${options[selectedTab]}`}</div>
     </div>
   );
 };
@@ -240,11 +251,11 @@ function ThirdSection() {
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />
-          {isMobileView &&
-            // <div className=" w-min ">
-            //   {/*<SwitchTabs1 data={options} onTabChange={onTabChange} />  */}
-            // </div>
-            ""}
+          {isMobileView && (
+            <div className=" overflow-x-auto ">
+              <SwitchTabs1 data={options} onTabChange={onTabChange} />
+            </div>
+          )}
         </div>
       </div>
       <div

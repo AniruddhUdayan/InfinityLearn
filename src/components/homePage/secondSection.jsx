@@ -106,7 +106,7 @@ function SecondSecCard(props) {
     <div
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
-      className={`flex hover:cursor-pointer poppins hover:bg-blue-500 hover:text-white 
+      className={`flex hover:cursor-pointer hover:bg-blue-500 hover:text-white 
       flex-col justify-evenly items-start 
       max-2xl:h-[318px] py-20 max-2xl:px-6
       flex-grow max-md:flex-shrink-0  bg-blue-200 
@@ -460,7 +460,7 @@ function SecondSection() {
             grade-wise
           </div>
         </h1>
-        <div className=" h-max flex max-md:px-4 max-lg:w-full justify-center mb-9   items-center">
+        <div className=" h-full flex max-md:px-4 max-lg:w-full justify-center mb-9   items-center">
           {/* {std.map((item) => (
             <button className=" bg-white rounded-3xl px-4 py-2 mx-3 text-black hover:bg-yellow-300">
               {item}
