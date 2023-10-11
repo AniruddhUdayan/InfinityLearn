@@ -8,12 +8,14 @@ import { BsArrowLeft } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import subItem from "../utils/infoHeader";
 import Link from "next/link";
+
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
+
 
 const items = ["courses", "study material", "results", "more"];
 function BooksCard(props) {
@@ -136,18 +138,19 @@ function ResHeader({
     <div className="md:hidden fixed  overflow-y-auto no-scrollbar flex-col top-0 left-0 w-full h-screen  bg-white text-black z-50 flex ">
       <div className=" flex py-7 px-2 bg-white justify-end">
         <button
-          className=" justify-end items-end close-button "
+          className=" justify-end px-4  items-end close-button "
           onClick={closeResHeader}
         >
-          <MdClose size={24} />
+          <MdClose size={32} />
         </button>
       </div>
       <div className=" flex-grow">
-        <div className="flex max-md:hidde flex-col justify-evenly">
+        <div className="flex   max-md:hidde flex-col justify-evenly">
           {items?.map((item, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="  px-0 relative">
               <li
-                className={`flex px7 py-4 justify-normal hover:cursor-pointer items-center border-b-2 border-opacity-50   hover:border-2  p-1 `}
+                className={`flex px7 py-4 font-semibold justify-normal hover:cursor-pointer items-center
+                 border-b-2 border-opacity-50     p-1 `}
                 onClick={() => toggleSubMenu(index)}
                 // onMouseEnter={() => hoverHandler1(index)}
               >
@@ -157,7 +160,7 @@ function ResHeader({
                 </div>
               </li>
               {index === activeItem && foundItem && (
-                <ul className=" w-fit    left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg">
+                <ul className=" w-fit  pl-0 px-0   -left-32 mt-2 bg-white  text-white border-white border-2 rounded-lg">
                   {foundItem?.subItems.map((subItem, subIndex) => (
                     <li
                       key={subIndex}
@@ -183,7 +186,7 @@ function ResHeader({
                               className=" justify-end items-start close-button"
                               onClick={showHeader2}
                             >
-                              <BsArrowLeft size={24} />
+                              <BsArrowLeft size={28} />
                             </button>
                             <div className=" px-2 pl-4">{textHead}</div>
                           </div>
@@ -195,7 +198,7 @@ function ResHeader({
                           </button>
                         </div>
                         {activeSubItem != null && (
-                          <ul className=" rounded-lg max-md:w-full max-md:items-start  w-fit bg-white  border-white border-2 top-0 left-full flex flex-col  ">
+                          <ul className="  rounded-lg max-md:w-full max-md:items-start  w-fit bg-white  border-white border-2 top-0 left-full flex flex-col  ">
                             {Array.isArray(foundSubItem) &&
                               foundSubItem.map((subItem, listItemIndex) => (
                                 <div
@@ -248,7 +251,7 @@ function ResHeader({
           alt="whatsapp"
         />
         <button
-          className={`my-4 gap-3 p-2 w-72 flex rounded-2xl justify-center items-center bg-blue-500  text-white`}
+          className={`my-3 gap-3 p-2 h-[48px] w-[271px] flex rounded-2xl justify-center items-center bg-blue-500  text-white`}
         >
           <div>
             <MdCall size={20} />
@@ -340,7 +343,12 @@ function Header() {
   return (
     <div>
       <nav
-        className={`${poppins.className} bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 max-lg:w-full max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4 px-14 w-screen max-md:border-b-0 border-b-[0.5px] border-[#2C91FF] text-[16px] font-[500]`}
+
+        className={`bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 max-lg:w-full 
+        max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4
+         px-14 w-screen max-md:border-b-0 border-b-[1px] border-whte border-gray-400 border-opacity-50`}
+
+        
       >
         <div className="flex justify-evenly   items-center">
           <Image
@@ -359,7 +367,7 @@ function Header() {
           />
 
           <div className="flex-grow  z-30">
-            <ul className="flex text-white mb-0 max-md:hidden justify-evenly ">
+            <ul className="flex text-white mb-0 max-md:hidden justify-around ">
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
@@ -448,15 +456,20 @@ function Header() {
             </div>
           </div>
           <button
-            className="rounded-xl max-md:bg-[#007BFF] max-md:border-2 bg-white"
+            className="rounded-xl max-md:w-fit ma max-md:rounded-3xl max-md:bg-[#007BFF] max-md:border-2 max-2xl:bg-white"
             style={{ height: 32 }}
           >
-            <div className="text-blue-500 max-md:text-blue-500 px-5">
+
+            <div className="text-blue-500 max-2xl:px-4 items-center max-md:text-white max-md:px-3 ">
               sign-in
             </div>
           </button>
-          <div className="md:hidden hover:cursor-pointer ml-5">
-            <SlMenu size={20} onClick={handleMenuClick} />
+          <div className="md:hidden  text-white hover:cursor-pointer ml-5">
+            <SlMenu
+              size={20}
+              style={{ color: "white" }}
+              onClick={handleMenuClick}
+            />
           </div>
         </div>
       </nav>
