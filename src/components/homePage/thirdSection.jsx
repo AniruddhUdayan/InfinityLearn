@@ -117,67 +117,47 @@ const SwitchTabs = ({ data, onTabChange }) => {
   );
 };
 
-// const SwitchTabs1 = ({ onTabChange, data = options }) => {
-//   const [selectedTab, setSelectedTab] = useState(0);
-//   const [containerWidth, setContainerWidth] = useState(window.innerWidth);
+const SwitchTabs1 = ({ options }) => {
+  const [selectedTab, setSelectedTab] = useState(0);
+  const tabsRef = useRef(null);
 
-//   const tabWidth = 100;
-//   const gap = 10;
+  useEffect(() => {
+    const offsetLeft = tabsRef.current.children[selectedTab].offsetLeft;
+    const halfTabWidth = tabsRef.current.children[selectedTab].offsetWidth / 2;
+    tabsRef.current.scrollLeft =
+      offsetLeft - window.innerWidth / 2 + halfTabWidth;
+  }, [selectedTab]);
 
-//   const updateWidth = useCallback(() => {
-//     setContainerWidth(window.innerWidth);
-//   }, []);
-
-//   useEffect(() => {
-//     window.addEventListener("resize", updateWidth);
-//     return () => window.removeEventListener("resize", updateWidth);
-//   }, [updateWidth]);
-
-//   useEffect(() => {
-//     const intervalId = setInterval(() => {
-//       setSelectedTab((prev) => (prev + 1) % data.length);
-//     }, 2000);
-//     return () => clearInterval(intervalId);
-//   }, [data.length]);
-
-//   useEffect(() => {
-//     onTabChange && onTabChange(data[selectedTab], selectedTab);
-//   }, [selectedTab, onTabChange, data]);
-
-//   return (
-//     <div className="bg-white md:hidden text-black h-11 relative overflow-hidden w-full flex justify-center">
-//       <div
-//         style={{
-//           transform: `translateX(-${
-//             selectedTab * (tabWidth + gap) -
-//             containerWidth / 2 +
-//             (tabWidth / 2 + gap)
-//           }px)`,
-//           transition: "transform 1s ease",
-//           whiteSpace: "nowrap",
-//           display: "flex",
-//         }}
-//       >
-//         {data.map((option, index) => (
-//           <span
-//             key={index}
-//             role="tab"
-//             aria-selected={index === selectedTab}
-//             className={`inline-block px-4 w-full text-center ${
-//               index === selectedTab
-//                 ? "text-blue-500 border-blue-500 border-b-2"
-//                 : "text-gray-400"
-//             } hover:cursor-pointer`}
-//             style={{ width: `${tabWidth}px`, marginRight: `${gap}px` }}
-//             onClick={() => setSelectedTab(index)}
-//           >
-//             {option}
-//           </span>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="w-full overflow-x-auto relative whitespace-nowrap">
+      <div className="flex" ref={tabsRef}>
+        {options.map((option, index) => (
+          <div
+            key={index}
+            className={`p-2 w-24 text-center ${
+              index === selectedTab
+                ? "text-blue-500 border-b-2 border-blue-500"
+                : "text-gray-400"
+            }`}
+            onClick={() => setSelectedTab(index)}
+          >
+            {option}
+          </div>
+        ))}
+        <div
+          className="absolute bottom-0 w-24 text-center text-blue-500"
+          style={{
+            transform: `translateX(${selectedTab * 100}%)`,
+            transition: "transform 0.3s ease",
+          }}
+        >
+          —
+        </div>
+      </div>
+      <div className="p-2 mt-2">{`Selected tab: ${options[selectedTab]}`}</div>
+    </div>
+  );
+};
 
 function ThirdSection() {
   const optionComponents = {
@@ -249,11 +229,11 @@ function ThirdSection() {
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />
-          {isMobileView && (
-            <div className=" w-min overflow-x-hidden">
-              {/* <SwitchTabs1 data={options} onTabChange={onTabChange} /> */}
-            </div>
-          )}
+          {isMobileView &&
+            // <div className=" w-min ">
+            //   {/*<SwitchTabs1 data={options} onTabChange={onTabChange} />  */}
+            // </div>
+            ""}
         </div>
       </div>
       <div
@@ -268,13 +248,13 @@ function ThirdSection() {
           className="my-imag max-md:w-screen  md:w-1/2"
         />
         <div className=" flex md:w-1/2 md:pr-36 md:items-start items-center max-md:mt-8 max-md:ml-6 flex-col">
-          <div className="optionContainer">
+          <div className="optionContaier  max-md:h-[200px]">
             {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
               (Component, index) => (
                 <div
                   key={index}
                   style={{
-                    display: selectedOption === index ? "block" : "none",
+                    display: selectedOption === index ? "flex" : "none",
                   }}
                 >
                   <Component />
