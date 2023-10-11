@@ -159,7 +159,7 @@ function Card(props) {
 function ScrollableDiv() {
   const scrollRef = useRef(null);
   const [activeDash, setActiveDash] = useState(0);
-  const [cardWidth, setCardWidth] = useState(390);
+  const [cardWidth, setCardWidth] = useState(400);
 
   useEffect(() => {
     // setCardWidth(window.innerWidth <= 768 ? window.innerWidth : 368);

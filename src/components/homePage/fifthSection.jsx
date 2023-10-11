@@ -90,7 +90,7 @@ function Card(props) {
           height={52}
           width={40}
           alt="inverted commas "
-          className=" w-[15%] bottom-10 max-lg:left-[310px] max-xl:left-[310px] max-md:left-[283px] opacity-75 left-72  relative"
+          className=" w-[15%] max-md:bottom-0 max-lg:left-[310px] max-xl:left-[310px] max-md:left-[283px] opacity-75 left-72  relative"
         />
         <Image
           src="/reviews/video.svg"
