@@ -68,9 +68,9 @@ function Card(props) {
   if (check) {
     return (
       <div
-        className="flex  max-2xl:w-[365px] mb-12 mx-auto  max-md:h-fll 
-      max-md:py-4 shadow-lg max-md:w-[355px] max-md:h-[391px] justify-evenl   flex-col px-2
-      flex-shrink-0  my-4 rounded-2xl w-1/4 bg-white text-[#080E14]"
+        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] mb-12 mx-auto  max-md:h-fll 
+      max-md:py-4  shadow-md max-md:w-[355px] max-md:h-[391px] justify-evenly py-3    flex-col px-2
+      flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
       >
         <Image
           src={props.data.image}
@@ -97,11 +97,11 @@ function Card(props) {
           height={52}
           width={40}
           alt="video svg "
-          className=" w-[15%] bottom-[254px] max-md:bottom-[240px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
+          className=" w-[15%] bottom-[220px] max-md:bottom-[240px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
         />
         <div
           className=" flex max-md:ml-1 max-md:gap-3 max-md:justify-start max-md:flex-col 
-        max-md:relative max-md:right-40 max-md:bottom-24   items-center "
+        max-md:relative max-md:right-40 max-md:bottom-24    max-md:items-center "
         >
           <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
             <div className=" font-bold">{props.data.name}</div>
@@ -117,8 +117,8 @@ function Card(props) {
 
   return (
     <div
-      className="flex mb-12  max-2xl:w-[392px] max-md:h-[391px] max-md:w-[335px]  
-      shadow-lg gap-5  flex-col max-md:gap-12 px-5 max-md:px-4 
+      className="flex mb-12  max-2xl:w-[392px] max-2xl:h-[365px] max-md:h-[391px] max-md:w-[335px]  
+      shadow-md  flex-col max-md:gap-12 px-5 max-md:px-4 
     flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-[#080E14] "
     >
       <div className="flex  items-center gap-6 max-md:gap-5 px-7 max-md:px-2 ">
@@ -225,7 +225,7 @@ function Reviews() {
         setLineLength(` w-48  max-md:w-28 `);
       }
       return () => clearInterval(interval);
-    }, 1500);
+    }, 150000);
 
     return () => clearInterval(interval);
   }, [scrollPos]);
