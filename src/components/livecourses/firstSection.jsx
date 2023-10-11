@@ -1,11 +1,12 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import { BsDownload } from "react-icons/bs";
 function FirstSection() {
   return (
     <div className=" h-full mx-auto  text-white bg-blue-500">
       <div className=" flex justify-center max-md:flex-col max-md:py-0  max-md:pt-16  py-16">
-        <img
+        <Image
           className="relative max-md:hidden ml-10  rounded-3xl w-[578px] h-[528px] object-cover"
           alt=""
           src="livecourses/firstSection/mask-group@2x.png"

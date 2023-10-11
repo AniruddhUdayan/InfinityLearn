@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 
 const options = [
@@ -131,7 +132,7 @@ function SecondSection() {
       </div>
       <div className="flex justify-evenly max-md:flex-col max-md:ml-0  mx-auto ml-9 max-md:items-start  items-center">
         <div className=" md:hidden mb-7">
-          <img
+          <Image
             src="./livecourses/secondSection/image1.svg"
             height={530}
             width={700}
@@ -150,7 +151,7 @@ function SecondSection() {
             <div> world class IL books</div>
           </div>
         </div>
-        <img
+        <Image
           src="./livecourses/secondSection/image1.svg"
           height={530}
           width={600}
