@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
 import LoginPopup from "../LoginPopup";
+
 const options = [
   "personal attention",
   "india's top faculty",
@@ -186,6 +187,10 @@ const SwitchTabs1 = ({ onTabChange, data = options }) => {
 };
 
 function ThirdSection() {
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
   const optionComponents = {
     0: <OptionZero />,
     1: <OptionOne />,
@@ -248,14 +253,14 @@ function ThirdSection() {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
   };
 
-  const startLearning = async () =>{
+  const startLearning = async () => {
     dispatch(showOverlayMode(!showOverlay));
-  }
+  };
   if (showOverlay) {
     return (
       <div>
-      <LoginPopup />
-    </div>
+        <LoginPopup />
+      </div>
     );
   }
   return (
@@ -297,11 +302,14 @@ function ThirdSection() {
             )}
           </div>
           <div className=" w-full flex justify-center items-center">
-          <button onClick={startLearning} className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
-            <div>
-              start learning for free <span>&#8599;</span>
-            </div>
-          </button>
+            <button
+              onClick={startLearning}
+              className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl"
+            >
+              <div>
+                start learning for free <span>&#8599;</span>
+              </div>
+            </button>
           </div>
         </div>
       </div>

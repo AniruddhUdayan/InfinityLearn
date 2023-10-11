@@ -38,11 +38,24 @@ function SixthSection() {
     // Cleanup: remove event listener on unmount
     return () => window.removeEventListener("resize", updateWidth1);
   }, []);
+  const startLearning = async () => {
+    dispatch(showOverlayMode(!showOverlay));
+  };
+  if (showOverlay) {
+    return (
+      <div>
+        <LoginPopup />
+      </div>
+    );
+  }
 
   return (
     <div className=" flex flex-col max-md:pt-20 max-2xl:pt-32 justify-center">
       <div className=" w-full flex justify-center items-center">
-        <button onClick={startLearning} className="text-white h-[52px] hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-2xl">
+        <button
+          onClick={startLearning}
+          className="text-white h-[52px] hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-2xl"
+        >
           <div>
             start learning for free <span>&#8599;</span>
           </div>
