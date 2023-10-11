@@ -69,7 +69,7 @@ const Bookdemo = () => {
         </div>
       </div>
       <div className="flex flex-col gap-1 w-auto justify-center mt-5">
-        <div className="flex flex-row px-[12px] py-[14px]">
+        <div className="flex flex-row ">
           <div
             className={`${poppins.className} sm:h-[56px] h-[48px] sm:w-auto bg-white rounded-tl-[20px] rounded-bl-[20px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500]  sm:gap-1`}
           >
