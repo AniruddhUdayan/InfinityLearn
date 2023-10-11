@@ -15,7 +15,7 @@ const Download = () => {
             best study material,{" "}
             <span className="text-[#080E14]">now at your finger tips!</span>
           </div>
-          <div className="flex gap-2">
+          <div className="max-sm:hidden flex gap-2">
             <Image
               src="/images/checklist1.png"
               alt="check"
@@ -26,7 +26,18 @@ const Download = () => {
               live classes
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="sm:hidden flex gap-2 mb-[20px]">
+            <Image
+              src="/images/checklist1.png"
+              alt="check"
+              width={25}
+              height={25}
+            />
+            <div className="text-[#6B6E72] text-lg flex items-center">
+              live classes
+            </div>
+          </div>
+          <div className="max-sm:hidden flex gap-2">
             <Image
               src="/images/checklist1.png"
               alt="check"
@@ -37,12 +48,34 @@ const Download = () => {
               progress tracking
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="sm:hidden flex gap-2 mb-[20px]">
+            <Image
+              src="/images/checklist1.png"
+              alt="check"
+              width={25}
+              height={25}
+            />
+            <div className="text-[#6B6E72] text-lg flex items-center">
+              progress tracking
+            </div>
+          </div>
+          <div className="max-sm:hidden flex gap-2">
             <Image
               src="/images/checklist1.png"
               alt="check"
               width={40}
               height={40}
+            />
+            <div className="text-[#6B6E72] text-lg flex items-center">
+              diverse question banks
+            </div>
+          </div>
+          <div className="sm:hidden flex gap-2 mb-[20px]">
+            <Image
+              src="/images/checklist1.png"
+              alt="check"
+              width={25}
+              height={25}
             />
             <div className="text-[#6B6E72] text-lg flex items-center">
               diverse question banks
@@ -65,8 +98,17 @@ const Download = () => {
           alt="phone"
           width={400}
           height={0}
-          className="lg:-mb-[2px]"
+          className="lg:-mb-[2px] max-sm:hidden"
         />
+        <div className="flex justify-center">
+          <Image
+            src="/images/appver.svg"
+            alt="phone"
+            width={313}
+            height={470}
+            className="lg:-mb-[2px] sm:hidden "
+          />
+        </div>
         <div className="lg:hidden mb-4">
           <div className="text-2xl text-center mb-4 font-bold">
             download the app

@@ -104,7 +104,7 @@ export default function Home({ params }: any) {
                     />
                   </div>
                   <div className="sm:hidden relative h-[366px] flex justify-center items-end top-6 mt-[32px]">
-                  <Image
+                    <Image
                       src={imagePath}
                       alt="Your Logo"
                       width={250}
@@ -553,9 +553,10 @@ export default function Home({ params }: any) {
           </div>
         </div>
       </div>
-     
+
       <Download />
       <Footer />
+     
     </>
   );
 }
