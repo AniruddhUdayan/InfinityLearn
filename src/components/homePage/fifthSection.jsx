@@ -50,8 +50,8 @@ const reviews = [
 ];
 function LevelShower(props) {
   return (
-    <div className=" max-md:w-64  max-lg:px-0 max-xl:">
-      <div className="flex items-center">
+    <div className=" max-md:w-64   max-lg:px-0 max-xl:">
+      <div className="flex max-md:ml-0 max-2xl:ml-10items-center">
         <div className="w-4 h-4 mr-6 font-semibold">01</div>
         <div className=" w-48 max-md:w-28 h-0.5 mt-2 bg-white"></div>
         <div className="w-4 h-4 font-semibold ml-6">05</div>
@@ -68,8 +68,8 @@ function Card(props) {
   if (check) {
     return (
       <div
-        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] mb-12 mx-auto  max-md:h-fll 
-      max-md:py-4  shadow-md max-md:w-[355px] max-md:h-[391px] justify-evenly py-3    flex-col px-2
+        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] max-2xl:mb-5 mx-auto  max-md:h-fll 
+      max-md:py-4  max-2xl:my-4 shadow-md max-md:w-[355px] max-md:h-full justify-evenly max-md:gap-     flex-col px-2
       flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
       >
         <Image
@@ -77,11 +77,11 @@ function Card(props) {
           // className=" rounded-full"
           height={161}
           width={292}
-          className="  max-2xl:mt-4 max-md:mt-1  w-[100%] h-[100%]"
+          className="  max-md:mt-1 max-2xl:mt-20  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
         />
-        <div className="  max-md:px-1 max-md:mt-5 max-md:text-base max-md:w-full  text-start">
+        <div className="  max-md:px-1 max-md:mt-5 max-2xl:mt-4 max-md:text-base max-md:w-full  text-start">
           {props.data.review}
         </div>
 
@@ -90,7 +90,7 @@ function Card(props) {
           height={52}
           width={40}
           alt="inverted commas "
-          className=" w-[15%] bottom-10 max-lg:left-[310px] max-xl:left-[310px] max-md:left-[283px] opacity-75 left-72  relative"
+          className=" w-[15%] max-md:bottom-0 max-2xl:bottom-6  max-xl:bottom-10 max-xl:left-[305px] max-md:left-[283px] opacity-75 left-72  relative"
         />
         <Image
           src="/reviews/video.svg"
@@ -100,8 +100,8 @@ function Card(props) {
           className=" w-[15%] bottom-[220px] max-md:bottom-[240px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
         />
         <div
-          className=" flex max-md:ml-1 max-md:gap-3 max-md:justify-start max-md:flex-col 
-        max-md:relative max-md:right-40 max-md:bottom-24    max-md:items-center "
+          className=" flex max-2xl:bottom-20 max-2xl:right-2 max-md:ml-1 max-md:gap-3 max-md:justify-start max-md:flex-col 
+       relative max-md:right-40 max-md:bottom-2    max-md:items-center "
         >
           <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
             <div className=" font-bold">{props.data.name}</div>
@@ -121,7 +121,7 @@ function Card(props) {
       shadow-md  flex-col max-md:gap-12 px-5 max-md:px-4 
     flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-[#080E14] "
     >
-      <div className="flex  items-center gap-6 max-md:gap-5 px-7 max-md:px-2 ">
+      <div className="flex  items-center gap- gap-5 px-7 max-md:px-2 ">
         <Image
           src={props.data.image}
           // className=" rounded-full"
@@ -225,7 +225,7 @@ function Reviews() {
         setLineLength(` w-48  max-md:w-28 `);
       }
       return () => clearInterval(interval);
-    }, 150000);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, [scrollPos]);
@@ -279,7 +279,7 @@ function FifthSection() {
         </div>
         <Image
           src="/../homepage/fifthSection/topper.svg"
-          className="max-md:hidden "
+          className="max-md:hidden max-xl:mr-5 "
           height={400}
           width={600}
           alt="topper.svg"

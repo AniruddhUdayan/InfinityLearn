@@ -132,7 +132,7 @@ function FirstSection() {
               <div
                 className="rounded-s-2xl rounded-e-none 
              border-[1px] border-r-0
-            max-2xl:bg-transparent max-md:bg-white px-4 py-2 max-md:text-[#080E14] text-white pe-2 flex justify-center items-center"
+            max-2xl:bg-transparent max-md:bg-white px-4 py-2 max-md:text-[#080E14] max-2xl:text-white pe-2 flex justify-center items-center"
               >
                 +91
               </div>
