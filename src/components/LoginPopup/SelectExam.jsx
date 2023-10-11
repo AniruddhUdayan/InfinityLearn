@@ -140,7 +140,7 @@ const SelectExam = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="./login/newUser/newUser3.svg"
+                            src="/login/mobVer/SuccessImage.png"
                             height={250}
                             width={600}
                             alt="mob-ver-1"
