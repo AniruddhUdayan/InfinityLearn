@@ -130,7 +130,7 @@ const Review = () => {
             <div className="flex flex-col pl-[20px] gap-[12px]">
               <div className="flex flex-row justify-center items-center sm:gap-[27px] gap-1">
                 <div
-                  className={`${poppins.className} text-[#6B6E72] text-[14px] font-[500]`}
+                  className={`${poppins.className} text-[#6B6E72] text-[14px] font-[500] min-w-[42px]`}
                 >
                   5 star
                 </div>
