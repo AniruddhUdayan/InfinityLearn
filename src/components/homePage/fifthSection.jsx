@@ -68,8 +68,8 @@ function Card(props) {
   if (check) {
     return (
       <div
-        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] mb-12 mx-auto  max-md:h-fll 
-      max-md:py-4  shadow-md max-md:w-[355px] max-md:h-[391px] justify-evenly py-3    flex-col px-2
+        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] max-2xl:mb-5 mx-auto  max-md:h-fll 
+      max-md:py-4  shadow-md max-md:w-[355px] max-md:h-full justify-evenly max-md:gap-     flex-col px-2
       flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
       >
         <Image
@@ -77,7 +77,7 @@ function Card(props) {
           // className=" rounded-full"
           height={161}
           width={292}
-          className="  max-2xl:mt-4 max-md:mt-1  w-[100%] h-[100%]"
+          className="  max-md:mt-1  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
         />
@@ -101,7 +101,7 @@ function Card(props) {
         />
         <div
           className=" flex max-md:ml-1 max-md:gap-3 max-md:justify-start max-md:flex-col 
-        max-md:relative max-md:right-40 max-md:bottom-24    max-md:items-center "
+        max-md:relative max-md:right-40 max-md:bottom-2    max-md:items-center "
         >
           <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
             <div className=" font-bold">{props.data.name}</div>

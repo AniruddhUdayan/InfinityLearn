@@ -197,7 +197,7 @@ function ScrollableDiv() {
     <div className="md:hidden">
       <div
         ref={scrollRef}
-        className="h-auto flex px-4 items-center max-md:gap-5 max-2xl:gap-12 max- no-scrollbar overflow-x-scroll whitespace-nowrap"
+        className="h-auto flex px-4 items-center max-md:gap-5 max-2xl:gap-10 max- no-scrollbar overflow-x-scroll whitespace-nowrap"
         style={{ scrollBehavior: "smooth", width: cardWidth }}
       >
         {courses
