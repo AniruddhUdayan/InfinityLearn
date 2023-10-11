@@ -6,6 +6,10 @@ import people from './../../../../public/images/people-icon.svg'
 import dateB from './../../../../public/images/date-icon-blue.svg'
 import pcbB from './../../../../public/images/pcb-icon-blue.svg'
 import peopleB from './../../../../public/images/people-icon-blue.svg'
+import arrowR from './../../../../public/images/arrow-r-white.svg'
+import arrowRB from './../../../../public/images/arrow-r-blue.svg'
+import arrowTRB from './../../../../public/images/arrow-tr-black.svg'
+import arrowTRY from './../../../../public/images/arrow-tr.svg'
 import Image from "next/image"
 import { Button } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
@@ -32,10 +36,18 @@ const LandingExam = () => {
 				})
 			} else if (activeIndex == 0) {
 				setActiveIndex(activeIndex + 1)
-				carousel.current.scrollTo({
-					left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
-					behavior: "smooth",
-				})
+				if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
+					carousel.current.scrollTo({
+						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+						behavior: "smooth",
+					})	
+				} else {
+					carousel.current.scrollTo({
+						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+						behavior: "smooth",
+					})
+				}
+
 			} else {
 				setActiveIndex(activeIndex + 1)
 				carousel.current.scrollTo({
@@ -48,7 +60,7 @@ const LandingExam = () => {
 	}, [activeIndex])
 	
 	return (
-		<div className="w-full text-[#EFEFEF] bg-[#007BFF] mt-[4.8rem] lg:mt-0">
+		<div className="w-full text-[#EFEFEF] bg-[#007BFF] mt-[4.8rem] md:mt-0">
 
 			<div ref={carousel} className="overflow-x-auto no-scrollbar flex gap-4 py-8 px-4 snap-x">
 				{banners.map((banner, index) => (
@@ -90,19 +102,25 @@ const LandingExam = () => {
 						</div>
 					</div>
 					<div className="px-8 lg:px-20 flex flex-col gap-4">
-						<Button variant='outlined' disableElevation color='yellow' fullWidth sx={{
+						<Button variant='outlined' className="flex gap-2 items-center" disableElevation color='yellow' fullWidth sx={{
 							borderRadius: '0.5rem'
 						}}>
-							start learning for free
+							start learning for free 
+							<Image src={arrowTRY} alt='arrow' width={15} height={0} />
 						</Button>
-						<Button variant='contained' disableElevation color='yellow' fullWidth sx={{
+						<Button variant='contained' className="flex gap-2 items-center"  disableElevation color='yellow' fullWidth sx={{
 							borderRadius: '0.5rem'
 						}}>
 							book free counselling session
+							<Image src={arrowTRB} alt='arrow' width={15} height={0} />
 						</Button>
 					</div>
 				</div>
-				<div className="text-center mb-4 lg:mb-0 text-[#007BFF] pt-4 lg:text-white bg-white lg:bg-transparent">JEE details</div>
+				<div className="cursor-pointer flex gap-2 justify-center mb-4 lg:mb-0 text-[#007BFF] pt-4 lg:text-white bg-white lg:bg-transparent">
+					JEE details
+					<Image src={arrowR} alt='arrow' width={12} height={0} className="hidden lg:block" />
+					<Image src={arrowRB} alt='arrow' width={12} height={0} className="lg:hidden" />
+				</div>
 			</div>
 		</div>
 	)
