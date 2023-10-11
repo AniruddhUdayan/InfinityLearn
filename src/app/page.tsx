@@ -13,7 +13,7 @@ import SixthSection from "../components/homePage/sixthSection.jsx";
 import SeventhSection from "../components/homePage/seventhSection.jsx";
 
 import Head from "next/head";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Download from "@/components/examPage/Download/index.js";
 export default function Home() {
   return (

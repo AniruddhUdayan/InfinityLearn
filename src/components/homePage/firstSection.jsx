@@ -91,9 +91,6 @@ function FirstSection() {
   };
   if (showOverlay) {
     return (
-      // <div>
-      //   <LoginPage />
-      // </div>
       <div>
         <LoginPopup />
       </div>
@@ -127,7 +124,6 @@ function FirstSection() {
             width={600}
             height={350}
             alt="firstSectionRes"
-            loading="lazy"
           />
         </div>
         <div className=" max-md:w-full max-md:flex max-md:justify-center max-md:items-center">
@@ -145,6 +141,7 @@ function FirstSection() {
               max-md:rounded--3xl max-md:bg-white
                max-md:placeholder-gray-500 bg-[#007BFF]
                 placeholder-text:ml-3
+
                  placeholder-[#F0F0F0]
                 text-black max-md:w-96 h-10 border-l-0
                 md:h-12 pl-4 md:pl-6 text-base md:text-lg border-[1px] "

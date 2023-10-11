@@ -268,6 +268,11 @@ function Header() {
   const [foundItem, setFoundItem] = useState(null);
   const [foundSubItem, setFoundSubItem] = useState(null);
 
+  
+  // const isBooksPage = window.location.pathname.includes('/books/NEET/11/12/12plus' || 'books/JEE/11/12/12plus' || 'books/CUET/11/12/12plus');
+  // const signInButtonText = isBooksPage ? 'Books' : 'Sign In';
+  // console.log(params) 
+
   useEffect(() => {
     // Whenever activeItem changes, update foundItem
     if (activeItem !== null) {
@@ -458,12 +463,12 @@ function Header() {
             </div>
           </div>
           <button
-            className="rounded-xl max-md:w-fit ma max-md:rounded-3xl max-md:bg-[#007BFF] max-md:border-2 max-2xl:bg-white"
+            className="rounded-xl w-auto max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
             style={{ height: 32 }}
           >
 
-            <div className="text-blue-500 max-2xl:px-4 items-center max-md:text-white max-md:px-3 ">
-              sign-in
+            <div className="text-blue-500 sm:bg-white max-2xl:px-4 items-center max-sm:text-[#007BFF] font-semibold max-md:px-3 rounded-[20px] px-[20px]">
+            sign in
             </div>
           </button>
           <div className="md:hidden  text-white hover:cursor-pointer ml-5">

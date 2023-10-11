@@ -88,20 +88,14 @@ const isExitingUser = useSelector(
         console.log(response)
         setOtpError(false);
         setShowOverlay(true);
-      //   if(!isExitingUser){
-      //   let profileUpdate = { ...response?.userDto,
-      //     exams: selectedExams,
-      //     grade: selectedGrade
-      //   }
-      //     const updatedUserData = await updateUserProfile(response?.token,profileUpdate,response?.userDto?.userId);
-      //     localStorage.setItem('user_details_from_server', JSON.stringify(updatedUserData?.userDto));
-      //     sendLsq();
-      //     dispatch(setIsOtpVerified(true));
-      // } else {
-        localStorage.setItem('user_details_from_server', JSON.stringify(response?.userDto));
-        sendLsq();
         dispatch(setIsOtpVerified(true));
-      // }
+        if (!isExitingUser) {
+          updateUser(response)
+        } else {
+          localStorage.setItem('token',response?.accessToken);
+          localStorage.setItem('user_details_from_server', JSON.stringify(response?.userDto));
+          sendLsq();
+        }
       } catch (error) {
         setOtpError(true);
         console.error('Error fetching data:', error.message);
@@ -109,13 +103,33 @@ const isExitingUser = useSelector(
         // setLoading(false);
       }
     };
+
+   const updateUser = async (response)=>{
+    try{
+      let profileUpdate = { ...response?.userDto,
+        exams: selectedExams,
+        grade: selectedGrade
+      }
+        const updatedUserData = await updateUserProfile(response?.accessToken,profileUpdate,response?.userDto?.userId);
+        localStorage.setItem('token',updatedUserData?.accessToken);
+        localStorage.setItem('user_details_from_server', JSON.stringify(updatedUserData?.userDto));
+        sendLsq();
+        dispatch(setIsOtpVerified(true));
+    } catch{
+      console.error('Error fetching data:', error.message);
+    } finally{
+
+    }
+   }
   
     const [otpError, setOtpError] = useState(false);
   
     const sendLsq = async ()=>{
       let userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
       let Fields = {
-        mx_Grade : userDetails?.name?.replace(/[^0-9]/g, ''),
+        mx_Grade : userDetails?.grade?.name?.replace(/[^0-9]/g, ''),
+        mx_Exam: userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+        mx_Primary_Target_Exam : userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
         mx_Custom_6 : "website",
       }
       let Payload = {
@@ -289,9 +303,9 @@ const isExitingUser = useSelector(
           </Col>
         </Row>
       </Container>
-      <div class="marketpr_show">
-        <div class="feslofrbottom">
-          <div class="pac_festpr_flexshow">
+      <div className="marketpr_show">
+        <div className="feslofrbottom">
+          <div className="pac_festpr_flexshow">
             <button
               onClick={verifyOtp}
               className={`otp_button ${otp == "" ? 'opacity_off' : ''}`}
