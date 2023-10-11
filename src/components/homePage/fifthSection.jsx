@@ -68,20 +68,20 @@ function Card(props) {
   if (check) {
     return (
       <div
-        className="flex max-lg:w-[400px] max-xl:w-[400px] mb-12 mx-auto  max-md:h-full 
-      max-md:py-4 shadow-lg max-md:w-[355px]   flex-col px-5
+        className="flex  max-2xl:w-[365px] mb-12 mx-auto  max-md:h-fll 
+      max-md:py-4 shadow-lg max-md:w-[355px] max-md:h-[391px] justify-evenl   flex-col px-2
       flex-shrink-0  my-4 rounded-2xl w-1/4 bg-white text-[#080E14]"
       >
         <Image
           src={props.data.image}
           // className=" rounded-full"
-          height={120}
-          width={200}
-          className="  mt-6 max-md:mt-1  w-[100%] h-[100%]"
+          height={161}
+          width={292}
+          className="  max-2xl:mt-4 max-md:mt-1  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
         />
-        <div className=" ml-4 max-md:px-1 max-md:text-base max-md:w-full  text-start">
+        <div className="  max-md:px-1 max-md:mt-5 max-md:text-base max-md:w-full  text-start">
           {props.data.review}
         </div>
 
@@ -90,14 +90,24 @@ function Card(props) {
           height={52}
           width={40}
           alt="inverted commas "
-          className=" w-[15%] bottom-12 max-lg:left-[310px] max-xl:left-[310px] max-md:left-[283px] opacity-75 left-72  relative"
+          className=" w-[15%] bottom-10 max-lg:left-[310px] max-xl:left-[310px] max-md:left-[283px] opacity-75 left-72  relative"
         />
-        <div className=" flex  items-center ">
-          <div className="flex z-50 ml-4  flex-col flex-grow">
+        <Image
+          src="/reviews/video.svg"
+          height={52}
+          width={40}
+          alt="inverted commas "
+          className=" w-[15%] bottom-[254px] max-lg:left-[310px] max-xl:left-[310px] max-md:left-[150px] opacity-75   relative"
+        />
+        <div
+          className=" flex max-md:ml-1 max-md:gap-3 max-md:justify-start max-md:flex-col 
+        max-md:relative max-md:right-40 max-md:bottom-24   items-center "
+        >
+          <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
             <div className=" font-bold">{props.data.name}</div>
             <div className="  font-medium opacity-50">{props.data.place}</div>
           </div>
-          <div className=" max-md:ml-8  text-orange-400">
+          <div className=" max-md:ml-20  text-orange-400">
             {props.data.batch}
           </div>
         </div>
@@ -107,11 +117,11 @@ function Card(props) {
 
   return (
     <div
-      className="flex mb-12  max-2xl:w-[392px] max-md:w-[335px]  
-      shadow-lg gap-5  flex-col px-5 max-md:px-4 
+      className="flex mb-12  max-2xl:w-[392px] max-md:h-[391px] max-md:w-[335px]  
+      shadow-lg gap-5  flex-col max-md:gap-12 px-5 max-md:px-4 
     flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-[#080E14] "
     >
-      <div className="flex  items-center gap-6 max-md:gap-2 px-7 max-md:px-2 ">
+      <div className="flex  items-center gap-6 max-md:gap-5 px-7 max-md:px-2 ">
         <Image
           src={props.data.image}
           // className=" rounded-full"
@@ -185,7 +195,7 @@ function Reviews() {
     setCN(window.innerWidth <= 768 ? 1 : 3);
     setPN(window.innerWidth <= 768 ? 1 : 4);
     if (window.innerWidth <= 768) {
-      setSN(95);
+      setSN(105);
     } else if (window.innerWidth <= 1024) {
       setSN(35);
     } else {
@@ -232,7 +242,7 @@ function Reviews() {
       <div className="  flex relative  max-md:h-full max-md:top-7 top-40 flex-col justify-center items-center ">
         <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto w-screen  relative w-5/">
           <div
-            className="flex gap-8 max-md:gap-12 max-md:px-5 transition-transform duration-1000"
+            className="flex gap-8 max-md:gap-[70px] max-md:px-5 transition-transform duration-1000"
             style={{ transform: `translateX(-${scrollPos * sN}%)` }}
           >
             {reviews.map((review, index) => (
