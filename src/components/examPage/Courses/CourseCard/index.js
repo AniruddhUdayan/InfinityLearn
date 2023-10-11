@@ -5,7 +5,7 @@ import views1 from './../../../../../public/images/views-1.svg'
 
 const CourseCard = ({ title, img, classes, views, desc, price, live, point1, point2 }) => {
     return (
-        <div className="p-4 bg-white shadow-[0px_4px_15px_0px_#007BFF40] rounded-2xl flex flex-col min-w-full lg:min-w-[30%] ">
+        <div className="p-2 lg:p-4 bg-white shadow-[0px_4px_15px_0px_#007BFF40] rounded-2xl flex flex-col min-w-full lg:min-w-[33%] ">
             <div className="relative">
                 <Image src={img} alt="course" className="w-full" />
                 <div className="w-2/3 h-full absolute top-0 left-0 ps-4 flex flex-col gap-4">
