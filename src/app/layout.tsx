@@ -2,7 +2,7 @@ import React from "react";
 import "./globals.css";
 import { Providers } from "./Provider";
 import { store } from "../store/store.js"; // Adjust path as needed
-import "./globals.css";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ThemeRegistry from "../components/ThemeRegistry/ThemeRegistry";

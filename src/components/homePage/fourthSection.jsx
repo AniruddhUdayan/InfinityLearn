@@ -109,7 +109,7 @@ function Card(props) {
         props.data.id == 1 || props.data.id == 0 || props.data.id == 2
           ? " w-96 bg-blue-200  "
           : "bg-white"
-      }  rounded-2xl mx-4 max-md:w-80  p-4 max-md:mx-5 flex flex-col items-center`}
+      }  rounded-2xl mx-4 max-md:w-[335px]   p-4 max-md:mx-5 flex flex-col items-center`}
     >
       <div className="">
         {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
@@ -136,7 +136,7 @@ function Card(props) {
       </div>
       <div className="text-start max-md:ml-4 justify-start mb-4 flex-grow border-b-2 ">
         <div className="text-black  font-bold text-lg">{props.data.name}</div>
-        <div className="text-black  max-md:text-sm text-center mb-2 font-thin ">
+        <div className="text-black  w-full max-md:text-sm text-center mb-2 font-thin ">
           {props.data?.about}
         </div>
       </div>
@@ -151,6 +151,138 @@ function Card(props) {
             <IoIosArrowDown />
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+// function ScrollableDiv() {
+//   const scrollRef = useRef(null);
+//   const [activeDash, setActiveDash] = useState(0);
+//   const [cardWidth, setCardWidth] = useState(368);
+
+//   useEffect(() => {
+//     setCardWidth(window.innerWidth <= 768 ? window.innerWidth : 368);
+
+//     const interval = setInterval(() => {
+//       if (scrollRef.current) {
+//         scrollRef.current.scrollLeft += cardWidth;
+//         setActiveDash((prevActiveDash) => (prevActiveDash + 1) % 5);
+
+//         if (
+//           scrollRef.current.scrollLeft >=
+//           scrollRef.current.scrollWidth - scrollRef.current.offsetWidth
+//         ) {
+//           scrollRef.current.scrollLeft = 0;
+//         }
+//       }
+//     }, 2000);
+
+//     return () => clearInterval(interval);
+//   }, [cardWidth]);
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
+//     };
+
+//     scrollRef.current.addEventListener("scroll", handleScroll);
+
+//     return () => {
+//       // eslint-disable-next-line react-hooks/exhaustive-deps
+//       // scrollRef.current.removeEventListener("scroll", handleScroll);
+//     };
+//   }, [cardWidth]);
+
+//   return (
+//     <div className="md:hidden">
+//       <div
+//         ref={scrollRef}
+//         className="h-auto flex px-10 items-center gap-12 no-scrollbar overflow-x-scroll whitespace-nowrap"
+//         style={{ scrollBehavior: "smooth", width: cardWidth }}
+//       >
+//         {courses
+//           .filter((course) => course.id >= 3 && course.id <= 7)
+//           .map((course) => (
+//             <Card key={course.id} data={course} />
+//           ))}
+//       </div>
+//       <div className="flex justify-center mt-10">
+//         {Array.from({ length: 5 }, (_, index) => (
+//           <div
+//             key={index}
+//             className={`dash h-1 rounded-full mx-2 ${
+//               index === activeDash
+//                 ? "active w-16 bg-blue-500 "
+//                 : "bg-blue-300 w-10"
+//             }`}
+//           ></div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+function ScrollableDiv() {
+  const scrollRef = useRef(null);
+  const [activeDash, setActiveDash] = useState(0);
+  const [cardWidth, setCardWidth] = useState(368);
+
+  useEffect(() => {
+    setCardWidth(window.innerWidth <= 768 ? window.innerWidth : 368);
+
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft += cardWidth;
+        setActiveDash((prevActiveDash) => (prevActiveDash + 1) % 5);
+
+        if (
+          scrollRef.current.scrollLeft >=
+          scrollRef.current.scrollWidth - scrollRef.current.offsetWidth
+        ) {
+          scrollRef.current.scrollLeft = 0;
+        }
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [cardWidth]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
+    };
+
+    scrollRef.current.addEventListener("scroll", handleScroll);
+
+    return () => {
+      scrollRef.current.removeEventListener("scroll", handleScroll);
+    };
+  }, [cardWidth]);
+
+  return (
+    <div className="md:hidden">
+      <div
+        ref={scrollRef}
+        className="h-auto flex px-10 items-center max-md:gap-3 max-2xl:gap-12 max- no-scrollbar overflow-x-scroll whitespace-nowrap"
+        style={{ scrollBehavior: "smooth", width: cardWidth }}
+      >
+        {courses
+          .filter((course) => course.id >= 3 && course.id <= 7)
+          .map((course) => (
+            <Card key={course.id} data={course} />
+          ))}
+      </div>
+      <div className="flex justify-center mt-10">
+        {Array.from({ length: 5 }, (_, index) => (
+          <div
+            key={index}
+            className={`dash h-1 rounded-full mx-2 ${
+              index === activeDash
+                ? "active w-16 bg-blue-500 "
+                : "bg-blue-300 w-10"
+            }`}
+          ></div>
+        ))}
       </div>
     </div>
   );
@@ -203,74 +335,6 @@ function Courses() {
     </div>
   );
 }
-
-function ScrollableDiv() {
-  const scrollRef = useRef(null);
-  const [activeDash, setActiveDash] = useState(0);
-  const [cardWidth, setCardWidth] = useState(368);
-
-  useEffect(() => {
-    setCardWidth(window.innerWidth <= 768 ? window.innerWidth : 368);
-
-    const interval = setInterval(() => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollLeft += cardWidth;
-        setActiveDash((prevActiveDash) => (prevActiveDash + 1) % 5);
-
-        if (
-          scrollRef.current.scrollLeft >=
-          scrollRef.current.scrollWidth - scrollRef.current.offsetWidth
-        ) {
-          scrollRef.current.scrollLeft = 0;
-        }
-      }
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [cardWidth]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
-    };
-
-    scrollRef.current.addEventListener("scroll", handleScroll);
-
-    return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      // scrollRef.current.removeEventListener("scroll", handleScroll);
-    };
-  }, [cardWidth]);
-
-  return (
-    <div className="md:hidden">
-      <div
-        ref={scrollRef}
-        className="h-auto flex px-10 items-center gap-12 no-scrollbar overflow-x-scroll whitespace-nowrap"
-        style={{ scrollBehavior: "smooth", width: cardWidth }}
-      >
-        {courses
-          .filter((course) => course.id >= 3 && course.id <= 7)
-          .map((course) => (
-            <Card key={course.id} data={course} />
-          ))}
-      </div>
-      <div className="flex justify-center mt-10">
-        {Array.from({ length: 5 }, (_, index) => (
-          <div
-            key={index}
-            className={`dash h-1 rounded-full mx-2 ${
-              index === activeDash
-                ? "active w-16 bg-blue-500 "
-                : "bg-blue-300 w-10"
-            }`}
-          ></div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function FourthSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [dashIndex, setDashIndex] = useState(0);
@@ -290,7 +354,10 @@ function FourthSection() {
 
   return (
     <div>
-      <div className="w-full max-md:border-t-4 border-blue-400 py-10 min-h-screen overflow-hidden mx-auto bg-blue-200 flex flex-col items-center justify-center">
+      <div
+        className="w-full max-md:border-t-4 border-blue-400 py-10  overflow-hidden 
+      mx-auto bg-blue-200 flex flex-col items-center justify-center"
+      >
         <div className="flex flex-col items-center">
           <div className="flex items-center mb-10">
             <Image
@@ -303,7 +370,7 @@ function FourthSection() {
             />
             <div className="mt-8 max-md:mb-4 max-md:text-3xl max-md:font-extrabold text-6xl font-bold text-black">
               new and
-              <span className="text-6xl max-md:ml-2 max-md:text-3xl max-md:font-extrabold font-bold text-blue-400">
+              <span className="text-6xl ml-2 max-md:ml-2 max-md:text-3xl max-md:font-extrabold font-bold text-[#007BFF]">
                 trending
               </span>
             </div>
