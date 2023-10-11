@@ -50,7 +50,7 @@ function SixthSection() {
   }
 
   return (
-    <div className=" flex flex-col max-md:pt-20 max-2xl:pt-32 justify-center">
+    <div className=" flex flex-col max-md:pt-12 max-2xl:pt-32 justify-center">
       <div className=" w-full flex justify-center items-center">
         <button
           onClick={startLearning}
