@@ -195,7 +195,7 @@ function Reviews() {
     setCN(window.innerWidth <= 768 ? 1 : 3);
     setPN(window.innerWidth <= 768 ? 1 : 4);
     if (window.innerWidth <= 768) {
-      setSN(105);
+      setSN(100);
     } else if (window.innerWidth <= 1024) {
       setSN(35);
     } else {
