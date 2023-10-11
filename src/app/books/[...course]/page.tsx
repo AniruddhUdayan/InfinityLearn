@@ -75,7 +75,7 @@ export default function Home({ params }: any) {
           <div className="flex flex-col gap-[20px]">
             <div className="flex h-full flex-col ">
               <div className="">
-                <div className="flex flex-row gap-[55px] justify-center w-full relative bottom-0 h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
+                <div className="flex flex-row gap-[55px] justify-center w-full   sm:h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
                   <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
                     <div
                       className={`h-[32px] w-[32px] bg-white rounded-[8px] transform ${
@@ -94,13 +94,21 @@ export default function Home({ params }: any) {
                     </div>
                   </div>
                   <div
-                    className={`h-auto flex justify-center items-center  sm:left-2 sm:top-0 relative overflow-hidden`}
+                    className={`max-sm:hidden h-auto flex justify-center items-center max-sm:items-end  sm:left-2 sm:top-0  overflow-hidden`}
                   >
                     <Image
                       src={imagePath}
                       alt="Your Logo"
                       width={332}
                       height={442}
+                    />
+                  </div>
+                  <div className="sm:hidden relative h-[366px] flex justify-center items-end top-6 mt-[32px]">
+                  <Image
+                      src={imagePath}
+                      alt="Your Logo"
+                      width={250}
+                      height={334}
                     />
                   </div>
                   <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
