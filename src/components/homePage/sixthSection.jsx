@@ -18,8 +18,22 @@ function SixthSection() {
     // Cleanup: remove event listener on unmount
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
+  const [svgWidth1, setSvgWidth1] = useState(20);
+  const updateWidth1 = () => {
+    setSvgWidth1(window.innerWidth <= 768 ? 25 : 40);
+  };
+  useEffect(() => {
+    // Update width on mousvgWidth1
+    updateWidth1();
+
+    // Add resize event listener
+    window.addEventListener("resize", updateWidth1);
+
+    // Cleanup: remove event listener on unmount
+    return () => window.removeEventListener("resize", updateWidth1);
+  }, []);
   return (
-    <div className=" flex flex-col max-md:pt-20 justify-center">
+    <div className=" flex flex-col max-md:pt-20 max-2xl:pt-32 justify-center">
       <div className=" w-full flex justify-center items-center">
         <button className="text-white h-[52px] hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-2xl">
           <div>
@@ -28,62 +42,68 @@ function SixthSection() {
         </button>
       </div>
 
-      <div className=" h-min bg-gray-200 max-md:mt-12 max-2xl:mt-24 ">
+      <div className=" h-min bg-gray-200 max-md:mt-3 max-2xl:mt-24 ">
         <div className=" max-w-screen-xl mx-auto px-4 flex max-md:flex-col  justify-between relative">
           <div className=" flex flex-col max-md:justify-end   mt-20  ">
-            <div className=" text-6xl max-md:text-4xl    font-bold md:mb-4  text-blue-500">
+            <div className=" text-[64px] max-md:text-[32px]  max-md:px-5   font-[700]   text-[#007BFF]">
               best study
-              <span className="text-blue-500 ml-2 max-md:text-4xl md:hidden  mb-4 font-bold text-6xl">
+              <span className="text-[#007BFF] ml-2 max-md:text-[32px] md:hidden  mb-4 font-[700] text-6xl">
                 material,{" "}
               </span>
             </div>
-            <div className="text-blue-500 max-md:hidden  mb-4 font-bold text-6xl">
+            <div className="text-[#007BFF] max-md:px-5  text-[64px]  max-md:hidden max-md:text-[32px]    font-[700] ">
               material,{" "}
-              <span className="text-black font-bold text-6xl">now at</span>
+              <span className="text-[#080E14] font-[700] max-md:text-[32px]   text-[64px]">
+                now at
+              </span>
             </div>
-            <div className=" text-black max-md:text-4xl font-bold md:mb-10 max-md:mb-1  text-6xl">
-              <span className=" md:hidden text-black max-md:text-4xl font-bold text-6xl">
+            <div className=" text-[#080E14] max-md:px-5  max-md:text-[32px]  font-[700] md:mb-10 max-md:mb-1  text-[64px]">
+              <span className=" md:hidden text-black max-md:text-[32px]  text-[64px]  font-[700] ">
                 now at
               </span>{" "}
               your finger <span className="max-md:hidden">tips!</span>
             </div>
-            <div className=" text-black max-md:text-4xl font-bold md:mb-10 max-md:mb-6  text-6xl">
+            <div className=" text-[#080E14] max-md:px-5 md:hidden  max-md:text-[32px] font-[700] md:mb-10 max-md:mb-6  text-6xl">
               tips!
             </div>
-            <div className="flex max-md:flex-col flex-wrap">
+            <div className="flex max-md:px-5 max-md:flex-col flex-wrap">
               <div className="w-1/2 max-md:w-full p-2">
-                <div className="flex items-center space-x-4 mb-5 text-black">
+                <div className="flex items-center space-x-4 mb-5 ">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
-                    height={25}
-                    width={25}
+                    height={svgWidth1}
+                    width={svgWidth1}
                     alt="tick.svg"
                     className=""
                   />
-                  <div className="text-sm opacity-70">live classes</div>
+                  <div className="max-md:text-[14px] max-2xl:text-[18px] text-[#6B6E72] ">
+                    live classes
+                  </div>
                 </div>
-                <div className="flex items-center space-x-4 mb-5 text-black">
+                <div className="flex items-center space-x-4 mb-5 ">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
-                    height={25}
-                    width={25}
+                    height={svgWidth1}
+                    width={svgWidth1}
                     alt="tick.svg"
                     className=""
                   />
-                  <div className="text-sm opacity-70">progress tracking</div>
+                  <div className="max-md:text-[14px] max-2xl:text-[18px] text-[#6B6E72] ">
+                    progress tracking
+                  </div>
                 </div>
               </div>
 
-              <div className="w-1/2 max-md:w-full p-2">
-                <div className="flex items-center space-x-4 mb-5 text-black">
+              <div className="w-1/2 max-md:w-full  p-2">
+                <div className="flex items-center space-x-4 mb-5 ">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
-                    height={25}
-                    width={25}
+                    height={svgWidth1}
+                    width={svgWidth1}
                     alt="tick.svg"
                     className=""
                   />
-                  <div className="text-[14px] opacity-70">
+                  <div className="max-md:text-[14px] whitespace-nowrap max-2xl:text-[18px] text-[#6B6E72] ">
                     diverse question bank
                   </div>
                 </div>
@@ -92,10 +112,10 @@ function SixthSection() {
             </div>
 
             <div className="download max-md:hidden py-16  flex flex-col text-start">
-              <div className="mb-4 ml-3 tracking-wider text-black font-extrabold">
+              <div className="mb-4 ml-3 tracking-wider text-[24px] font-[600] text-black">
                 download the app
               </div>
-              <div className="flex items-center  justify-evenly">
+              <div className="flex items-center justify-start">
                 <a
                   href="https://apps.apple.com/sg/app/infinity-learn/id1642492194"
                   target="_blank"
@@ -106,7 +126,7 @@ function SixthSection() {
                     height={50}
                     width={180}
                     alt="Download on the Apple App Store"
-                    className=" pb-3 "
+                    className=" pb-[0.8rem] "
                   />
                 </a>
 

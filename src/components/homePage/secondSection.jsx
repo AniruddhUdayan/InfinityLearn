@@ -28,7 +28,7 @@ export const SwitchTabs = ({ data, onTabChange }) => {
           {data.map((tab, index) => (
             <div
               key={index}
-              className={` max-md:py-3 h-[40px]  max-md:px-1 p  w-[100px] 
+              className={` max-md:py-3 h-[40px] font-[600] max-md:text-[14px]  max-md:px-1 p  w-[100px] 
               max-md:w-[87px] max-md:h-[37px] max-2xl:py-[10px] text-sm text-center cursor-pointer
               ${
                 selectedTab === index
@@ -106,7 +106,7 @@ function SecondSecCard(props) {
     <div
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
-      className={`flex hover:cursor-pointer hover:bg-blue-500 hover:text-white 
+      className={`flex hover:cursor-pointer poppins hover:bg-blue-500 hover:text-white 
       flex-col justify-evenly items-start 
       max-2xl:h-[318px] py-20 max-2xl:px-6
       flex-grow max-md:flex-shrink-0  bg-blue-200 
@@ -439,13 +439,26 @@ function SecondSection() {
         </div>
 
         <h1
-          className=" text-[#080E14] max-2xl:text-center mx-auto max-md:mx-3 
+          className=" max-md:hidden text-[#080E14] max-2xl:text-center mx-auto max-md:mx-3 
           max-md:py-10 md:mb-6 max-md:w-full 
         max-md:text-start max-md:justify-start tracking-wide max-md:tracking-normal
-        text-5xl max-md:text-4xl font-black"
+        text-5xl max-md:text-[32px] font-extrabold "
         >
-          select your learning <span className=" text-blue-500 "> goal </span>
+          select your learning
+          <span className=" text-blue-500 "> goal </span>
           grade-wise
+        </h1>
+        <h1
+          className="md:hidden flex flex-col  max-2xl:text-center mx-auto max-md:mx-3 
+          max-md:py-10 md:mb-6 max-md:w-full max-md:px-[20px] 
+        max-md:text-start max-md:justify-start tracking-wide max-md:tracking-normal
+        text-5xl max-md:text-[32px] font-extrabold "
+        >
+          <div className="text-[#080E14]">select your learning</div>
+          <div className="  ">
+            <span className=" text-[#007BFF]"> goal </span>
+            grade-wise
+          </div>
         </h1>
         <div className=" h-full flex max-md:px-4 max-lg:w-full justify-center mb-9   items-center">
           {/* {std.map((item) => (

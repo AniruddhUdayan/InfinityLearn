@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
+import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "@/store/mobVeriSlice";
 import { storePhoneNumber } from "@/store/mobVeriSlice";
@@ -9,7 +9,10 @@ import LoginPage from "../loginPage";
 import LoginPopup from "../LoginPopup";
 const words = ["learning", "academic"];
 const duration = 2000; // Duration in milliseconds for each word
-
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "500",
+});
 function WordSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animating, setAnimating] = useState(true);
@@ -27,7 +30,10 @@ function WordSlider() {
   }, []);
 
   return (
-    <div className="slider-container z-0 h-24 max-md:h-12 max-md:pl-3 max-md:text-5xl text-yellow-400 flex items-center justify-start text-7xl font-bold">
+    <div
+      className="slider-container tracking-wide  max-md:pl-5  font-  z-0 h-24 max-md:h-12 max-md:p max-md:text-[44px] text-[#FCDE5A]
+     flex items-center justify-start text-7xl font-bold"
+    >
       <div className={animating ? "word-entering z-0" : " z-0 word-exiting"}>
         {words[currentIndex]}
       </div>
@@ -37,22 +43,26 @@ function WordSlider() {
 
 function Trial() {
   return (
-    <div className="flex mt-10 max-lg:w-full mb-6 max-lg:mx-10 max-lg:h-24 justify-evenly text-[#007BFF] p-6  text-center  font-bold text-base gap-3 mx-auto flex-row items-center h-20 bg-white px-4 rounded-2xl">
-      <div className=" flex flex-col border-black ">
-        <div className="text-center font-normal text-sm ">learners</div>
-        <div className="font-bold text-center">50k+</div>
+    <div
+      className="flex mt-10 max-lg:w-full mb-6 max-lg:mx-10
+     max-lg:h-24 justify-evenly text-[#007BFF] p-6  text-center  font-bold text-base gap-3 mx-auto
+     flex-row items-center h-20 bg-white px-4 rounded-2xl"
+    >
+      <div className=" flex flex-col   border-opacity-20 ">
+        <div className="text-center font-[400] text-[12px] ">learners</div>
+        <div className="font-[600] text-[18px] text-center">50k+</div>
       </div>
-      <div className="border-r-2 border-[#080E14] opacity-20 h-full" />
+      <div className="border-r-2 border-[#007BFF] opacity-20 h-full" />
       <div className=" items-center flex text-center flex-col border-black">
-        <div className="text-center font-normal text-sm ">cities</div>
-        <div className="font-bold text-center">60k+</div>
+        <div className="text-center font-[400] text-[12px]  ">cities</div>
+        <div className="font-[600] text-[18px]  text-center">60k+</div>
       </div>
-      <div className="border-r-2 border-[#080E14] opacity-20 h-full" />
+      <div className="border-r-2 border-[#007BFF] opacity-20 h-full" />
       <div className="  items-center text-center flex flex-col">
-        <div className="text-center flex font-normal text-sm  flex-grow">
+        <div className="text-center font-[400] text-[12px]  flex    flex-grow">
           <div className=" mr-1">classes</div> conducted
         </div>
-        <div className="font-bold text-center">9200+</div>
+        <div className="font-[600] text-[18px]  text-center">9200+</div>
       </div>
     </div>
   );
@@ -90,21 +100,24 @@ function FirstSection() {
   }
   return (
     <div
-      className="flex pb-32 max-md:pt-16 max-md:px-0 max-2xl:px-10  
+      className="flex pb-32 max-md:pt-16 max-md:px-0 poppins max-2xl:px-10  
       max-md:pb-8 w-full max-md:min-h-screen 
       items-center justify-around bg-[#007BFF]
+      
      max-md:flex-col max-md:h-fit"
     >
       <div className=" text-white max-md:w-full max-2xl:w-1/2 flex flex-col">
-        <div className="max-md:pt-6 pt-9   max-md:pl-3 text-7xl max-md:text-5xl font-bold">
-          power up your
-        </div>
-        <WordSlider />
-        <div className="max-md:pl-3 max-md:text-5xl text-7xl font-bold">
-          journey with
-        </div>
-        <div className="max-md:pl-3 max-md:text-5xl text-7xl font-bold">
-          infinity learn
+        <div className=" flex flex-col max-md:w-full max-md:px-5 text-start justify-enter itemscenter">
+          <div className="max-md:pt-6 pt-9   max-md:pl-5 tracking-wide   text-7xl max-md:text-[44px] font-bold">
+            power up your
+          </div>
+          <WordSlider />
+          <div className="   tracking-wide  max-md:pl-5    max-md:text-[44px] text-7xl font-bold">
+            journey with
+          </div>
+          <div className="  tracking-wide  max-md:pl-5    max-md:text-[44px] text-7xl font-bold">
+            infinity learn
+          </div>
         </div>
         <div className="mt-12 lg:ml-7 pr-0 md:hidden">
           <Image
@@ -133,7 +146,7 @@ function FirstSection() {
             />
             <button
               onClick={handleToggleOverlay}
-              className="md:w-32 max-md:w-40 text-black max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
+              className="md:w-32 max-md:w-40 text-black font-[600] max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
             >
               join for free
             </button>

@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 
 /* div::-webkit-scrollbar {
   display: none;
@@ -26,7 +27,9 @@
   }
 }
 input::placeholder {
-  padding-left: 10px; /* or adjust as per your requirement */
+  padding-left: 10px;
+  /* or adjust as per your requirement */
+  font-family: Poppins;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -93,7 +96,9 @@ a {
     white-space: nowrap;
     margin-top: 1.2rem;
   }
-
+  .poppins {
+    font-family: "Poppins", sans-serif;
+  }
   .box_auto {
     display: inline-block;
     min-width: 300px;
