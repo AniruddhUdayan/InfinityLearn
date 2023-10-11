@@ -90,7 +90,7 @@ function Card(props) {
   const [svgWidth, setSvgWidth] = useState(368);
 
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 768 ? 200 : 368);
+    setSvgWidth(window.innerWidth <= 768 ? 311 : 368);
   };
   useEffect(() => {
     // Update width on mount
@@ -109,16 +109,16 @@ function Card(props) {
         props.data.id == 1 || props.data.id == 0 || props.data.id == 2
           ? " w-96 bg-blue-200  "
           : "bg-white"
-      }  rounded-2xl mx-4 max-md:w-[335px]   p-4 max-md:mx-5 flex flex-col items-center`}
+      }  rounded-2xl mx-4 max-md:w-[335px]  max-md:h-[382px]  px-4 max-md:mx-5 flex flex-col items-center`}
     >
       <div className="">
         {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
           <Image
             src={props.data?.svg}
-            height={208}
+            height={238}
             width={svgWidth}
             // Ensures the image maintains its aspect ratio
-            className="border-2 max-md:w-auto max-md:h-auto  border-blue-200"
+            className="border-2   border-blue-200"
             alt="cards svg"
           />
         )}
@@ -134,15 +134,15 @@ function Card(props) {
           )}
         </div>
       </div>
-      <div className="text-start max-md:ml-4 justify-start mb-4 flex-grow border-b-2 ">
+      <div className="text-start max-md:w-full max-md:ml-4 justify-start max-2xl:mb-4 flex-grow border-b-2 ">
         <div className="text-black  font-bold text-lg">{props.data.name}</div>
-        <div className="text-black  w-full max-md:text-sm text-center mb-2 font-thin ">
+        <div className="text-black  w-full max-md:text-sm  mb-2 ">
           {props.data?.about}
         </div>
       </div>
-      <div className="mt-3  max-md:ml-4 flex max-md:space-x-11 justify-between items-center space-x-20">
+      <div className="max-2xl:mt-3 max-md:mt-0  max-md:ml-0 flex max-md:space-x-11 justify-between items-center space-x-20">
         {" "}
-        <div className="text-black mb-2">{props.data?.price}</div>
+        <div className="text-black font-bold mb-2">{props.data?.price}</div>
         {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
           <div className=" flex text-blue-500">
             <div className=" text-xs text-blue-500 text-center  cursor-pointer">
@@ -156,6 +156,71 @@ function Card(props) {
   );
 }
 
+function ScrollableDiv() {
+  const scrollRef = useRef(null);
+  const [activeDash, setActiveDash] = useState(0);
+  const [cardWidth, setCardWidth] = useState(400);
+
+  useEffect(() => {
+    // setCardWidth(window.innerWidth <= 768 ? window.innerWidth : 368);
+
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft += cardWidth;
+        setActiveDash((prevActiveDash) => (prevActiveDash + 1) % 5);
+
+        if (
+          scrollRef.current.scrollLeft >=
+          scrollRef.current.scrollWidth - scrollRef.current.offsetWidth
+        ) {
+          scrollRef.current.scrollLeft = 0;
+        }
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [cardWidth]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
+    };
+
+    scrollRef.current.addEventListener("scroll", handleScroll);
+
+    return () => {
+      scrollRef.current.removeEventListener("scroll", handleScroll);
+    };
+  }, [cardWidth]);
+
+  return (
+    <div className="md:hidden">
+      <div
+        ref={scrollRef}
+        className="h-auto flex px-10 items-center max-md:gap-5 max-2xl:gap-12 max- no-scrollbar overflow-x-scroll whitespace-nowrap"
+        style={{ scrollBehavior: "smooth", width: cardWidth }}
+      >
+        {courses
+          .filter((course) => course.id >= 3 && course.id <= 7)
+          .map((course) => (
+            <Card key={course.id} data={course} />
+          ))}
+      </div>
+      <div className="flex justify-center mt-10">
+        {Array.from({ length: 5 }, (_, index) => (
+          <div
+            key={index}
+            className={`dash h-1 rounded-full mx-2 ${
+              index === activeDash
+                ? "active w-16 bg-blue-500 "
+                : "bg-blue-300 w-10"
+            }`}
+          ></div>
+        ))}
+      </div>
+    </div>
+  );
+}
 // function ScrollableDiv() {
 //   const scrollRef = useRef(null);
 //   const [activeDash, setActiveDash] = useState(0);
@@ -222,72 +287,6 @@ function Card(props) {
 //     </div>
 //   );
 // }
-function ScrollableDiv() {
-  const scrollRef = useRef(null);
-  const [activeDash, setActiveDash] = useState(0);
-  const [cardWidth, setCardWidth] = useState(368);
-
-  useEffect(() => {
-    setCardWidth(window.innerWidth <= 768 ? window.innerWidth : 368);
-
-    const interval = setInterval(() => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollLeft += cardWidth;
-        setActiveDash((prevActiveDash) => (prevActiveDash + 1) % 5);
-
-        if (
-          scrollRef.current.scrollLeft >=
-          scrollRef.current.scrollWidth - scrollRef.current.offsetWidth
-        ) {
-          scrollRef.current.scrollLeft = 0;
-        }
-      }
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [cardWidth]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
-    };
-
-    scrollRef.current.addEventListener("scroll", handleScroll);
-
-    return () => {
-      scrollRef.current.removeEventListener("scroll", handleScroll);
-    };
-  }, [cardWidth]);
-
-  return (
-    <div className="md:hidden">
-      <div
-        ref={scrollRef}
-        className="h-auto flex px-10 items-center max-md:gap-3 max-2xl:gap-12 max- no-scrollbar overflow-x-scroll whitespace-nowrap"
-        style={{ scrollBehavior: "smooth", width: cardWidth }}
-      >
-        {courses
-          .filter((course) => course.id >= 3 && course.id <= 7)
-          .map((course) => (
-            <Card key={course.id} data={course} />
-          ))}
-      </div>
-      <div className="flex justify-center mt-10">
-        {Array.from({ length: 5 }, (_, index) => (
-          <div
-            key={index}
-            className={`dash h-1 rounded-full mx-2 ${
-              index === activeDash
-                ? "active w-16 bg-blue-500 "
-                : "bg-blue-300 w-10"
-            }`}
-          ></div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function Courses() {
   const [scrollPos, setScrollPos] = useState(0);
   const [activeDash, setDashCard] = useState(0);
@@ -335,6 +334,54 @@ function Courses() {
     </div>
   );
 }
+
+// function Courses() {
+//   const [scrollPos, setScrollPos] = useState(0);
+//   const [activeDash, setDashCard] = useState(0);
+
+//   const dashWidth = [50, 50, 50, 50, 50];
+//   useEffect(() => {
+//     const maxScroll = courses.length - 5; // total cards minus visible cards
+//     const interval = setInterval(() => {
+//       if (scrollPos >= maxScroll) {
+//         setScrollPos(0);
+//         setDashCard(0);
+//       } else {
+//         setScrollPos((prev) => prev + 2);
+//         setDashCard((activeDash + 1) % 5);
+//       }
+//     }, 1500);
+
+//     return () => clearInterval(interval);
+//   }, [scrollPos, activeDash]);
+
+//   return (
+//     <div className="flex max-md:hidden flex-col justify-center w-full items-center h-ull bg-blue-200">
+//       <div className="overflow-hidden h-auto relative   w-5/6">
+//         <div
+//           className="flex transition-transform   duration-1000 "
+//           style={{ transform: `translateX(-${scrollPos * 5}%)` }} // Adjust based on card width and margin
+//         >
+//           {courses.map((course) => (
+//             <Card key={course.id} data={course} />
+//           ))}
+//         </div>
+//       </div>
+//       <div className=" flex justify-center mt-10">
+//         {Array.from({ length: 5 }, (_, index) => (
+//           <div
+//             key={index}
+//             className={`dash h-1 rounded-full mx-2 b ${
+//               index === activeDash
+//                 ? "active w-16 bg-blue-500 "
+//                 : " bg-blue-300 w-10"
+//             }`}
+//           ></div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 function FourthSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [dashIndex, setDashIndex] = useState(0);

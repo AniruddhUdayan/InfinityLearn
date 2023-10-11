@@ -28,7 +28,7 @@ export const SwitchTabs = ({ data, onTabChange }) => {
           {data.map((tab, index) => (
             <div
               key={index}
-              className={` max-md:py-2 h-[40px]  max-md:px-1 p  w-[100px] 
+              className={` max-md:py-3 h-[40px]  max-md:px-1 p  w-[100px] 
               max-md:w-[87px] max-md:h-[37px] max-2xl:py-[10px] text-sm text-center cursor-pointer
               ${
                 selectedTab === index
@@ -440,7 +440,7 @@ function SecondSection() {
 
         <h1
           className=" text-[#080E14] max-2xl:text-center mx-auto max-md:mx-3 
-          max-md:py-5 md:mb-6 max-md:w-full 
+          max-md:py-10 md:mb-6 max-md:w-full 
         max-md:text-start max-md:justify-start tracking-wide max-md:tracking-normal
         text-5xl max-md:text-4xl font-black"
         >
