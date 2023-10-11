@@ -19,15 +19,27 @@ const theme = createTheme({
     white: {
       main: '#fff',
       contrastText: '#007BFF',
+      dark: '#EFEFEF',
+      light: '#FDFDFD',
     },
     yellow: {
       main: '#FCDE5A',
-      contrastText: '#000'
+      contrastText: '#000',
+      dark: '#F9C700',
+      light: '#FDF1A0',
     },
     black: {
       main: '#080E14',
-      contrastText: '#fff'
+      contrastText: '#fff',
+      dark: '#000',
+      light: '#1E293B',
     },
+    lightBlue : {
+      main: '#D4E9FF',
+      contrastText: '#007BFF',
+      dark: '#B9DFFF',
+      light: '#E0F2FF',
+    }
   },
   components: {
     MuiButton: {

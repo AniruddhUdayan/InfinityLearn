@@ -1,5 +1,6 @@
 import { Button } from "@mui/material"
 import Image from "next/image"
+import arrow from './../../../../../public/images/arrow-tr-blue.svg'
 
 const LandingCard = ({pic, rank, name, batch, ref2}) => {
   return (
@@ -9,8 +10,9 @@ const LandingCard = ({pic, rank, name, batch, ref2}) => {
 				<div className="text-3xl lg:text-4xl font-bold">{name}</div>
 				<div>{batch}</div>
 				<div>
-					<Button variant='contained' disableElevation color='white' sx={{ borderRadius: '0.5rem'}}>
+					<Button variant='contained' className="flex gap-2 items-center"  disableElevation color='white' sx={{ borderRadius: '0.5rem'}}>
 						know more
+						<Image src={arrow} alt='arrow' width={15} height={0} />
 					</Button>
 				</div>
 			</div>
