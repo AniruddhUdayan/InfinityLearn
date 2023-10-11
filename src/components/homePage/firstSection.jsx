@@ -84,13 +84,18 @@ function FirstSection() {
       //   <LoginPage />
       // </div>
       <div>
-      <LoginPopup />
-    </div>
+        <LoginPopup />
+      </div>
     );
   }
   return (
-    <div className="flex pb-32 max-md:pt-16  max-md:pb-8 w-full max-md:min-h-screen items-center justify-around bg-[#007BFF] max-md:flex-col max-md:h-fit">
-      <div className=" text-white flex flex-col">
+    <div
+      className="flex pb-32 max-md:pt-16 max-md:px-0 max-2xl:px-10  
+      max-md:pb-8 w-full max-md:min-h-screen 
+      items-center justify-around bg-[#007BFF]
+     max-md:flex-col max-md:h-fit"
+    >
+      <div className=" text-white max-md:w-full max-2xl:w-1/2 flex flex-col">
         <div className="max-md:pt-6 pt-9   max-md:pl-3 text-7xl max-md:text-5xl font-bold">
           power up your
         </div>
@@ -111,23 +116,31 @@ function FirstSection() {
             loading="lazy"
           />
         </div>
-        <div className="flex h-4/5 max-md:px-5 md:h-3/5 mt-9 mb-5">
-          <input
-            className="rounded-l-lg max-md:h-12 max-md:placeholder:text-sm max-md:rounded-l-3xl max-md:bg-white max-md:placeholder-gray-500 bg-blue-500 text-black w-full sm:w-1/2 md:w-96 h-10 md:h-12 pl-4 md:pl-6 text-base md:text-lg border-2 placeholder-white"
-            type="text"
-            placeholder="enter your mobile number"
-            value={query}
-            onChange={handleInputChange}
-          />
-          <button
-            onClick={handleToggleOverlay}
-            className="md:w-32 max-md:w-40 max-md:text-black max-md:rounded-r-3xl rounded-r-lg bg-yellow-500"
-          >
-            join for free
-          </button>
-        </div>
-        <div className="max-md:text-sm max-md:px-6">
-          we will send an otp for verification
+
+        <div className=" flex flex-col">
+          <div className="flex h-4/5 max-md:px-5 md:h-3/5 mt-9 mb-2">
+            <input
+              className="rounded-l-2xl max-md:h-12 max-md:placeholder:text-sm 
+              max-md:rounded-l-3xl max-md:bg-white
+               max-md:placeholder-gray-500 bg-blue-500
+                placeholder-text:ml-3
+                text-black max-md:w-96 h-10 
+                md:h-12 pl-4 md:pl-6 text-base md:text-lg border-2 placeholder-white"
+              type="text"
+              placeholder="enter your mobile number"
+              value={query}
+              onChange={handleInputChange}
+            />
+            <button
+              onClick={handleToggleOverlay}
+              className="md:w-32 max-md:w-40 text-black max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
+            >
+              join for free
+            </button>
+          </div>
+          <div className="max-md:text-sm font-normal max-md:px-6">
+            we will send an otp for verification
+          </div>
         </div>
       </div>
       <div className="  md:hidden max-md:w-full items-center flex justify-center">
@@ -135,9 +148,9 @@ function FirstSection() {
       </div>
       <div className="mt-5 max-md:hidden">
         <Image
-          className=" m"
+          className=""
           src="/homepage/firstSection/firstSection.png"
-          width={600}
+          width={700}
           height={600}
           alt="firstSection"
         />

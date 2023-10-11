@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "../components/header.jsx";
 // import Footer from "@/components/footer";
+// import "./globals.css";
 import Footer from "../components/homePage/footer.jsx";
 import FirstSection from "../components/homePage/firstSection.jsx";
 import SecondSection from "../components/homePage/secondSection.jsx";
@@ -12,7 +13,7 @@ import SixthSection from "../components/homePage/sixthSection.jsx";
 import SeventhSection from "../components/homePage/seventhSection.jsx";
 
 import Head from "next/head";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Download from "@/components/examPage/Download/index.js";
 export default function Home() {
   return (

@@ -178,6 +178,9 @@ a {
   width: auto;
   height: auto;
 }
+ul {
+  padding-left: 0%;
+}
 .checkmark__circle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;

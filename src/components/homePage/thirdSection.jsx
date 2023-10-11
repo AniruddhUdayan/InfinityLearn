@@ -10,7 +10,7 @@ const options = [
 ];
 function OptionZero() {
   return (
-    <div className="flex max-md:flex-grow     flex-col 4">
+    <div className="flex max-md:flex-grow  min-h-56   flex-col 4">
       <div className="text-4xl text-black font-bold">focused</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
       <div className="text-xl text-black max-md:text-base">
@@ -23,7 +23,7 @@ function OptionZero() {
 }
 function OptionOne() {
   return (
-    <div className="flex   flex-col ">
+    <div className="flex min-h-56  flex-col ">
       <div className="text-4xl text-black font-bold">learn from the</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">experts</div>
       <div className="text-xl text-black max-md:text-base ">
@@ -35,7 +35,7 @@ function OptionOne() {
 }
 function OptionTwo() {
   return (
-    <div className="flex   flex-col">
+    <div className="flex min-h-56  flex-col">
       <div className="text-4xl text-black font-bold">clear doubts,</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">
         clear concepts
@@ -50,7 +50,7 @@ function OptionTwo() {
 }
 function OptionThree() {
   return (
-    <div className="flex 6 min-h-64  flex-col ">
+    <div className="flex 6 min-h-56  flex-col ">
       <div className="text-4xl text-black font-bold">premium learning,</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
       <div className="text-xl text-black max-md:text-base ">
@@ -63,7 +63,7 @@ function OptionThree() {
 }
 function OptionFour() {
   return (
-    <div className="flex   flex-col ">
+    <div className="flex  min-h-56  flex-col ">
       <div className="text-4xl text-black font-bold">structured success</div>
       <div className="text-4xl text-blue-500 mb-5 font-bold"> plan</div>
       <div className="text-xl text-black max-md:text-base ">
@@ -117,64 +117,68 @@ const SwitchTabs = ({ data, onTabChange }) => {
   );
 };
 
-const SwitchTabs1 = ({ data, onTabChange }) => {
-  const [selectedTab, setSelectedTab] = useState(0);
-  const [highlightStyle, setHighlightStyle] = useState({});
-  const tabsRef = useRef([]);
+// const SwitchTabs1 = ({ onTabChange, data = options }) => {
+//   const [selectedTab, setSelectedTab] = useState(0);
+//   const [containerWidth, setContainerWidth] = useState(window.innerWidth);
 
-  const activeTab = (tab, index) => {
-    setSelectedTab(index);
-    onTabChange(tab, index);
+//   const tabWidth = 100;
+//   const gap = 10;
 
-    // Update highlight style
-    const { offsetLeft, offsetWidth } = tabsRef.current[index];
-    setHighlightStyle({ left: offsetLeft, width: offsetWidth });
+//   const updateWidth = useCallback(() => {
+//     setContainerWidth(window.innerWidth);
+//   }, []);
 
-    // Ensure the selected tab scrolls into view in the center
-    tabsRef.current[index].scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
-  };
+//   useEffect(() => {
+//     window.addEventListener("resize", updateWidth);
+//     return () => window.removeEventListener("resize", updateWidth);
+//   }, [updateWidth]);
 
-  //Add refs dynamically
-  useEffect(() => {
-    tabsRef.current = tabsRef.current.slice(0, data.length);
-  }, [data]);
+//   useEffect(() => {
+//     const intervalId = setInterval(() => {
+//       setSelectedTab((prev) => (prev + 1) % data.length);
+//     }, 2000);
+//     return () => clearInterval(intervalId);
+//   }, [data.length]);
 
-  // Automatic tab switching
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const nextTab = (selectedTab + 1) % data.length; // Cycle through tabs
-      activeTab(data[nextTab], nextTab);
-    }, 2000); // Switch tab every 2 seconds
+//   useEffect(() => {
+//     onTabChange && onTabChange(data[selectedTab], selectedTab);
+//   }, [selectedTab, onTabChange, data]);
 
-    return () => clearInterval(intervalId); // Cleanup: clear interval on unmount
-  }, [selectedTab, data]);
+//   return (
+//     <div className="bg-white md:hidden text-black h-11 relative overflow-hidden w-full flex justify-center">
+//       <div
+//         style={{
+//           transform: `translateX(-${
+//             selectedTab * (tabWidth + gap) -
+//             containerWidth / 2 +
+//             (tabWidth / 2 + gap)
+//           }px)`,
+//           transition: "transform 1s ease",
+//           whiteSpace: "nowrap",
+//           display: "flex",
+//         }}
+//       >
+//         {data.map((option, index) => (
+//           <span
+//             key={index}
+//             role="tab"
+//             aria-selected={index === selectedTab}
+//             className={`inline-block px-4 w-full text-center ${
+//               index === selectedTab
+//                 ? "text-blue-500 border-blue-500 border-b-2"
+//                 : "text-gray-400"
+//             } hover:cursor-pointer`}
+//             style={{ width: `${tabWidth}px`, marginRight: `${gap}px` }}
+//             onClick={() => setSelectedTab(index)}
+//           >
+//             {option}
+//           </span>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 
-  return (
-    <div className="bg-white text-black relative overflow-x-auto">
-      <div className="h-full mt-1 no-scrollbar flex items-center whitespace-nowrap">
-        {data.map((tab, index) => (
-          <span
-            key={index}
-            ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full px-4 py-2 text-center text-base cursor-pointer 
-                        ${selectedTab === index ? "text-black" : ""}`}
-            onClick={() => activeTab(tab, index)}
-          >
-            {tab}
-          </span>
-        ))}
-        <span
-          className="border-b-2 border-blue-500 absolute bottom-0 transition-all duration-500"
-          style={highlightStyle}
-        ></span>
-      </div>
-    </div>
-  );
-};
 function ThirdSection() {
   const optionComponents = {
     0: <OptionZero />,
@@ -183,7 +187,7 @@ function ThirdSection() {
     3: <OptionThree />,
     4: <OptionFour />,
   };
-  const [svgWidth, setSvgWidth] = useState(500);
+  const [svgWidth, setSvgWidth] = useState(590);
 
   const useWindowWidth = () => {
     // Initialize state with undefined so server and client HTML match
@@ -211,7 +215,7 @@ function ThirdSection() {
   };
 
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 768 ? 315 : 500);
+    setSvgWidth(window.innerWidth <= 768 ? 315 : 592);
   };
   useEffect(() => {
     // Update width on mount
@@ -246,34 +250,45 @@ function ThirdSection() {
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />
           {isMobileView && (
-            // <div className="">
-            <SwitchTabs1 data={options} onTabChange={onTabChange} />
-            // </div>
+            <div className=" w-min overflow-x-hidden">
+              {/* <SwitchTabs1 data={options} onTabChange={onTabChange} /> */}
+            </div>
           )}
         </div>
       </div>
-      <div className="flex md:px-20  max-md:flex-col max-md:w-full   justify-between  items-center rowww">
+      <div
+        className="flex md:px-20  max-md:flex-col max-md:w-full  
+       justify-between  items-center rowww"
+      >
         <Image
           src="/homepage/thirdSection/thirdSection.png"
           height={svgWidth}
           width={svgWidth}
           alt="thirdSection"
-          className="my-image  md:w-1/2"
+          className="my-imag max-md:w-screen  md:w-1/2"
         />
         <div className=" flex md:w-1/2 md:pr-36 md:items-start items-center max-md:mt-8 max-md:ml-6 flex-col">
           <div className="optionContainer">
-            {selectedOption === 0 && <OptionZero />}
-            {selectedOption === 1 && <OptionOne />}
-            {selectedOption === 2 && <OptionTwo />}
-            {selectedOption === 3 && <OptionThree />}
-            {selectedOption === 4 && <OptionFour />}
-            {/* ... other options ... */}
+            {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
+              (Component, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: selectedOption === index ? "block" : "none",
+                  }}
+                >
+                  <Component />
+                </div>
+              )
+            )}
           </div>
-          <button className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
-            <div>
-              start learning for free <span>&#8599;</span>
-            </div>
-          </button>
+          <div className=" w-full flex justify-center items-center">
+            <button className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
+              <div>
+                start learning for free <span>&#8599;</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
