@@ -1,6 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1024,
+      xl: 1536,
+    },
+  },
   palette: {
     mode: 'light',
     primary: {
@@ -32,9 +41,53 @@ const theme = createTheme({
     },
     MuiTab: {
       styleOverrides: {
-        root: {
+        root: ({ ownerState, theme }) => ({
+          ...(ownerState.themeColor === 'yellow' && {
+            backgroundColor: theme.palette.white.main,
+            color: theme.palette.yellow.contrastText,
+            '&.Mui-selected': {
+              // backgroundColor: theme.palette.yellow.main,
+              color: theme.palette.yellow.contrastText,
+            }
+          }),
+          borderRadius: '9999px',
           textTransform: 'none',
-        }
+          fontSize: '1rem',
+        })
+      }
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          ...(ownerState.themeColor === 'yellow' && {
+            '& .MuiTabs-indicator': {
+              backgroundColor: theme.palette.yellow.main,
+              zIndex: 0,
+              height: '100%',
+              borderRadius: '9999px',
+              mixBlendMode: 'multiply',
+            },
+            '& .MuiTabs-flexContainer': {
+              gap: '1rem',
+              overflow: 'auto',
+              scrollbarWidth: 'none',
+            },
+            '& .MuiTabs-fixed':{
+              overflow: 'auto',
+              scrollbarWidth: 'none',
+            }
+          }),
+          [theme.breakpoints.down('lg')]: {
+            '& .MuiTabs-flexContainer': {
+              justifyContent: 'flex-start!important',
+              scrollbarWidth: 'none',
+              '&::-webkit-scrollbar': {
+                display: 'none',
+              },
+              '-ms-overflow-style': 'none',
+            }
+          }
+        }),
       }
     },
   },

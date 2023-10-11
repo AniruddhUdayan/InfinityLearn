@@ -8,7 +8,14 @@ import { BsArrowLeft } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import subItem from "../utils/infoHeader";
 import Link from "next/link";
-import FcMenu from "react-icons/fc";
+
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "500",
+});
+
 
 const items = ["courses", "study material", "results", "more"];
 function BooksCard(props) {
@@ -215,10 +222,13 @@ function ResHeader({
                                   {visibleBooksCards.includes(
                                     listItemIndex
                                   ) && (
-                                    <BooksCard
-                                      data={subItem.books}
-                                      svgPresent={subItem.svg}
-                                    />
+                                    <Link href={subItem.path}>
+                                      {" "}
+                                      <BooksCard
+                                        data={subItem.books}
+                                        svgPresent={subItem.svg}
+                                      />
+                                    </Link>
                                   )}
                                 </div>
                               ))}
@@ -333,21 +343,24 @@ function Header() {
   return (
     <div>
       <nav
+
         className={`bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 max-lg:w-full 
         max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4
          px-14 w-screen max-md:border-b-0 border-b-[1px] border-whte border-gray-400 border-opacity-50`}
+
+        
       >
         <div className="flex justify-evenly   items-center">
           <Image
             className="mx-6 lg:mx-0 max-md:hidden"
-            src="./logo/logo.svg"
+            src="/images/logo/logo.svg"
             alt="My Logo"
             width={230}
             height={64}
           />
           <Image
             className=" md:hidden "
-            src="./logo/responsiveLogo.svg"
+            src="/logo/responsiveLogo.svg"
             alt="My Logo"
             width={85}
             height={70}
@@ -438,14 +451,15 @@ function Header() {
               alt="call.svg"
             />
             <div className="flex flex-col">
-              <div className="text-yellow-300">need help? talk to experts</div>
-              <div className="text-yellow-300">1800-419-427</div>
+              <div className="text-yellow-300 text-[14px]">need help? talk to experts</div>
+              <div className="text-yellow-300 text-[16px]">1800-419-427</div>
             </div>
           </div>
           <button
             className="rounded-xl max-md:w-fit ma max-md:rounded-3xl max-md:bg-[#007BFF] max-md:border-2 max-2xl:bg-white"
             style={{ height: 32 }}
           >
+
             <div className="text-blue-500 max-2xl:px-4 items-center max-md:text-white max-md:px-3 ">
               sign-in
             </div>

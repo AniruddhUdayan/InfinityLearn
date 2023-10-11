@@ -11,21 +11,17 @@ import subItem from "@/utils/infoHeader";
 // import Review from "@/components/Review&Detail/Review";
 // import Bookdemo from "@/components/BookDemo/Bookdemo";
 
-
 const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
 
-export default function Home({params}:any) {
+export default function Home({ params }: any) {
   const [imagePath, setImagePath] = useState("/images/book.png");
   const [isAnimating, setIsAnimating] = useState(false);
   const [animationDirection, setAnimationDirection] = useState("left");
   const [text, setText] = useState("NEET Foundation");
   const [isSlideDown, setIsSlideDown] = useState(false);
-
-
-
 
   const toggleImage = () => {
     if (isAnimating) return;
@@ -73,14 +69,14 @@ export default function Home({params}:any) {
   }, []);
   return (
     <>
-      <Header/>
+      <Header />
       <div className="h-full bg-[#007BFF] pb-[61px] flex justify-center">
         <div className="sm:flex sm:flex-col lg:flex-row sm:gap-[40px] sm:mx-[112px] sm:pt-[28px]">
           <div className="flex flex-col gap-[20px]">
             <div className="flex h-full flex-col ">
               <div className="">
-                <div className="flex flex-row gap-[55px] justify-center w-full relative bottom-6 sm:bg-[#D4E9FF] sm:rounded-[20px] z-0">
-                  <div className="hidden sm:h-[510px] sm:flex sm:flex-col sm:justify-center relative right-6">
+                <div className="flex flex-row gap-[55px] justify-center w-full relative bottom-0 h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
+                  <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
                     <div
                       className={`h-[32px] w-[32px] bg-white rounded-[8px] transform ${
                         animationDirection === "left"
@@ -98,7 +94,7 @@ export default function Home({params}:any) {
                     </div>
                   </div>
                   <div
-                    className={`h-[518px] flex justify-center items-center top-3 sm:left-2 sm:top-6 relative overflow-hidden`}
+                    className={`h-auto flex justify-center items-center  sm:left-2 sm:top-0 relative overflow-hidden`}
                   >
                     <Image
                       src={imagePath}
@@ -107,7 +103,7 @@ export default function Home({params}:any) {
                       height={442}
                     />
                   </div>
-                  <div className="hidden sm:h-[510px] sm:flex sm:flex-col sm:justify-center relative right-6">
+                  <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
                     <div
                       className={`h-[32px] w-[32px] bg-white rounded-[8px] transform rotate-180 ${
                         animationDirection === "right"
@@ -145,7 +141,7 @@ export default function Home({params}:any) {
               className={`${poppins.className} w-auto text-white sm:text-[48px] text-[20px] font-bold leading-60 `}
             >
               <div> IL books for</div>
-              <div className="h-[72px] overflow-hidden w-auto relative">
+              <div className="sm:h-[72px] h-[36px] overflow-hidden w-auto relative">
                 <span
                   className={`text-[#FCDE5A] inline-block transition-transform transform duration-[1000ms] ${
                     isSlideDown ? "translate-y-0" : "-translate-y-full"
@@ -157,7 +153,8 @@ export default function Home({params}:any) {
               </div>
               <span className="sm:text-[32px] font-[400]">
                 {" "}
-                - class {params.course[1]} , {params.course[2]} & {params.course[3]}
+                - class {params.course[1]} , {params.course[2]} &{" "}
+                {params.course[3]}
               </span>
             </div>
             <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap">
@@ -373,7 +370,7 @@ export default function Home({params}:any) {
               </div>
             </div>
             <div className="hidden sm:flex sm:flex-wrap sm:flex-row sm:gap-3 sm:mt-[30px]">
-              <div className="flex px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#FFF] transform hover:bg-[#007BFF]-100 transition-transform duration-300">
+              <div className="flex px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#FFF] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-row gap-2 hover:gap-3">
                   <div
                     className={`${poppins.className} text-[#FFF] text-[16px] font-[600]`}
@@ -464,28 +461,89 @@ export default function Home({params}:any) {
         />
       </div>
       <Review />
-      <div className="hidden w-auto bg-[#00364E] sm:flex flex-col justify-center items-center py-[80px] gap-[40px]">
-        <Image
-          src="/images/neet.png"
-          alt="Your Logo"
-          width={880}
-          height={144}
-        />
-        <Image
-          src="/images/testSeries.png"
-          alt="Your Logo"
-          width={806}
-          height={128}
-        />
+      <div className=" bg-[#00364E] flex flex-col justify-center items-center sm:py-[80px] py-[32px] gap-[40px]">
+        <div
+          className={`${poppins.className} text-[#FFF] sm:text-[48px] text-[30px] font-[700] px-[20px]`}
+        >
+          boost your revision with{" "}
+          <span className="text-[#FCDE5A]">
+            IL test series for {params.course[0]} !
+          </span>
+        </div>
+        <div className="flex sm:flex-row flex-col max-sm:gap-[32px] justify-evenly w-full max-sm:px-[20px]">
+          <div className="max-sm:hidden flex-col flex gap-[16px]">
+            <div className="flex gap-[16px]">
+              <Image
+                src="/images/checklist1.png"
+                alt="check"
+                width={32}
+                height={32}
+              />
+              <div className="text-[#FFF] text-lg flex items-center">
+                test your skills
+              </div>
+            </div>
+            <div className="flex gap-[16px]">
+              <Image
+                src="/images/checklist1.png"
+                alt="check"
+                width={32}
+                height={32}
+              />
+              <div className="text-[#FFF] text-lg flex items-center">
+                expertly crafted questions
+              </div>
+            </div>
+            <div className="flex gap-[16px]">
+              <Image
+                src="/images/checklist1.png"
+                alt="check"
+                width={32}
+                height={32}
+              />
+              <div className="text-[#FFF] text-lg flex items-center">
+                progress analysis
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-row gap-[12px]">
+              <Image
+                src="/images/testseries.svg"
+                alt="check"
+                width={96}
+                height={48}
+              />
+              <div className="flex flex-col">
+                <div
+                  className={`${poppins.className} text-[#FFF] text-[18px] font-bold`}
+                >
+                  32.4K Students
+                </div>
+                <div
+                  className={`${poppins.className} text-[#FFF] text-[16px] font-normal`}
+                >
+                  Revise with IL Mock Tests
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center items-center gap-2 bg-[#007BFF] rounded-[12px] py-[12px] sm:px-[64px] px-[34px] transform hover:scale-105 transition-transform duration-300">
+              <div
+                className={`${poppins.className} text-[16px] text-[#FFF] font-[600]`}
+              >
+                explore test series
+              </div>
+              <Image
+                src="/images/explore.svg"
+                alt="Your Logo"
+                width={24}
+                height={24}
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="sm:hidden bg-[#00364E] flex justify-center">
-        <Image
-          src="/images/testSeries2.png"
-          alt="Your Logo"
-          width={375}
-          height={332}
-        />
-      </div>
+     
       <Download />
       <Footer />
     </>

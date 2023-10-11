@@ -5,8 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
-import { showOverlayMode } from "../../store/mobVeriSlice";
-import { setIsExitingUser } from "../../store/mobVeriSlice";
+import { showOverlayMode, setIsExitingUser,setIsPhoneVerified } from "../../store/mobVeriSlice";
 import {verifyPhone} from '../../services/userServics';
 import SendOtp from './SendOtp';
 import OtpVerification from './OtpVerification';
@@ -21,6 +20,9 @@ function LoginPopup(props) {
       );
       const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
+      );
+      const isPhoneVerified = useSelector(
+        (state) => state.mobileVerification.isPhoneVerified
       );
       const isOtpSent = useSelector(
         (state) => state.mobileVerification.isOtpSent
@@ -50,6 +52,7 @@ function LoginPopup(props) {
             const userData = await verifyPhone(body);
             setExitingUser(userData?.existingUser);
             dispatch(setIsExitingUser(userData?.existingUser));
+            dispatch(setIsPhoneVerified(!isPhoneVerified));
             console.log(isExitingUser)
           } catch (error) {
             console.error('Error fetching data:', error.message);
@@ -58,11 +61,13 @@ function LoginPopup(props) {
           }
         }
     
-        verifyMobileNumber();
+        if(phoneNumber != ""){
+          verifyMobileNumber();
+        }
       },[])
   return (
 <>
-<Modal show={showOverlay} size="lg" centered aria-labelledby="example-modal-sizes-title-lg">
+<Modal className='modal-lg modal-dialog-centered' show={showOverlay} size="lg" centered aria-labelledby="example-modal-sizes-title-lg">
       <Modal.Header closeButton onClick={()=>{dispatch(showOverlayMode(!showOverlay));}}>
       </Modal.Header>
       <Modal.Body className="grid-example">
@@ -71,7 +76,7 @@ function LoginPopup(props) {
         {isOtpVerified && <Success />}
         {!isExitingUser && !isNameEntered && !isGradeSelected && <EnterName />}
         {isNameEntered && !isGradeSelected && <SelectGrade />}
-        {isGradeSelected && <SelectExam />}
+        {isGradeSelected && !isOtpSent && <SelectExam />}
       </Modal.Body>
     </Modal>
 </>

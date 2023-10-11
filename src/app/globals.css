@@ -20,6 +20,12 @@
   overflow-x: hidden;
 }
 
+@media screen and (max-width: 1023px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
