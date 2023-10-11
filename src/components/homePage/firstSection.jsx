@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { Button, Input, InputBase } from "@mui/material";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
@@ -129,30 +130,39 @@ function FirstSection() {
             loading="lazy"
           />
         </div>
-
-        <div className=" flex flex-col">
-          <div className="flex h-4/5 max-md:px-5 md:h-3/5 mt-9 mb-2">
-            <input
-              className="rounded-l-2xl max-md:h-12 max-md:placeholder:text-sm 
-              max-md:rounded-l-3xl max-md:bg-white
-               max-md:placeholder-gray-500 bg-blue-500
+        <div className=" max-md:w-full max-md:flex max-md:justify-center max-md:items-center">
+          <div className="flex flex-col max-2xl:mt-16 max-md:w-[335px]  gap-2 justify-center">
+            <div className="mb-1 items-stretch flex">
+              <div
+                className="rounded-s-2xl rounded-e-none 
+             border-[1px] border-r-0
+            max-2xl:bg-transparent max-md:bg-white px-4 py-2 max-md:text-[#080E14] text-white pe-2 flex justify-center items-center"
+              >
+                +91
+              </div>
+              <input
+                className="rounded--2xl max-md:h-12 max-md:placeholder:text-sm 
+              max-md:rounded--3xl max-md:bg-white
+               max-md:placeholder-gray-500 bg-[#007BFF]
                 placeholder-text:ml-3
-                text-black max-md:w-96 h-10 
-                md:h-12 pl-4 md:pl-6 text-base md:text-lg border-2 placeholder-white"
-              type="text"
-              placeholder="enter your mobile number"
-              value={query}
-              onChange={handleInputChange}
-            />
-            <button
-              onClick={handleToggleOverlay}
-              className="md:w-32 max-md:w-40 text-black font-[600] max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
-            >
-              join for free
-            </button>
-          </div>
-          <div className="max-md:text-sm font-normal max-md:px-6">
-            we will send an otp for verification
+                 placeholder-[#F0F0F0]
+                text-black max-md:w-96 h-10 border-l-0
+                md:h-12 pl-4 md:pl-6 text-base md:text-lg border-[1px] "
+                type="text"
+                placeholder="enter your mobile number"
+                value={query}
+                onChange={handleInputChange}
+              />
+              <button
+                onClick={handleToggleOverlay}
+                className="md:w-32 max-md:w-40 text-black max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
+              >
+                join for free
+              </button>
+            </div>
+            <div className="max-md:text-sm font-normal max-md:px-6">
+              we will send an otp for verification
+            </div>
           </div>
         </div>
       </div>

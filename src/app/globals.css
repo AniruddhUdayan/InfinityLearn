@@ -27,7 +27,7 @@
   }
 }
 input::placeholder {
-  padding-left: 10px;
+  padding-left: px;
   /* or adjust as per your requirement */
   font-family: Poppins;
 }

@@ -460,7 +460,7 @@ function SecondSection() {
             grade-wise
           </div>
         </h1>
-        <div className=" h-full flex max-md:px-4 max-lg:w-full justify-center mb-9   items-center">
+        <div className=" h-max flex max-md:px-4 max-lg:w-full justify-center mb-9   items-center">
           {/* {std.map((item) => (
             <button className=" bg-white rounded-3xl px-4 py-2 mx-3 text-black hover:bg-yellow-300">
               {item}

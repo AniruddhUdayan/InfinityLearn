@@ -96,8 +96,8 @@ function Card(props) {
           src="/reviews/video.svg"
           height={52}
           width={40}
-          alt="inverted commas "
-          className=" w-[15%] bottom-[254px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
+          alt="video svg "
+          className=" w-[15%] bottom-[254px] max-md:bottom-[240px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
         />
         <div
           className=" flex max-md:ml-1 max-md:gap-3 max-md:justify-start max-md:flex-col 
