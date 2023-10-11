@@ -42,7 +42,7 @@ const SelectExam = () => {
     );
     const [name, setName] = useState("");
     const [selectedClass, setSelectedClass] = useState(null);
-    const [selectedExams, setselectedExams] = useState([]);
+    const [selectedExams, setSelectedExams] = useState([]);
     const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
     );
@@ -103,16 +103,16 @@ const SelectExam = () => {
             setSelectedCourses((prevCourses) => [...prevCourses, course.name]);
         }
     };
-    const  selectedTargetExamp = (exam) => {
-        const selectedObject = exams.find((item) => item.examId == exam.examId);
-
-        if (selectedObject) {
-            setselectedExams((prevArray) => [...prevArray, selectedObject]);
+    const selectedTargetExamp = (exam) => {
+        const index = selectedExams.findIndex((ind) => ind.examId === exam.examId);
+        if (index > -1) {
+          const updatedExams = [...selectedExams];
+          updatedExams.splice(index, 1);
+          setSelectedExams(updatedExams);
+        } else {
+          setSelectedExams([...selectedExams, exam]);
         }
-        console.log(selectedExams, 'selectedExams');
-
-        
-    }
+      };
     const handleContinue = async () => {
         dispatch(storeCourse(selectedExams));
         dispatch(setIsExamSelected(true));
