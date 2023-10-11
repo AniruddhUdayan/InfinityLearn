@@ -30,7 +30,7 @@ function TimeTableCard(props) {
       <div className=" flex gap-12 max-md:gap5 justify-evenly w-full max-md:flex-col ">
         {props.data.class.map((item, index) => (
           // <div className=" flex ">
-          <div className=" flex  bg-white max-md:h-full max-md:w-full max-md:gap-2 max-md:items-center  max-md:p-0 m p-4 w-1/2 rounded-2xl ">
+          <div key={index} className=" flex  bg-white max-md:h-full max-md:w-full max-md:gap-2 max-md:items-center  max-md:p-0 m p-4 w-1/2 rounded-2xl ">
             <div
               className={` relative ${
                 item.subject === "Biology" ? " bg-[#8EC37A]" : ""
@@ -231,7 +231,7 @@ function ThirdSection() {
         </div>
 
         {monthTimeTable?.schedule.map((item, index) => (
-          <TimeTableCard data={item} month={"Oct"} />
+          <TimeTableCard data={item} key={index} month={"Oct"} />
         ))}
 
         {selectedFromDate && selectedToDate && (
