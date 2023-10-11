@@ -122,7 +122,7 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="hidden sm:w-[588px] sm:h-[60px] sm:rounded-[12px] sm:bg-[#00364E] sm:flex sm:justify-center sm:items-center sm:text-[#FFF] sm:text-[16px] sm:font-normal sm:flex-row gap-[20px]">
+              <div className="hidden sm:w-[588px] sm:h-[60px] sm:rounded-[12px] sm:bg-gradient-to-r from-[#00364E] to-[#2B636B] sm:flex sm:justify-center sm:items-center sm:text-[#FFF] sm:text-[16px] sm:font-normal sm:flex-row gap-[20px]">
                 <div>{`what's in it for you?`}</div>
                 <div className="flex justify-center items-center  rounded-[12px] bg-[#007BFF] text-[12px] font-[500] px-[8px] py-[4px] gap-1">
                   <Image
@@ -218,7 +218,7 @@ export default function Home({ params }: any) {
               </div>
             </div>
             <div className="flex flex-row flex-wrap mt-[25.5px] w-auto gap-3">
-              <div className="flex w-full sm:w-[188px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300">
+              <div className="flex w-full sm:w-[188px] sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300">
                 <div>
                   {" "}
                   <div className="relative right-[21.5px]">
@@ -260,7 +260,7 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="relative top-1 flex justify-between w-full h-auto sm:w-[188px] sm:h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid border-[#06AA2F] sm:gap-[10px] transform hover:scale-105 transition-transform duration-300">
+              <div className="relative  flex justify-between w-full max-sm:h-auto sm:w-[188px] h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -275,7 +275,7 @@ export default function Home({ params }: any) {
                   </div>
                   <div className="flex flex-row items-center justify-center gap-1">
                     <div
-                      className={`${poppins.className} text-[#007BFF] text-[18px] font-[700]`}
+                      className={`${poppins.className} text-[#080E14] text-[18px] font-[700]`}
                     >
                       ₹ 6,660
                     </div>
@@ -290,7 +290,7 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="relative top-1 flex w-full md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300">
+              <div className="relative  flex w-full md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -303,7 +303,7 @@ export default function Home({ params }: any) {
                   ></div>
                   <div className="flex flex-row items-center justify-center gap-1">
                     <div
-                      className={`${poppins.className} text-[#007BFF] text-[18px] font-[700]`}
+                      className={`${poppins.className} text-[#080E14] text-[18px] font-[700]`}
                     >
                       ₹ 5,000
                     </div>
@@ -317,11 +317,13 @@ export default function Home({ params }: any) {
               >
                 Biology 24 Books
               </div>
+              <div className="w-[8px] h-[8px] rounded-[50px] bg-[#007BFF]"></div>
               <div
                 className={`${poppins.className} py-[8px] px-[16px] text-[#080E14] text-[14px] font-[500]`}
               >
                 Physics 12 Books
               </div>
+              <div className="w-[8px] h-[8px] rounded-[50px] bg-[#007BFF]"></div>
               <div
                 className={`${poppins.className} py-[8px] px-[16px] text-[#080E14] text-[14px] font-[500]`}
               >
