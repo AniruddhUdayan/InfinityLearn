@@ -25,6 +25,9 @@
     font-size: 14px;
   }
 }
+input::placeholder {
+  padding-left: 10px; /* or adjust as per your requirement */
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
