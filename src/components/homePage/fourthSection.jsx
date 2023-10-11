@@ -263,7 +263,7 @@ function ScrollableDiv() {
     <div className="md:hidden">
       <div
         ref={scrollRef}
-        className="h-auto flex px-10 items-center max-md:gap-3 max-2xl:gap-12 max- no-scrollbar overflow-x-scroll whitespace-nowrap"
+        className="h-auto flex px-10 items-center max-md:gap-7 max-2xl:gap-12 max- no-scrollbar overflow-x-scroll whitespace-nowrap"
         style={{ scrollBehavior: "smooth", width: cardWidth }}
       >
         {courses
@@ -312,7 +312,7 @@ function Courses() {
     <div className="flex max-md:hidden flex-col justify-center w-full items-center h-ull bg-blue-200">
       <div className="overflow-hidden h-auto relative   w-5/6">
         <div
-          className="flex transition-transform  duration-1000 "
+          className="flex transition-transform   duration-1000 "
           style={{ transform: `translateX(-${scrollPos * 5}%)` }} // Adjust based on card width and margin
         >
           {courses.map((course) => (
