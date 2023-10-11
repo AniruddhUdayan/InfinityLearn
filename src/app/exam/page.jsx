@@ -14,7 +14,7 @@ import Masterclasses from '@/components/examPage/Masterclasses';
 
 const ExamPage = () => {
     return (
-        <>
+        <div className='poppins'>
             <Header />
             <LandingExam />
             <Promise />
@@ -26,7 +26,7 @@ const ExamPage = () => {
             <School />
             <Download />
             <Footer /> 
-        </>
+        </div>
     )
 }
 
