@@ -18,6 +18,9 @@ function LoginPopup(props) {
     const showOverlay = useSelector(
         (state) => state.mobileVerification.showOverlay
       );
+      const isExitingUser = useSelector(
+        (state) => state.mobileVerification.isExitingUser
+      );
       const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
       );
@@ -40,7 +43,6 @@ function LoginPopup(props) {
         (state) => state.newUser.isExamSelected
       );
       const dispatch = useDispatch();
-      const [isExitingUser, setExitingUser] = useState(false);
       const [loading, setLoading] = useState(true);
       useEffect(()=>{
         async function verifyMobileNumber() {
@@ -50,7 +52,6 @@ function LoginPopup(props) {
           }
           try {
             const userData = await verifyPhone(body);
-            setExitingUser(userData?.existingUser);
             dispatch(setIsExitingUser(userData?.existingUser));
             dispatch(setIsPhoneVerified(!isPhoneVerified));
             console.log(isExitingUser)
@@ -61,7 +62,7 @@ function LoginPopup(props) {
           }
         }
     
-        if(phoneNumber != ""){
+        if(phoneNumber.length == 10 && !isPhoneVerified){
           verifyMobileNumber();
         }
       },[])
@@ -71,12 +72,12 @@ function LoginPopup(props) {
       <Modal.Header closeButton onClick={()=>{dispatch(showOverlayMode(!showOverlay));}}>
       </Modal.Header>
       <Modal.Body className="grid-example">
-        {isExitingUser && !isOtpSent && !isOtpVerified && <SendOtp />}
-        {isOtpSent && !isOtpVerified && <OtpVerification />}
-        {isOtpVerified && <Success />}
-        {!isExitingUser && !isNameEntered && !isGradeSelected && <EnterName />}
+        {!isPhoneVerified && !isOtpSent && <SendOtp />}
+        {isPhoneVerified && isOtpSent && !isOtpVerified && <OtpVerification />}
+        {isPhoneVerified && !isExitingUser && !isNameEntered && <EnterName />}
         {isNameEntered && !isGradeSelected && <SelectGrade />}
-        {isGradeSelected && !isOtpSent && <SelectExam />}
+        {isGradeSelected && !isExamSelected && <SelectExam />}
+        {isOtpVerified && <Success />}
       </Modal.Body>
     </Modal>
 </>

@@ -303,9 +303,9 @@ const isExitingUser = useSelector(
           </Col>
         </Row>
       </Container>
-      <div class="marketpr_show">
-        <div class="feslofrbottom">
-          <div class="pac_festpr_flexshow">
+      <div className="marketpr_show">
+        <div className="feslofrbottom">
+          <div className="pac_festpr_flexshow">
             <button
               onClick={verifyOtp}
               className={`otp_button ${otp == "" ? 'opacity_off' : ''}`}

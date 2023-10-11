@@ -37,5 +37,5 @@ export const mobVeriSlice = createSlice({
   },
 });
 
-export const { showOverlayMode, storePhoneNumber, setIsExitingUser, setIsOtpSent, setIsOtpVerified } = mobVeriSlice.actions;
+export const { showOverlayMode, storePhoneNumber, setIsExitingUser, setIsOtpSent, setIsOtpVerified, setIsPhoneVerified } = mobVeriSlice.actions;
 export default mobVeriSlice.reducer;

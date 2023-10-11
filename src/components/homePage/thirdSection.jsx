@@ -1,6 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { showOverlayMode } from "../../store/mobVeriSlice";
+import LoginPopup from "../LoginPopup";
 const options = [
   "personal attention",
   "india's top faculty",
@@ -167,12 +170,14 @@ function ThirdSection() {
     3: <OptionThree />,
     4: <OptionFour />,
   };
-  const [svgWidth, setSvgWidth] = useState(590);
-
+  const [svgWidth, setSvgWidth] = useState(500);
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
   const useWindowWidth = () => {
     // Initialize state with undefined so server and client HTML match
     const [windowWidth, setWindowWidth] = useState(undefined);
-
     useEffect(() => {
       // Handler to call on window resize
       const handleResize = () => {
@@ -224,6 +229,16 @@ function ThirdSection() {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
   };
 
+  const startLearning = async () =>{
+    dispatch(showOverlayMode(!showOverlay));
+  }
+  if (showOverlay) {
+    return (
+      <div>
+      <LoginPopup />
+    </div>
+    );
+  }
   return (
     <div className="items-center h-min py-16 bg-white">
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
@@ -263,11 +278,11 @@ function ThirdSection() {
             )}
           </div>
           <div className=" w-full flex justify-center items-center">
-            <button className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
-              <div>
-                start learning for free <span>&#8599;</span>
-              </div>
-            </button>
+          <button onClick={startLearning} className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
+            <div>
+              start learning for free <span>&#8599;</span>
+            </div>
+          </button>
           </div>
         </div>
       </div>

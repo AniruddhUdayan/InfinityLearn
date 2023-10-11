@@ -1,10 +1,15 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
+import { useDispatch, useSelector } from "react-redux";
+import { showOverlayMode } from "../../store/mobVeriSlice";
+import LoginPopup from "../LoginPopup";
 function SixthSection() {
   const [svgWidth, setSvgWidth] = useState(410);
-
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 662 ? 285 : 410);
   };
@@ -18,10 +23,21 @@ function SixthSection() {
     // Cleanup: remove event listener on unmount
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
+
+  const startLearning = async () =>{
+    dispatch(showOverlayMode(!showOverlay));
+  }
+  if (showOverlay) {
+    return (
+      <div>
+      <LoginPopup />
+    </div>
+    );
+  }
   return (
     <div className=" flex flex-col max-md:pt-20 justify-center">
       <div className=" w-full flex justify-center items-center">
-        <button className="text-white h-[52px] hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-2xl">
+        <button onClick={startLearning} className="text-white h-[52px] hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-2xl">
           <div>
             start learning for free <span>&#8599;</span>
           </div>

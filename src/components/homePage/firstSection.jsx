@@ -80,9 +80,6 @@ function FirstSection() {
   };
   if (showOverlay) {
     return (
-      // <div>
-      //   <LoginPage />
-      // </div>
       <div>
         <LoginPopup />
       </div>
@@ -113,7 +110,6 @@ function FirstSection() {
             width={600}
             height={350}
             alt="firstSectionRes"
-            loading="lazy"
           />
         </div>
 
@@ -128,7 +124,7 @@ function FirstSection() {
                 md:h-12 pl-4 md:pl-6 text-base md:text-lg border-2 placeholder-white"
               type="text"
               placeholder="enter your mobile number"
-              value={query}
+              value={query} maxLength={10}
               onChange={handleInputChange}
             />
             <button
