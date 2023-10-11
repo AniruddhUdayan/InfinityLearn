@@ -31,7 +31,7 @@ function SixthSection() {
       <div className=" h-min bg-gray-200 max-md:mt-12 max-2xl:mt-24 ">
         <div className=" max-w-screen-xl mx-auto px-4 flex max-md:flex-col  justify-between relative">
           <div className=" flex flex-col max-md:justify-end   mt-20  ">
-            <div className=" text-6xl max-md:text-4xl   font-bold md:mb-4  text-blue-500">
+            <div className=" text-6xl max-md:text-4xl    font-bold md:mb-4  text-blue-500">
               best study
               <span className="text-blue-500 ml-2 max-md:text-4xl md:hidden  mb-4 font-bold text-6xl">
                 material,{" "}
@@ -41,11 +41,14 @@ function SixthSection() {
               material,{" "}
               <span className="text-black font-bold text-6xl">now at</span>
             </div>
-            <div className=" text-black max-md:text-4xl font-bold md:mb-10 max-md:mb-6  text-6xl">
+            <div className=" text-black max-md:text-4xl font-bold md:mb-10 max-md:mb-1  text-6xl">
               <span className=" md:hidden text-black max-md:text-4xl font-bold text-6xl">
                 now at
               </span>{" "}
-              your finger tips!
+              your finger <span className="max-md:hidden">tips!</span>
+            </div>
+            <div className=" text-black max-md:text-4xl font-bold md:mb-10 max-md:mb-6  text-6xl">
+              tips!
             </div>
             <div className="flex max-md:flex-col flex-wrap">
               <div className="w-1/2 max-md:w-full p-2">
