@@ -451,7 +451,9 @@ function Header() {
               alt="call.svg"
             />
             <div className="flex flex-col">
-              <div className="text-yellow-300 text-[14px]">need help? talk to experts</div>
+              <div className="text-yellow-300 text-[14px]">
+                need help? talk to experts
+              </div>
               <div className="text-yellow-300 text-[16px]">1800-419-427</div>
             </div>
           </div>
