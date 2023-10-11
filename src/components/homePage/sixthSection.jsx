@@ -19,9 +19,9 @@ function SixthSection() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
   return (
-    <div className=" flex flex-col max-md:mt-5 justify-center">
+    <div className=" flex flex-col max-md:pt-20 justify-center">
       <div className=" w-full flex justify-center items-center">
-        <button className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
+        <button className="text-white h-[52px] hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-2xl">
           <div>
             start learning for free <span>&#8599;</span>
           </div>
@@ -30,7 +30,7 @@ function SixthSection() {
 
       <div className=" h-min bg-gray-200 max-md:mt-12 max-2xl:mt-24 ">
         <div className=" max-w-screen-xl mx-auto px-4 flex max-md:flex-col  justify-between relative">
-          <div className=" flex flex-col max-md:justify-end  mt-20  ">
+          <div className=" flex flex-col max-md:justify-end   mt-20  ">
             <div className=" text-6xl max-md:text-4xl   font-bold md:mb-4  text-blue-500">
               best study
               <span className="text-blue-500 ml-2 max-md:text-4xl md:hidden  mb-4 font-bold text-6xl">
@@ -48,39 +48,39 @@ function SixthSection() {
               your finger tips!
             </div>
             <div className="flex max-md:flex-col flex-wrap">
-              <div className="w-1/2 p-2">
+              <div className="w-1/2 max-md:w-full p-2">
                 <div className="flex items-center space-x-4 mb-5 text-black">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
-                    height={30}
-                    width={30}
+                    height={25}
+                    width={25}
                     alt="tick.svg"
-                    className="my-image-6"
+                    className=""
                   />
-                  <div className="text-sm opacity-50">live classes</div>
+                  <div className="text-sm opacity-70">live classes</div>
                 </div>
                 <div className="flex items-center space-x-4 mb-5 text-black">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
-                    height={30}
-                    width={30}
+                    height={25}
+                    width={25}
                     alt="tick.svg"
-                    className="my-image-6"
+                    className=""
                   />
-                  <div className="text-sm opacity-50">progress tracking</div>
+                  <div className="text-sm opacity-70">progress tracking</div>
                 </div>
               </div>
 
-              <div className="w-1/2 p-2">
+              <div className="w-1/2 max-md:w-full p-2">
                 <div className="flex items-center space-x-4 mb-5 text-black">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
-                    height={30}
-                    width={30}
+                    height={25}
+                    width={25}
                     alt="tick.svg"
-                    className="my-image-6"
+                    className=""
                   />
-                  <div className="text-sm opacity-50">
+                  <div className="text-[14px] opacity-70">
                     diverse question bank
                   </div>
                 </div>

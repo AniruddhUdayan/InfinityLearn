@@ -254,7 +254,7 @@ function Reviews() {
     </div>
   );
 }
-function FifthSection() {
+function Books() {
   return (
     <div className=" mb-40  max-md:h-[450px]  w-full bg-[#00364E]">
       <div
@@ -289,4 +289,4 @@ function FifthSection() {
     </div>
   );
 }
-export default FifthSection;
+export default Books;
