@@ -137,7 +137,7 @@ function SixthSection() {
             <div className="mb-4 ml- text-black text-center text-4xl font-bold">
               download the app
             </div>
-            <div className="flex max-md:w-96 pl-4 max-md:justify-center items-center  justify-between">
+            <div className="flex max-md:w-96 pl-10 max-md:justify-center items-center  justify-between">
               {/* <div className=" bg-black bg-apple rounded-xl w-full  h-fit"> */}
 
               <a
