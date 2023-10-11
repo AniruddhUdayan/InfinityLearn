@@ -95,7 +95,7 @@ const SelectGrade = () => {
                                         {grades.map((item, index) => (
                                             <div
                                                 key={index}
-                                                className={`border rounded-lg p-3 items-center   cursor-pointer hover:bg-gray-200 ${selectedClass === item ? "bg-blue-500 text-white" : ""
+                                                className={`border rounded-lg items-center cursor-pointer hover:bg-gray-200 select_grade ${selectedClass === item ? "bg-blue-500 text-white active" : ""
                                                     }`}
                                                 onClick={() => handleClassClick(item)}
                                             >

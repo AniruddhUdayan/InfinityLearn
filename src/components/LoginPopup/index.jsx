@@ -68,7 +68,7 @@ function LoginPopup(props) {
       },[])
   return (
 <>
-<Modal className='modal-lg modal-dialog-centered' show={showOverlay} size="lg" centered aria-labelledby="example-modal-sizes-title-lg">
+<Modal show={showOverlay} size="lg" centered aria-labelledby="example-modal-sizes-title-lg">
       <Modal.Header closeButton onClick={()=>{dispatch(showOverlayMode(!showOverlay));}}>
       </Modal.Header>
       <Modal.Body className="grid-example">
