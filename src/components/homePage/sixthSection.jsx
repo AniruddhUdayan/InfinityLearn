@@ -137,7 +137,7 @@ function SixthSection() {
             <div className="mb-4 ml- text-black text-center text-4xl font-bold">
               download the app
             </div>
-            <div className="flex max-md:w-96 pr-4 max-md:justify-center items-center  justify-between">
+            <div className="flex max-md:w-96 pl-4 max-md:justify-center items-center  justify-between">
               {/* <div className=" bg-black bg-apple rounded-xl w-full  h-fit"> */}
 
               <a
@@ -150,7 +150,7 @@ function SixthSection() {
                   height={20}
                   width={160}
                   alt="apple1.svg"
-                  className=" mb-4 bg-url()  hover:cursor-pointer"
+                  className=" mb-5 bg-url()  hover:cursor-pointer"
                 />
               </a>
               {/* </div> */}
