@@ -96,8 +96,8 @@ function Card(props) {
           src="/reviews/video.svg"
           height={52}
           width={40}
-          alt="inverted commas "
-          className=" w-[15%] bottom-[254px] max-lg:left-[310px] max-xl:left-[310px] max-md:left-[150px] opacity-75   relative"
+          alt="video svg "
+          className=" w-[15%] bottom-[254px] max-md:bottom-[240px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
         />
         <div
           className=" flex max-md:ml-1 max-md:gap-3 max-md:justify-start max-md:flex-col 
@@ -195,7 +195,7 @@ function Reviews() {
     setCN(window.innerWidth <= 768 ? 1 : 3);
     setPN(window.innerWidth <= 768 ? 1 : 4);
     if (window.innerWidth <= 768) {
-      setSN(105);
+      setSN(100);
     } else if (window.innerWidth <= 1024) {
       setSN(35);
     } else {
@@ -239,7 +239,7 @@ function Reviews() {
       >
         <NewLevelShower currentIndex={scrollPos} />
       </div>
-      <div className="  flex relative  max-md:h-full max-md:top-7 top-40 flex-col justify-center items-center ">
+      <div className="  flex relative  max-md:h-full max-md:top-7 top-10 flex-col justify-center items-center ">
         <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto w-screen  relative w-5/">
           <div
             className="flex gap-8 max-md:gap-[70px] max-md:px-5 transition-transform duration-1000"
@@ -256,24 +256,24 @@ function Reviews() {
 }
 function FifthSection() {
   return (
-    <div className=" mb-40  max-md:h-[450px]  w-full bg-[#00364E]">
+    <div className=" mb-40  max-md:h-[450px] h-[782px]  w-full bg-[#00364E]">
       <div
         className=" bg-[#00364E]  flex max-md:pt-10  justify-evenly max-md:ml-3
        max-md:justify-start text-start items-start pt-20 "
       >
         <div
-          className=" flex max-2xl:px-28 max-md:item-center max-md:px-0 
-          max-md:py-0 max-2xl:w-1/2
+          className=" flex max-2xl:px-28 max-md:item-center max-md:px-5 
+          max-md:py-0 max-2xl:w-1/2 font-[700] text-[32px] max-md:w-full
          h-max max-2xl:py-24 flex-col justify-between justify-cnter"
         >
-          <div className=" text-white text-6xl max-md:text-4xl font-extrabold">
+          <div className=" text-white text-6xl max-md:text-4xl ">
             inspiring
             <span className=" md:hidden ml-2">stories of</span>
           </div>
-          <div className="text-white max-md:hidden text-6xl font-extrabold">
+          <div className="text-white max-md:hidden text-6xl">
             stories of our{" "}
           </div>
-          <div className=" text-6xl max-md:text-4xl font-extrabold text-yellow-300">
+          <div className=" text-6xl max-md:text-4xl  text-[#FCDE5A]">
             <span className=" md:hidden mr-2">our</span>toppers{" "}
           </div>
         </div>

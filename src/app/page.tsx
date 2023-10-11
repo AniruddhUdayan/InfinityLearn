@@ -17,7 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Download from "@/components/examPage/Download/index.js";
 export default function Home() {
   return (
-    <div className=" no-scrollbar max-md:w-full">
+    <div className=" no-scrollbar poppins max-md:w-full">
       <Head>
         <title>Your Page Title</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
