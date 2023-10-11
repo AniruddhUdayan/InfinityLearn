@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeCourse, setIsExamSelected } from "../../store/newUserSlice";
+import { storeCourse, setIsExamSelected, setIsGradeSelected } from "../../store/newUserSlice";
 import { setIsOtpSent } from "../../store/mobVeriSlice";
 import { IoClose } from "react-icons/io5";
 import Image from "next/image";
@@ -134,6 +134,10 @@ const SelectExam = () => {
             // setLoading(false);
           }
       };
+
+      const changeGrade = ()=>{
+        dispatch(setIsGradeSelected(false));
+      }
     return (
         <div>
             <Container>
@@ -151,6 +155,14 @@ const SelectExam = () => {
                         <Row>
                             <Col md={12}>
                                 <h2 className="otp_heading">Every champion sets a goal. Let's define yours</h2>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={12} md={12}>
+                                <div className="exam_change_flex ">
+                                    <h6><span style={{color:"#080E14"}}>studying in</span>  <span className="exam_change_class">class {`${userGrade == 13 ? '12+' : userGrade}`}</span></h6>
+                                    <button onClick={changeGrade} className="exam_change_btn" >Change</button>
+                                </div>
                             </Col>
                         </Row>
                         <Row>
