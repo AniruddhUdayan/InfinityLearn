@@ -141,6 +141,7 @@ function FirstSection() {
               max-md:rounded--3xl max-md:bg-white
                max-md:placeholder-gray-500 bg-[#007BFF]
                 placeholder-text:ml-3
+                 focus:outline-none focus:border-white
 
                  placeholder-[#F0F0F0]
                 text-black max-md:w-96  border-l-0
