@@ -50,11 +50,11 @@ function SixthSection() {
   }
 
   return (
-    <div className=" flex flex-col max-md:pt-12 max-2xl:pt-32 justify-center">
-      <div className=" w-full flex justify-center items-center">
+    <div className=" flex flex-col max-md:pt-12 max-2xl:pt-[74px] justify-center">
+      <div className=" w-full flex h-min justify-center items-center">
         <button
           onClick={startLearning}
-          className="text-white h-[52px] hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-2xl"
+          className="text-white h-[52px] max-md:mt-8 hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600  bg-[#007BFF] rounded-2xl"
         >
           <div>
             start learning for free <span>&#8599;</span>
@@ -62,7 +62,7 @@ function SixthSection() {
         </button>
       </div>
 
-      <div className=" h-min bg-gray-200 max-md:mt-3 max-2xl:mt-24 ">
+      <div className=" h-min bg-gray-200 max-md:mt-3 max-2xl:mt-[68px] ">
         <div className=" max-w-screen-xl mx-auto px-4 flex max-md:flex-col  justify-between relative">
           <div className=" flex flex-col max-md:justify-end   mt-20  ">
             <div className=" text-[64px] max-md:text-[32px]  max-md:px-5   font-[700]   text-[#007BFF]">
