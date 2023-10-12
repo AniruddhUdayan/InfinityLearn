@@ -8,21 +8,21 @@ import Link from "next/link";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-	subsets: ["latin"],
-	weight: "500",
-  });
-  const poppins700 = Poppins({
-	subsets: ["latin"],
-	weight: "700",
-  });
-  const poppins400 = Poppins({
-	subsets: ["latin"],
-	weight: "400",
-  });
-  const poppins600 = Poppins({
-	subsets: ["latin"],
-	weight: "600",
-  });
+  subsets: ["latin"],
+  weight: "500",
+});
+const poppins700 = Poppins({
+  subsets: ["latin"],
+  weight: "700",
+});
+const poppins400 = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+});
+const poppins600 = Poppins({
+  subsets: ["latin"],
+  weight: "600",
+});
 
 const Download = () => {
   return (
@@ -160,27 +160,27 @@ const Download = () => {
             }
           </div>
         </div>
-        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px]">
-		<div className="flex flex-row ">
-          <div
-            className={`${poppins.className} sm:h-[56px] h-[48px] w-[335px] sm:w-auto bg-white rounded-tl-[12px] rounded-bl-[12px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500]  sm:gap-1`}
-          >
-            <span className="text-[#080E14] mr-[6px]">+91 </span>
-            <input
-              className="outline-none w-auto"
-              type="text"
-              placeholder="enter your mobile number"
-            //   value={query}
-            //   onChange={handleInputChange}
-            />
+        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px] w-full">
+          <div className="flex flex-row w-full">
+            <div
+              className={`${poppins.className} sm:h-[56px] h-[48px] w-auto px-[12px] sm:w-auto bg-white rounded-tl-[12px] rounded-bl-[12px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500] gap-0  sm:gap-1`}
+            >
+              <span className="text-[#080E14] sm:mr-[6px]">+91 </span>
+              <input
+                className="outline-none w-[181px]"
+                type="text"
+                placeholder="enter your mobile number"
+                //   value={query}
+                //   onChange={handleInputChange}
+              />
+            </div>
+            <button
+              // onClick={handleToggleOverlay1}
+              className="bg-[#007BFF]   text-white px-[24px] text-[14px] sm:text-[16px] sm:px-[28px] rounded-tr-[12px] rounded-br-[12px]"
+            >
+              book now
+            </button>
           </div>
-          <button
-            // onClick={handleToggleOverlay1}
-            className="bg-[#007BFF] text-white px-[24px] text-[14px] sm:text-[16px] sm:px-[28px] rounded-tr-[12px] rounded-br-[12px]"
-          >
-            book now
-          </button>
-        </div>
           <div className="hidden lg:block">
             we will send an otp for verification
           </div>

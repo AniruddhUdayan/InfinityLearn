@@ -133,50 +133,26 @@ const SwitchTabs = ({ data, onTabChange }) => {
   );
 };
 
-const SwitchTabs1 = ({ onTabChange, data = options }) => {
+const SwitchTabs1 = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const tabWidth = 100; // Assume each tab has a width of 100px
-  const gap = 20; // Adjusted gap between tabs
-  const containerWidth = window.innerWidth; // Assume the container takes up the whole window width
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setSelectedTab((prev) => (prev + 1) % data.length);
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, [data.length]);
-
-  useEffect(() => {
-    onTabChange && onTabChange(data[selectedTab], selectedTab);
-  }, [selectedTab, onTabChange, data]);
-
-  // Calculate the transform offset for the tabs container
-  const calculateOffset = () => {
-    let offset =
-      selectedTab * (tabWidth + gap) - (containerWidth - tabWidth - gap) / 2;
-    return -Math.max(offset, 0); // Ensure the offset is not negative
+  const handleTabClick = (index) => {
+    setSelectedTab(index);
+    onTabChange && onTabChange(data[index]);
   };
 
   return (
-    <div className="bg-white md:hidden text-black h-11 relative overflow-hidden w-full flex justify-center">
-      <div
-        style={{
-          transform: `translateX(${calculateOffset()}px)`,
-          transition: "transform 1s ease",
-        }}
-        className="flex space-x-4 whitespace-nowrap" // Tailwind CSS for horizontal spacing instead of marginRight
-      >
+    <div className="bg-white md:hidden no-scrollbar text-black h-11 relative w-full">
+      <div className="flex space-x-4 whitespace-nowrap overflow-x-auto">
         {data.map((option, index) => (
           <span
             key={index}
-            className={`inline-flex items-center justify-center px-4 py-2 ${
+            className={`inline-flex items-center justify-center px-4 py-2 cursor-pointer ${
               index === selectedTab
                 ? "text-blue-500 border-b-2 border-blue-500"
                 : "text-gray-400"
-            } cursor-pointer`}
-            style={{ minWidth: `${tabWidth}px` }} // Ensure each tab has at least 100px width
-            onClick={() => setSelectedTab(index)}
+            }`}
+            onClick={() => handleTabClick(index)}
           >
             {option}
           </span>
@@ -185,6 +161,8 @@ const SwitchTabs1 = ({ onTabChange, data = options }) => {
     </div>
   );
 };
+
+// export default SwitchTabs;
 
 function ThirdSection() {
   const showOverlay = useSelector(

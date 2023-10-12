@@ -9,12 +9,16 @@ function FirstSection() {
         <Image
           className="relative max-md:hidden ml-10  rounded-3xl w-[578px] h-[528px] object-cover"
           alt=""
-          src="livecourses/firstSection/mask-group@2x.png"
+          height={578}
+          width={528}
+          src="/../livecourses/firstSection/mask-group@2x.png"
         />
-        <img
-          className="relative ml-10 md:hidden pb-7 w-[308px] h-[328px] object-cover"
+        <Image
+          className="relative ml-10 md:hidden pb-7  object-cover"
           alt=""
-          src="livecourses/firstSection/image1.svg"
+          width={308}
+          height={328}
+          src="/../livecourses/firstSection/image1.svg"
         />
 
         <div className=" max-md:bg-white  max-md:px-4 max-md:text-black max-md:ml-0 ml-10  pb-12 flex flex-col justify-evenly ">
@@ -51,28 +55,36 @@ function FirstSection() {
           </div>
           <div className="flex max-md:flex-col font-thin my-4 gap-9 items-start justify-evenly ">
             <div className="flex  items-center gap-3 justify-evenly">
-              <img
-                className="relative max-md:hidden w-8 h-8"
+              <Image
+                className="relative max-md:hidden"
                 alt=""
-                src="/livecourses/firstSection/subjectslogo.svg"
+                width={32}
+                height={32}
+                src="/../livecourses/firstSection/subjectslogo.svg"
               />
-              <img
-                className="relative w-10  md:hidden  h-10"
+              <Image
+                className="relative   md:hidden  "
                 alt=""
-                src="/livecourses/firstSection/image2.svg"
+                width={40}
+                height={40}
+                src="/../livecourses/firstSection/calendar.svg"
               />
               <div className="relative ">Biology, Physics, Chemistry</div>
             </div>
             <div className="flex flex-row items-center justify-start gap-3">
-              <img
-                className="relative max-md:hidden w-8 h-8"
+              <Image
+                className="relative max-md:hidden "
                 alt=""
-                src="/livecourses/firstSection/calendar.svg"
+                width={32}
+                height={32}
+                src="/../livecourses/firstSection/calendar.svg"
               />
-              <img
-                className="relative w-10 md:hidden h-10"
+              <Image
+                className="relative  md:hidden"
                 alt=""
-                src="/livecourses/firstSection/image3.svg"
+                width={40}
+                height={40}
+                src="/../livecourses/firstSection/calendar.svg"
               />
               <div className="relative ">
                 <span>{`batch starts `}</span>
