@@ -140,11 +140,11 @@ function FirstSection() {
                 className="rounded--2xl max-md:h-12 max-md:placeholder:text-sm 
               max-md:rounded--3xl max-md:bg-white
                max-md:placeholder-gray-500 bg-[#007BFF]
-                placeholder-text:ml-3
+                placeholder-text:ml3
 
                  placeholder-[#F0F0F0]
                 text-black max-md:w-96 h-10 border-l-0
-                md:h-12 pl-4 md:pl-6 text-base md:text-lg border-[1px] "
+                md:h-12 pl- md:pl6 text-base md:text-lg border-[1px] "
                 type="text"
                 placeholder="enter your mobile number"
                 value={query}

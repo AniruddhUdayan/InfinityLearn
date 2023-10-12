@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
 import LoginPopup from "../LoginPopup";
-
+import { Tab, Nav } from "react-bootstrap";
 const options = [
   "personal attention",
   "india's top faculty",
@@ -133,11 +133,36 @@ const SwitchTabs = ({ data, onTabChange }) => {
   );
 };
 
-const SwitchTabs1 = ({ onTabChange, data = options }) => {
+// import React, { useState, useEffect, useRef } from "react";
+
+// import React, { useState, useEffect, useRef } from "react";
+// import { Tab, Nav } from "react-bootstrap";
+
+// import React, { useState, useEffect, useRef } from "react";
+// import { Tab, Nav } from "react-bootstrap";
+
+// import React, { useState, useEffect, useRef } from "react";
+// import { Tab, Nav } from "react-bootstrap";
+
+// import React, { useState, useEffect, useRef } from "react";
+// import { Tab, Nav } from "react-bootstrap";
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import { Tab, Nav } from 'react-bootstrap';
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import { Tab, Nav } from 'react-bootstrap';
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import { Tab, Nav } from 'react-bootstrap';
+
+const SwitchTabs1 = ({ onTabChange, data = [] }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const tabWidth = 100; // Assume each tab has a width of 100px
-  const gap = 20; // Adjusted gap between tabs
-  const containerWidth = window.innerWidth; // Assume the container takes up the whole window width
+  const tabWidth = 100;
+  const gap = 20;
+  const containerWidth = window.innerWidth;
+
+  const tabsRef = useRef(null);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -151,40 +176,62 @@ const SwitchTabs1 = ({ onTabChange, data = options }) => {
     onTabChange && onTabChange(data[selectedTab], selectedTab);
   }, [selectedTab, onTabChange, data]);
 
-  // Calculate the transform offset for the tabs container
   const calculateOffset = () => {
     let offset =
-      selectedTab * (tabWidth + gap) - (containerWidth - tabWidth - gap) / 2;
-    return -Math.max(offset, 0); // Ensure the offset is not negative
+      selectedTab * (tabWidth + gap) - containerWidth / 2 + tabWidth / 2;
+    if (selectedTab === 0) {
+      offset = 0;
+    } else if (selectedTab === data.length - 1) {
+      offset = (data.length - 1) * (tabWidth + gap) - containerWidth + tabWidth;
+    }
+    return -offset;
   };
 
+  useEffect(() => {
+    if (tabsRef.current) {
+      tabsRef.current.style.transform = `translateX(${calculateOffset()}px)`;
+    }
+  }, [selectedTab, tabsRef]);
+
   return (
-    <div className="bg-white md:hidden text-black h-11 relative overflow-hidden w-full flex justify-center">
-      <div
-        style={{
-          transform: `translateX(${calculateOffset()}px)`,
-          transition: "transform 1s ease",
-        }}
-        className="flex space-x-4 whitespace-nowrap" // Tailwind CSS for horizontal spacing instead of marginRight
-      >
-        {data.map((option, index) => (
-          <span
-            key={index}
-            className={`inline-flex items-center justify-center px-4 py-2 ${
-              index === selectedTab
-                ? "text-blue-500 border-b-2 border-blue-500"
-                : "text-gray-400"
-            } cursor-pointer`}
-            style={{ minWidth: `${tabWidth}px` }} // Ensure each tab has at least 100px width
-            onClick={() => setSelectedTab(index)}
-          >
-            {option}
-          </span>
-        ))}
-      </div>
-    </div>
+    <Tab.Container
+      activeKey={selectedTab}
+      onSelect={(k) => setSelectedTab(Number(k))}
+    >
+      <Nav variant="tabs" className="overflow-hidden position-relative">
+        <div
+          ref={tabsRef}
+          className="d-flex gap-3"
+          style={{
+            transition: "transform 1s ease",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {data.map((option, index) => (
+            <Nav.Item key={index} style={{ minWidth: `${tabWidth}px` }}>
+              <Nav.Link
+                eventKey={index}
+                className={
+                  index === selectedTab
+                    ? "text-blue-500 border-b-2 border-blue-500"
+                    : "text-gray-400"
+                }
+              >
+                {option}
+              </Nav.Link>
+            </Nav.Item>
+          ))}
+        </div>
+      </Nav>
+    </Tab.Container>
   );
 };
+
+// export default SwitchTabs1;
+
+// export default SwitchTabs1;
+
+// export default SwitchTabs1;
 
 function ThirdSection() {
   const showOverlay = useSelector(

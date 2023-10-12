@@ -11,7 +11,7 @@ import Footer from "@/components/footer";
 
 function LiveCourse() {
   return (
-    <div className=" overflow-x-hidden">
+    <div className=" poppins overflow-x-hidden">
       <Header />
       <FirstSection />
       <SecondSection />

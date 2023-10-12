@@ -5,7 +5,7 @@ import SixthSection from "../homePage/sixthSection";
 import SeventhSection from "../homePage/seventhSection";
 function EigthSection() {
   return (
-    <div>
+    <div className=" pt-96">
       <div className=" bg-[#00364E] text-white max-md:flex-col flex w-full">
         <div className="  flex pl-24 max-md:w-full max-md:pl-0    justify-center items-center flex-col w-1/2">
           <div className=" md:hidden px-4 pt-6 w-full flex  gap-2  flex-col">
