@@ -137,14 +137,14 @@ function FirstSection() {
                 +91
               </div>
               <input
-                className="rounded--2xl max-md:h-12 max-md:placeholder:text-sm 
+                className="rounded--2xl max-2xl:w-[303px] max-md:h-12 max-md:placeholder:text-sm 
               max-md:rounded--3xl max-md:bg-white
                max-md:placeholder-gray-500 bg-[#007BFF]
                 placeholder-text:ml-3
 
                  placeholder-[#F0F0F0]
-                text-black max-md:w-96 h-10 border-l-0
-                md:h-12 pl-4 md:pl-6 text-base md:text-lg border-[1px] "
+                text-black max-md:w-96  border-l-0
+                 pl-2 max-2xl:h-[56px] placeholder-[400] placeholder:[16px]  text-base md:text-lg border-[1px] "
                 type="text"
                 placeholder="enter your mobile number"
                 value={query}
@@ -152,12 +152,12 @@ function FirstSection() {
               />
               <button
                 onClick={handleToggleOverlay}
-                className="md:w-32 max-md:w-40 text-black max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
+                className="md:w-32 max-md:w-40 font-[600] text-black max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
               >
                 join for free
               </button>
             </div>
-            <div className="max-md:text-sm font-normal max-md:px-6">
+            <div className="max-md:text-sm font-[500] text-[16px] max-md:px-6">
               we will send an otp for verification
             </div>
           </div>
@@ -166,12 +166,12 @@ function FirstSection() {
       <div className="  md:hidden max-md:w-full items-center flex justify-center">
         <Trial />
       </div>
-      <div className="mt-5 max-md:hidden">
+      <div className="mt-[30px] max-md:hidden">
         <Image
           className=""
           src="/homepage/firstSection/firstSection.png"
-          width={700}
-          height={600}
+          width={490}
+          height={541}
           alt="firstSection"
         />
       </div>
