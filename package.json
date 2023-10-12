@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@analytics/google-tag-manager": "^0.5.5",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.12",
     "@reduxjs/toolkit": "^1.9.7",
+    "analytics": "^0.8.9",
     "aws-sdk": "^2.1472.0",
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",

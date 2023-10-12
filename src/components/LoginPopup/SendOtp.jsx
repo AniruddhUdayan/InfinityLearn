@@ -1,16 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode, storePhoneNumber, setIsOtpSent, setIsExitingUser,setIsPhoneVerified } from "../../store/mobVeriSlice";
+import { showOverlayMode, storePhoneNumber } from "../../store/mobVeriSlice";
 import Image from "next/image";
 import { sendOtp, verifyPhone } from "../../services/userServics";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import {setComponentToShow} from '../../store/modalToShow';
 const SendOtp = () => {
     const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
       );
+      const dispatch = useDispatch();
+    
   const [number, setNumber] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const isNumberValid = number.length === 10 && /^\d+$/.test(number);
@@ -18,12 +21,12 @@ const SendOtp = () => {
   const [isNumber, setIsNumber] = useState(false);
 
 
-  useEffect(() => {
-    if (isNumberValid1) {
-      // When number becomes valid, send OTP
-      phoneNumberHandler();
-    }
-  }, [isNumberValid1]);
+  // useEffect(() => {
+  //   if (isNumberValid1) {
+  //     // When number becomes valid, send OTP
+  //     phoneNumberHandler();
+  //   }
+  // }, [isNumberValid1]);
 
   const verifyMobileNumber = async ()=>{
     let body = {
@@ -32,28 +35,18 @@ const SendOtp = () => {
     }
     try {
       const userData = await verifyPhone(body);
-      dispatch(setIsExitingUser(userData?.existingUser));
-      dispatch(setIsPhoneVerified(!isPhoneVerified));
       dispatch(storePhoneNumber(number));
       if(userData?.existingUser){
         phoneNumberHandler()
+      } else {
+        dispatch(setComponentToShow('EnterName'));
       }
-      console.log(isExitingUser)
     } catch (error) {
       console.error('Error fetching data:', error.message);
     } finally {
       // setLoading(false);
     }
   }
-
-  const isExitingUser = useSelector(
-    (state) => state.mobileVerification.isExitingUser
-  );
-  const isPhoneVerified = useSelector(
-    (state) => state.newUser.isPhoneVerified
-  );
-  const dispatch = useDispatch();
-
   const handleToggleOverlay = () => {
     dispatch(showOverlayMode(!showOverlay));
   };
@@ -67,7 +60,7 @@ const SendOtp = () => {
         const response = await sendOtp(body);
         console.log(response);
         setOtpSent(response);
-        dispatch(setIsOtpSent(true));
+        dispatch(setComponentToShow('OtpVerification'));
       } catch (error) {
         console.error('Error fetching data:', error.message);
       } finally {
