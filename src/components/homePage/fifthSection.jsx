@@ -69,7 +69,7 @@ function Card(props) {
     return (
       <div
         className="flex  max-2xl:w-[365px] max-2xl:h-[365px] max-2xl:mb- mx-auto  max-md:h-fll 
-      max-md:py-4  max-2xl:my-6 shadow-md max-md:w-[355px] max-md:h-full justify-evenly max-md:gap-     flex-col px-2
+      max-md:py-4  max-2xl:my-6 shadow-md max-md:h-[391px] max-md:w-[355px] max-md:h-fll justify-evenly max-md:gap-     flex-col px-2
       flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
       >
         <Image
@@ -77,7 +77,7 @@ function Card(props) {
           // className=" rounded-full"
           height={161}
           width={292}
-          className="  max-md:mt-1 max-2xl:mt-20  w-[100%] h-[100%]"
+          className="  max-md:mt-10 max-2xl:mt-20  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
         />
@@ -102,7 +102,7 @@ function Card(props) {
         <div
           className=" flex max-2xl:bottom-20 max-2xl:right-2 max-md:ml-1 max-md:gap-3
           max-md:justify-start max-md:flex-col 
-       relative max-md:right-40 max-md:bottom-2    max-md:items-center "
+       relative max-md:right-40 max-md:bottom-10    max-md:items-center "
         >
           <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
             <div className=" font-bold">{props.data.name}</div>
@@ -119,7 +119,7 @@ function Card(props) {
   return (
     <div
       className="flex mb-12  max-2xl:w-[392px] max-2xl:h-[365px] max-md:h-[391px] max-md:w-[335px]  
-      shadow-md  flex-col max-md:gap-6 px-5 max-md:px-4 
+      shadow-md  flex-col max-md:gap-10 px-5 max-md:px-4 
     flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-[#080E14] "
     >
       <div className="flex  items-center gap- gap-5 px-7 max-md:px-2 ">
