@@ -197,7 +197,7 @@ function SixthSection() {
                   height={20}
                   width={160}
                   alt="apple1.svg"
-                  className=" mb-5 bg-url()  hover:cursor-pointer"
+                  className="  mb- bg-url()  hover:cursor-pointer"
                 />
               </a>
               {/* </div> */}
@@ -211,7 +211,7 @@ function SixthSection() {
                   height={20}
                   width={150}
                   alt="playsto.svg"
-                  className=" hover:cursor-pointer"
+                  className=" mb- hover:cursor-pointer"
                 />
               </a>
             </div>
