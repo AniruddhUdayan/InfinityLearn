@@ -4,7 +4,7 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 /* div::-webkit-scrollbar {
   display: none;
 } */
@@ -12,6 +12,14 @@
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+.one {
+  position: relative;
+}
+
+.two {
+  position: relative;
+  clip-path: polygon(0 0, 85% 0, 93% 48%, 0% 100%);
 }
 
 /* Global Styles */
