@@ -20,7 +20,7 @@ function Card(props) {
                 }`}
             onClick={onClick}
         >
-            <Image src="./iit.svg" width={50} height={50} alt="card svg" />
+            <Image src={data?.img} width={50} height={50} alt="card svg" />
             <div className="flex flex-col ml-4 flex-grow items-start justify-center">
                 <div className="exam_card_head">{data.name}</div>
                 <div className="exam_card_dec">{data.description}</div>
@@ -69,7 +69,12 @@ const SelectExam = () => {
                     } else {
                         return (allowedExamNamesCT[userGrade]?.indexOf(ex?.name?.replace(/[^a-z]/ig, '').toUpperCase()) > -1);
                     }
-                }).sort((a, b) => allowedExamNamesCT[userGrade]?.indexOf(a?.name?.replace(/[^a-z]/ig, '').toUpperCase()) < allowedExamNamesCT[userGrade]?.indexOf(b?.name?.replace(/[^a-z]/ig, '').toUpperCase()) ? -1 : 1);
+                })
+                .sort((a, b) => allowedExamNamesCT[userGrade]?.indexOf(a?.name?.replace(/[^a-z]/ig, '').toUpperCase()) < allowedExamNamesCT[userGrade]?.indexOf(b?.name?.replace(/[^a-z]/ig, '').toUpperCase()) ? -1 : 1);
+                exams.map(e=>{
+                    e.img = e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'NEET' ? './medical.svg' : e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'CUET' ? './cuet.svg' :  e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'CBSE' ? './cbse.svg' : e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'JEEMAIN' || e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'JEEADVANCED' ? './iit.svg' : './foundation.svg'
+                })
+                console.log(exams)
                 setExams(exams)
             } catch (error) {
                 console.error('Error fetching data:', error.message);
@@ -146,10 +151,8 @@ const SelectExam = () => {
                     <Col xs={12} md={6}>
                         <Image
                             src="/login/mobVer/SuccessImage.png"
-                            height={250}
-                            width={600}
                             alt="mob-ver-1"
-                            className=" max-md:hidden"
+                            className="max-md:hidden"
                         />
                     </Col>
                     <Col xs={12} md={6}>

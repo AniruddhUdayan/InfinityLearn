@@ -10,7 +10,9 @@
 .btn-close {
     opacity: 1;
 }
-
+.side_image{
+    width: 100%;
+}
 .otp_heading {
     padding: 50px 30px 50px 30px;
     font-size: 30px;
@@ -46,12 +48,16 @@
     border-radius: 12px;
     padding: 12px;
 }
-
+.otp_button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 .otp_mobile_input {
     display: flex;
     background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #9C9FA1, #9C9FA1);
     border: 1px solid #9C9FA1;
     border-radius: 12px;
+    padding: 0px 10px 0px 0px;
 }
 
 .resend_otp_row {
@@ -206,7 +212,10 @@
     background: #06AA2F;
 }
 .button_mobile_none{
-    display: block;
+    display: block !important;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
 }
 .select_grade_box {
     display: grid;
@@ -324,6 +333,7 @@
 
 @media only screen and (min-width: 481px) and (max-width: 576px) {
     .modal-lg  {
+        margin: 0px auto !important;
         width: 100% !important;
         max-width: 100% !important;
     }
@@ -417,9 +427,27 @@
 
 }
 
-@media only screen and (min-width: 577px) and (max-width: 766px) {}
+@media only screen and (min-width: 577px) and (max-width: 766px) {
+    .modal-lg {
+        margin: 0px auto !important;
+        width: 60% !important;
+        max-width: 60% !important;
+    }
+    .button_mobile_none{
+        display: block !important;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+}
 
-@media only screen and (min-width: 767px) and (max-width: 991px) {}
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+    .modal-lg {
+        margin: 0px auto !important;
+        width: 85% !important;
+        max-width: 85% !important;
+    }
+}
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .modal-lg {
