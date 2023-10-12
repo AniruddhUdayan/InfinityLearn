@@ -140,22 +140,29 @@ const SwitchTabs1 = ({ onTabChange, data = options }) => {
   const containerWidth = window.innerWidth; // Assume the container takes up the whole window width
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setSelectedTab((prev) => (prev + 1) % data.length);
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, [data.length]);
-
-  useEffect(() => {
     onTabChange && onTabChange(data[selectedTab], selectedTab);
   }, [selectedTab, onTabChange, data]);
 
   // Calculate the transform offset for the tabs container
   const calculateOffset = () => {
+    // Basic offset to center the selected tab
     let offset =
-      selectedTab * (tabWidth + gap) - (containerWidth - tabWidth - gap) / 2;
-    return -Math.max(offset, 0); // Ensure the offset is not negative
+      selectedTab * (tabWidth + gap) - (containerWidth - tabWidth) / 2;
+
+    // If offset is positive, it means we are trying to move tabs too much to the right, creating empty space
+    if (offset > 0) {
+      offset = 0;
+    }
+
+    // Maximum offset ensures that we do not create empty space to the right of the last tab
+    const maxOffset = -(data.length * (tabWidth + gap) - containerWidth + gap);
+
+    // If calculated offset is less than maximum allowed offset, use the maximum allowed offset
+    if (offset < maxOffset) {
+      offset = maxOffset;
+    }
+
+    return offset;
   };
 
   return (

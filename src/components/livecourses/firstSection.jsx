@@ -11,14 +11,14 @@ function FirstSection() {
           alt=""
           height={578}
           width={528}
-          src="/livecourses/firstSection/mask-group@2x.png"
+          src="/../livecourses/firstSection/mask-group@2x.png"
         />
         <Image
           className="relative ml-10 md:hidden pb-7  object-cover"
           alt=""
           width={308}
           height={328}
-          src="livecourses/firstSection/image1.svg"
+          src="/../livecourses/firstSection/image1.svg"
         />
 
         <div className=" max-md:bg-white  max-md:px-4 max-md:text-black max-md:ml-0 ml-10  pb-12 flex flex-col justify-evenly ">
@@ -60,14 +60,14 @@ function FirstSection() {
                 alt=""
                 width={32}
                 height={32}
-                src="/livecourses/firstSection/subjectslogo.svg"
+                src="/../livecourses/firstSection/subjectslogo.svg"
               />
               <Image
                 className="relative   md:hidden  "
                 alt=""
                 width={40}
                 height={40}
-                src="/livecourses/firstSection/image2.svg"
+                src="/../livecourses/firstSection/calendar.svg"
               />
               <div className="relative ">Biology, Physics, Chemistry</div>
             </div>
@@ -77,14 +77,14 @@ function FirstSection() {
                 alt=""
                 width={32}
                 height={32}
-                src="/livecourses/firstSection/calendar.svg"
+                src="/../livecourses/firstSection/calendar.svg"
               />
               <Image
                 className="relative  md:hidden"
                 alt=""
                 width={40}
                 height={40}
-                src="/livecourses/firstSection/image3.svg"
+                src="/../livecourses/firstSection/calendar.svg"
               />
               <div className="relative ">
                 <span>{`batch starts `}</span>

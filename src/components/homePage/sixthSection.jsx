@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
 import LoginPopup from "../LoginPopup";
+import { GoArrowUpRight } from "react-icons/go";
 function SixthSection() {
   const [svgWidth, setSvgWidth] = useState(410);
   const showOverlay = useSelector(
@@ -54,10 +55,13 @@ function SixthSection() {
       <div className=" w-full flex h-min justify-center items-center">
         <button
           onClick={startLearning}
-          className="text-white h-[52px] max-md:mt-8 hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600  bg-[#007BFF] rounded-2xl"
+          className="text-white items-center h-[52px] max-md:mt-8  hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600  bg-[#007BFF] rounded-2xl"
         >
-          <div>
-            start learning for free <span>&#8599;</span>
+          <div className=" flex justify-center gap-2">
+            <div className="">start learning for free </div>
+            <div>
+              <GoArrowUpRight size={24} />
+            </div>
           </div>
         </button>
       </div>
