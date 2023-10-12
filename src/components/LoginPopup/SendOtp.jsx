@@ -93,10 +93,10 @@ const SendOtp = () => {
             <Col xs={12} md={6}>
             <Image
           src="/login/mobVer/mobVer1.svg"
-          height={250}
-          width={600}
+          height={200}
+          width={400}
           alt="mob-ver-1"
-          className=" max-md:hidden"
+          className="side_image max-md:hidden"
         />
             </Col>
             <Col xs={12} md={6}>

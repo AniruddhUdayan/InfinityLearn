@@ -307,9 +307,10 @@ const isExitingUser = useSelector(
                 <div className="otp_button_row">
                   <button
                     onClick={verifyOtp}
+                    disabled={otp.join(',').replace(/[^0-9]/g, '').length < 4}
                     className={`otp_button ${otp == "" ? 'opacity_off':''}`}
                   >
-                    Verify OTP <span>&#8599;</span>
+                    Verify OTP {}<span>&#8599;</span>
                   </button>
                 </div>
               </Col>
