@@ -68,8 +68,8 @@ function Card(props) {
   if (check) {
     return (
       <div
-        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] max-2xl:mb-5 mx-auto  max-md:h-fll 
-      max-md:py-4  max-2xl:my-4 shadow-md max-md:w-[355px] max-md:h-full justify-evenly max-md:gap-     flex-col px-2
+        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] max-2xl:mb- mx-auto  max-md:h-fll 
+      max-md:py-4  max-2xl:my-5 shadow-md max-md:w-[355px] max-md:h-full justify-evenly max-md:gap-     flex-col px-2
       flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
       >
         <Image
@@ -225,7 +225,7 @@ function Reviews() {
         setLineLength(` w-48  max-md:w-28 `);
       }
       return () => clearInterval(interval);
-    }, 1500);
+    }, 150000);
 
     return () => clearInterval(interval);
   }, [scrollPos]);

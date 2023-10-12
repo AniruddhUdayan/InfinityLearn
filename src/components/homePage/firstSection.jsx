@@ -157,7 +157,7 @@ function FirstSection() {
                 join for free
               </button>
             </div>
-            <div className="max-md:text-sm font-normal max-md:px-6">
+            <div className="max-md:text-sm font-[500] text-[16px] max-md:px-6">
               we will send an otp for verification
             </div>
           </div>
