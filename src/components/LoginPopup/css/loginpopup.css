@@ -4,7 +4,7 @@
     max-width: 1100px !important;
 }
 .modal-header {
-    border: none;
+    border: none !important;
 }
 
 .btn-close {
@@ -208,13 +208,19 @@
 .button_mobile_none{
     display: block;
 }
-.select_grade{
-    padding: 10px 0px 10px 20px;
+.select_grade_box {
+    display: grid;
+    gap: 12px;
+    columns: 5;
 }
-.select_grade span {
-    color:#080E14;
+.select_grade{
+    border-radius: 16px;
+    border: 1px solid #9C9FA1;
+    padding: 6px 15px 6px 15px;
+    font-size: 16px;
+    gap: 10px;
     font-weight: 600;
-    font-size: 14px;
+    color: #080E14;
 }
 .select_grade.active {
     background: #D6F4DE;
@@ -241,7 +247,7 @@
     .modal-content {
         border: none !important;
         overflow: auto;
-        border-radius: 0px;
+        border-radius: 0px !important;
     }
 
     .otp_heading {
@@ -273,11 +279,18 @@
     .w-20 {
         width: 4rem;
     }
-    .select_grade {
-        border-radius: 20px;
+    .select_grade_box {
+        display: grid;
+        gap: 12px;
+        columns: 6;
     }
-    .grid-cols-5 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+    .select_grade{
+        border-radius: 12px;
+    }
+    .select_grade.active {
+        background: #E6F2FF;
+        border: 1px solid #007BFF !important;
+        color: #080E14 !important;
     }
     .select_exam_row {
         padding: 0px;
@@ -289,7 +302,7 @@
     }
 
     .button_mobile_none {
-        display: none;
+        display: none !important;
     }
 
     .marketpr_show {
@@ -308,6 +321,105 @@
     }
 
 }
+
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+    .modal-lg  {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .modal-body{
+        padding: 0px;
+    }
+    .modal .modal-dialog {
+        transform: none;
+        margin: 0px;
+        margin-left: auto;
+        height: 100%;
+        align-items: stretch !important;
+        border: none;
+    }
+
+    .modal-content {
+        border: none !important;
+        overflow: auto;
+        border-radius: 0px !important;
+    }
+
+    .otp_heading {
+        padding: 0px 0px 20px 0px;
+        font-size: 19px;
+        line-height: 30px;
+    }
+
+    .otp_mob_input {
+        padding: 0px;
+    }
+
+    .otp_button_row {
+        margin-top: 0px;
+    }
+
+    .text-black {
+        padding: 0px;
+    }
+
+    .gap-28 {
+        gap: 5rem;
+    }
+
+    .gap-4 {
+        gap: 1rem;
+    }
+
+    .w-20 {
+        width: 4rem;
+    }
+    .select_grade_box {
+        display: grid;
+        gap: 12px;
+        columns: 6;
+    }
+    .select_grade{
+        border-radius: 12px;
+    }
+    .select_grade.active {
+        background: #E6F2FF;
+        border: 1px solid #007BFF !important;
+        color: #080E14 !important;
+    }
+    .select_exam_row {
+        padding: 0px;
+        margin-bottom: 100px;
+    }
+
+    .success_Icon {
+        margin-top: 50px;
+    }
+
+    .button_mobile_none {
+        display: none !important;
+    }
+
+    .marketpr_show {
+        display: block;
+    }
+
+    .exam_card_active {
+        border: 2px solid #007BFF;
+        background: #E6F2FF;
+    }
+    .exam_card_active_tick{
+        background: #007BFF;
+    }
+    .exam_change_flex{
+        margin-left: 0px;
+    }
+
+}
+
+@media only screen and (min-width: 577px) and (max-width: 766px) {}
+
+@media only screen and (min-width: 767px) and (max-width: 991px) {}
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .modal-lg {

@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Header from "../components/header.jsx";
 // import Footer from "@/components/footer";
@@ -15,7 +16,12 @@ import SeventhSection from "../components/homePage/seventhSection.jsx";
 import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Download from "@/components/examPage/Download/index.js";
+import { useEffect } from 'react'
+import analytics from '../utils/analytics';
 export default function Home() {
+  useEffect(() => {
+    analytics.page() 
+  }, [])
   return (
     <div className=" no-scrollbar poppins max-md:w-full">
       <Head>

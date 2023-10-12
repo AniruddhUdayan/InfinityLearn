@@ -4,10 +4,11 @@ import { Button, Input, InputBase } from "@mui/material";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storePhoneNumber } from "@/store/mobVeriSlice";
-import LoginPage from "../loginPage";
+import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
 import LoginPopup from "../LoginPopup";
+import {verifyPhone, sendOtp} from '../../services/userServics';
+import analytics from '../../utils/analytics';
+import {setComponentToShow} from '../../store/modalToShow';
 const words = ["learning", "academic"];
 const duration = 2000; // Duration in milliseconds for each word
 const poppins = Poppins({
@@ -81,14 +82,50 @@ function FirstSection() {
     }
   };
 
-  const handleToggleOverlay = () => {
+  const handleToggleOverlay = async () => {
     if (query.length === 10) {
       dispatch(storePhoneNumber(query));
-      dispatch(showOverlayMode(!showOverlay));
+      let body = {
+        isdCode:'+91',
+        phone: query
+      }
+      try {
+        const userData = await verifyPhone(body);
+        dispatch(setIsExitingUser(userData?.existingUser));
+        analytics.track('otp_count', {
+          phone: query,
+          whatsapp_consent: false
+        })
+        if(userData?.existingUser){
+          sentOtp();
+        } else {
+          dispatch(setComponentToShow('EnterName'))
+          dispatch(showOverlayMode(!showOverlay));
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      } finally {
+      }
     } else {
       console.error("Phone number should be 10 digits!");
     }
   };
+  const sentOtp =  async() =>{
+    let body = {
+      isdCode:'+91',
+      phone: query
+    }
+    try {
+      const response = await sendOtp(body);
+      console.log(response);
+      dispatch(setComponentToShow('OtpVerification'));
+      dispatch(showOverlayMode(!showOverlay));
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    } finally {
+      // setLoading(false);
+    }
+  }
   if (showOverlay) {
     return (
       <div>

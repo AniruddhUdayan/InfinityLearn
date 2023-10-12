@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
 import LoginPopup from "../LoginPopup";
+import {setComponentToShow} from '../../store/modalToShow';
 function SixthSection() {
   const [svgWidth, setSvgWidth] = useState(410);
   const showOverlay = useSelector(
@@ -39,6 +40,7 @@ function SixthSection() {
     return () => window.removeEventListener("resize", updateWidth1);
   }, []);
   const startLearning = async () => {
+    dispatch(setComponentToShow('SendOtp'));
     dispatch(showOverlayMode(!showOverlay));
   };
   if (showOverlay) {

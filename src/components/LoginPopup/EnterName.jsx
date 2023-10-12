@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeName, setIsNameEntered } from "../../store/newUserSlice";
+import { storeName} from "../../store/newUserSlice";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import {setComponentToShow} from '../../store/modalToShow';
 function EnterName() {
   const showOverlay = useSelector(
     (state) => state.mobileVerification.showOverlay
@@ -21,9 +22,7 @@ function EnterName() {
   const dispatch = useDispatch();
   const storeNameHandler = () => {
     dispatch(storeName(name));
-    dispatch(setIsNameEntered(true));
-    // setShowClassOverlay(false);
-    // dispatch(showOverlayMode(!showOverlay));
+    dispatch(setComponentToShow('SelectGrade'));
   };
   const handleToggleOverlay = () => {
     dispatch(showOverlayMode(!showOverlay));

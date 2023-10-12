@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
 import LoginPopup from "../LoginPopup";
-
+import {setComponentToShow} from '../../store/modalToShow';
 const options = [
   "personal attention",
   "india's top faculty",
@@ -254,7 +254,9 @@ function ThirdSection() {
   };
 
   const startLearning = async () => {
+    dispatch(setComponentToShow('SendOtp'))
     dispatch(showOverlayMode(!showOverlay));
+
   };
   if (showOverlay) {
     return (

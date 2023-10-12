@@ -2,16 +2,15 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRef } from "react";
-import { IoClose } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
-import { storePhoneNumber, setIsOtpVerified } from "../../store/mobVeriSlice";
-import { BiArrowBack } from "react-icons/bi";
-import Tick from "../loginPage/mobileVerify/tick";
+import { storePhoneNumber } from "../../store/mobVeriSlice";
 import { sendSQSMsg,sendOtp, validateOTP, updateUserProfile } from "../../services/userServics";
 import * as moment from 'moment';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import analytics from '../../utils/analytics';
+import {setComponentToShow} from '../../store/modalToShow';
 const OtpVerification = () => {
     const dummyOtp = ["1", "2", "3", "4"];
     const [otp, setOtp] = useState(Array(4).fill(""));
@@ -88,13 +87,14 @@ const isExitingUser = useSelector(
         console.log(response)
         setOtpError(false);
         setShowOverlay(true);
-        dispatch(setIsOtpVerified(true));
         if (!isExitingUser) {
           updateUser(response)
         } else {
           localStorage.setItem('token',response?.accessToken);
           localStorage.setItem('user_details_from_server', JSON.stringify(response?.userDto));
+          registerSuccess(response?.userDto);
           sendLsq();
+          dispatch(setComponentToShow('Success'));
         }
       } catch (error) {
         setOtpError(true);
@@ -113,8 +113,10 @@ const isExitingUser = useSelector(
         const updatedUserData = await updateUserProfile(response?.accessToken,profileUpdate,response?.userDto?.userId);
         localStorage.setItem('token',updatedUserData?.accessToken);
         localStorage.setItem('user_details_from_server', JSON.stringify(updatedUserData?.userDto));
+        registerSuccess(updatedUserData?.userDto);
         sendLsq();
-        dispatch(setIsOtpVerified(true));
+        dispatch(setComponentToShow('Success'));
+        
     } catch{
       console.error('Error fetching data:', error.message);
     } finally{
@@ -127,7 +129,7 @@ const isExitingUser = useSelector(
     const sendLsq = async ()=>{
       let userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
       let Fields = {
-        mx_Grade : userDetails?.grade?.name?.replace(/[^0-9]/g, ''),
+        mx_Grade : Number(userDetails?.grade?.name?.replace(/[^0-9]/g, '')),
         mx_Exam: userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
         mx_Primary_Target_Exam : userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
         mx_Custom_6 : "website",
@@ -144,6 +146,18 @@ const isExitingUser = useSelector(
         "type": "Lead",
       }
       sendSQSMsg(Payload);
+    }
+
+    const registerSuccess = (userDetails)=>{
+      analytics.track('Lead_Register_Success', {
+        page_url: window.location.href,
+        first_name: userDetails?.firstName,
+        last_name: userDetails?.lastName,
+        phone: userDetails?.phone,
+        target_exam: userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+        grade: Number(userDetails?.grade?.name?.replace(/[^0-9]/g, '')),
+        whatsapp_consent: false
+      })
     }
 
     const resendOtp = async ()=>{

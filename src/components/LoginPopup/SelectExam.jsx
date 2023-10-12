@@ -1,18 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeCourse, setIsExamSelected, setIsGradeSelected } from "../../store/newUserSlice";
-import { setIsOtpSent } from "../../store/mobVeriSlice";
-import { IoClose } from "react-icons/io5";
+import { storeCourse} from "../../store/newUserSlice";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { FaCheck } from "react-icons/fa";
-import { BiArrowBack } from "react-icons/bi";
 import { getExams, sendOtp } from "../../services/userServics";
 import { allowedExamNamesCT } from "../../services/app.constants";
+import analytics from '../../utils/analytics';
+import {setComponentToShow} from '../../store/modalToShow';
 
 function Card(props) {
     const { data, isSelected, onClick } = props;
@@ -82,7 +80,7 @@ const SelectExam = () => {
 
         Exams();
 
-    }, [userGrade])
+    }, [])
 
     const dispatch = useDispatch();
     // const storeNameHandler = () => {
@@ -115,7 +113,6 @@ const SelectExam = () => {
       };
     const handleContinue = async () => {
         dispatch(storeCourse(selectedExams));
-        dispatch(setIsExamSelected(true));
         let body = {
             isdCode:'+91',
             firstName: userName,
@@ -127,7 +124,11 @@ const SelectExam = () => {
           try {
             const response = await sendOtp(body);
             console.log(response);
-            dispatch(setIsOtpSent(true));
+            dispatch(setComponentToShow('OtpVerification'));
+            analytics.track('otp_count', {
+                phone: query,
+                whatsapp_consent: false
+              })
           } catch (error) {
             console.error('Error fetching data:', error.message);
           } finally {
@@ -136,7 +137,7 @@ const SelectExam = () => {
       };
 
       const changeGrade = ()=>{
-        dispatch(setIsGradeSelected(false));
+        dispatch(setComponentToShow('SelectGrade'));
       }
     return (
         <div>
