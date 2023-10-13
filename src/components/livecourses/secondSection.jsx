@@ -186,7 +186,7 @@ function SecondSection() {
           </div>
         </div>
         <Image
-          src="/../livecourses/secondSection/image1.png"
+          src="/livecourses/secondSection/image1.png"
           height={530}
           width={600}
           alt="thirdSection"
