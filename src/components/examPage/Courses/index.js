@@ -1,3 +1,4 @@
+"use client";
 import { Button, Tab, Tabs, radioClasses } from "@mui/material"
 import { useRef, useState } from "react"
 import LiveCourseCard from "./LiveCourseCard"

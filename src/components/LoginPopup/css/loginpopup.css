@@ -1,5 +1,5 @@
 
-.modal-lg  {
+.mobilepop_stretch  {
     width: 1000px !important;
     max-width: 1100px !important;
 }
@@ -12,9 +12,15 @@
 }
 .side_image{
     width: 100%;
+    height: 100%;
+}
+.right_box {
+    margin-left: 30px;
+    margin-right: 30px;
 }
 .otp_heading {
-    padding: 50px 30px 50px 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     font-size: 30px;
     line-height: 36px;
     font-weight: 800;
@@ -22,9 +28,6 @@
     color: #080E14;
 }
 
-.otp_mob_input {
-    padding: 30px;
-}
 
 .otp_mob_input label {
     margin-bottom: 10px;
@@ -58,6 +61,13 @@
     border: 1px solid #9C9FA1;
     border-radius: 12px;
     padding: 0px 10px 0px 0px;
+}
+.name_input{
+    display: flex;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #9C9FA1, #9C9FA1);
+    border: 1px solid #9C9FA1;
+    border-radius: 12px;
+    padding: 0px 10px 0px 10px;
 }
 
 .resend_otp_row {
@@ -110,7 +120,6 @@
     background: #F1F2F6;
     padding: 12px 20px 12px 20px;
     border-radius: 12px;
-    margin-left: 30px;
     margin-bottom: 30px;
 }
 .exam_change_btn{
@@ -220,7 +229,7 @@
 .select_grade_box {
     display: grid;
     gap: 12px;
-    columns: 5;
+    grid-template-columns: repeat(5,1fr);
 }
 .select_grade{
     border-radius: 16px;
@@ -244,6 +253,10 @@
     .modal-body{
         padding: 0px;
     }
+    .right_box {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
     .modal .modal-dialog {
         transform: none;
         margin: 0px;
@@ -260,8 +273,9 @@
     }
 
     .otp_heading {
-        padding: 0px 0px 20px 0px;
-        font-size: 19px;
+        margin-top: 20px;
+        margin-bottom: 25px;
+        font-size: 22px;
         line-height: 30px;
     }
 
@@ -289,12 +303,13 @@
         width: 4rem;
     }
     .select_grade_box {
-        display: grid;
-        gap: 12px;
-        columns: 6;
+        grid-template-columns: repeat(4,1fr);
     }
     .select_grade{
+        padding: 8px 0px 6px 0px;
         border-radius: 12px;
+        width: 60px;
+        height: 60px;
     }
     .select_grade.active {
         background: #E6F2FF;
@@ -327,18 +342,25 @@
     }
     .exam_change_flex{
         margin-left: 0px;
+        margin-bottom: 0px;
+    }
+    .exam_change_class {
+        font-size: 16px;
     }
 
 }
 
 @media only screen and (min-width: 481px) and (max-width: 576px) {
     .modal-lg  {
-        margin: 0px auto !important;
         width: 100% !important;
         max-width: 100% !important;
     }
     .modal-body{
         padding: 0px;
+    }
+    .right_box {
+        margin-left: 10px;
+        margin-right: 10px;
     }
     .modal .modal-dialog {
         transform: none;
@@ -354,10 +376,11 @@
         overflow: auto;
         border-radius: 0px !important;
     }
-
+    
     .otp_heading {
-        padding: 0px 0px 20px 0px;
-        font-size: 19px;
+        margin-top: 20px;
+        margin-bottom: 25px;
+        font-size: 22px;
         line-height: 30px;
     }
 
@@ -385,12 +408,14 @@
         width: 4rem;
     }
     .select_grade_box {
-        display: grid;
-        gap: 12px;
-        columns: 6;
+        gap: 18px;
+        grid-template-columns: repeat(4,1fr);
     }
     .select_grade{
+        padding: 8px 0px 6px 0px;
         border-radius: 12px;
+        width: 60px;
+        height: 60px;
     }
     .select_grade.active {
         background: #E6F2FF;
@@ -423,8 +448,11 @@
     }
     .exam_change_flex{
         margin-left: 0px;
+        margin-bottom: 0px;
     }
-
+    .exam_change_class {
+        font-size: 16px;
+    }
 }
 
 @media only screen and (min-width: 577px) and (max-width: 766px) {
@@ -432,6 +460,10 @@
         margin: 0px auto !important;
         width: 60% !important;
         max-width: 60% !important;
+    }
+    .right_box {
+        margin-left: 20px;
+        margin-right: 20px;
     }
     .button_mobile_none{
         display: block !important;
@@ -447,20 +479,36 @@
         width: 85% !important;
         max-width: 85% !important;
     }
+    .right_box {
+        margin-left: 15px;
+        margin-right: 16px;
+    }
+    .otp_heading {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 26px;
+        line-height: 30px;
+    }
+    .select_grade_box {
+        grid-template-columns: repeat(4,1fr);
+    }
+    .exam_change_class{
+        font-size: 18px;
+    }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .modal-lg {
-        width: 85% !important;
-        max-width: 85% !important;
+        width: 80% !important;
+        max-width: 80% !important;
     }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
 
     .modal-lg {
-        width: 95% !important;
-        max-width: 95% !important;
+        width: 90% !important;
+        max-width: 90% !important;
     }
 
 }

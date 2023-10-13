@@ -77,6 +77,7 @@ const SelectGrade = () => {
                         />
                     </Col>
                     <Col xs={12} md={6}>
+                        <div className="right_box">
                         <Row>
                             <Col md={12}>
                                 <h2 className="otp_heading">Every champion sets a goal. Let's define yours</h2>
@@ -86,7 +87,7 @@ const SelectGrade = () => {
                             <Col xs={12} md={12}>
                                 <div>
                                 <label className="class_lable">select class</label>
-                                    <div className="grid grid-cols-5 gap-4 select_grade_box">
+                                    <div className="select_grade_box">
                                         {grades.map((item, index) => (
                                         <button key={index} className={`select_grade ${selectedClass === item ? "active" : ""}`} onClick={() => handleClassClick(item)}>{item?.name}</button>
                                         ))}
@@ -108,6 +109,7 @@ const SelectGrade = () => {
                                 </div>
                             </Col>
                         </Row>
+                        </div>
                     </Col>
                 </Row>
             </Container>

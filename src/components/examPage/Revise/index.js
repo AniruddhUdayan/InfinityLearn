@@ -1,3 +1,4 @@
+"use client";
 import { Button } from '@mui/material'
 import check from './../../../../public/images/check-icon.svg'
 import Image from "next/image"

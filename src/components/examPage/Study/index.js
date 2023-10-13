@@ -1,3 +1,4 @@
+"use client";
 import lastYear from './../../../../public/images/last-year.svg'
 import sample from './../../../../public/images/sample.svg'
 import revision from './../../../../public/images/revision.svg'

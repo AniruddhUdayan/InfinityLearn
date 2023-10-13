@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image"
 import check from './../../../../public/images/check-icon.svg'
 import main from './../../../../public/images/mc-main.svg'
