@@ -14,6 +14,11 @@
   display: flex;
   overflow-x: auto;
 }
+.scrollContainer {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
 
 .spacer {
   flex-shrink: 0;
