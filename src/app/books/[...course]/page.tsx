@@ -8,6 +8,7 @@ import Review from "@/components/Review&Detail/Review";
 import BookDemo from "@/components/BookDemo/BookDemo";
 import Download from "@/components/examPage/Download";
 import subItem from "@/utils/infoHeader";
+import '@/components/bookspage/bookspage.css'
 // import Review from "@/components/Review&Detail/Review";
 // import Bookdemo from "@/components/BookDemo/Bookdemo";
 
@@ -99,7 +100,7 @@ export default function Home({ params }: any) {
   return (
     <>
       <Header />
-      <div className="h-full bg-[#007BFF] pb-[61px] flex justify-center">
+      <div className="h-full bg-[#FFF] pb-[61px] flex justify-center">
         <div className="sm:flex sm:flex-col lg:flex-row sm:gap-[40px] sm:mx-[112px] sm:pt-[28px]">
           <div className="flex flex-col gap-[20px]">
             <div className="flex h-full flex-col ">
@@ -198,16 +199,52 @@ export default function Home({ params }: any) {
                   see now
                 </div>
               </div>
+              <div className="w-full">
+                <div className="hidden w-full sm:flex sm:flex-row sm:gap-3 sm:mt-[30px]">
+                  <div className="flex w-full px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#9C9FA1] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
+                    <div className="flex flex-row gap-2 ">
+                      <div
+                        className={`${poppins600.className} text-[#080E14] text-[16px] font-[600]`}
+                      >
+                        download sample
+                      </div>
+                      <Image
+                        src="/images/download2.svg"
+                        alt="Your Logo"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex w-full px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#007BFF] transform hover:scale-105 transition-transform duration-300">
+                    <div className="flex flex-row gap-2">
+                      <div
+                        className={`${poppins600.className} text-[#FFF] text-[16px] font-[600]`}
+                      >
+                        buy now
+                      </div>
+                      <Image
+                        src="/images/buy2.svg"
+                        alt="Your Logo"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:h-auto sm:min-w-[410px]">
+          <div className="mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-[1224px] sm:min-w-[410px] overflow-scroll custom-scrollbar"
+         
+          >
             <div
-              className={`${poppins700.className} w-auto text-white sm:text-[48px] text-[20px] font-bold leading-60 `}
+              className={`${poppins700.className} w-auto text-[#080E14] sm:text-[48px] text-[20px] font-bold leading-60 `}
             >
               <div> IL books for</div>
               <div className="sm:h-[72px] h-[36px] overflow-hidden w-auto relative">
                 <span
-                  className={`text-[#FCDE5A] inline-block transition-transform transform duration-[1000ms] ${
+                  className={`text-[#007BFF] inline-block transition-transform transform duration-[1000ms] ${
                     isSlideDown ? "translate-y-0" : "-translate-y-full"
                   }`}
                   style={{ position: "absolute", top: 0, left: 0 }}
@@ -215,7 +252,7 @@ export default function Home({ params }: any) {
                   {params.course[0]} FOUNDATION
                 </span>
               </div>
-              <span className="sm:text-[32px] font-[400]">
+              <span className={`${poppins400.className} sm:text-[32px]`}>
                 {" "}
                 - class {params.course[1]} , {params.course[2]} &{" "}
                 {params.course[3]}
@@ -223,7 +260,7 @@ export default function Home({ params }: any) {
             </div>
             <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap">
               <div
-                className={`${poppins600.className} text-[14px] sm:text-[18px] text-[#FFF] font-[600]`}
+                className={`${poppins600.className} text-[14px] sm:text-[18px] text-[#080E14] font-[600]`}
               >
                 4.5
               </div>
@@ -275,14 +312,14 @@ export default function Home({ params }: any) {
                   <div className="h-auto border-l border-gray-300 "></div>
                 </div>
                 <div
-                  className={`${poppins.className} text-[#FFF] text-[12px] sm:text-[14px] font-[500]`}
+                  className={`${poppins.className} text-[#080E14] text-[12px] sm:text-[14px] font-[500]`}
                 >
                   171 Reviews
                 </div>
               </div>
             </div>
             <div className="flex flex-row max-sm:flex-col max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
-              <div className="flex w-full sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300">
+              <div className="flex w-full sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300">
                 <div>
                   {" "}
                   <div className="relative right-[21.5px]">
@@ -324,7 +361,7 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="relative  flex justify-between w-full max-sm:h-auto sm:w-[188px] h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="relative  flex justify-between w-full max-sm:h-auto sm:w-[188px] h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -354,7 +391,7 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="relative  flex w-full  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#06AA2F] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="relative  flex w-full  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -403,7 +440,7 @@ export default function Home({ params }: any) {
                   height={24}
                 />
                 <div
-                  className={` ${poppins400.className} text-[#FFF] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#52565B] text-[14px] font-normal`}
                 >
                   based on latest neet pattern
                 </div>
@@ -416,7 +453,7 @@ export default function Home({ params }: any) {
                   height={24}
                 />
                 <div
-                  className={` ${poppins400.className} text-[#FFF] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#52565B] text-[14px] font-normal`}
                 >
                   concise theory + practice questions
                 </div>
@@ -429,43 +466,14 @@ export default function Home({ params }: any) {
                   height={24}
                 />
                 <div
-                  className={` ${poppins400.className} text-[#FFF] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#52565B] text-[14px] font-normal`}
                 >
                   topic-wise Detailed MCQs for revision
                 </div>
               </div>
             </div>
-            <div className="hidden sm:flex sm:flex-wrap sm:flex-row sm:gap-3 sm:mt-[30px]">
-              <div className="flex px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#FFF] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
-                <div className="flex flex-row gap-2 hover:gap-3">
-                  <div
-                    className={`${poppins600.className} text-[#FFF] text-[16px] font-[600]`}
-                  >
-                    download sample
-                  </div>
-                  <Image
-                    src="/images/download.png"
-                    alt="Your Logo"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-              </div>
-              <div className="flex px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#FFF] transform hover:scale-105 transition-transform duration-300">
-                <div className="flex flex-row gap-2">
-                  <div
-                    className={`${poppins600.className} text-[#007BFF] text-[16px] font-[600]`}
-                  >
-                    buy now
-                  </div>
-                  <Image
-                    src="/images/buy.png"
-                    alt="Your Logo"
-                    width={24}
-                    height={24}
-                  />
-                </div>
-              </div>
+            <div>
+              <Review />
             </div>
           </div>
         </div>
@@ -555,7 +563,7 @@ export default function Home({ params }: any) {
           </div>
         </div>
       </div>
-      <Review />
+
       <div className=" bg-[#00364E] flex flex-col justify-center items-center sm:py-[80px] py-[32px] gap-[40px]">
         <div
           className={`${poppins700.className} text-[#FFF] sm:text-[48px] text-[30px] font-[700] px-[20px]`}

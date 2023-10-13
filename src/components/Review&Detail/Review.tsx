@@ -87,7 +87,7 @@ const Review = () => {
   }, [scrollDirection]);
 
   return (
-    <div className="bg-[#007BFF] sm:bg-white flex flex-row gap-[42px] justify-center pt-[21px] h-full pb-[50px] flex-wrap-reverse">
+    <div className="bg-[#007BFF] sm:bg-white flex flex-row gap-[42px] justify-start pt-[21px] h-full pb-[50px] flex-wrap-reverse">
       <div className="flex flex-col w-auto mx-[22px]">
         <div
           className={`${poppins700.className} w-full flex justify-start text-[#080E14] text-[32px] font-bold py-[20px]`}
@@ -411,7 +411,7 @@ const Review = () => {
         >
           details
         </div>
-        <div className="max-sm:hidden max-w-[600px] flex flex-row flex-wrap w-auto h-auto gap-3">
+        <div className="max-sm:hidden max-w-[600px] sm:w-full flex flex-row flex-wrap w-auto h-auto gap-3">
           {items.map((item, index) => (
             <div
               key={index}
