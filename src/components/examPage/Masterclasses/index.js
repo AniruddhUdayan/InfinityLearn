@@ -11,7 +11,7 @@ const Masterclasses = () => {
     return (
         <div className="p-4 lg:p-10 py-8 lg:py-10 bg-white">
             <div className="text-5xl font-bold text-center px-56 text-[#080E14] mb-10 hidden lg:block">remember concepts for a lifetime with <span className="text-[#007BFF]">masterclasses</span></div>
-            <div className="text-4xl font-bold text-[#080E14] mb-6 lg:hidden">learn in depth with <span className="text-[#007BFF]">masterclasses</span></div>
+            <div className="text-4xl font-extrabold leading-[3rem] text-[#080E14] mb-6 lg:hidden">learn in depth with <span className="text-[#007BFF]">masterclasses</span></div>
             <div className="lg:px-48 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0">
                 <div className="flex lg:flex-col items-center gap-4 lg:px-10 text-center text-[#52565B] border-e-[1px] border-[#99CAFF]">
                     <Image src={check} alt="check" className="w-[1.5rem] lg:[2rem]" />
@@ -34,11 +34,11 @@ const Masterclasses = () => {
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='starts on wednesday' by='Ranjan M' byImg={mainTeacher} isLive={false} watching={'14.3k'} time={'July 5 at 1:00pm'} />
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='starts on wednesday' by='Ranjan M' byImg={mainTeacher} isLive={false} watching={'14.3k'} time={'July 5 at 1:00pm'} />
             </div>
-            <div className="font-bold text-[#080E14] text-4xl mt-4">subject wise videos</div>
+            <div className="font-bold text-[#080E14] text-4xl mt-4">subject wise<span className="hidden lg:inline"> videos</span></div>
             <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className="my-4" themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'start' }, '& .MuiTab-root' : { backgroundColor: '#F1F2F6' } }}>
                 <Tab label="Chemistry" className="" themeColor='yellow' />
                 <Tab label="Physics" className="" themeColor='yellow' />
-                <Tab label="Maths" className="" themeColor='yellow' />
+                <Tab label="Biology" className="" themeColor='yellow' />
             </Tabs>
             <div className="flex lg:grid lg:grid-cols-3 gap-4 overflow-x-auto no-scrollbar p-4 -ms-4">
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='Started 1 hour ago' by='Ranjan M' byImg={mainTeacher} isLive={true} watching={'14.3k'} />
@@ -52,8 +52,8 @@ const Masterclasses = () => {
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='starts on wednesday' by='Ranjan M' byImg={mainTeacher} isLive={false} watching={'14.3k'} time={'July 5 at 1:00pm'} />
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='starts on wednesday' by='Ranjan M' byImg={mainTeacher} isLive={false} watching={'14.3k'} time={'July 5 at 1:00pm'} />
             </div>
-            <div className="mt-8 text-center">
-                <Button variant="contained" className="w-full lg:w-auto" sx={{ borderRadius: '0.5rem', paddingX: '4rem' }}>
+            <div className="mt-8 text-center hidden lg:block">
+                <Button variant="contained" className="w-full lg:w-auto" sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
                     book free counselling session
                 </Button>
             </div>

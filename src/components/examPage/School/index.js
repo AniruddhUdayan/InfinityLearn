@@ -1,6 +1,7 @@
 import Image from "next/image"
 import yellow from "./../../../../public/images/yellow-guy.svg"
 import check from './../../../../public/images/check-icon.svg'
+import arrow from './../../../../public/images/arrow-tr-white.svg'
 import { Button } from "@mui/material"
 
 const School = () => {
@@ -27,8 +28,9 @@ const School = () => {
 					</div>
 				</div>
 				<div className="self-stretch">
-					<Button variant="contained" color="primary" disableElevation sx={{ borderRadius: '0.5rem', paddingX: '4rem'}} className="w-full lg:w-auto">
+					<Button variant="contained" color="primary" disableElevation sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }} className="w-full lg:w-auto">
 						find my school
+						<Image src={arrow} alt='arrow' width={15} height={0} className='ms-2' />
 					</Button>
 				</div>
 			</div>

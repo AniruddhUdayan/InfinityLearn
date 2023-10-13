@@ -11,6 +11,9 @@ import Courses from '@/components/examPage/Courses'
 import Study from '@/components/examPage/Study'
 import Revise from '@/components/examPage/Revise'
 import Masterclasses from '@/components/examPage/Masterclasses';
+import Scholarship from '@/components/examPage/Scholarship'
+import Books from '@/components/examPage/Books'
+import Faculty from '@/components/examPage/Faculty'
 
 const ExamPage = () => {
     return (
@@ -19,6 +22,9 @@ const ExamPage = () => {
             <LandingExam />
             <Promise />
             <Courses />
+            <Books />
+            <Scholarship />
+            <Faculty />
             <Masterclasses />
             <Revise />
             <Study />
