@@ -213,9 +213,9 @@
 }
 .button_mobile_none{
     display: block !important;
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
-    width: 50%;
+    width: 50%; */
 }
 .select_grade_box {
     display: grid;

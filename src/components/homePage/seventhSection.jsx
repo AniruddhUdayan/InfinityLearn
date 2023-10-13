@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
-import LoginPage from "../loginPage";
-import LoginPopup from "../LoginPopup";
 import {verifyPhone, sendOtp} from '../../services/userServics';
 import analytics from '../../utils/analytics';
 import {setComponentToShow} from '../../store/modalToShow'
@@ -72,14 +70,6 @@ function SeventhSection() {
     } finally {
       // setLoading(false);
     }
-  }
-
-  if (showOverlay) {
-    return (
-      <div>
-        <LoginPopup />
-      </div>
-    );
   }
   return (
     <div className="bg-[#00364E] min-h-max h-min">

@@ -151,6 +151,8 @@ const SelectExam = () => {
                     <Col xs={12} md={6}>
                         <Image
                             src="/login/mobVer/SuccessImage.png"
+                            height={250}
+                            width={600}
                             alt="mob-ver-1"
                             className="max-md:hidden"
                         />
