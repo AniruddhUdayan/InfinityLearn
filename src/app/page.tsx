@@ -18,6 +18,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Download from "@/components/examPage/Download/index.js";
 import { useEffect } from 'react'
 import analytics from '../utils/analytics';
+import LoginPopup from "../components/LoginPopup";
 export default function Home() {
   useEffect(() => {
     analytics.page() 
@@ -39,6 +40,7 @@ export default function Home() {
       <SixthSection />
       <SeventhSection />
       <Footer />
+      <LoginPopup />
     </div>
   );
 }

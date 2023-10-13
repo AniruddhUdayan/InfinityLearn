@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
-import LoginPopup from "../LoginPopup";
 import {setComponentToShow} from '../../store/modalToShow';
 const options = [
   "personal attention",
@@ -236,13 +235,6 @@ function ThirdSection() {
     dispatch(showOverlayMode(!showOverlay));
 
   };
-  if (showOverlay) {
-    return (
-      <div>
-        <LoginPopup />
-      </div>
-    );
-  }
   return (
     <div className="items-center container no-scrollbar h-min py-16 bg-white">
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">

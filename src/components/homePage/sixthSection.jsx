@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
-import LoginPopup from "../LoginPopup";
 import {setComponentToShow} from '../../store/modalToShow';
 import { GoArrowUpRight } from "react-icons/go";
 function SixthSection() {
@@ -44,13 +43,6 @@ function SixthSection() {
     dispatch(setComponentToShow('SendOtp'));
     dispatch(showOverlayMode(!showOverlay));
   };
-  if (showOverlay) {
-    return (
-      <div>
-        <LoginPopup />
-      </div>
-    );
-  }
 
   return (
     <div className=" flex flex-col max-md:pt-12 max-2xl:pt-[74px] justify-center">

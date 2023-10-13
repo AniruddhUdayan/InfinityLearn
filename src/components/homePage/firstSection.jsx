@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
-import LoginPopup from "../LoginPopup";
 import {verifyPhone, sendOtp} from '../../services/userServics';
 import analytics from '../../utils/analytics';
 import {setComponentToShow} from '../../store/modalToShow';
@@ -125,13 +124,6 @@ function FirstSection() {
     } finally {
       // setLoading(false);
     }
-  }
-  if (showOverlay) {
-    return (
-      <div>
-        <LoginPopup />
-      </div>
-    );
   }
   return (
     <div
