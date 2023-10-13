@@ -1,6 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import "./liveCourses.css";
+import { useInView } from "react-intersection-observer";
+import { GoArrowUpRight } from "react-icons/go";
+// import { log } from "console";
 function TopperIcon({
   width = 12,
   height = 16,
@@ -25,6 +29,7 @@ function TopperIcon({
     </svg>
   );
 }
+
 const teacher = [
   {
     id: 0,
@@ -54,22 +59,109 @@ const teacher = [
     image: "./livecourses/fourthSection/teachers/image3.svg",
   },
 ];
-function Card(props) {
+function NewLevelShower(props) {
+  const length = props.length;
+  console.log(props.length);
+  // const [currentLevel, setCurrentLevel] = useState(1);
+  // const totalLevels = 3; // Total number of levels based on the number of cards
+  // const cardsRefs = [];
+
+  // useEffect(() => {
+  //   const observerOptions = {
+  //     root: null,
+  //     rootMargin: "0px",
+  //     threshold: 0.5, // When 50% of the element is in view
+  //   };
+
+  //   const handleIntersection = (entries, observer) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         // Find the index of the intersecting card
+  //         const index = cardsRefs.indexOf(entry.target);
+  //         if (index >= 0) {
+  //           setCurrentLevel(index + 1);
+  //         }
+  //       }
+  //     });
+  //   };
+
+  //   const observer = new IntersectionObserver(
+  //     handleIntersection,
+  //     observerOptions
+  //   );
+  //   cardsRefs.forEach((ref) => {
+  //     if (ref.current) {
+  //       observer.observe(ref.current);
+  //     }
+  //   });
+
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, [cardsRefs]);
+
   return (
-    <div className=" shadow-md py-2 p-2 rounded-3xl gap-3  bg-white flex flex-col w-1/3 text-black items-center">
-      <Image src={props.data.image} height={310} width={370} alt="teacher" />
+    <div className="max-md:w-64 md:hidden max-lg:px-0 max-xl:">
+      <div className="flex items-center">
+        <div className="w-4 h-4 mr-4 font-semibold text-white">01</div>
+        <div className={`${"w-[95px]"} h-0.5 mt-2 bg-black`}></div>
+        <div className="w-4 h-4 ml-4 font-semibold text-black">
+          {/* {currentLevel < 10 ? `0${currentLevel}` : currentLevel} */}
+        </div>
+      </div>
+      <div
+        className={` w-${props.length} relative bottom-2 left-8 bg-blue-500 h-2 `}
+        // style={{ width: `${(currentLevel / totalLevels) * 100}%` }}
+      ></div>
+    </div>
+  );
+}
+
+function Card(props) {
+  // Create a ref to the card element
+  const cardRef = useRef();
+  // Use the useInView hook to detect when the card is in view
+  const { ref, inView } = useInView();
+
+  // This effect handles tracking when a card is in view
+  useEffect(() => {
+    if (inView) {
+      // Here, you can set the current level or perform other actions
+      // based on whether the card is in view.
+      console.log("hello");
+      props.handleLength();
+    }
+  }, [inView]);
+
+  return (
+    <div
+      className="max-md:flex-shrink-0 max-md:h-[450px] max-md:w-[323px] shadow-md md:py-2 p-2 max-md:p-[12px] rounded-3xl gap-3 justify-evenly bg-white flex flex-col w-1/3 font-font-[#080E14] items-center"
+      // Attach the card's ref and use the ref provided by useInView
+      ref={(node) => {
+        cardRef.current = node; // Store the card's ref in your array
+        ref(node); // Attach the ref provided by useInView
+      }}
+    >
+      {/* Your card content remains the same */}
+      <Image
+        src={props.data.image}
+        className=""
+        height={310}
+        width={370}
+        alt="teacher"
+      />
       <div className="tracking-wide text-xl font-bold ">{props.data.name}</div>
-      <div className=" font-light gap-2 tracking-wide flex">
-        <div className=" border-r-2 border-opacity-40 border-black px-2 ">
+      <div className="font-light gap-2 tracking-wide flex">
+        <div className="border-r-2 border-opacity-40 border-black px-2 ">
           {props.data.experience}
         </div>
-        <div className=" ">{props.data.college}</div>
+        <div>{props.data.college}</div>
       </div>
-      <div className=" flex items-center gap-2 mb-3">
-        <div className=" text-[#FF7A00] bg-[#FF7A00] border-[#FF7A00] rounded-xl bg-opacity-30 p-2 text-sm border-2 bg-">
+      <div className="flex items-center max-md:mt-[24px] gap-2 mb-3">
+        <div className="text-[#FF7A00] max-md:text-[12px] bg-[#FF7A00] border-[#FF7A00] max-md:h-[26px] rounded-xl max-md:rounded-lg bg-opacity-30 p-2 max-md:p-1 max-md:px-4 text-sm border-2 bg-">
           {props.data.subject}
         </div>
-        <div className=" text-[#169C38] bg-[#169C38] border-[#169C38] bg-opacity-30 p-1 rounded-xl items-center gap-2 flex  border-2 bg-">
+        <div className="text-[#169C38] bg-[#169C38] border-[#169C38] max-md:h-[26px] bg-opacity-30 max-md:rounded-lg p-1 max-md:text-[12px] max-md:px-4 rounded-xl items-center gap-2 flex border-2 bg-">
           <div>
             <TopperIcon />
           </div>
@@ -79,23 +171,82 @@ function Card(props) {
     </div>
   );
 }
+
 function FourthSection() {
+  const [currentLevel, setCurrentLevel] = useState(1);
+  const cardsRefs = useRef([]);
+  const { ref, inView } = useInView();
+  const inViewRef = useRef();
+  // const cardRef = useRef();
+  // // Use the useInView hook to detect when the card is in view
+  // const { ref, inView } = useInView();
+
+  // This effect will track which card is in view
+  useEffect(() => {
+    if (cardsRefs.current.length > 0) {
+      const levels = cardsRefs.current.map((cardRef, index) => ({
+        level: index + 1,
+        inView: cardRef.current && cardRef.current.isIntersecting,
+      }));
+
+      const currentInViewLevel = levels.find((level) => level.inView);
+
+      if (currentInViewLevel) {
+        setCurrentLevel(currentInViewLevel.level);
+      }
+    }
+  }, []);
+  // const [trial,setTrial]=useState()
+  useEffect(() => {
+    if (inView) {
+      // Here, you can set the current level or perform other actions
+      // based on whether the card is in view.
+      console.log("hello");
+      // props.handleLength();
+    }
+  }, [inView]);
+  const [length, setLength] = useState(4);
+  const handleLength = () => {
+    setLength(length + 2);
+    console.log("nikjkb");
+  };
   return (
-    <div className=" flex flex-col bg-gray-100 items-center py-8">
-      <div className=" text-4xl mb-12 text-black  text-center font-extrabold">
+    <div className="no-scrollbar flex flex-col bg-gray-100 max-md:px-10 items-center py-8">
+      <div className="text-4xl mb-12 text-black text-center font-extrabold">
         faculty
       </div>
-      <div className=" px-28 gap-6 mb-6 flex mx-auto">
-        {/* <Card data={teacher[0]} />
-        <Card data={teacher[1]} />
-        <Card data={teacher[2]} /> */}
-        {teacher.map((item, index) => (
-          <Card key={index} data={item} />
-        ))}
+      {/* <NewLevelShower
+        length={length}
+        currentIndex={currentLevel}
+        totalLevels={3}
+      /> */}
+      <div
+        className="max-w-full no-scrollbar max-md:overflow-x-auto md:mx-auto max-md:gap-[12px] max-md:mx-0 gap-6 mb-6"
+        ref={inViewRef}
+      >
+        <div
+          ref={(node) => {
+            // cardRef.current = node; // Store the card's ref in your array
+            ref(node); // Attach the ref provided by useInView
+          }}
+          className="flex max-md:flex-nowrap space-x-4"
+        >
+          {teacher.map((item, index) => (
+            <Card
+              key={index}
+              data={item}
+              // ref={(el) => (cardsRefs.current[index] = el)}
+              handleLength={handleLength}
+            />
+          ))}
+        </div>
       </div>
-      <button className=" w-80  text-black px-8 border-2 border-gray-300  rounded-xl p-3">
-        <div className=" font-semibold">
-          meet the teachers <span className=" ml-5 items-center">&#8599;</span>
+      <button className="w-80 max-mmd:mt-[24px] max-md:h-[48px] text-black px-8 border-2 border-gray-300 rounded-xl p-3">
+        <div className="flex justify-center gap-2">
+          <div>meet the teachers</div>
+          <div>
+            <GoArrowUpRight size={24} />
+          </div>
         </div>
       </button>
     </div>

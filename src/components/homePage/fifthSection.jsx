@@ -108,7 +108,7 @@ function Card(props) {
             <div className=" font-bold">{props.data.name}</div>
             <div className="  font-medium opacity-50">{props.data.place}</div>
           </div>
-          <div className=" max-md:ml-20  text-orange-400">
+          <div className=" max-md:ml-20  text-[#FF7A00]">
             {props.data.batch}
           </div>
         </div>
@@ -135,7 +135,7 @@ function Card(props) {
         <div className="flex z-50  flex-col flex-grow">
           <div className=" font-bold mb-3">{props.data.name}</div>
           <div className="  font-medium opacity-50">{props.data.place}</div>
-          <div className="  text-orange-400">{props.data.batch}</div>
+          <div className="  text-[#FF7A00]">{props.data.batch}</div>
         </div>
       </div>
       <Image
@@ -145,7 +145,9 @@ function Card(props) {
         alt="inverted commas"
         className=" w-[15%]"
       />
-      <div className=" max-md:text-base  text-start">{props.data.review}</div>
+      <div className=" max-md:text-[12px] text-[#52565B]  text-start">
+        {props.data.review}
+      </div>
     </div>
   );
 }

@@ -63,37 +63,43 @@ function FifthSection() {
             <span className=" text-blue-600">IL books</span> for NEET
           </div>
           <Image
-            src="./livecourses/fifthSection/books/book1.svg"
+            src="/../livecourses/fifthSection/books/book1.svg"
             width={436}
             height={580}
             alt="books"
             className=" mr-9"
           />
         </div>
-        <div className=" w-1/2 max-md:w-full max-md:pt-10  max-md:items-start max-md:px-6 justify-center gap-4 px-28  flex flex-col bg-[#FEF8DE]">
+        <div
+          className=" w-1/2 max-md:w-full max-md:pt-[32px]  max-md:items-start max-md:px-6 
+        justify-center gap-4 px-28  flex flex-col bg-[#FEF8DE]"
+        >
           <div className=" max-md:hidden pb-12 font-extrabold text-4xl">
             <span className=" text-blue-600">IL books</span> for NEET
           </div>
-          <div className=" max-md:mb-4">
-            <span className=" font-bold text-2xl"> Botany Class 11</span>{" "}
-            <span className=" opacity-50">(12 Books)</span>
+          <div className=" ">
+            <span className=" font-bold text-[22px]"> Botany Class 11</span>{" "}
+            <span className=" text-[#6B6B6B] text-[14px]">(12 Books)</span>
           </div>
-          <div className=" flex gap-3 flex-col ">
+          <div
+            className=" text-[#52565B] text-[14px] font-[400] max-md:mt-[26px] 
+          flex gap-3 max-md:gap-[16px] flex-col "
+          >
             <div className=" flex gap-2">
-              <Image src="./tick.svg" width={24} height={24} alt="books" />
+              <Image src="/../tick.svg" width={24} height={24} alt="books" />
               <div>Based on latest NEET Pattern</div>
             </div>
-            <div className=" flex gap-2">
-              <Image src="./tick.svg" width={24} height={24} alt="books" />
+            <div className="  flex gap-2">
+              <Image src="/../tick.svg" width={24} height={24} alt="books" />
               <div>Concise Theory + Practice Questions</div>
             </div>
-            <div className=" flex gap-2">
-              <Image src="./tick.svg" width={24} height={24} alt="books" />
+            <div className="flex gap-2">
+              <Image src="/../tick.svg" width={24} height={24} alt="books" />
               <div>Topic-wise Detailed MCQs for revision</div>
             </div>
           </div>
           <div className=" max-md:w-full max-md:py-4  max-md:text-center max-md:items-center">
-            <button className=" mt-10 max-md:mt-0   w-80 border-2 border-black border-opacity-50 bg-[#FEF8DE]  text-black  rounded-xl p-3">
+            <button className=" mt-10 max-md:mt-0 max-md:h-[48px]   w-80 border-2 border-black border-opacity-50 bg-[#FEF8DE]  text-black  rounded-xl p-3">
               <div className=" gap-5 flex justify-center font-semibold">
                 <div>download sample pdf</div>
 
@@ -103,61 +109,63 @@ function FifthSection() {
           </div>
         </div>
       </div>
-      <div className=" flex flex-col w-full max-md:px-4 justify-center mt-10 text-black">
+      <div className=" flex flex-col w-full max-md:px-4 justify-center mt-10 text-[#080E14]">
         <div className=" text-center font-extrabold mb-9 mt-4  text-4xl">
           syllabus
         </div>
 
-        <div className=" flex max-md:flex-col gap-12 mb-12 justify-center ">
+        <div className=" flex max-md:px-[20px] max-md:flex-col gap-12 mb-12 justify-center">
           <div
             onMouseEnter={handleArrowAnimation0}
             onMouseLeave={handleArrowAnimation0}
-            className={`hover:border-2 hover:border-red-300 hover:cursor-pointer items-center bg-red-300 bg-opacity-30 gap-7 p-7 max-md:p-3  rounded-2xl flex justify-between`}
+            className={`hover:border-2 hover:border-red-300 hover:cursor-pointer
+             items-center bg-red-300 bg-opacity-30 gap-7 p-7 pr-8
+             max-md:p-4 rounded-2xl flex justify-between`}
           >
             <div className="flex gap-7 items-center">
               <Image
-                src="./livecourses/fifthSection/syllabus/chemistry.svg"
+                src="/../livecourses/fifthSection/syllabus/chemistry.svg"
                 width={60}
                 height={60}
                 alt="chemistey icon"
               />
               <div className="font-semibold">Chemistry</div>
             </div>
-            <BsArrowRight className={` max-m ${animation0}`} size={20} />
+            <BsArrowRight className={`max-m ${animation0}`} size={20} />
           </div>
 
           <div
             onMouseEnter={handleArrowAnimation1}
             onMouseLeave={handleArrowAnimation1}
-            className={`hover:border-2 hover:border-orange-300 hover:cursor-pointer items-center bg-orange-300 bg-opacity-30 gap-7 p-7 max-md:p-3  rounded-2xl flex justify-between`}
+            className={`hover-border-2 hover:border-orange-300 hover:cursor-pointer items-center bg-orange-300 bg-opacity-30 gap-7 p-7 pr-5 max-md:p-5 rounded-2xl flex justify-between`}
           >
             <div className="flex gap-7 items-center">
               <Image
-                src="./livecourses/fifthSection/syllabus/physics.svg"
+                src="/../livecourses/fifthSection/syllabus/physics.svg"
                 width={60}
                 height={60}
                 alt="physics icon"
               />
               <div className="font-semibold">Physics</div>
             </div>
-            <BsArrowRight className={` max-m ${animation1}`} size={20} />
+            <BsArrowRight className={`max-m ${animation1}`} size={20} />
           </div>
 
           <div
             onMouseEnter={handleArrowAnimation2}
             onMouseLeave={handleArrowAnimation2}
-            className={`hover:border-2 hover:border-green-300 hover:cursor-pointer items-center bg-green-300 bg-opacity-30 gap-7 p-7 max-md:p-3  rounded-2xl flex justify-between`}
+            className={`hover-border-2 hover:border-green-300 hover:cursor-pointer items-center bg-green-300 bg-opacity-30 gap-7 p-7 pr-5 max-md:p-4 rounded-2xl flex justify-between`}
           >
             <div className="flex gap-7 items-center">
               <Image
-                src="./livecourses/fifthSection/syllabus/biology.svg"
+                src="/../livecourses/fifthSection/syllabus/biology.svg"
                 width={60}
                 height={60}
                 alt="bio icon"
               />
               <div className="font-semibold">Biology</div>
             </div>
-            <BsArrowRight className={` max-m ${animation2}`} size={20} />
+            <BsArrowRight className={`max-m ${animation2}`} size={20} />
           </div>
         </div>
       </div>

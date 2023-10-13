@@ -1,0 +1,21 @@
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.spacer {
+  flex-shrink: 0;
+  width: 500px; /* Adjust according to your design */
+}
