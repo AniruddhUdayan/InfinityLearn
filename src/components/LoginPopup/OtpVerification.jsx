@@ -169,11 +169,16 @@ const isExitingUser = useSelector(
         const response = await sendOtp(body);
         console.log(response);
         setOtp(Array(4).fill(""));
+        setTimer(30)
       } catch (error) {
         console.error('Error fetching data:', error.message);
       } finally {
         // setLoading(false);
       }
+    }
+
+    const editMobileNum = ()=>{
+      dispatch(setComponentToShow('SendOtp'));
     }
   return (
     <div>
@@ -189,6 +194,7 @@ const isExitingUser = useSelector(
         />
           </Col>
           <Col xs={12} md={6}>
+            <div>
             <Row>
               <Col md={12}>
                 <h2 className="otp_heading">Just ensuring it's our genius student. Enter the OTP</h2>
@@ -196,35 +202,16 @@ const isExitingUser = useSelector(
             </Row>
             <Row>
               <Col xs={12} md={12}>
+                <div className="exam_change_flex">
+                  <h6>+91  {phoneNumber}</h6>
+                  <button onClick={editMobileNum} className="exam_change_btn" >Edit</button>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
               <div className="flex flex-col max-md:justify-start max-md:py-12 justify-evenly text-black">
             <div className=" flex flex-col">
-              <div className="bg-gray-100 w-full p-2 rounded-xl flex justify-stretch">
-                {editingNumber ? (
-                  <div className=" flex gap-12 ">
-                    <div className=" flex gap-2 items-center">
-                      <div>+91</div>
-                      <input
-                        value={tempNumber}
-                        onChange={(e) => setTempNumber(e.target.value)}
-                        className=" rounded p-1"
-                      />
-                    </div>
-                    <button onClick={handleNumberEdit}>Save</button>
-                  </div>
-                ) : (
-                  <div className=" flex w-full gap-28   ">
-                    <div className=" flex">
-                      <div className=" text-lg pr-2">+91</div>
-                      <div className=" text-lg pr-7   ">{phoneNumber}</div>
-                    </div>
-                    <div>
-                      <button className="edit_btn" onClick={() => setEditingNumber(true)}>
-                        Edit
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
               <div className=" flex flex-col resend_otp_row">
                 <div className="otp_flex mb-4">
                   {otp.map((digit, index) => (
@@ -241,13 +228,22 @@ const isExitingUser = useSelector(
                     />
                   ))}
                 </div>
-                {otpError && (
+              </div>
+            </div>
+          </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
+              {otpError && (
                   <div className="text-red-500 text-sm mb-4">
                     this OTP is not valid. try again
                   </div>
                 )}
-              </div>
-
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={12}>
               <div className="flex items-center">
                 {
                   timer !== 0 ? <button
@@ -265,8 +261,6 @@ const isExitingUser = useSelector(
                 }
 
               </div>
-            </div>
-          </div>
               </Col>
             </Row>
             <Row className="mt-5">
@@ -315,6 +309,7 @@ const isExitingUser = useSelector(
                 </div>
               </Col>
             </Row>
+            </div>
           </Col>
         </Row>
       </Container>

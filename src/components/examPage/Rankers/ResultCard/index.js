@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image"
 import loc from './../../../../../public/images/location-icon.svg'
 import air from './../../../../../public/images/crown-air-icon.svg'

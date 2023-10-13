@@ -42,6 +42,7 @@ function EnterName() {
                         />
                     </Col>
                     <Col xs={12} md={6}>
+                        <div className="right_box">
                         <Row>
                             <Col md={12}>
                                 <h2 className="otp_heading">Tell us your name, our next topper!</h2>
@@ -53,7 +54,7 @@ function EnterName() {
                                     <label className="">
                                         enter your name
                                     </label>
-                                    <div className="otp_mobile_input">
+                                    <div className="name_input">
                                         <input
                                             className="appearance-none border-l-0 flex-grow p-2 focus:outline-none"
                                             placeholder="Enter your name"
@@ -79,6 +80,7 @@ function EnterName() {
                                 </div>
                             </Col>
                         </Row>
+                        </div>
                     </Col>
                 </Row>
             </Container>
