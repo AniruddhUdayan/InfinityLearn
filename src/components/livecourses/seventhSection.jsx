@@ -229,7 +229,7 @@ function Card(props) {
   if (check) {
     return (
       <div
-        className="flex mb-12  h-min  
+        className="flex mb-12  h-min 
       max-md:h-fll max-md:p-[12px] max-md:h-[371px]  max-xl:w96 max-w-[392px]  shadow-lg max-md:w-full   
       flex-col max-2xl:px-3  flex-shrink-0
        my-4 rounded-2xl w-1/3 bg-white font-[#080E14] "
@@ -263,7 +263,7 @@ function Card(props) {
         />
         <div
           className=" flex max-2xl:bottom-6 max-2xl:right-2 max-md:ml-1 max-md:gap-3
-          max-md:justify-start max-md:flex-col 
+          max-md:justify-start max-md:flex-col max-md:w-[316px] 
        relative max-md:right-40 max-md:bottom-24    max-md:items-center "
         >
           <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
@@ -397,7 +397,7 @@ function Rankers() {
         setScrollPos((prev) => prev + 2);
         setActiveDash((prev) => (prev + 1) % totalDashes);
       }
-    }, 1500);
+    }, 150000);
 
     return () => clearInterval(interval);
   }, [scrollPos, activeDash]);
