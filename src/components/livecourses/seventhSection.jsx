@@ -15,7 +15,7 @@ const reviews = [
     video: true,
     review:
       "It has been the most amazing experience studying in Sri Chaitanya. I gained a lot of experience.",
-    image: "./reviews/image1.svg",
+    image: "/../reviews/image1.svg",
   },
   {
     name: "Ruchil",
@@ -24,7 +24,7 @@ const reviews = [
     video: false,
     review:
       "It has been the most amazing experience studying in Sri Chaitanya. I gained a lot of experience.",
-    image: "./reviews/image2.svg",
+    image: "/../reviews/image2.svg",
   },
   {
     name: "Rakesh",
@@ -33,7 +33,7 @@ const reviews = [
     video: false,
     review:
       "It has been the most amazing experience studying in Sri Chaitanya. I gained a lot of experience.",
-    image: "./reviews/image3.svg",
+    image: "/../reviews/image3.svg",
   },
   {
     name: "Ruchil",
@@ -42,7 +42,7 @@ const reviews = [
     video: false,
     review:
       "It has been the most amazing experience studying in Sri Chaitanya. I gained a lot of experience.",
-    image: "./reviews/image2.svg",
+    image: "/../reviews/image2.svg",
   },
   {
     name: "Rakesh",
@@ -51,7 +51,7 @@ const reviews = [
     video: false,
     review:
       "It has been the most amazing experience studying in Sri Chaitanya. I gained a lot of experience.",
-    image: "reviews/image3.svg",
+    image: "/../reviews/image3.svg",
   },
 ];
 const rankers = [
@@ -230,15 +230,15 @@ function Card(props) {
     return (
       <div
         className="flex mb-12  h-min  
-      max-md:h-full max-md:py-4  max-xl:w96 max-w-[392px]  shadow-lg max-md:w-full   
-      flex-col px-3  flex-shrink-0
-       my-4 rounded-2xl w-1/3 bg-white text-black "
+      max-md:h-fll max-md:p-[12px] max-md:h-[371px]  max-xl:w96 max-w-[392px]  shadow-lg max-md:w-full   
+      flex-col max-2xl:px-3  flex-shrink-0
+       my-4 rounded-2xl w-1/3 bg-white font-[#080E14] "
       >
         <Image
           src={props.data.image}
           // className=" rounded-full"
-          height={120}
-          width={200}
+          height={161}
+          width={292}
           className="   mt-6 max-md:mt-1  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
@@ -252,14 +252,29 @@ function Card(props) {
           height={52}
           width={40}
           alt="inverted commas "
-          className=" w-[15%] bottom-12 max-md:left-[310px] opacity-75 left left64 left-[315px]  relative"
+          className=" w-[15%] bottom-7 max-md:left-[310px] opacity-75 left left64 left-[315px]  relative"
         />
-        <div className=" flex  items-center ">
-          <div className="flex z-50 ml-4  flex-col flex-grow">
-            <div className=" font-bold">{props.data.name}</div>
-            <div className="  font-medium opacity-50">{props.data.place}</div>
+        <Image
+          src="/../reviews/video.svg"
+          height={52}
+          width={40}
+          alt="video svg "
+          className=" w-[15%] bottom-[220px] max-md:bottom-[240px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
+        />
+        <div
+          className=" flex max-2xl:bottom-6 max-2xl:right-2 max-md:ml-1 max-md:gap-3
+          max-md:justify-start max-md:flex-col 
+       relative max-md:right-40 max-md:bottom-24    max-md:items-center "
+        >
+          <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
+            <div className=" text-[#080E14] text-[16px] font-[600]">
+              {props.data.name}
+            </div>
+            <div className="text-[#080E14]  font-medium ">
+              {props.data.place}
+            </div>
           </div>
-          <div className=" max-md:ml-8  text-orange-400">
+          <div className=" max-md:ml-20  text-[#FF7A00]">
             {props.data.batch}
           </div>
         </div>
@@ -269,10 +284,11 @@ function Card(props) {
 
   return (
     <div
-      className="flex mb-12 max-w-[392px] max-xl:w-96 max-md:w-full h-fi px-6 gap-4 shadow-lg flex-col max-md:px-2 flex-shrink-0 py-5
-  my-4 rounded-2xl w-full md:w-1/3 bg-white text-black "
+      className="flex mb-12 max-w-[392px] max-xl:w-96 max-md:w-full
+       h-fi px-6 gap-4 shadow-lg flex-col max-md:p-5 flex-shrink-0 py-5
+  my-4 rounded-2xl justify-evenly w-full md:w-1/3 bg-white font-[#080E14] "
     >
-      <div className="flex  items-center gap-6 max-md:gap-2 px-7 max-md:px-2 ">
+      <div className="flex max-md:jus  items-center gap-6 max-md:gap-5 px-7 max-md:px-2 ">
         <Image
           src={props.data.image}
           // className=" rounded-full"
@@ -283,9 +299,13 @@ function Card(props) {
           alt="cards svg"
         />
         <div className="flex z-50  flex-col flex-grow">
-          <div className=" font-bold mb-3">{props.data.name}</div>
-          <div className="  font-medium opacity-50">{props.data.place}</div>
-          <div className="  text-orange-400">{props.data.batch}</div>
+          <div className=" text-[#080E14] text-[16px] font-[600] mb-3">
+            {props.data.name}
+          </div>
+          <div className="  text-[#080E14]  font-medium ">
+            {props.data.place}
+          </div>
+          <div className="  text-[#FF7A00]">{props.data.batch}</div>
         </div>
       </div>
       <Image
@@ -326,7 +346,7 @@ function Reviews() {
     <div className="flex flex-col items-center px-20 pt-20 relative bottom-5 max-md:w-fit max-md:px-2 no-scrollbar">
       <div className="mb- flex overflow-x-auto max-md:w-fit max-md:overflow-y-hidden no-scrollbar">
         <div
-          className="flex gap-6 transition-transform duration-1000"
+          className="flex gap-10 transition-transform duration-1000"
           style={{ transform: `translateX(-${scrollPos * 100}%)` }}
         >
           {reviews.map((review, index) => (
@@ -386,7 +406,7 @@ function Rankers() {
     <div className="flex flex-col  h-fit justify-center h-mx items-center bg-blue-2">
       <div className="overflow-hidden h-fit relative w-full">
         <div
-          className="flex transition-transform gap-[100px] mt-10 duration-1000"
+          className="flex transition-transform gap-[100px] max-md:mt-0 max-md:gap-[10px] mt-10 duration-1000"
           style={{ transform: `translateX(-${(scrollPos * 100) / 4}%)` }}
         >
           {rankers.map((ranker, index) => (
@@ -414,12 +434,13 @@ const ResultCard = ({ result }) => {
   return (
     <div className="relative mx-9">
       <div
-        className="absolute flex flex-col w-52 whitespace-nowrap     font-bold  left-0 bottom-32 rounded-t-[25px] gap- text-black"
+        className="absolute flex flex-col w-52 whitespace-nowrap     font-bold  left-0
+         bottom-32 max-md:bottom-28 rounded-t-[25px] gap- text-black"
         style={{ backgroundColor: result.color }}
       >
         <div className="flex gap-2 one px-2 pt-3 w-44 z-10 relative">
           <Image
-            src="/images/crown-air-icon.svg"
+            src="/../images/crown-air-icon.svg"
             alt="air"
             width={20}
             height={0}
@@ -463,15 +484,19 @@ const ResultCard = ({ result }) => {
 
 function SeventhSection() {
   return (
-    <div className="mb-56 bg-[#00364E] h-ax py-16 max-md:w-screen md:h-[500px]  w-full h-[958px]  ">
+    <div className="mb-56 bg-[#00364E] m h-ax py-16 max-md:w-screen max-md:h-[419px] md:h-[500px]  w-full h-[958px]  ">
       <div className="bg-[#00364E] flex flex-col items-center justify-center text-white ">
-        <h2 className="text-5xl mb-9 max-md:text-4xl font-extrabold">
-          reviews and <span className="text-yellow-300">results</span>
+        <h2 className="text-5xl mb-9 max-md:text-[32px] font-extrabold">
+          reviews and <span className="text-[#FCDE5A]">results</span>
         </h2>
-        <div className="flex max-md:flex-col max-md:gap-3 max-md:justify-start max-md:w-full  gap-7 text-sm">
+        <div
+          className="flex max-md:flex-col max-md:gap-5
+         max-md:justify-start max-md:w-full max-md:px-[20px]
+           gap-7 text-sm"
+        >
           <p className="flex gap-3">
             <Image
-              src="/livecourses/seventhSection/star.svg"
+              src="/../livecourses/seventhSection/star.svg"
               alt="star"
               width={24}
               height={24}
@@ -480,7 +505,7 @@ function SeventhSection() {
           </p>
           <p className="flex gap-3">
             <Image
-              src="/livecourses/seventhSection/star.svg"
+              src="/../livecourses/seventhSection/star.svg"
               alt="star"
               width={24}
               height={24}

@@ -242,7 +242,7 @@ function ThirdSection() {
     );
   }
   return (
-    <div className="items-center h-min py-16 bg-white">
+    <div className="items-center container no-scrollbar h-min py-16 bg-white">
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />
