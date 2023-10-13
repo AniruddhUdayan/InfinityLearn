@@ -4,6 +4,7 @@ import revision from './../../../../public/images/revision.svg'
 import solved from './../../../../public/images/solved.svg'
 import popular from './../../../../public/images/popular.svg'
 import formulas from './../../../../public/images/formulas.svg'
+import arrow from './../../../../public/images/arrow-r-blue.svg'
 import Image from 'next/image'
 
 const Study = () => {
@@ -36,7 +37,10 @@ const Study = () => {
                     formulas
                 </div>
             </div>
-            <div className='text-center text-[#007BFF] mt-8'>view all study material</div>
+            <div className='text-center text-[#007BFF] mt-8 text-lg font-semibold flex justify-center'>
+                view all study material
+                <Image src={arrow} alt='arrow' width={15} height={0} className='ms-2' />
+            </div>
         </div>
     )
 }

@@ -9,18 +9,18 @@ const Download = () => {
 	return (
 		<>
 			<div className="w-full flex flex-col lg:flex-row justify-center bg-[#F1F2F6] pt-8 lg:pt-16 px-4 lg:px-16 pb-0 gap-8 text-[#080E14]">
-				<div className='flex flex-col gap-2 lg:gap-8 w-full lg:w-6/12 px-0 lg:px-10'>
+				<div className='flex flex-col gap-4 lg:gap-8 w-full lg:w-6/12 px-0 lg:px-10'>
 					<div className='font-bold text-4xl lg:text-5xl text-[#007BFF] mb-4 leading-[2.5rem] lg:leading-[3.6rem]'>best study material, <span className='text-[#080E14]'>now at your finger tips!</span></div>
 					<div className='flex gap-2'>
-						<Image src='/images/checklist1.png' alt="check" width={40} height={40}  />
+						<Image src={check} alt="check" width={25} />
 						<div className='text-[#6B6E72] text-lg flex items-center'>live classes</div>
 					</div>
 					<div className='flex gap-2'>
-						<Image src='/images/checklist1.png' alt="check" width={40} height={40}  />
+						<Image src={check} alt="check" width={25} />
 						<div className='text-[#6B6E72] text-lg flex items-center'>progress tracking</div>
 					</div>
 					<div className='flex gap-2'>
-						<Image src='/images/checklist1.png' alt="check" width={40} height={40}  />
+						<Image src={check} alt="check" width={25} />
 						<div className='text-[#6B6E72] text-lg flex items-center'>diverse question banks</div>
 					</div>
 					<div className='hidden lg:block'>

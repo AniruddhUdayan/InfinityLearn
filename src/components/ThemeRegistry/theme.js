@@ -57,6 +57,7 @@ const theme = createTheme({
           ...(ownerState.themeColor === 'yellow' && {
             backgroundColor: theme.palette.white.main,
             color: theme.palette.yellow.contrastText,
+            fontWeight: 600,
             '&.Mui-selected': {
               // backgroundColor: theme.palette.yellow.main,
               color: theme.palette.yellow.contrastText,
@@ -100,6 +101,13 @@ const theme = createTheme({
             }
           }
         }),
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontSize: '1rem',
+        }
       }
     },
   },
