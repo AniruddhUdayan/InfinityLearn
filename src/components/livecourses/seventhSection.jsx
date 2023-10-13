@@ -397,7 +397,7 @@ function Rankers() {
         setScrollPos((prev) => prev + 2);
         setActiveDash((prev) => (prev + 1) % totalDashes);
       }
-    }, 150000);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, [scrollPos, activeDash]);
