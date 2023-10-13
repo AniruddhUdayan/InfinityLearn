@@ -131,7 +131,7 @@ function SecondSection() {
       >
         <div className=" md:hidden  mx-auto w-[279px] h-full  mb-7">
           <Image
-            src="/../livecourses/secondSection/image1.png"
+            src="/livecourses/secondSection/image1.png"
             height={svgWidth}
             width={svgWidth}
             alt="thirdSection"
@@ -186,7 +186,7 @@ function SecondSection() {
           </div>
         </div>
         <Image
-          src="/../livecourses/secondSection/image1.png"
+          src="/livecourses/secondSection/image1.png"
           height={530}
           width={600}
           alt="thirdSection"
