@@ -298,130 +298,130 @@ function Footer() {
             </div>
           </div>
           <div className="flex md:flex-row flex-wrap justify-between gap-2 text-[16px] font-light">
-            <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
+            <div className=" flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 Popular Books
               </div>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/">
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions">
                 HC Verma Part 1
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12">
                 HC Verma Part 2
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths">
                 RS Agarwal
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology">
                 RD Sharma
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics">
                 Lakhmir Singh
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry">
                 DK Goel
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11">
                 Sandeep Garg
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths">
                 TS Grewal
-              </a>
+              </Link>
             </div>
             <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 NCERT solutions
               </div>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/">
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12">
                 Class 12 NCERT Solutions
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths">
                 Class 11 NCERT Solutions
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology">
                 Class 10 NCERT Solutions
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics">
                 Class 9 NCERT Solutions
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry">
                 Class 8 NCERT Solutions
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11">
                 Class 7 NCERT Solutions
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths">
                 Class 6 NCERT Solutions
-              </a>
+              </Link>
             </div>
             <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 NCERT exempler
               </div>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/">
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions">
                 Class 12 NCERT Exemplar
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12">
                 Class 11 NCERT Exemplar
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths">
                 Class 10 NCERT Exemplar
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology">
                 Class 9 NCERT Exemplar
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics">
                 Class 8 NCERT Exemplar
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11">
                 Class 7 NCERT Exemplar
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths">
                 Class 6 NCERT Exemplar
-              </a>
+              </Link>
             </div>
             <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
               <div className="font-[600] text-[18px] mb-[20px]">
                 State Board
               </div>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/">
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/">
                 Rajasthan State Board
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/">
                 West Bengal State Board
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/">
                 Gujarat State Board
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/">
                 Telengana State Board
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/">
                 Andhra Pradesh State Board
-              </a>
-              <a href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry/">
+              </Link>
+              <Link href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry/">
                 Uttar Pradesh State Board
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <div className="flex flex-row flex-wrap justify-s gap-2 text-[16px] font-light">
           <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
             <div className="font-[600] text-[18px] mb-[20px]">Subject</div>
-            <a href="">Maths</a>
-            <a href="">Science</a>
-            <a href="">Physics</a>
-            <a href="">Chemistry</a>
-            <a href="">Economics</a>
-            <a href="">Accounting</a>
-            <a href="">Business Studies</a>
+            <Link href="">Maths</Link>
+            <Link href="">Science</Link>
+            <Link href="">Physics</Link>
+            <Link href="">Chemistry</Link>
+            <Link href="">Economics</Link>
+            <Link href="">Accounting</Link>
+            <Link href="">Business Studies</Link>
           </div>
         </div>
 
         <hr className="mt-[40px] h-px border-0 bg-slate-500" />
         <div className="flex justify-center items-center">
-          <a className="text-xs  text-[#007BFF]   m-auto mt-[20px] text-center font-extralight">
+          <Link href='/' className="text-xs  text-[#007BFF]   m-auto mt-[20px] text-center font-extralight">
             2023 | www.infinitylearn.com
-          </a>
+          </Link>
         </div>
       </div>
     </div>

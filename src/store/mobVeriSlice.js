@@ -7,7 +7,8 @@ export const mobVeriSlice = createSlice({
     phoneNumber: "",
     isExitingUser: true,
     isOtpSent: false,
-    isOtpVerified:false
+    isOtpVerified:false,
+    isPhoneVerified:false
   },
   reducers: {
     // Note this change
@@ -19,18 +20,18 @@ export const mobVeriSlice = createSlice({
     },
     setIsExitingUser(state, action) {
       state.isExitingUser = action.payload;
-      console.log(state)
     },
     setIsOtpSent(state, action) {
       state.isOtpSent = action.payload;
-      console.log(state)
     },
     setIsOtpVerified(state, action) {
       state.isOtpVerified = action.payload;
-      console.log(state)
+    },
+    setIsPhoneVerified(state, action) {
+      state.isPhoneVerified = action.payload;
     },
   },
 });
 
-export const { showOverlayMode, storePhoneNumber, setIsExitingUser, setIsOtpSent, setIsOtpVerified } = mobVeriSlice.actions;
+export const { showOverlayMode, storePhoneNumber, setIsExitingUser, setIsOtpSent, setIsOtpVerified, setIsPhoneVerified } = mobVeriSlice.actions;
 export default mobVeriSlice.reducer;

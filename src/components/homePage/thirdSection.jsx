@@ -1,6 +1,10 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { showOverlayMode } from "../../store/mobVeriSlice";
+import LoginPopup from "../LoginPopup";
+import {setComponentToShow} from '../../store/modalToShow';
 const options = [
   "personal attention",
   "india's top faculty",
@@ -10,10 +14,14 @@ const options = [
 ];
 function OptionZero() {
   return (
-    <div className="flex max-md:flex-grow     flex-col 4">
-      <div className="text-4xl text-black font-bold">focused</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
-      <div className="text-xl text-black max-md:text-base">
+    <div className="flex max-md:flex-grow   min-h-56   flex-col 4">
+      <div className="text-4xl max-md:[32px] font-[700] text-black ">
+        focused
+      </div>
+      <div className="text-4xl max-md:[32px]  font-[700] text-blue-500 mb-5 ">
+        guidance
+      </div>
+      <div className="text-xl max-md:[14px] font-[400] text-black">
         Experience tailored guidance designed to cater to unique learning needs.
         We ensure every student receives the individual attention they deserve.
       </div>
@@ -23,10 +31,12 @@ function OptionZero() {
 }
 function OptionOne() {
   return (
-    <div className="flex   flex-col ">
-      <div className="text-4xl text-black font-bold">learn from the</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">experts</div>
-      <div className="text-xl text-black max-md:text-base ">
+    <div className="flex min-h-56  flex-col ">
+      <div className="text-4xl text-black max-md:[32px]   font-[700]">
+        learn from the
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]">experts</div>
+      <div className="text-xl text-black max-md:[14px] font-[400]  ">
         learn from the finest faculty in jee/neet/cbse. our faculty consists of
         {` the country's most seasoned and insightful educators.`}
       </div>
@@ -35,12 +45,14 @@ function OptionOne() {
 }
 function OptionTwo() {
   return (
-    <div className="flex   flex-col">
-      <div className="text-4xl text-black font-bold">clear doubts,</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">
+    <div className="flex min-h-56  flex-col">
+      <div className="text-4xl  max-md:[32px] text-black font-[700]">
+        clear doubts,
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]">
         clear concepts
       </div>
-      <div className="text-xl text-black max-md:text-base ">
+      <div className="text-xl text-black max-md:[14px] font-[400] ">
         we prioritise understanding over rote learning. our dedicated doubt
         resolution sessions ensure all your queries are addressed for a clear
         path to success.
@@ -50,10 +62,12 @@ function OptionTwo() {
 }
 function OptionThree() {
   return (
-    <div className="flex 6 min-h-64  flex-col ">
-      <div className="text-4xl text-black font-bold">premium learning,</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
-      <div className="text-xl text-black max-md:text-base ">
+    <div className="flex 6 min-h-56  flex-col ">
+      <div className="text-4xl max-md:[32px] text-black font-[700]">
+        premium learning,
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]">guidance</div>
+      <div className="text-xl text-black max-md:[14px] font-[400] ">
         gain access to top-notch learning resources. our study materials are
         meticulously curated by experts to provide comprehensive coverage of all
         topics.
@@ -63,10 +77,12 @@ function OptionThree() {
 }
 function OptionFour() {
   return (
-    <div className="flex   flex-col ">
-      <div className="text-4xl text-black font-bold">structured success</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold"> plan</div>
-      <div className="text-xl text-black max-md:text-base ">
+    <div className="flex  min-h-56  flex-col ">
+      <div className="text-4xl  max-md:[32px] text-black font-[700]">
+        structured success
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]"> plan</div>
+      <div className="text-xl text-black max-md:[14px] font-[400] ">
         follow a structured study plan designed for assured success in jee neet
         academics. our test series and question bank are crafted to boost exam
         readiness.
@@ -119,63 +135,40 @@ const SwitchTabs = ({ data, onTabChange }) => {
 
 const SwitchTabs1 = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [highlightStyle, setHighlightStyle] = useState({});
-  const tabsRef = useRef([]);
 
-  const activeTab = (tab, index) => {
+  const handleTabClick = (index) => {
     setSelectedTab(index);
-    onTabChange(tab, index);
-
-    // Update highlight style
-    const { offsetLeft, offsetWidth } = tabsRef.current[index];
-    setHighlightStyle({ left: offsetLeft, width: offsetWidth });
-
-    // Ensure the selected tab scrolls into view in the center
-    tabsRef.current[index].scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    onTabChange && onTabChange(data[index]);
   };
 
-  //Add refs dynamically
-  useEffect(() => {
-    tabsRef.current = tabsRef.current.slice(0, data.length);
-  }, [data]);
-
-  // Automatic tab switching
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const nextTab = (selectedTab + 1) % data.length; // Cycle through tabs
-      activeTab(data[nextTab], nextTab);
-    }, 2000); // Switch tab every 2 seconds
-
-    return () => clearInterval(intervalId); // Cleanup: clear interval on unmount
-  }, [selectedTab, data]);
-
   return (
-    <div className="bg-white text-black relative overflow-x-auto">
-      <div className="h-full mt-1 no-scrollbar flex items-center whitespace-nowrap">
-        {data.map((tab, index) => (
+    <div className="bg-white md:hidden no-scrollbar text-black h-11 relative w-full">
+      <div className="flex space-x-4 whitespace-nowrap overflow-x-auto">
+        {data.map((option, index) => (
           <span
             key={index}
-            ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full px-4 py-2 text-center text-base cursor-pointer 
-                        ${selectedTab === index ? "text-black" : ""}`}
-            onClick={() => activeTab(tab, index)}
+            className={`inline-flex items-center justify-center px-4 py-2 cursor-pointer ${
+              index === selectedTab
+                ? "text-blue-500 border-b-2 border-blue-500"
+                : "text-gray-400"
+            }`}
+            onClick={() => handleTabClick(index)}
           >
-            {tab}
+            {option}
           </span>
         ))}
-        <span
-          className="border-b-2 border-blue-500 absolute bottom-0 transition-all duration-500"
-          style={highlightStyle}
-        ></span>
       </div>
     </div>
   );
 };
+
+// export default SwitchTabs;
+
 function ThirdSection() {
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
   const optionComponents = {
     0: <OptionZero />,
     1: <OptionOne />,
@@ -183,12 +176,10 @@ function ThirdSection() {
     3: <OptionThree />,
     4: <OptionFour />,
   };
-  const [svgWidth, setSvgWidth] = useState(500);
 
   const useWindowWidth = () => {
     // Initialize state with undefined so server and client HTML match
     const [windowWidth, setWindowWidth] = useState(undefined);
-
     useEffect(() => {
       // Handler to call on window resize
       const handleResize = () => {
@@ -209,9 +200,9 @@ function ThirdSection() {
 
     return windowWidth;
   };
-
+  const [svgWidth, setSvgWidth] = useState(590);
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 768 ? 315 : 500);
+    setSvgWidth(window.innerWidth <= 768 ? 315 : 592);
   };
   useEffect(() => {
     // Update width on mount
@@ -240,40 +231,66 @@ function ThirdSection() {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
   };
 
+  const startLearning = async () => {
+    dispatch(setComponentToShow('SendOtp'))
+    dispatch(showOverlayMode(!showOverlay));
+
+  };
+  if (showOverlay) {
+    return (
+      <div>
+        <LoginPopup />
+      </div>
+    );
+  }
   return (
     <div className="items-center h-min py-16 bg-white">
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />
           {isMobileView && (
-            // <div className="">
-            <SwitchTabs1 data={options} onTabChange={onTabChange} />
-            // </div>
+            <div className=" overflow-x-auto ">
+              <SwitchTabs1 data={options} onTabChange={onTabChange} />
+            </div>
           )}
         </div>
       </div>
-      <div className="flex md:px-20  max-md:flex-col max-md:w-full   justify-between  items-center rowww">
+      <div
+        className="flex md:px-20  max-md:flex-col max-md:w-full  
+       justify-between  items-center rowww"
+      >
         <Image
           src="/homepage/thirdSection/thirdSection.png"
           height={svgWidth}
           width={svgWidth}
           alt="thirdSection"
-          className="my-image  md:w-1/2"
+          className="my-imag max-md:w-screen  md:w-1/2"
         />
         <div className=" flex md:w-1/2 md:pr-36 md:items-start items-center max-md:mt-8 max-md:ml-6 flex-col">
-          <div className="optionContainer">
-            {selectedOption === 0 && <OptionZero />}
-            {selectedOption === 1 && <OptionOne />}
-            {selectedOption === 2 && <OptionTwo />}
-            {selectedOption === 3 && <OptionThree />}
-            {selectedOption === 4 && <OptionFour />}
-            {/* ... other options ... */}
+          <div className="optionContaier  max-md:h-[200px]">
+            {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
+              (Component, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: selectedOption === index ? "flex" : "none",
+                  }}
+                >
+                  <Component />
+                </div>
+              )
+            )}
           </div>
-          <button className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
-            <div>
-              start learning for free <span>&#8599;</span>
-            </div>
-          </button>
+          <div className=" w-full flex justify-center items-center">
+            <button
+              onClick={startLearning}
+              className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl"
+            >
+              <div>
+                start learning for free <span>&#8599;</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>

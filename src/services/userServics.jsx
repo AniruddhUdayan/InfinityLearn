@@ -1,8 +1,9 @@
 import axios from 'axios';
 import * as AWS from 'aws-sdk';
-import {getSqsValue} from "./firebaseService"
+import {getSqsValue} from "./firebaseService";
+const apiUrl = process.env.uamAPI;
 const apiInstance = axios.create({
-    baseURL: process.env.uamAPI,
+    baseURL: apiUrl,
     headers: {
         'X-Tenant': 'infinitylearn',
     },
@@ -64,6 +65,27 @@ export async function sendOtp(request) {
 export async function validateOTP(request) {
     try {
         const response = await apiInstance.post('api/authentication/validateOTP', request);
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            throw new Error('Failed to fetch data from the API');
+        }
+    } catch (error) {
+        throw new Error('Error fetching data:', error);
+    }
+}
+
+export async function updateUserProfile(token,body,userId) {
+    const userApiInstance = axios.create({
+        baseURL: apiUrl,
+        headers: {
+            'X-Tenant': 'infinitylearn',
+            'Authorization': `Bearer ${token}`,
+            'accesstoken': `Bearer ${token}`
+        },
+    });
+    try {
+        const response = await userApiInstance.put(`api/users/${userId}`,body);
         if (response.status === 200) {
             return response.data;
         } else {

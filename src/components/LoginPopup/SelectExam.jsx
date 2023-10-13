@@ -1,33 +1,32 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeClass, setIsExamSelected } from "../../store/newUserSlice";
-import { IoClose } from "react-icons/io5";
+import { storeCourse} from "../../store/newUserSlice";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { FaCheck } from "react-icons/fa";
-import { BiArrowBack } from "react-icons/bi";
-import { getExams } from "../../services/userServics";
+import { getExams, sendOtp } from "../../services/userServics";
 import { allowedExamNamesCT } from "../../services/app.constants";
+import analytics from '../../utils/analytics';
+import {setComponentToShow} from '../../store/modalToShow';
 
 function Card(props) {
     const { data, isSelected, onClick } = props;
     return (
         <div
-            className={`flex cursor-pointer p-2 border-2 rounded-xl items-center ${isSelected ? "bg-green-400 bg-opacity-25" : "bg-white"
+            className={`flex cursor-pointer p-2 border-2 rounded-xl items-center ${isSelected ? "exam_card_active" : "bg-white"
                 }`}
             onClick={onClick}
         >
-            <Image src={data.svg} width={50} height={50} alt="card svg" />
+            <Image src={data?.img} width={50} height={50} alt="card svg" />
             <div className="flex flex-col ml-4 flex-grow items-start justify-center">
-                <div>{data.name}</div>
-                <div>{data.description}</div>
+                <div className="exam_card_head">{data.name}</div>
+                <div className="exam_card_dec">{data.description}</div>
             </div>
             <div
-                className={`ml-4 w-6 h-6 flex items-center justify-center border rounded-full ${isSelected ? "bg-green-500" : "bg-white"
+                className={`ml-4 w-6 h-6 flex items-center justify-center border rounded-full ${isSelected ? "exam_card_active_tick" : "bg-white"
                     }`}
             >
                 {isSelected && <FaCheck color="white" />}
@@ -41,11 +40,19 @@ const SelectExam = () => {
     );
     const [name, setName] = useState("");
     const [selectedClass, setSelectedClass] = useState(null);
-    const [selectedExams, setselectedExams] = useState([]);
-    // const userGrade = useSelector(
-    //     (state) => state.newUser.class?.name?.replace(/[^0-9]/g, '')
-    // );
-    const userGrade = 11;
+    const [selectedExams, setSelectedExams] = useState([]);
+    const phoneNumber = useSelector(
+        (state) => state.mobileVerification.phoneNumber
+    );
+    const userName = useSelector(
+        (state) => state.newUser.name
+    );
+    const userGrade = useSelector(
+        (state) => state.newUser.class?.name?.replace(/[^0-9]/g, '')
+    );
+    const selectedGrade = useSelector(
+        (state) => state.newUser.class
+    );
     const [exams, setExams] = useState([]);
     console.log(userGrade)
     useEffect(() => {
@@ -62,7 +69,12 @@ const SelectExam = () => {
                     } else {
                         return (allowedExamNamesCT[userGrade]?.indexOf(ex?.name?.replace(/[^a-z]/ig, '').toUpperCase()) > -1);
                     }
-                }).sort((a, b) => allowedExamNamesCT[userGrade]?.indexOf(a?.name?.replace(/[^a-z]/ig, '').toUpperCase()) < allowedExamNamesCT[userGrade]?.indexOf(b?.name?.replace(/[^a-z]/ig, '').toUpperCase()) ? -1 : 1);
+                })
+                .sort((a, b) => allowedExamNamesCT[userGrade]?.indexOf(a?.name?.replace(/[^a-z]/ig, '').toUpperCase()) < allowedExamNamesCT[userGrade]?.indexOf(b?.name?.replace(/[^a-z]/ig, '').toUpperCase()) ? -1 : 1);
+                exams.map(e=>{
+                    e.img = e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'NEET' ? './medical.svg' : e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'CUET' ? './cuet.svg' :  e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'CBSE' ? './cbse.svg' : e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'JEEMAIN' || e?.name?.replace(/[^a-z]/ig, '').toUpperCase() === 'JEEADVANCED' ? './iit.svg' : './foundation.svg'
+                })
+                console.log(exams)
                 setExams(exams)
             } catch (error) {
                 console.error('Error fetching data:', error.message);
@@ -73,7 +85,7 @@ const SelectExam = () => {
 
         Exams();
 
-    }, [userGrade])
+    }, [])
 
     const dispatch = useDispatch();
     // const storeNameHandler = () => {
@@ -94,30 +106,53 @@ const SelectExam = () => {
             setSelectedCourses((prevCourses) => [...prevCourses, course.name]);
         }
     };
-    const  selectedTargetExamp = (exam) => {
-        const selectedObject = exams.find((item) => item.examId == exam.examId);
-
-        if (selectedObject) {
-            setselectedExams((prevArray) => [...prevArray, selectedObject]);
+    const selectedTargetExamp = (exam) => {
+        const index = selectedExams.findIndex((ind) => ind.examId === exam.examId);
+        if (index > -1) {
+          const updatedExams = [...selectedExams];
+          updatedExams.splice(index, 1);
+          setSelectedExams(updatedExams);
+        } else {
+          setSelectedExams([...selectedExams, exam]);
         }
-        console.log(selectedExams, 'selectedExams')
-        
-    }
-    const handleContinue = () => {
-        dispatch(storeClass(selectedExams));
-        dispatch(setIsExamSelected(true))
       };
+    const handleContinue = async () => {
+        dispatch(storeCourse(selectedExams));
+        let body = {
+            isdCode:'+91',
+            firstName: userName,
+            lastName:'ildefaultfield',
+            gradeId: selectedGrade?.gradeId,
+            phone: phoneNumber,
+            whatsappConsent:true
+          }
+          try {
+            const response = await sendOtp(body);
+            console.log(response);
+            dispatch(setComponentToShow('OtpVerification'));
+            analytics.track('otp_count', {
+                phone: query,
+                whatsapp_consent: false
+              })
+          } catch (error) {
+            console.error('Error fetching data:', error.message);
+          } finally {
+            // setLoading(false);
+          }
+      };
+
+      const changeGrade = ()=>{
+        dispatch(setComponentToShow('SelectGrade'));
+      }
     return (
         <div>
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="/login/newUser/newUser3.svg"
-                            height={250}
-                            width={600}
+                            src="/login/mobVer/SuccessImage.png"
                             alt="mob-ver-1"
-                            className=" max-md:hidden"
+                            className="max-md:hidden"
                         />
                     </Col>
                     <Col xs={12} md={6}>
@@ -128,11 +163,19 @@ const SelectExam = () => {
                         </Row>
                         <Row>
                             <Col xs={12} md={12}>
+                                <div className="exam_change_flex ">
+                                    <h6><span style={{color:"#080E14"}}>studying in</span>  <span className="exam_change_class">class {`${userGrade == 13 ? '12+' : userGrade}`}</span></h6>
+                                    <button onClick={changeGrade} className="exam_change_btn" >Change</button>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={12} md={12}>
                                 <div className="select_exam_row">
                                     <label className="class_lable">
                                         select learning goal (choose at least one)
                                     </label>
-                                    <div className="grid grid-cols-1 gap-4 ">
+                                    <div className="grid grid-cols-1 gap-4 select_exam_scroll">
                                         {exams.map((item, index) => (
                                             <Card
                                                 key={index}
@@ -145,7 +188,7 @@ const SelectExam = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="button_mobile_none">
                             <Col xs={12} md={12}>
                                 <div className="otp_button_row">
                                     <button
@@ -165,6 +208,22 @@ const SelectExam = () => {
                     </Col>
                 </Row>
             </Container>
+            <div className="marketpr_show">
+                <div className="feslofrbottom">
+                    <div className="pac_festpr_flexshow">
+                        <button
+                            className={`otp_button ${selectedCourses.length > 0
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-blue-200 text-gray-400 cursor-not-allowed"
+                                }`}
+                            disabled={selectedCourses.length === 0}
+                            onClick={handleContinue}
+                        >
+                            continue <span>&#8599;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

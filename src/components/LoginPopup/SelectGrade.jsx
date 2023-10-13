@@ -2,15 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeClass, setIsGradeSelected } from "../../store/newUserSlice";
-import { IoClose } from "react-icons/io5";
+import { storeClass } from "../../store/newUserSlice";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import { BiArrowBack } from "react-icons/bi";
 import { getGrades } from "../../services/userServics";
-
+import {setComponentToShow} from '../../store/modalToShow';
 const SelectGrade = () => {
     const [grades, setGrades] = useState([]);
     const showOverlay = useSelector(
@@ -57,10 +55,7 @@ const SelectGrade = () => {
       setShowCourse(false);
     };
     const handleContinue = () => {
-      // if (selectedClass) {
-      //   setShowCourse(true);
-      // }
-      dispatch(setIsGradeSelected(true))
+      dispatch(setComponentToShow('SelectExam'));
     };
     const handleHideCourse = () => {
       console.log("clicked ");
@@ -91,22 +86,15 @@ const SelectGrade = () => {
                             <Col xs={12} md={12}>
                                 <div>
                                 <label className="class_lable">select class</label>
-                                    <div className="grid grid-cols-5 gap-4 ">
+                                    <div className="grid grid-cols-5 gap-4 select_grade_box">
                                         {grades.map((item, index) => (
-                                            <div
-                                                key={index}
-                                                className={`border rounded-lg p-3 items-center   cursor-pointer hover:bg-gray-200 ${selectedClass === item ? "bg-blue-500 text-white" : ""
-                                                    }`}
-                                                onClick={() => handleClassClick(item)}
-                                            >
-                                                <span className="mx-auto max-md:ml-1 ">{item?.name}</span>
-                                            </div>
+                                        <button key={index} className={`select_grade ${selectedClass === item ? "active" : ""}`} onClick={() => handleClassClick(item)}>{item?.name}</button>
                                         ))}
                                     </div>
                                 </div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="button_mobile_none">
                             <Col xs={12} md={12}>
                                 <div className="otp_button_row">
                                     <button
@@ -123,6 +111,20 @@ const SelectGrade = () => {
                     </Col>
                 </Row>
             </Container>
+            <div className="marketpr_show">
+                <div className="feslofrbottom">
+                    <div className="pac_festpr_flexshow">
+                        <button
+                            className={`otp_button ${!selectedClass ? "opacity-50 cursor-not-allowed" : ""
+                                }`}
+                            disabled={!selectedClass}
+                            onClick={handleContinue}
+                        >
+                            continue <span>&#8599;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

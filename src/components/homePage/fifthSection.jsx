@@ -50,8 +50,8 @@ const reviews = [
 ];
 function LevelShower(props) {
   return (
-    <div className=" max-md:w-64">
-      <div className="flex items-center">
+    <div className=" max-md:w-64   max-lg:px-0 max-xl:">
+      <div className="flex max-md:ml-0 max-2xl:ml-10items-center">
         <div className="w-4 h-4 mr-6 font-semibold">01</div>
         <div className=" w-48 max-md:w-28 h-0.5 mt-2 bg-white"></div>
         <div className="w-4 h-4 font-semibold ml-6">05</div>
@@ -68,37 +68,47 @@ function Card(props) {
   if (check) {
     return (
       <div
-        className="flex mb-12  h-min  
-      max-md:h-full max-md:py-4  max-xl:w-96  shadow-lg max-md:w-full   
-      flex-col px-3  flex-shrink-0
-       my-4 rounded-2xl w-1/4 bg-white text-black "
+        className="flex  max-2xl:w-[365px] max-2xl:h-[365px] max-2xl:mb- mx-auto  max-md:h-fll 
+      max-md:py-4  max-2xl:my-6 shadow-md max-md:h-[391px] max-md:w-[355px] max-md:h-fll justify-evenly max-md:gap-     flex-col px-2
+      flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
       >
         <Image
           src={props.data.image}
           // className=" rounded-full"
-          height={120}
-          width={200}
-          className="   mt-6 max-md:mt-1  w-[100%] h-[100%]"
+          height={161}
+          width={292}
+          className="  max-md:mt-10 max-2xl:mt-20  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
         />
-        <div className=" mt-3  max-md:text-base  text-start">
+        <div className="  max-md:px-1 max-md:mt-5 max-2xl:mt-4 max-md:text-base max-md:w-full  text-start">
           {props.data.review}
         </div>
 
         <Image
-          src="reviews/invertedCommas2.svg"
+          src="/reviews/invertedCommas2.svg"
           height={52}
           width={40}
           alt="inverted commas "
-          className=" w-[15%] bottom-12 max-md:left-[299px] opacity-75 left left64 left-[295px]  relative"
+          className=" w-[15%] max-md:bottom-0 max-2xl:bottom-6  max-xl:bottom-10 max-xl:left-[305px] max-md:left-[283px] opacity-75 left-72  relative"
         />
-        <div className=" flex  items-center ">
-          <div className="flex z-50 ml-4  flex-col flex-grow">
+        <Image
+          src="/reviews/video.svg"
+          height={52}
+          width={40}
+          alt="video svg "
+          className=" w-[15%] bottom-[220px] max-md:bottom-[240px] max-2xl:left-[150px] max-md:left-[150px] opacity-75   relative"
+        />
+        <div
+          className=" flex max-2xl:bottom-20 max-2xl:right-2 max-md:ml-1 max-md:gap-3
+          max-md:justify-start max-md:flex-col 
+       relative max-md:right-40 max-md:bottom-10    max-md:items-center "
+        >
+          <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
             <div className=" font-bold">{props.data.name}</div>
             <div className="  font-medium opacity-50">{props.data.place}</div>
           </div>
-          <div className=" max-md:ml-8  text-orange-400">
+          <div className=" max-md:ml-20  text-orange-400">
             {props.data.batch}
           </div>
         </div>
@@ -108,10 +118,11 @@ function Card(props) {
 
   return (
     <div
-      className="flex mb-12  max-xl:w-96 max-md:w-80 h-min px-3 gap-4  shadow-lg   flex-col  max-md:px-2 flex-shrink-0 py-8
-     my-4 rounded-2xl w-1/4 bg-white text-black "
+      className="flex mb-12  max-2xl:w-[392px] max-2xl:h-[365px] max-md:h-[391px] max-md:w-[335px]  
+      shadow-md  flex-col max-md:gap-10 px-5 max-md:px-4 
+    flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-[#080E14] "
     >
-      <div className="flex  items-center gap-6 max-md:gap-2 px-7 max-md:px-2 ">
+      <div className="flex  items-center gap- gap-5 px-7 max-md:px-2 ">
         <Image
           src={props.data.image}
           // className=" rounded-full"
@@ -128,72 +139,112 @@ function Card(props) {
         </div>
       </div>
       <Image
-        src="reviews/invertedcommas.svg"
+        src="/reviews/invertedcommas.svg"
         height={52}
         width={40}
         alt="inverted commas"
         className=" w-[15%]"
       />
-      <div className=" max-md:text-base w-full  text-start">
-        {props.data.review}
+      <div className=" max-md:text-base  text-start">{props.data.review}</div>
+    </div>
+  );
+}
+function NewLevelShower({ currentIndex }) {
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    setIsLargeScreen(window.innerWidth > 1024);
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const partWidth = isLargeScreen ? 40 : 19; // 200px or 95px divided by 5 respectively
+  const filledWidth = (currentIndex + 1) * partWidth;
+
+  return (
+    <div className="max-md:w-64 max-lg:px-0 max-xl:">
+      <div className="flex items-center">
+        <div className="w-4 h-4 mr-4 font-semibold text-white">01</div>
+        <div
+          className={`${
+            isLargeScreen ? "w-[200px]" : "w-[95px]"
+          } h-0.5 mt-2 bg-white`}
+        ></div>
+        <div className="w-4 h-4 ml-4 font-semibold text-white">05</div>
       </div>
+      <div
+        className="relative bottom-2 left-8 bg-blue-500 h-2"
+        style={{ width: `${filledWidth}px` }}
+      ></div>
     </div>
   );
 }
 
 function Reviews() {
-  // const [lineWidth, setLineWidth] = useState(" w-4 ");
-  const [scrollPos, setScrollPos] = useState(0);
-  const [cardsToScroll, setCardsToScroll] = useState(3); // Default to scrolling 3 cards at a time
+  const [lineWidth, setLineWidth] = useState(" w-4 ");
+  const [cN, setCN] = useState(3);
+  const [pN, setPN] = useState(4);
+  const [sN, setSN] = useState(10);
 
+  const updateWidth = () => {
+    setLineWidth(window.innerWidth <= 768 ? 35 : 48);
+    setCN(window.innerWidth <= 768 ? 1 : 3);
+    setPN(window.innerWidth <= 768 ? 1 : 4);
+    if (window.innerWidth <= 768) {
+      setSN(100);
+    } else if (window.innerWidth <= 1024) {
+      setSN(35);
+    } else {
+      setSN(25);
+    }
+  };
   useEffect(() => {
-    // Update the number of cards to scroll based on window width
-    const updateCardsToScroll = () => {
-      const width = window.innerWidth;
-      if (width <= 768) {
-        setCardsToScroll(1); // Scroll 1 card at a time for small screens
-      } else if (width <= 1024) {
-        setCardsToScroll(2); // Scroll 2 cards at a time for medium screens
-      } else {
-        setCardsToScroll(3); // Scroll 3 cards at a time for large screens
-      }
-    };
-
-    updateCardsToScroll(); // Update on mount
+    // Update width on mount
+    updateWidth();
 
     // Add resize event listener
-    window.addEventListener("resize", updateCardsToScroll);
+    window.addEventListener("resize", updateWidth);
 
     // Cleanup: remove event listener on unmount
-    return () => window.removeEventListener("resize", updateCardsToScroll);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
-
+  const [scrollPos, setScrollPos] = useState(0);
+  const [lineLength, setLineLength] = useState(9);
   useEffect(() => {
-    const maxScroll = reviews.length - cardsToScroll;
+    const maxScroll = reviews.length - cN;
     const interval = setInterval(() => {
       if (scrollPos >= maxScroll) {
         setScrollPos(0);
-        // setLineLength(" w-4 ");
+        setLineLength(" w-4 ");
       } else {
-        setScrollPos((prev) => prev + cardsToScroll);
-        // setLineLength(` w-48  max-md:w-28 `);
+        setScrollPos((prev) => prev + pN);
+        setLineLength(` w-48  max-md:w-28 `);
       }
-    }, 2000); // Scroll every 2 seconds
+      return () => clearInterval(interval);
+    }, 2500);
 
     return () => clearInterval(interval);
-  }, [scrollPos, cardsToScroll]);
+  }, [scrollPos]);
 
   return (
     <div>
-      {/* ... other components ... */}
-      <div className=" bg-[#00364E] px-36 max-md:px-6 max-md:mt-12  ">
-        {/* <LevelShower data={lineLength} /> */}
+      <div
+        className=" bg-[#00364E]  max-lg:w-full max-lg:px-0 
+      max-xl:w-full max-xl:px-10
+       max-xl: px-36 max-md:px-6 max-md:mt-12  "
+      >
+        <NewLevelShower currentIndex={scrollPos} />
       </div>
-      <div className="flex relative max-md:h-full top-40 flex-col justify-center items-center">
-        <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto w-screen relative w-5/">
+      <div className="  flex relative  max-md:h-full max-md:top-7 top-10 flex-col justify-center items-center ">
+        <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto w-screen  relative w-5/">
           <div
-            className="flex gap-8 max-md:gap-16 max-md:px-5 transition-transform duration-1000"
-            style={{ transform: `translateX(-${scrollPos * 20}%)` }} // Assume each card takes about 20% of the container width
+            className="flex gap-8 max-md:gap-[70px] max-md:px-5 transition-transform duration-1000"
+            style={{ transform: `translateX(-${scrollPos * sN}%)` }}
           >
             {reviews.map((review, index) => (
               <Card key={index} data={review} />
@@ -204,26 +255,32 @@ function Reviews() {
     </div>
   );
 }
-
 function FifthSection() {
   return (
-    <div className=" mb-40 h-min w-full bg-[#00364E]">
-      <div className=" bg-[#00364E] flex max-md:pt-10  justify-evenly max-md:ml-3 max-md:justify-start text-start items-start pt-20 ">
-        <div className=" text-white flex max-md:ml- flex-col">
-          <div className=" text-6xl max-md:text-4xl font-extrabold">
-            inspring
+    <div className=" mb-40  max-md:h-[450px] h-[782px]  w-full bg-[#00364E]">
+      <div
+        className=" bg-[#00364E]  flex max-md:pt-10  justify-evenly max-md:ml-3
+       max-md:justify-start text-start items-start pt-20 "
+      >
+        <div
+          className=" flex max-2xl:px-28 max-md:item-center max-md:px-5 
+          max-md:py-0 max-2xl:w-1/2 font-[700] text-[32px] max-md:w-full
+         h-max max-2xl:py-24 flex-col justify-between justify-cnter"
+        >
+          <div className=" text-white text-6xl max-md:text-4xl ">
+            inspiring
             <span className=" md:hidden ml-2">stories of</span>
           </div>
-          <div className=" max-md:hidden text-6xl font-extrabold">
-            stories of{" "}
+          <div className="text-white max-md:hidden text-6xl">
+            stories of our{" "}
           </div>
-          <div className=" text-6xl max-md:text-4xl font-extrabold text-yellow-300">
+          <div className=" text-6xl max-md:text-4xl  text-[#FCDE5A]">
             <span className=" md:hidden mr-2">our</span>toppers{" "}
           </div>
         </div>
         <Image
           src="/../homepage/fifthSection/topper.svg"
-          className="max-md:hidden "
+          className="max-md:hidden max-xl:mr-5 "
           height={400}
           width={600}
           alt="topper.svg"

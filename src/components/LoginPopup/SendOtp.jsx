@@ -1,50 +1,66 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode, storePhoneNumber, setIsOtpSent } from "../../store/mobVeriSlice";
+import { showOverlayMode, storePhoneNumber } from "../../store/mobVeriSlice";
 import Image from "next/image";
-import { sendOtp } from "@/services/userServics";
+import { sendOtp, verifyPhone } from "../../services/userServics";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import {setComponentToShow} from '../../store/modalToShow';
 const SendOtp = () => {
     const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
       );
-  const [number, setNumber] = useState(phoneNumber);
+      const dispatch = useDispatch();
+    
+  const [number, setNumber] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const isNumberValid = number.length === 10 && /^\d+$/.test(number);
   const isNumberValid1 = phoneNumber.length === 10 && /^\d+$/.test(phoneNumber);
-  const [isNumber, setIsNumber] = useState(true);
+  const [isNumber, setIsNumber] = useState(false);
 
 
-  useEffect(() => {
-    if (isNumberValid1) {
-      // When number becomes valid, send OTP
-      phoneNumberHandler();
+  // useEffect(() => {
+  //   if (isNumberValid1) {
+  //     // When number becomes valid, send OTP
+  //     phoneNumberHandler();
+  //   }
+  // }, [isNumberValid1]);
+
+  const verifyMobileNumber = async ()=>{
+    let body = {
+      isdCode:'+91',
+      phone: number
     }
-  }, [isNumberValid1]);
-
-  const showOverlay = useSelector(
-    (state) => state.mobileVerification.showOverlay
-  );
-  const dispatch = useDispatch();
-
+    try {
+      const userData = await verifyPhone(body);
+      dispatch(storePhoneNumber(number));
+      if(userData?.existingUser){
+        phoneNumberHandler()
+      } else {
+        dispatch(setComponentToShow('EnterName'));
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    } finally {
+      // setLoading(false);
+    }
+  }
   const handleToggleOverlay = () => {
     dispatch(showOverlayMode(!showOverlay));
   };
 
   const phoneNumberHandler = async () => {
-    dispatch(storePhoneNumber(number));
     let body = {
         isdCode:'+91',
-        phone: phoneNumber
+        phone: phoneNumber || number
       }
       try {
         const response = await sendOtp(body);
         console.log(response);
         setOtpSent(response);
-        dispatch(setIsOtpSent(true));
+        dispatch(setComponentToShow('OtpVerification'));
       } catch (error) {
         console.error('Error fetching data:', error.message);
       } finally {
@@ -54,13 +70,20 @@ const SendOtp = () => {
 
   const handleNumberChange = (e) => {
     const value = e.target.value;
-    if (value === "" || /^\d+$/.test(value)) {
-      setNumber(value);
-    }
+    const numericValue = value.replace(/\D/g, '');
+    setNumber(numericValue);
+    console.log(value.length);
     if(value?.length == 10){
-        setIsNumber(false)
+      setIsNumber(true);
     }else{
-        setIsNumber(true)
+        setIsNumber(false)
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    const charCode = e.charCode;
+    if (charCode < 48 || charCode > 57) {
+      e.preventDefault();
     }
   };
   return (
@@ -70,10 +93,10 @@ const SendOtp = () => {
             <Col xs={12} md={6}>
             <Image
           src="/login/mobVer/mobVer1.svg"
-          height={250}
-          width={600}
+          height={200}
+          width={400}
           alt="mob-ver-1"
-          className=" max-md:hidden"
+          className="side_image max-md:hidden"
         />
             </Col>
             <Col xs={12} md={6}>
@@ -98,23 +121,23 @@ const SendOtp = () => {
                 </select>
                 <input
                   className="appearance-none  border-l-0 flex-grow p-2 focus:outline-none"
-                  placeholder="Your number..."
+                  placeholder="Your number..." maxLength={10} pattern="[6-9]\\d{9}"
                   value={number}
-                  onChange={handleNumberChange}
+                  onChange={handleNumberChange} onKeyUp={handleKeyPress}
                 />
               </div>
                     </div>
                 </Col>
               </Row>
-              <Row>
+              <Row className="button_mobile_none">
                 <Col xs={12} md={12}>
                     <div className="otp_button_row">
                     <button
             className={`otp_button ${
-              isNumberValid ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"
+              isNumber ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"
             }`}
-            disabled={!isNumberValid}
-            onClick={phoneNumberHandler}
+            disabled={!isNumber}
+            onClick={verifyMobileNumber}
           >
             Send OTP <span>&#8599;</span>
           </button>
@@ -124,6 +147,20 @@ const SendOtp = () => {
             </Col>
           </Row>
         </Container>
+      <div className="marketpr_show">
+        <div className="feslofrbottom">
+          <div className="pac_festpr_flexshow">
+            <button
+              className={`otp_button ${isNumberValid ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"
+                }`}
+              disabled={!isNumberValid}
+              onClick={verifyMobileNumber}
+            >
+              Send OTP <span>&#8599;</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

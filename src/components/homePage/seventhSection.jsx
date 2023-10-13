@@ -1,16 +1,20 @@
 "use client";
 import React, { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { showOverlayMode } from "@/store/mobVeriSlice";
-// import { storePhoneNumber } from "@/store/mobVeriSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
+import LoginPage from "../loginPage";
+import LoginPopup from "../LoginPopup";
+import {verifyPhone, sendOtp} from '../../services/userServics';
+import analytics from '../../utils/analytics';
+import {setComponentToShow} from '../../store/modalToShow'
 function SeventhSection() {
   // Added useState for 'query'
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
-  // const showOverlay = useSelector(
-  //   (state) => state.mobileVerification.showOverlay
-  // );
-  // const dispatch = useDispatch();
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
@@ -20,19 +24,65 @@ function SeventhSection() {
     }
   };
 
-  const handleToggleOverlay = () => {
+  const handleToggleOverlay = async () => {
     if (query.length === 0) {
       setError("Please enter a number.");
     } else if (query.length < 10) {
       setError("Number should be of 10 digits.");
     } else {
       setError("");
-      // dispatch(storePhoneNumber(query));
-      // dispatch(showOverlayMode(!showOverlay));
+      dispatch(storePhoneNumber(query));
+      dispatch(showOverlayMode(!showOverlay));
+      let body = {
+        isdCode:'+91',
+        phone: query
+      }
+      try {
+        const userData = await verifyPhone(body);
+        dispatch(setIsExitingUser(userData?.existingUser));
+        analytics.track('otp_count', {
+          phone: query,
+          whatsapp_consent: false
+        });
+        if(userData?.existingUser){
+          sentOtp();
+        } else {
+          dispatch(setComponentToShow('EnterName'));
+          dispatch(showOverlayMode(!showOverlay));
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      } finally {
+      }
     }
   };
+
+  const sentOtp =  async() =>{
+    let body = {
+      isdCode:'+91',
+      phone: query
+    }
+    try {
+      const response = await sendOtp(body);
+      console.log(response);
+      dispatch(setComponentToShow('OtpVerification'));
+      dispatch(showOverlayMode(!showOverlay));
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    } finally {
+      // setLoading(false);
+    }
+  }
+
+  if (showOverlay) {
+    return (
+      <div>
+        <LoginPopup />
+      </div>
+    );
+  }
   return (
-    <div className="bg-[#00364E] min-h-max">
+    <div className="bg-[#00364E] min-h-max h-min">
       <div className="flex max-md:flex-col max-md:py-12 max-md:px-2 max-md:ml-2 justify-evenly py-40">
         <div className="flex flex-col text-white">
           <div className="tracking-wider text-4xl max-md:text-3xl font-extrabold">
@@ -62,7 +112,7 @@ function SeventhSection() {
               className="rounded-l-lg max-md:h-12 max-md:placeholder:text-sm max-md:rounded-l-3xl max-md:bg-white max-md:placeholder-gray-500 bg-blue-500 text-black w-full sm:w-1/2 md:w-96 h-10 md:h-12 pl-4 md:pl-6 text-base md:text-lg border-2 placeholder-white"
               type="text"
               placeholder="enter your mobile number"
-              value={query}
+              value={query} maxLength={10}
               onChange={handleInputChange}
             />
             <button
