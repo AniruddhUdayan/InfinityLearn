@@ -98,7 +98,7 @@ function Cards(props) {
         </div>
         <div className=" mb-4 items-center gap-3 flex">
           <Image
-            src="/../livecourses/plan/image1.png"
+            src="/livecourses/plan/image1.png"
             width={83}
             height={41}
             alt="public"

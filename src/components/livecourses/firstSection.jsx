@@ -26,7 +26,7 @@ function FirstSection() {
           alt=""
           height={578}
           width={528}
-          src="/../livecourses/firstSection/mask-group@2x.png"
+          src="/livecourses/firstSection/mask-group@2x.png"
         />
         <Image
           className="relative mt-6  mx-auto md:hidden pb-7  object-cover"
