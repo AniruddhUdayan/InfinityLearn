@@ -15,6 +15,8 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/iit.svg",
+            targetExams:"JEEMAIN",
+            grades:[11,12,13]
           },
           {
             lid: 1,
@@ -23,6 +25,8 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/medical.svg",
+            targetExams:"NEET",
+            grades:[11,12,13]
           },
           {
             lid: 2,
@@ -31,6 +35,8 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/cuet.svg",
+            targetExams:"CUET",
+            grades:[12]
           },
         ],
       },
@@ -47,6 +53,8 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/iit.svg",
+            targetExams:"JEEMAIN",
+            grades:[9,10]
           },
           {
             lid: 1,
@@ -55,22 +63,24 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/medical.svg",
+            targetExams:"NEET",
+            grades:[9,10]
           },
-          {
-            lid: 2,
-            name: "CUET Foundation",
-            subItemAbout: "common entrance test",
-            examTime: "26 weeks to exam",
-            listPresent: "false",
-            svg: "/header/cuet.svg",
-          },
+          // {
+          //   lid: 2,
+          //   name: "CUET Foundation",
+          //   subItemAbout: "common entrance test",
+          //   examTime: "26 weeks to exam",
+          //   listPresent: "false",
+          //   svg: "/header/cuet.svg",
+          // },
         ],
       },
       {
         id: 2,
         name: "class 4 to 8",
         listPresent: "true",
-        list: ["Foundation"],
+        list: ["Foundation", "Aptitude"],
         lists: [
           {
             lid: 0,
@@ -79,22 +89,18 @@ const items = [
             examTime: "class 8 only",
             listPresent: "false",
             svg: "/header/iit.svg",
+            targetExams:"FOUNDATION",
+            grades:[6,7,8]
           },
           {
             lid: 1,
-            name: "Neet Foundation",
-            subItemAbout: "medical exam",
+            name: "Aptitude Test",
+            subItemAbout: "Bsics",
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/medical.svg",
-          },
-          {
-            lid: 2,
-            name: "CUET Foundation",
-            subItemAbout: "common entrance test",
-            examTime: "26 weeks to exam",
-            listPresent: "false",
-            svg: "/header/cuet.svg",
+            targetExams:"APTITUDETEST",
+            grades:[4,5]
           },
         ],
       },

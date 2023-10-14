@@ -1,3 +1,4 @@
+"use client";
 import phone from "./../../../../public/images/phone.svg";
 import apple from "./../../../../public/images/apple.svg";
 import android from "./../../../../public/images/android.svg";
