@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-
+import "./liveCourses.css";
+import { Button, LinearProgress } from "@mui/material";
 import {
   BsFillArrowRightSquareFill,
   BsFillArrowLeftSquareFill,
@@ -229,9 +230,10 @@ function Card(props) {
   if (check) {
     return (
       <div
+        ref={props.ref2}
         className="flex mb-12  h-min 
       max-md:h-fll max-md:p-[12px] max-md:h-[371px]  max-xl:w96 max-w-[392px]  shadow-lg max-md:w-full   
-      flex-col max-2xl:px-3  flex-shrink-0
+      flex-col max-2xl:px-3  flex-shrink-0 
        my-4 rounded-2xl w-1/3 bg-white font-[#080E14] "
       >
         <Image
@@ -284,6 +286,7 @@ function Card(props) {
 
   return (
     <div
+      ref={props.ref2}
       className="flex mb-12 max-w-[392px] max-xl:w-96 max-md:w-full
        h-fi px-6 gap-4 shadow-lg flex-col max-md:p-5 flex-shrink-0 py-5
   my-4 rounded-2xl justify-evenly w-full md:w-1/3 bg-white font-[#080E14] "
@@ -323,9 +326,60 @@ function Card(props) {
 }
 
 function Reviews() {
+  const carousel = useRef(null);
+  const carouselEle = useRef(null);
+  const [progress, setProgress] = useState(0);
   const [scrollPos, setScrollPos] = useState(0);
   const reviewsLength = reviews.length; // Assuming `reviews` is defined in scope
+  const [autoScrollTimer, setAutoScrollTimer] = useState(null);
 
+  useEffect(() => {
+    setProgress(1);
+  }, []);
+  const handleScroll = () => {
+    const container = carousel.current;
+    const cardWidth = carouselEle.current.offsetWidth;
+    const currentScrollLeft = container.scrollLeft;
+
+    // Calculate the number of cards scrolled
+    const cardsScrolled = Math.ceil(currentScrollLeft / cardWidth);
+
+    // Calculate the progress as a fraction of total cards
+    const normalizedProgress = (cardsScrolled / reviews.length) * 100;
+
+    setProgress(normalizedProgress);
+
+    // Clear the auto-scroll timer when the user manually scrolls
+    clearTimeout(autoScrollTimer);
+
+    // If the user has scrolled to the end, set a timer to scroll back to the first card after 10 seconds
+    if (cardsScrolled === reviews.length) {
+      const timer = setTimeout(() => {
+        container.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+
+        // Reset the progress to 0% as it loops back to the first card
+        setProgress(0);
+      }, 10000); // 10 seconds delay
+
+      // Store the timer ID in state to be able to clear it later
+      setAutoScrollTimer(timer);
+    }
+  };
+  useEffect(() => {
+    if (window.innerWidth >= 1024) return;
+
+    // Attach the scroll event listener to the carousel container
+    const container = carousel.current;
+    container.addEventListener("scroll", handleScroll);
+
+    return () => {
+      // Remove the scroll event listener when component unmounts
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const handleScrollLeft = () => {
     setScrollPos((prev) => {
       const newPos = Math.max(prev - 1, 0);
@@ -343,8 +397,38 @@ function Reviews() {
   };
 
   return (
-    <div className="flex flex-col items-center px-20 pt-20 relative bottom-5 max-md:w-fit max-md:px-2 no-scrollbar">
-      <div className="mb- flex overflow-x-auto max-md:w-fit max-md:overflow-y-hidden no-scrollbar">
+    <div className="flex flex-col items-center px-20 pt-20 relative bottom-5  max-md:px-2 no-scrollbar">
+      <div className="flex w-full mb-7 lg:hidden gap-2 items-center mt-2">
+        <div>01</div>
+        <LinearProgress
+          variant="determinate"
+          value={progress}
+          className="w-1/2"
+        />
+        <div>{reviews?.length}</div>
+      </div>
+      {/* <div
+        ref={carousel}
+        className="mb- flex  gap-10 transition-transform duration-1000 overflow-x-auto 
+         max-md:overflow-y-hidden no-scrollbar"
+      > */}
+      <div
+        className=" md:hidden max-w-full flex  no-scrollbar overflow-x-auto md:mx-auto max-md:gap-[12px] max-md:mx-0 gap-6 mb-6"
+        // ref={inViewRef}
+
+        ref={carousel}
+      >
+        {/* <div
+          className="flex gap-10 transition-transform duration-1000"
+          // style={{ transform: `translateX(-${scrollPos * 100}%)` }}
+          ref={carousel}
+        > */}
+        {reviews.map((review, index) => (
+          <Card key={index} data={review} ref2={carouselEle} />
+        ))}
+        {/* </div> */}
+      </div>
+      <div className=" max-md:hidden flex overflow-x-auto max-md:w-fit max-md:overflow-y-hidden no-scrollbar">
         <div
           className="flex gap-10 transition-transform duration-1000"
           style={{ transform: `translateX(-${scrollPos * 100}%)` }}
@@ -354,7 +438,7 @@ function Reviews() {
           ))}
         </div>
       </div>
-      <div className="flex space-x-2 relative w-full max-md:w-screen justify-end max-md:justify-start">
+      <div className="flex space-x-2 relative w-full max-md:hidden justify-end max-md:justify-start">
         <button
           onClick={handleScrollLeft}
           aria-label="Scroll Left"
@@ -387,8 +471,13 @@ function Rankers() {
   const [activeDash, setActiveDash] = useState(0);
   const maxScroll = rankers.length - 4; // total cards minus visible cards
   const totalDashes = Math.ceil(rankers.length / 2) - 1; // total number of dashes
+  const [scrollPos1, setScrollPos1] = useState(0);
+  const maxScroll1 = rankers.length; // Total number of cards
+  const containerRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 1024) return;
+
     const interval = setInterval(() => {
       if (scrollPos >= maxScroll) {
         setScrollPos(0);
@@ -402,11 +491,35 @@ function Rankers() {
     return () => clearInterval(interval);
   }, [scrollPos, activeDash]);
 
+  const scrollAmount = 1; // Adjust the scroll amount for smoother or faster scrolling
+  const scrollInterval = 50; // Adjust the interval duration for smoother or faster scrolling
+
+  useEffect(() => {
+    if (window.innerWidth > 1024) return;
+    if (!containerRef.current) return;
+
+    const scrollContainer = containerRef.current;
+
+    const scroll = () => {
+      scrollContainer.scrollLeft += scrollAmount;
+
+      if (
+        scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+        scrollContainer.scrollWidth
+      ) {
+        scrollContainer.scrollLeft = 0;
+      }
+    };
+
+    const intervalId = setInterval(scroll, scrollInterval);
+
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <div className="flex flex-col  h-fit justify-center h-mx items-center bg-blue-2">
       <div className="overflow-hidden h-fit relative w-full">
         <div
-          className="flex transition-transform gap-[100px] max-md:mt-0 max-md:gap-[10px] mt-10 duration-1000"
+          className=" max-md:hidden flex transition-transform max-md:overflow-x-auto gap-[100px] max-md:mt-0 max-md:gap-[10px] mt-10 duration-1000"
           style={{ transform: `translateX(-${(scrollPos * 100) / 4}%)` }}
         >
           {rankers.map((ranker, index) => (
@@ -415,8 +528,19 @@ function Rankers() {
             </div>
           ))}
         </div>
+        <div
+          ref={containerRef}
+          className=" personal  md:hidden no-scrollbar flex transition-transform max-md:overflow-x-auto 
+          gap-[0px] max-md:mt-0 max-md:gap-[10px] mt-10 duration-1000"
+        >
+          {rankers.map((ranker, index) => (
+            <div key={index} className="">
+              <ResultCard result={ranker} />
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="flex justify-center mt-10">
+      <div className="flex max-md:hidden justify-center mt-10">
         {Array.from({ length: totalDashes }, (_, index) => (
           <div
             key={index}
@@ -432,9 +556,9 @@ function Rankers() {
 
 const ResultCard = ({ result }) => {
   return (
-    <div className="relative mx-9">
+    <div className="relative max-md:mx-2 mx-9 flex-shrink-0 ">
       <div
-        className="absolute flex flex-col w-52 whitespace-nowrap     font-bold  left-0
+        className="absolute flex flex-col w-52 whitespace-nowrap   font-bold  left-0
          bottom-32 max-md:bottom-28 rounded-t-[25px] gap- text-black"
         style={{ backgroundColor: result.color }}
       >
@@ -454,7 +578,7 @@ const ResultCard = ({ result }) => {
           className="h-5 two w-60 relative"
         ></div>
       </div>
-      <div className="p-2 flex rounded-xl bg-white mt-10 shadow-[0px_4px_20px_0px_#0083E833] w-[20rem] min-w-[20rem] relative mb-4 gap-4 z-20">
+      <div className="p-2 flex rounded-xl   bg-white mt-10 shadow-[0px_4px_20px_0px_#0083E833] w-[20rem] min-w-[20rem] relative mb-4 gap-4 z-20">
         <div>
           <Image
             src={result.photo}

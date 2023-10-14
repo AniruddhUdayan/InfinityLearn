@@ -24,3 +24,18 @@
   flex-shrink: 0;
   width: 500px; /* Adjust according to your design */
 }
+.auto-scroll-container {
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+  animation: scroll 30s linear infinite; /* Adjust the duration (30s) for your desired scrolling speed */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
