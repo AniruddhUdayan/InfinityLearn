@@ -4,10 +4,14 @@ import { Button, Input, InputBase } from "@mui/material";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
-import {verifyPhone, sendOtp} from '../../services/userServics';
-import analytics from '../../utils/analytics';
-import {setComponentToShow} from '../../store/modalToShow';
+import {
+  showOverlayMode,
+  storePhoneNumber,
+  setIsExitingUser,
+} from "../../store/mobVeriSlice";
+import { verifyPhone, sendOtp } from "../../services/userServics";
+import analytics from "../../utils/analytics";
+import { setComponentToShow } from "../../store/modalToShow";
 const words = ["learning", "academic"];
 const duration = 2000; // Duration in milliseconds for each word
 const poppins = Poppins({
@@ -85,46 +89,46 @@ function FirstSection() {
     if (query.length === 10) {
       dispatch(storePhoneNumber(query));
       let body = {
-        isdCode:'+91',
-        phone: query
-      }
+        isdCode: "+91",
+        phone: query,
+      };
       try {
         const userData = await verifyPhone(body);
         dispatch(setIsExitingUser(userData?.existingUser));
-        analytics.track('otp_count', {
+        analytics.track("otp_count", {
           phone: query,
-          whatsapp_consent: false
-        })
-        if(userData?.existingUser){
+          whatsapp_consent: false,
+        });
+        if (userData?.existingUser) {
           sentOtp();
         } else {
-          dispatch(setComponentToShow('EnterName'))
+          dispatch(setComponentToShow("EnterName"));
           dispatch(showOverlayMode(!showOverlay));
         }
       } catch (error) {
-        console.error('Error fetching data:', error.message);
+        console.error("Error fetching data:", error.message);
       } finally {
       }
     } else {
       console.error("Phone number should be 10 digits!");
     }
   };
-  const sentOtp =  async() =>{
+  const sentOtp = async () => {
     let body = {
-      isdCode:'+91',
-      phone: query
-    }
+      isdCode: "+91",
+      phone: query,
+    };
     try {
       const response = await sendOtp(body);
       console.log(response);
-      dispatch(setComponentToShow('OtpVerification'));
+      dispatch(setComponentToShow("OtpVerification"));
       dispatch(showOverlayMode(!showOverlay));
     } catch (error) {
-      console.error('Error fetching data:', error.message);
+      console.error("Error fetching data:", error.message);
     } finally {
       // setLoading(false);
     }
-  }
+  };
   return (
     <div
       className="flex pb-32 max-md:pt-16 max-md:px-0 poppins max-2xl:px-10  
@@ -134,7 +138,7 @@ function FirstSection() {
      max-md:flex-col max-md:h-fit"
     >
       <div className=" text-white max-md:w-full max-2xl:w-1/2 flex flex-col">
-        <div className=" flex flex-col max-md:w-full max-md:px-5 text-start justify-enter itemscenter">
+        <div className=" text-selection flex flex-col max-md:w-full max-md:px-5 text-start justify-enter itemscenter">
           <div className="max-md:pt-6 pt-9   max-md:pl-5 tracking-wide   text-7xl max-md:text-[44px] font-bold">
             power up your
           </div>
