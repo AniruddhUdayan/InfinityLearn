@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
-import {setComponentToShow} from '../../store/modalToShow';
+import { setComponentToShow } from "../../store/modalToShow";
 const options = [
   "personal attention",
   "india's top faculty",
@@ -135,9 +135,9 @@ const SwitchTabs = ({ data, onTabChange }) => {
 const SwitchTabs1 = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const handleTabClick = (index) => {
+  const handleTabClick = (option, index) => {
     setSelectedTab(index);
-    onTabChange && onTabChange(data[index]);
+    onTabChange && onTabChange(option, index);
   };
 
   return (
@@ -151,7 +151,7 @@ const SwitchTabs1 = ({ data, onTabChange }) => {
                 ? "text-blue-500 border-b-2 border-blue-500"
                 : "text-gray-400"
             }`}
-            onClick={() => handleTabClick(index)}
+            onClick={() => handleTabClick(option, index)}
           >
             {option}
           </span>
@@ -218,6 +218,7 @@ function ThirdSection() {
   const [endpoint, setEndpoint] = useState("day");
   const onTabChange = (tab, index) => {
     setSelectedOption(index);
+    console.log(index);
     setEndpoint(tab === "Day" ? "day" : "week");
   };
   const handleClick = (index) => {
@@ -231,9 +232,8 @@ function ThirdSection() {
   };
 
   const startLearning = async () => {
-    dispatch(setComponentToShow('SendOtp'))
+    dispatch(setComponentToShow("SendOtp"));
     dispatch(showOverlayMode(!showOverlay));
-
   };
   return (
     <div className="items-center container no-scrollbar h-min py-16 bg-white">
