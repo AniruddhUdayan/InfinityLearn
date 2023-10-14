@@ -122,35 +122,37 @@ function NewLevelShower(props) {
 
 function Card(props) {
   // Create a ref to the card element
-  const cardRef = useRef();
-  // Use the useInView hook to detect when the card is in view
-  const { ref, inView } = useInView();
+  // const cardRef = useRef();
+  // // Use the useInView hook to detect when the card is in view
+  // const { ref, inView } = useInView();
 
-  // This effect handles tracking when a card is in view
-  useEffect(() => {
-    if (inView) {
-      // Here, you can set the current level or perform other actions
-      // based on whether the card is in view.
-      // props.cardsRefs.push(cardRef);
+  // // This effect handles tracking when a card is in view
+  // useEffect(() => {
+  //   if (inView) {
+  //     // Here, you can set the current level or perform other actions
+  //     // based on whether the card is in view.
+  //     // props.cardsRefs.push(cardRef);
 
-      console.log(props.cardsRefs, "cardRefs");
-      console.log("hello");
-      console.log(cardRef);
-      props.handleLength();
-    }
-  }, [inView]);
+  //     console.log(props.cardsRefs, "cardRefs");
+  //     console.log("hello");
+  //     console.log(cardRef);
+  //     props.handleLength();
+  //   }
+  // }, [inView]);
 
   return (
     <div
-      className="max-md:flex-shrink-0 max-md:h-[450px] max-md:w-[323px] shadow-md md:py-2 p-2 max-md:p-[12px] rounded-3xl gap-3 justify-evenly bg-white flex flex-col w-1/3 font-font-[#080E14] items-center"
+      className="max-md:flex-shrink-0 max-md:h-[450px] max-md:w-[323px] shadow-md md:py-2 p-2 max-md:p-[12px] rounded-3xl gap-3
+       justify-evenly bg-white flex flex-col w-1/3
+        font-font-[#080E14] items-center"
       // Attach the card's ref and use the ref provided by useInView
-      ref={(node) => {
-        if (props.firstCardRef) {
-          props.firstCardRef.current = node;
-        }
-        cardRef.current = node; // Store the card's ref in your array
-        ref(node); // Attach the ref provided by useInView
-      }}
+      // ref={(node) => {
+      //   if (props.firstCardRef) {
+      //     props.firstCardRef.current = node;
+      //   }
+      //   cardRef.current = node; // Store the card's ref in your array
+      //   ref(node); // Attach the ref provided by useInView
+      // }}
     >
       {/* Your card content remains the same */}
       <Image
@@ -192,61 +194,61 @@ function FourthSection() {
 
   const firstCardRef = useRef();
 
-  useEffect(() => {
-    if (inView) {
-      // Here, you can set the current level or perform other actions
-      // based on whether the card is in view.
-      console.log("hello");
-      // props.handleLength();
-    }
-  }, [inView]);
-  const [length, setLength] = useState(4);
-  const handleLength = () => {
-    setLength(length + 2);
-    console.log("nikjkb");
-  };
-  const handleAddCardRef = (newRef) => {
-    //setCardsRefs((prevRefs) => [...prevRefs, newRef]);
-  };
+  // useEffect(() => {
+  //   if (inView) {
+  //     // Here, you can set the current level or perform other actions
+  //     // based on whether the card is in view.
+  //     console.log("hello");
+  //     // props.handleLength();
+  //   }
+  // }, [inView]);
+  // const [length, setLength] = useState(4);
+  // const handleLength = () => {
+  //   setLength(length + 2);
+  //   console.log("nikjkb");
+  // };
+  // const handleAddCardRef = (newRef) => {
+  //   //setCardsRefs((prevRefs) => [...prevRefs, newRef]);
+  // };
 
-  const handleScroll = () => {
-    const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-    const isScrolledToEnd = scrollLeft + clientWidth >= scrollWidth;
+  // const handleScroll = () => {
+  //   const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+  //   const isScrolledToEnd = scrollLeft + clientWidth >= scrollWidth;
 
-    if (isScrolledToEnd) {
-      // Option 1: Instant scroll
-      containerRef.current.scrollLeft = 0;
+  //   if (isScrolledToEnd) {
+  //     // Option 1: Instant scroll
+  //     containerRef.current.scrollLeft = 0;
 
-      // Option 2: Smooth scroll
-      // containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-    }
-  };
+  //     // Option 2: Smooth scroll
+  //     // containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+  //   }
+  // };
 
-  useEffect(() => {
-    const containerElement = containerRef.current;
-    containerElement.addEventListener("scroll", handleScroll);
+  // useEffect(() => {
+  //   const containerElement = containerRef.current;
+  //   containerElement.addEventListener("scroll", handleScroll);
 
-    return () => {
-      containerElement.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     containerElement.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    // When the length of cardsInView is 3, scroll the first card into view
-    console.log("cardsInView changed: ", cardsInView); // Log cardsInView changes
-    if (cardsInView.length === 3) {
-      // setTimeout(() => {
-      console.log("nii");
-      // cardsInView.splice(0, arr.length);
+  // useEffect(() => {
+  //   // When the length of cardsInView is 3, scroll the first card into view
+  //   console.log("cardsInView changed: ", cardsInView); // Log cardsInView changes
+  //   if (cardsInView.length === 3) {
+  //     // setTimeout(() => {
+  //     console.log("nii");
+  //     // cardsInView.splice(0, arr.length);
 
-      console.log(firstCardRef.current);
-      firstCardRef.current.scrollIntoView({
-        behavior: "smooth",
-      });
-      // }, 200); // A small delay to ensure all refs and DOM nodes are updated
-    }
-  }, [cardsInView]);
-  console.log(cardsInView);
+  //     console.log(firstCardRef.current);
+  //     firstCardRef.current.scrollIntoView({
+  //       behavior: "smooth",
+  //     });
+  //     // }, 200); // A small delay to ensure all refs and DOM nodes are updated
+  //   }
+  // }, [cardsInView]);
+  // console.log(cardsInView);
   return (
     <div className="no-scrollbar flex flex-col bg-gray-100 max-md:px-10 items-center py-8">
       <div className="text-4xl mb-12 text-black text-center font-extrabold">
@@ -259,28 +261,28 @@ function FourthSection() {
       /> */}
       <div
         className="max-w-full no-scrollbar max-md:overflow-x-auto md:mx-auto max-md:gap-[12px] max-md:mx-0 gap-6 mb-6"
-        ref={inViewRef}
+        // ref={inViewRef}
       >
-        <div ref={containerRef} className="flex max-md:flex-nowrap space-x-4">
-          {teacher.map((item, index) => {
+        <div className="flex max-md:flex-nowrap space-x-4">
+          {teacher.map((item, index) => (
             <Card
               key={index}
               data={item}
               cardsRefs={cardsRefs}
-              firstCardRef={index === 0 ? firstCardRef : null}
+              // firstCardRef={index === 0 ? firstCardRef : null}
               // ref={(el) => (cardsRefs.current[index] = el)}
-              handleLength={handleLength}
-            />;
-          })}
+              // handleLength={handleLength}
+            />
+          ))}
         </div>
       </div>
-      <button
+      {/* <button
         onClick={() =>
           firstCardRef.current.scrollIntoView({ behavior: "smooth" })
         }
       >
         Scroll to First Card
-      </button>
+      </button> */}
       <button className="w-80 max-mmd:mt-[24px] max-md:h-[48px] text-black px-8 border-2 border-gray-300 rounded-xl p-3">
         <div className="flex justify-center gap-2">
           <div>meet the teachers</div>
