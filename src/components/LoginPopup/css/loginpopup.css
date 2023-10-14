@@ -6,7 +6,15 @@
 .login_popup.modal .modal-header {
     border: none !important;
 }
+/* .login_body{
+    max-height: 450px;
+    overflow-y: auto;
 
+}
+.login_body::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+  } */
 .btn-close {
     opacity: 1;
 }

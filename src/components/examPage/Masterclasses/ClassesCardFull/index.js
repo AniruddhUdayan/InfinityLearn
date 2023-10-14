@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image"
 import play from './../../../../../public/images/play-icon.svg'
 import flag from './../../../../../public/images/blue-flag.svg'

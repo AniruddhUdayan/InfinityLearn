@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image"
 import flag from './../../../../../public/images/green-flag.svg'
 import classesImg from './../../../../../public/images/lc-classes.svg'

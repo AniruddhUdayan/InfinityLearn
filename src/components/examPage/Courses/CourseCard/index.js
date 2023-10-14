@@ -1,3 +1,4 @@
+"use client";
 import classesImg from './../../../../../public/images/lc-classes.svg'
 import recordings from './../../../../../public/images/lc-recordings.svg'
 import Image from "next/image"
