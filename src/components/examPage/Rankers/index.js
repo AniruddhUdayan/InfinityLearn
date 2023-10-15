@@ -8,11 +8,60 @@ import rs3 from './../../../../public/images/result-guy-3.svg'
 import starBig from './../../../../public/images/star-big.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 import { Button, Chip } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const Rankers = () => {
     const [selectedTags, setSelectedTags] = useState([ 'visual learner', 'theoretical', 'physical books needed', 'daily classes', 'synced with school' ])
     const allTags = ['visual learner', 'maximum revision', 'mcq solver', 'solo learner', 'theoretical', 'need a schedule', 'learning should be fun', 'group study', 'physical books needed', 'serious student', 'faculty interaction', 'daily classes', 'boards + competitive', 'synced with school', 'weekend classes', 'other']
+    const carousel = useRef(null)
+    const carouselEle = useRef(null)
+    const [activeIndex, setActiveIndex] = useState(0)
+
+    const results = [
+        { image: rs1, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' },
+        { image: rs2, name: 'Brijesh', city: 'Kochi, Kerala', air: 256, score: 671, color: '#FBDD5A' },
+        { image: rs3, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' },
+        { image: rs1, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' },
+        { image: rs1, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' },
+        { image: rs2, name: 'Brijesh', city: 'Kochi, Kerala', air: 256, score: 671, color: '#FBDD5A' },
+        { image: rs3, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' },
+        { image: rs1, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' },
+        { image: rs2, name: 'Brijesh', city: 'Kochi, Kerala', air: 256, score: 671, color: '#FBDD5A' },
+    ]
+
+    useEffect(() => {
+		const interval = setInterval(() => {
+			if (activeIndex === results.length - 1) {
+				setActiveIndex(0)
+				carousel.current.scrollTo({
+					left: 0,
+					behavior: "smooth",
+				})
+			} else if (activeIndex == 0) {
+				setActiveIndex(activeIndex + 1)
+				if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
+					carousel.current.scrollTo({
+						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+						behavior: "smooth",
+					})	
+				} else {
+					carousel.current.scrollTo({
+						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+						behavior: "smooth",
+					})
+				}
+
+			} else {
+				setActiveIndex(activeIndex + 1)
+				carousel.current.scrollTo({
+					left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+					behavior: "smooth",
+				})
+			}
+		}, 3000)
+		return () => clearInterval(interval)
+	}, [activeIndex])
+
     return (
         <>
             <div className="lg:px-36 py-10">
@@ -29,12 +78,20 @@ const Rankers = () => {
                             234 Infinity Learners in top 1000
                         </div>
                     </div>
-                    <div className='px-6 lg:px-20 overflow-y-auto no-scrollbar flex gap-8 mt-10'>
-                        <ResultCard result={{ image: rs1, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' }} />
-                        <ResultCard result={{ image: rs2, name: 'Brijesh', city: 'Kochi, Kerala', air: 256, score: 671, color: '#FBDD5A' }} />
-                        <ResultCard result={{ image: rs3, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' }} />
-                        <ResultCard result={{ image: rs1, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' }} />
-                        <ResultCard result={{ image: rs2, name: 'Brijesh', city: 'Kochi, Kerala', air: 256, score: 671, color: '#FBDD5A' }} />
+                    <div className='px-6 lg:px-20 overflow-y-auto no-scrollbar flex gap-8 mt-10 snap-x' ref={carousel}>
+                        {results?.map((result, i) => <ResultCard key={`result-${i}`} result={result} ref2={carouselEle} />)}
+                    </div>
+                    <div className=" flex justify-center">
+                        {Array.from({ length: results.length }, (_, index) => (
+                        <div
+                            key={index}
+                            className={` h-1 rounded-full mx-1 lg:mx-2 b ${
+                            index === activeIndex
+                                ? "active w-10 lg:w-16 bg-white "
+                                : " bg-[#76B8FF] w-6 lg:w-10"
+                            }`}
+                        ></div>
+                        ))}
                     </div>
 
                 </div>
