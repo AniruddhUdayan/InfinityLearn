@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 const std = [" 11 to 12 +", "9 to 10", " 4 to 8 ", " 1 to 3 "];
 import items from "@/utils/infoSecSection";
+import {setShowGradePopup, setSelectedExam, setGrades} from '../../store/HomePage/examGradeSelection';
+import { useDispatch, useSelector } from "react-redux";
 export const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
@@ -87,7 +89,7 @@ const Card3 = ({ imageUrl, altText, titleLineOne, titleLineTwo }) => {
 
 function SecondSecCard(props) {
   const [svgWidth, setSvgWidth] = useState(100);
-
+  const dispatch = useDispatch();
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 36 : 100);
   };
@@ -102,10 +104,17 @@ function SecondSecCard(props) {
     setIsHovered(!isHovered);
   };
 
+  const openPopup = ()=>{
+    console.log(props.data)
+    dispatch(setShowGradePopup(true));
+    dispatch(setGrades(props?.data?.grades));
+    dispatch(setSelectedExam(props?.data?.targetExam))
+  }
   return (
     <div
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
+      onClick={openPopup}
       className={`flex hover:cursor-pointer hover:bg-blue-500 hover:text-white 
       flex-col justify-evenly items-start 
       max-2xl:h-[318px] py-20 max-2xl:px-6
@@ -211,6 +220,7 @@ const Card1 = ({ src, altText, text }) => {
 };
 
 function Class11to12() {
+
   return (
     <div className=" flex flex-col max-xl:h-max   md:px10 max-lg:w-scr   pb-20 justify-start ">
       <div className="  max-md:text-3xl  max-md:ml-4 text-4xl text-black mb-6 font-semibold ">
@@ -257,7 +267,7 @@ function Class9to10() {
         max-xl:h-full max-2xl:gap-5
        no-scrollbar  "
         >
-          {items[0]?.subItems[0]?.lists?.map((item, index) => (
+          {items[0]?.subItems[1]?.lists?.map((item, index) => (
             <SecondSecCard data={item} key={index} />
           ))}
         </div>
@@ -466,7 +476,7 @@ function SecondSection() {
               {item}
             </button>
           ))} */}
-          <SwitchTabs data={std} onTabChange={handleTabChange} />
+          <SwitchTabs data={std}  onTabChange={handleTabChange} />
         </div>
         {/* {"empty"} */}
         <div className="">

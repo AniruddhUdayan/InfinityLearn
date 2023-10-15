@@ -37,10 +37,10 @@ function LoginPopup() {
 
   return (
     <>
-      <Modal show={showOverlay} size="lg" centered aria-labelledby="example-modal-sizes-title-lg">
+      <Modal show={showOverlay} size="lg" centered className='login_popup' aria-labelledby="example-modal-sizes-title-lg">
         <Modal.Header closeButton onClick={() => { dispatch(showOverlayMode(!showOverlay)); }}>
         </Modal.Header>
-        <Modal.Body className="grid-example">
+        <Modal.Body className="login_body">
           {renderComponent()}
         </Modal.Body>
       </Modal>

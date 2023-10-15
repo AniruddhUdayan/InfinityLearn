@@ -1,3 +1,4 @@
+"use client";
 import attention from './../../../../public/images/personalised-attention.svg'
 import teachers from './../../../../public/images/best-teachers.svg'
 import focus from './../../../../public/images/focus.svg'

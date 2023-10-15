@@ -328,3 +328,7 @@ ul {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
+.overflow-x-auto::-webkit-scrollbar {
+  width: 5px;
+  display: none;
+}

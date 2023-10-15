@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import "./liveCourses.css";
+import { Button, LinearProgress } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import { GoArrowUpRight } from "react-icons/go";
 // import { log } from "console";
@@ -118,29 +119,12 @@ function NewLevelShower(props) {
 }
 
 function Card(props) {
-  // Create a ref to the card element
-  const cardRef = useRef();
-  // Use the useInView hook to detect when the card is in view
-  const { ref, inView } = useInView();
-
-  // This effect handles tracking when a card is in view
-  useEffect(() => {
-    if (inView) {
-      // Here, you can set the current level or perform other actions
-      // based on whether the card is in view.
-      console.log("hello");
-      props.handleLength();
-    }
-  }, [inView]);
-
   return (
     <div
-      className="max-md:flex-shrink-0 max-md:h-[450px] max-md:w-[323px] shadow-md md:py-2 p-2 max-md:p-[12px] rounded-3xl gap-3 justify-evenly bg-white flex flex-col w-1/3 font-font-[#080E14] items-center"
-      // Attach the card's ref and use the ref provided by useInView
-      ref={(node) => {
-        cardRef.current = node; // Store the card's ref in your array
-        ref(node); // Attach the ref provided by useInView
-      }}
+      ref={props.ref2}
+      className="max-md:flex-shrink-0 max-md:h-[450px] max-md:w-[323px] shadow-md md:py-2 p-2 max-md:p-[12px] rounded-3xl gap-3
+       justify-evenly bg-white flex flex-col w-1/3
+        font-font-[#080E14] items-center"
     >
       {/* Your card content remains the same */}
       <Image
@@ -174,44 +158,122 @@ function Card(props) {
 
 function FourthSection() {
   const [currentLevel, setCurrentLevel] = useState(1);
-  const cardsRefs = useRef([]);
+  const [cardsRefs, setCardsRefs] = useState([]);
+  const normalise = (value) => ((value - 0) * 100) / (teacher.length - 0);
+  const containerRef = useRef();
   const { ref, inView } = useInView();
   const inViewRef = useRef();
-  // const cardRef = useRef();
-  // // Use the useInView hook to detect when the card is in view
-  // const { ref, inView } = useInView();
+  const [cardsInView, setCardsInView] = useState([]);
+  const [progress, setProgress] = useState(normalise);
+  const carousel = useRef(null);
+  const carouselEle = useRef(null);
+  const firstCardRef = useRef();
 
-  // This effect will track which card is in view
+  // useEffect(() => {
+  //   if (window.innerWidth >= 1024) return;
+  //   const interval = setInterval(() => {
+  //     if (progress === teacher.length - 1) {
+  //       setProgress(0);
+  //       carousel.current.scrollTo({
+  //         left: 0,
+  //         behavior: "smooth",
+  //       });
+  //     } else if (progress === 0) {
+  //       setProgress(progress + 1);
+  //       if (
+  //         carouselEle.current.offsetWidth <
+  //         carousel.current.offsetWidth / 2
+  //       ) {
+  //         carousel.current.scrollTo({
+  //           left:
+  //             carousel.current.scrollLeft +
+  //             carouselEle.current.offsetWidth +
+  //             40,
+  //           behavior: "smooth",
+  //         });
+  //       } else {
+  //         carousel.current.scrollTo({
+  //           left:
+  //             carousel.current.scrollLeft +
+  //             carouselEle.current.offsetWidth +
+  //             15,
+  //           behavior: "smooth",
+  //         });
+  //       }
+  //     } else {
+  //       setProgress(progress + 1);
+  //       carousel.current.scrollTo({
+  //         left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+  //         behavior: "smooth",
+  //       });
+  //     }
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, [progress]);
+  const [autoScrollTimer, setAutoScrollTimer] = useState(null);
   useEffect(() => {
-    if (cardsRefs.current.length > 0) {
-      const levels = cardsRefs.current.map((cardRef, index) => ({
-        level: index + 1,
-        inView: cardRef.current && cardRef.current.isIntersecting,
-      }));
-
-      const currentInViewLevel = levels.find((level) => level.inView);
-
-      if (currentInViewLevel) {
-        setCurrentLevel(currentInViewLevel.level);
-      }
-    }
+    setProgress(1);
   }, []);
-  // const [trial,setTrial]=useState()
-  useEffect(() => {
-    if (inView) {
-      // Here, you can set the current level or perform other actions
-      // based on whether the card is in view.
-      console.log("hello");
-      // props.handleLength();
+  const handleScroll = () => {
+    const container = carousel.current;
+    const cardWidth = carouselEle.current.offsetWidth;
+    const currentScrollLeft = container.scrollLeft;
+
+    // Calculate the number of cards scrolled
+    const cardsScrolled = Math.ceil(currentScrollLeft / cardWidth);
+
+    // Calculate the progress as a fraction of total cards
+    const normalizedProgress = (cardsScrolled / teacher.length) * 100;
+
+    setProgress(normalizedProgress);
+
+    // Clear the auto-scroll timer when the user manually scrolls
+    clearTimeout(autoScrollTimer);
+
+    // If the user has scrolled to the end, set a timer to scroll back to the first card after 10 seconds
+    if (cardsScrolled === teacher.length) {
+      const timer = setTimeout(() => {
+        container.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+
+        // Reset the progress to 0% as it loops back to the first card
+        setProgress(0);
+      }, 10000); // 10 seconds delay
+
+      // Store the timer ID in state to be able to clear it later
+      setAutoScrollTimer(timer);
     }
-  }, [inView]);
-  const [length, setLength] = useState(4);
-  const handleLength = () => {
-    setLength(length + 2);
-    console.log("nikjkb");
+  };
+  useEffect(() => {
+    if (window.innerWidth >= 1024) return;
+
+    // Attach the scroll event listener to the carousel container
+    const container = carousel.current;
+    container.addEventListener("scroll", handleScroll);
+
+    return () => {
+      // Remove the scroll event listener when component unmounts
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollFacultiesLeft = () => {
+    carousel.current.scrollTo({
+      left: carousel.current.scrollWidth,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollFacultiesRight = () => {
+    carousel.current.scrollTo({
+      left: -carousel.current.scrollWidth,
+      behavior: "smooth",
+    });
   };
   return (
-    <div className="no-scrollbar flex flex-col bg-gray-100 max-md:px-10 items-center py-8">
+    <div className="no-scrollbar flex flex-col bg-gray-100 max-md:px-9 items-center py-8">
       <div className="text-4xl mb-12 text-black text-center font-extrabold">
         faculty
       </div>
@@ -220,28 +282,66 @@ function FourthSection() {
         currentIndex={currentLevel}
         totalLevels={3}
       /> */}
-      <div
-        className="max-w-full no-scrollbar max-md:overflow-x-auto md:mx-auto max-md:gap-[12px] max-md:mx-0 gap-6 mb-6"
-        ref={inViewRef}
-      >
-        <div
-          ref={(node) => {
-            // cardRef.current = node; // Store the card's ref in your array
-            ref(node); // Attach the ref provided by useInView
-          }}
-          className="flex max-md:flex-nowrap space-x-4"
-        >
-          {teacher.map((item, index) => (
-            <Card
-              key={index}
-              data={item}
-              // ref={(el) => (cardsRefs.current[index] = el)}
-              handleLength={handleLength}
-            />
-          ))}
-        </div>
+      <div className="flex w-full mb-7 lg:hidden gap-2 items-center mt-2">
+        <div>01</div>
+        <LinearProgress
+          variant="determinate"
+          value={progress}
+          className="w-1/2"
+        />
+        <div>{teacher?.length}</div>
       </div>
-      <button className="w-80 max-mmd:mt-[24px] max-md:h-[48px] text-black px-8 border-2 border-gray-300 rounded-xl p-3">
+      {/* <div
+        className="max-w-full no-scrollbar max-md:overflow-x-auto md:mx-auto max-md:gap-[12px] max-md:mx-0 gap-6 mb-6"
+        // ref={inViewRef}
+      > */}
+      {/* <div
+
+        ref={carousel}
+        className="flex max-w-full  mt-6 lg:mt-10 md:mx-[112px] justify-start no-scrollbar gap-6 mb-6
+        w-full overflow-x-scroll snap-x lg:snap-none"
+      >
+        {teacher.map((item, index) => (
+          <Card
+            key={index}
+            data={item}
+            cardsRefs={cardsRefs}
+            ref2={carouselEle}
+            // firstCardRef={index === 0 ? firstCardRef : null}
+            // ref={(el) => (cardsRefs.current[index] = el)}
+            // handleLength={handleLength}
+          />
+        ))}
+      </div> */}
+      <div
+        className="max-w-full flex  no-scrollbar max-md:overflow-x-auto md:mx-auto max-md:gap-[12px] max-md:mx-0 gap-6 mb-6"
+        // ref={inViewRef}
+        ref={carousel}
+      >
+        {/* <div className="flex max-md:flex-nowrap space-x-4"> */}
+        {teacher.map((item, index) => (
+          <Card
+            key={index}
+            data={item}
+            cardsRefs={cardsRefs}
+            ref2={carouselEle}
+            // firstCardRef={index === 0 ? firstCardRef : null}
+            // ref={(el) => (cardsRefs.current[index] = el)}
+            // handleLength={handleLength}
+          />
+        ))}
+        <div className=" w-3"></div>
+        {/* </div> */}
+      </div>
+      {/* </div> */}
+      {/* <button
+        onClick={() =>
+          firstCardRef.current.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        Scroll to First Card
+      </button> */}
+      <button className="w-80 max-md:mt-7 max-mmd:mt-[24px] max-md:h-[48px] text-black px-8 border-2 border-gray-300 rounded-xl p-3">
         <div className="flex justify-center gap-2">
           <div>meet the teachers</div>
           <div>

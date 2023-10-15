@@ -1,3 +1,4 @@
+"use client";
 import LandingCard from "./LandingCard"
 import orange from './../../../../public/images/orange-girl-1.svg'
 import date from './../../../../public/images/date-icon.svg'

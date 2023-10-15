@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode, storePhoneNumber } from "../../store/mobVeriSlice";
+import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
 import Image from "next/image";
 import { sendOtp, verifyPhone } from "../../services/userServics";
 import Col from 'react-bootstrap/Col';
@@ -36,6 +36,7 @@ const SendOtp = () => {
     try {
       const userData = await verifyPhone(body);
       dispatch(storePhoneNumber(number));
+      dispatch(setIsExitingUser(userData?.existingUser));
       if(userData?.existingUser){
         phoneNumberHandler()
       } else {
@@ -90,7 +91,7 @@ const SendOtp = () => {
     <div>
        <Container>
           <Row>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6}>            
             <Image
           src="/login/mobVer/mobVer1.svg"
           height={200}
@@ -100,6 +101,7 @@ const SendOtp = () => {
         />
             </Col>
             <Col xs={12} md={6}>
+              <div className="right_box">
               <Row>
                 <Col md={12}>
                     <h2 className="otp_heading">Drop your number, we’ve <br/> got the rest!</h2>
@@ -114,7 +116,7 @@ const SendOtp = () => {
               <div className="otp_mobile_input">
               <select
                   defaultValue="+91"
-                  className="appearance-none bg-transparent border-r-2 w-1/6  pl-4 focus:outline-none"
+                  className="bg-transparent border-r-2 w-1/6 focus:outline-none"
                 >
                   <option value="+91">+91</option>
                   <option value="+1">+1</option>
@@ -144,6 +146,7 @@ const SendOtp = () => {
                     </div>
                 </Col>
               </Row>
+              </div>
             </Col>
           </Row>
         </Container>

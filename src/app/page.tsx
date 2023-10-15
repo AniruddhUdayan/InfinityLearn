@@ -1,46 +1,24 @@
-"use client"
-import Image from "next/image";
-import Header from "../components/header.jsx";
 // import Footer from "@/components/footer";
 // import "./globals.css";
-import Footer from "../components/homePage/footer.jsx";
-import FirstSection from "../components/homePage/firstSection.jsx";
-import SecondSection from "../components/homePage/secondSection.jsx";
-import ThirdSection from "../components/homePage/thirdSection.jsx";
-import FourthSection from "../components/homePage/fourthSection.jsx";
-import React from "react";
-import FifthSection from "../components/homePage/fifthSection.jsx";
-import SixthSection from "../components/homePage/sixthSection.jsx";
-import SeventhSection from "../components/homePage/seventhSection.jsx";
-
-import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Download from "@/components/examPage/Download/index.js";
-import { useEffect } from 'react'
-import analytics from '../utils/analytics';
-import LoginPopup from "../components/LoginPopup";
+import HomePage from "@/components/homePage";
+import { Metadata } from 'next';
+export const metadata:Metadata = {
+  title:"Infinity Learn Online & Offline Courses for Class 6 to 12, NEET/Medical, JEE Main, Advanced, NEET & Olympiad",
+  description:"India's Best online & offline Coaching for NEET (UG), IIT JEE Main, JEE Advanced, Class 6 to 12, NTSE, KVPY Olympiad & Other Competitive Exams. Enroll Now! Unlock Your Academic Potential with Infinity Learn",
+  openGraph:{
+    title: "Infinity Learn Online & Offline Courses for Class 6 to 12, NEET/Medical, JEE Main, Advanced, NEET & Olympiad",
+    description:"India's Best online & offline Coaching for NEET (UG), IIT JEE Main, JEE Advanced, Class 6 to 12, NTSE, KVPY Olympiad & Other Competitive Exams. Enroll Now! Unlock Your Academic Potential with Infinity Learn",
+    type:"website",
+    siteName:"Infinity Learn",
+  }
+};
 export default function Home() {
-  useEffect(() => {
-    analytics.page() 
-  }, [])
   return (
-    <div className=" no-scrollbar poppins max-md:w-full">
-      <Head>
-        <title>Your Page Title</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Description of your page for SEO" />
-      </Head>
-      <Header />
-      <FirstSection />
-      <SecondSection />
-      <ThirdSection />
-      <FourthSection />
-      <FifthSection />
-      {/* <Download /> */}
-      <SixthSection />
-      <SeventhSection />
-      <Footer />
-      <LoginPopup />
-    </div>
+    <>
+      <div className=" no-scrollbar poppins max-md:w-full">
+        <HomePage />
+      </div>
+    </>
   );
 }

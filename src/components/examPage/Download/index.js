@@ -1,3 +1,4 @@
+"use client";
 import phone from "./../../../../public/images/phone.svg";
 import apple from "./../../../../public/images/apple.svg";
 import android from "./../../../../public/images/android.svg";
@@ -160,7 +161,7 @@ const Download = () => {
             }
           </div>
         </div>
-        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px] w-full">
+        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px] w-full lg:w-7/12">
           <div className="flex flex-row w-full">
             <div
               className={`${poppins.className} sm:h-[56px] h-[48px] w-auto px-[12px] sm:w-auto bg-white rounded-tl-[12px] rounded-bl-[12px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500] gap-0  sm:gap-1`}

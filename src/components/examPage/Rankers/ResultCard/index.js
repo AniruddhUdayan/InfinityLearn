@@ -1,10 +1,11 @@
+"use client";
 import Image from "next/image"
 import loc from './../../../../../public/images/location-icon.svg'
 import air from './../../../../../public/images/crown-air-icon.svg'
 
-const ResultCard = ({ result }) => {
+const ResultCard = ({ result, ref2 }) => {
 	return (
-		<div className="relative">
+		<div className="relative snap-center" ref={ref2}>
 			<div className="absolute flex font-bold px-4 py-2 z-10 pb-10 left-0 top-0 rounded-t-xl gap-2 text-black" style={{ backgroundColor: result.color}}>
 				<Image src={air} alt="air" width={20} height={0} />
 				<div>AIR {result.air} <span>•</span> score {result.score}</div>
