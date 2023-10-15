@@ -8,7 +8,7 @@ import watchers from './../../../../../public/images/watchers.svg'
 
 const ClassesCardFull = ({ img, sub, title, desc, started, by, byImg, isLive, watching, time, fullwidth}) => {
     return (
-        <div className={`grid p-3 lg:p-4 shadow-[0px_4px_15px_0px_#007BFF40] rounded-xl gap-4 min-w-[22rem] ` + (fullwidth ? 'w-full grid-cols-1 lg:grid-cols-2' : 'w-auto grid-cols-1')}>
+        <div className={`grid p-3 lg:p-4 shadow-[0px_4px_15px_0px_#007BFF40] rounded-xl gap-4 min-w-[22rem] lg:min-w-[calc(33%-0.25rem)] ` + (fullwidth ? 'w-full grid-cols-1 lg:grid-cols-2' : 'w-auto grid-cols-1')}>
             <div className={`relative `}>
                 <Image src={img} alt="main" className="w-full" />
                 {isLive && (
