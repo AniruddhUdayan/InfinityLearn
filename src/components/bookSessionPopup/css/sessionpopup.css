@@ -1,0 +1,519 @@
+
+.session_popup.modal .modal-lg  {
+    width: 1000px !important;
+    max-width: 1100px !important;
+}
+.session_popup.modal .modal-header {
+    border: none !important;
+}
+/* .session_session{
+    max-height: 450px;
+    overflow-y: auto;
+
+}
+.session_session::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+  } */
+
+  .session_heading{
+    margin-top: 50px;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 800;
+    text-transform: lowercase;
+    color: #080E14;
+  }
+  .session_label{
+    font-weight: 700;
+    font-size: 16px;
+    color:#080E14;
+    margin-bottom: 10px;
+  }
+  .date_selection_box {
+    max-width: 400px; 
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.date_selection_box::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+  }
+.date_selection_btn {
+    display: inline-flex;
+    border: 1px solid #9C9FA1;
+    border-radius: 12px;
+    padding: 12px 10px 12px 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+    margin-right: 15px;
+}
+.date_selection_btn.active{
+    border: 1px solid #06AA2F;
+    background: #D6F4DE;
+}
+.time_selection_box {
+    max-width: 400px;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.time_selection_box::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+  }
+.time_selection_btn {
+    display: inline-flex;
+    border: 1px solid #9C9FA1;
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+    margin-right: 10px;
+}
+.time_selection_btn.active{
+    border: 1px solid #06AA2F;
+    background: #D6F4DE;
+}
+.relation_list {
+    border: 1px solid #9C9FA1;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #080E14;
+}
+.padding_none{
+    padding: 0px;
+}
+.relation_list_check {
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+    width: 25px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.relation_list.active {
+    border: 1px solid #06AA2F;
+    background: #D6F4DE;
+}
+.relation_list_check.active{
+    background: #06AA2F;
+}
+.session_success_heading {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: #080E14;
+    margin-top: 30px;
+}
+.session_success_text {
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: #52565B;
+    padding: 10px 50px 0px 50px;
+}
+.session_success_card {
+    border-radius: 12px;
+    background: #D4E9FF;
+    margin-top: 15px;
+    padding: 15px;
+}
+.session_success_card_list li{
+    margin-bottom: 15px;
+}
+.sscIcon {
+    display: inline-block;
+    width: 24px;
+    margin-right: 20px;
+}
+.sscText {
+    font-weight: 500;
+    font-size: 15px;
+    color: #000000;
+}
+.sscb_text {
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    color: #52565B;
+    line-height: 24px;
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.sscb_span{
+    font-weight: 700;
+    color: #080E14;
+}
+.bss_button_row{
+    display: block;
+    margin-top: 20px;
+}
+.UNFAPP-form-fld-row {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .UNFAPP-form-fld-row>.UNFAPP-form-field-title {
+    width: 100%;
+    display: inline-block;
+    padding: 0px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    font-size: 14px;
+    font-weight: 500;
+    color: #324452;
+  }
+  
+  .UNFAPP-form-fld-wrp {
+    position: relative;
+    margin: 0px 0px 25px 0px;
+  }
+  .UNFAPP-form-fld {
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    background: rgba(250, 250, 250, 1);
+    border: 1px solid #007BFF;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .device_list_box {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3,1fr);
+}
+.device_lists {
+    border-radius: 20px;
+    border: 1px solid #9C9FA1;
+    text-align: center;
+    justify-content: center;
+    display: inherit;
+    align-items: center;
+    padding: 10px;
+}
+.device_Icon_text {
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5px;
+}
+.device_lists.active{
+    border: 1px solid #06AA2F;
+    background: #D6F4DE;
+}
+.session_description {
+    font-weight: 400;
+    font-size: 14px;
+    color: #52565B;
+    line-height: 18px;
+    margin-top: 20px;
+}
+.more_textarea {
+    border-radius: 20px;
+    border: 1px solid #9C9FA1;
+    padding: 12px 10px 24px 16px;
+}
+.skip_button {
+    width: 100%;
+    color: #000000;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #9C9FA1;
+    margin-top: 15px;
+    color: #080E14;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ccc;
+    height: 20px;
+    position: relative;
+  }
+
+  .step {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #0074D9;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    margin-top: -1px;
+    width: calc(100% - 20px);
+    height: 2px;
+    background-color: #ccc;
+  }
+
+  .step:first-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -1px;
+    width: 50%;
+    height: 2px;
+    background-color: #ccc;
+  }
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .session_popup.modal .modal-lg  {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .session_popup.modal .modal-body{
+        padding: 0px;
+    }
+    .right_box {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .session_popup.modal .modal-dialog {
+        transform: none;
+        margin: 0px;
+        margin-left: auto;
+        height: 100%;
+        align-items: stretch !important;
+        border: none;
+    }
+    .session_heading {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .session_popup.modal .modal-content {
+        border: none !important;
+        overflow: auto;
+        border-radius: 0px !important;
+    }
+    .date_selection_box {
+        max-width: 350px; 
+    }
+    .date_selection_btn {
+        display: inline-block;
+        padding: 12px 8px 12px 8px;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .date_selection_btn.active{
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .time_selection_box {
+        max-width: 350px;
+    }
+    .time_selection_btn {
+        padding: 12px 8px 12px 8px;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .time_selection_btn.active{
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .relation_list.active {
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .relation_list_check.active{
+        background: #007BFF;
+    }
+    .device_lists.active{
+        border: 1px solid #007BFF;
+        background:#E6F2FF; 
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+    .session_popup.modal .modal-lg  {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .session_popup.modal .modal-body{
+        padding: 0px;
+    }
+    .right_box {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .session_popup.modal .modal-dialog {
+        transform: none;
+        margin: 0px;
+        margin-left: auto;
+        height: 100%;
+        align-items: stretch !important;
+        border: none;
+    }
+
+    .session_popup.modal .modal-content {
+        border: none !important;
+        overflow: auto;
+        border-radius: 0px !important;
+    }
+    .session_heading {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .date_selection_box {
+        max-width: 450px; 
+    }
+    .date_selection_btn {
+        display: inline-block;
+        padding: 12px 8px 12px 8px;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .date_selection_btn.active{
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .time_selection_box {
+        max-width: 450px;
+    }
+    .time_selection_btn {
+        padding: 12px 8px 12px 8px;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .time_selection_btn.active{
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .relation_list.active {
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .relation_list_check.active{
+        background: #007BFF;
+    }
+    .device_lists.active{
+        border: 1px solid #007BFF;
+        background:#E6F2FF; 
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 766px) {
+    .session_popup.modal .modal-lg {
+        margin: 0px auto !important;
+        width: 60% !important;
+        max-width: 60% !important;
+    }
+    .right_box {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .button_mobile_none{
+        display: block !important;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+    .session_heading {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 26px;
+        line-height: 30px;
+    }
+    .date_selection_box {
+        max-width: 500px; 
+    }
+    .date_selection_btn {
+        display: inline-block;
+        padding: 12px 8px 12px 8px;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .date_selection_btn.active{
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .time_selection_box {
+        max-width: 500px;
+    }
+    .time_selection_btn {
+        padding: 12px 8px 12px 8px;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    .time_selection_btn.active{
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .relation_list.active {
+        border: 2px solid #007BFF;
+        background:#E6F2FF;
+    }
+    .relation_list_check.active{
+        background: #007BFF;
+    }
+    .device_lists.active{
+        border: 1px solid #007BFF;
+        background:#E6F2FF; 
+    }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+    .session_popup.modal .modal-lg {
+        margin: 0px auto !important;
+        width: 85% !important;
+        max-width: 85% !important;
+    }
+    .right_box {
+        margin-left: 15px;
+        margin-right: 16px;
+    }
+    .session_heading {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 26px;
+        line-height: 30px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .session_popup.modal .modal-lg {
+        width: 80% !important;
+        max-width: 80% !important;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+
+    /* .session_popup.modal .modal-lg {
+        width: 90% !important;
+        max-width: 90% !important;
+    } */
+
+}
