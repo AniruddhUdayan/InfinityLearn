@@ -100,7 +100,7 @@ export default function Home({ params }: any) {
   return (
     <>
       <Header />
-      <div className="h-full bg-[#FFF] pb-[61px] flex justify-center">
+      <div className="h-full bg-[#FFF] max-sm:bg-[#007BFF] pb-[61px] flex justify-center">
         <div className="sm:flex sm:flex-col lg:flex-row sm:gap-[40px] sm:mx-[112px] sm:pt-[28px]">
           <div className="flex flex-col gap-[20px]">
             <div className="flex h-full flex-col ">
@@ -133,8 +133,8 @@ export default function Home({ params }: any) {
                       height={442}
                     />
                   </div>
-                  <div className="px-[20px] py-[15px] sm:hidden ">
-                    <div className="sm:hidden relative h-[366px] flex flex-col justify-center items-center top-14  mt-[32px] rounded-[20px] border-[5px] border-solid border-[#FCDE5A] bg-opacity-0 py-[16px] px-[42px]">
+                  <div className="sm:px-[20px] sm:py-[15px] sm:hidden max-sm:w-auto">
+                    <div className="sm:hidden relative sm:h-[366px] flex flex-col justify-center items-center top-14 mt-[32px] rounded-[20px] border-[5px] border-solid border-[#FCDE5A] bg-opacity-0 py-[16px] max-sm:w-[375px] sm:px-[42px]">
                       <Image
                         src={imagePath}
                         alt="Your Logo"
@@ -318,7 +318,7 @@ export default function Home({ params }: any) {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row max-sm:flex-col max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
+            <div className="ml-2 flex flex-row max-sm:flex-col max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
               <div className="flex w-full sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300">
                 <div>
                   {" "}
