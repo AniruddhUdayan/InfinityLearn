@@ -45,15 +45,6 @@ const Success = () => {
             </Col>
           </Row>
         </Container>
-        <div className="marketpr_show">
-                <div className="feslofrbottom">
-                    <div className="pac_festpr_flexshow">
-                        <button className={`otp_button`}>
-                        start learning <span>&#8599;</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
     </div>
   )
 }

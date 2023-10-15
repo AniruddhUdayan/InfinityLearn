@@ -12,7 +12,8 @@ import SeventhSection from "./seventhSection.jsx";
 import Download from "@/components/examPage/Download/index.js";
 import analytics from '../../utils/analytics.jsx';
 import LoginPopup from "../LoginPopup";
-import SelectGradePopup from '../common/SelectGradePopup.jsx'
+import SelectGradePopup from '../common/SelectGradePopup.jsx';
+import BookSessionPopup from '../bookSessionPopup';
 const HomePage = () => {
     useEffect(() => {
         analytics.page() 
@@ -31,6 +32,7 @@ const HomePage = () => {
             <Footer />
             <LoginPopup />
             <SelectGradePopup />
+            <BookSessionPopup />
         </div>
     )
 }
