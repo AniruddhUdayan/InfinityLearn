@@ -2,6 +2,40 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+/* @layer components { */
+.dash-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.dash {
+  transition: width 1s;
+}
+
+.auto_scroll_top {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-top: 1.2rem;
+}
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+.box_auto {
+  display: inline-block;
+  min-width: 300px;
+  height: 200px;
+  background-color: orange;
+  border-radius: 10px;
+  margin: 0 5px;
+  font-size: 150px;
+  text-align: center;
+}
+/* } */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

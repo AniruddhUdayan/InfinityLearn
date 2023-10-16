@@ -4,7 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 const std = [" 11 to 12 +", "9 to 10", " 4 to 8 ", " 1 to 3 "];
 import items from "@/utils/infoSecSection";
-import {setShowGradePopup, setSelectedExam, setGrades} from '../../store/HomePage/examGradeSelection';
+import {
+  setShowGradePopup,
+  setSelectedExam,
+  setGrades,
+} from "../../store/HomePage/examGradeSelection";
 import { useDispatch, useSelector } from "react-redux";
 export const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -31,7 +35,7 @@ export const SwitchTabs = ({ data, onTabChange }) => {
             <div
               key={index}
               className={` max-md:py-3 h-[40px] font-[600] max-md:text-[14px]  max-md:px-1 p  w-[100px] 
-              max-md:w-[87px] max-md:h-[37px] max-2xl:py-[10px] text-sm text-center cursor-pointer
+              max-md:w-[87px] max-md:h-[37px] py-[10px] text-sm text-center cursor-pointer
               ${
                 selectedTab === index
                   ? "bg-yellow-300 text-[#080E14]"
@@ -99,17 +103,19 @@ function SecondSecCard(props) {
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
+  const [svg, setSvg] = useState(props.data.svg);
   const [isHovered, setIsHovered] = useState(false);
   const handleHover = () => {
     setIsHovered(!isHovered);
+    setSvg(svg == props.data.svg ? props.data.svg2 : props.data.svg);
   };
 
-  const openPopup = ()=>{
-    console.log(props.data)
+  const openPopup = () => {
+    console.log(props.data);
     dispatch(setShowGradePopup(true));
     dispatch(setGrades(props?.data?.grades));
-    dispatch(setSelectedExam(props?.data?.targetExam))
-  }
+    dispatch(setSelectedExam(props?.data?.targetExam));
+  };
   return (
     <div
       onMouseEnter={handleHover}
@@ -117,7 +123,7 @@ function SecondSecCard(props) {
       onClick={openPopup}
       className={`flex hover:cursor-pointer hover:bg-blue-500 hover:text-white 
       flex-col justify-evenly items-start 
-      max-2xl:h-[318px] py-20 max-2xl:px-6
+      max-2xl:h-[318px] py-20 px-6
       flex-grow max-md:flex-shrink-0  bg-blue-200 
       max-md:px-3 max-md:py-5 max-2xl:px max-md:w-[161px] max-md:h-[209px] 
       max-2xl:w-[318px] rounded-[1.5rem]  ${
@@ -125,12 +131,7 @@ function SecondSecCard(props) {
         ""
       }`}
     >
-      <Image
-        src={props.data.svg}
-        width={svgWidth}
-        height={svgWidth}
-        alt="secondSec.svg"
-      />
+      <Image src={svg} width={svgWidth} height={svgWidth} alt="secondSec.svg" />
       <h1 className=" lg:text-xl max-md:text-xl font-semibold mt-4  sm:mt-2 sm:text-lg">
         {props.data.name}
       </h1>
@@ -198,7 +199,7 @@ const Card1 = ({ src, altText, text }) => {
       onMouseLeave={() => setIsHovered(false)}
       className={`hover:cursor-pointer flex max-md:flex-col 
       max-md:gap-2 max-md:w-1/3  gap-7 justify-evenly bg-blue-200 text-black
-      w-full items-center  max-lg:py-4
+      w-full items-center  py-4
        max-2xl:h-[150px]
         max-md:rounded-2xl  rounded-[2rem] hover:text-white  hover:bg-blue-500 `}
     >
@@ -220,16 +221,21 @@ const Card1 = ({ src, altText, text }) => {
 };
 
 function Class11to12() {
-
   return (
-    <div className=" flex flex-col max-xl:h-max   md:px10 max-lg:w-scr   pb-20 justify-start ">
-      <div className="  max-md:text-3xl  max-md:ml-4 text-4xl text-black mb-6 font-semibold ">
+    <div
+      className=" flex flex-col max-xl:h-max  
+     md:px10 max-lg:w-scr   pb-20 justify-start "
+    >
+      <div
+        className="  max-md:text-3xl  max-md:ml-4 
+      text-4xl text-black mb-6 font-semibold "
+      >
         competitive exam
       </div>
       <div
         className=" flex max-md:px-1 md:w-full max-md:gap-3   
        max-md:w-auto max-md:overflow-x-auto
-        max-xl:h-full max-2xl:gap-5
+        max-xl:h-full gap-5
        no-scrollbar  "
       >
         {items[0]?.subItems[0]?.lists?.map((item, index) => (
@@ -264,7 +270,7 @@ function Class9to10() {
         <div
           className=" flex max-md:px-1 md:w-full max-md:gap-3   
        max-md:w-auto max-md:overflow-x-auto
-        max-xl:h-full max-2xl:gap-5
+        max-xl:h-full  gap-5
        no-scrollbar  "
         >
           {items[0]?.subItems[1]?.lists?.map((item, index) => (
@@ -279,7 +285,7 @@ function Class9to10() {
           className="  no-scrollbar    
         max-md:overflow-x-auto max-md:gap-1 max-md:px-0 w-full 
         max-2xl:h-max
-        max-md:p max-md:-6  flex max-2xl:gap-4 "
+        max-md:p max-md:-6  flex gap-4 "
         >
           <Card1
             src="/../homepage/secondSection/math1.svg"
@@ -342,7 +348,7 @@ function Class4to8() {
           <div
             className=" flex max-md:px-1 md:w-full max-md:gap-3   
        max-md:w-auto max-md:overflow-x-auto
-        max-xl:h-full max-2xl:gap-5
+        max-xl:h-full gap-5
        no-scrollbar  "
           >
             {items[0]?.subItems[0]?.lists?.map((item, index) => (
@@ -353,7 +359,7 @@ function Class4to8() {
             infinity futurz{" "}
             <span className=" font-normal opacity-50 text-2xl">(cbse)</span>
           </div>
-          <div className="  max-2xl:gap-4 no-scrollbar    max-md:overflow-x-auto max-md:gap-1 max-md:px-0 w-full max-md:p max-md:-6  flex xl:gap-4">
+          <div className=" gap-4 no-scrollbar    max-md:overflow-x-auto max-md:gap-1 max-md:px-0 w-full max-md:p max-md:-6  flex xl:gap-4">
             <Card1
               src="/../homepage/secondSection/math1.svg"
               altText="math"
@@ -476,7 +482,7 @@ function SecondSection() {
               {item}
             </button>
           ))} */}
-          <SwitchTabs data={std}  onTabChange={handleTabChange} />
+          <SwitchTabs data={std} onTabChange={handleTabChange} />
         </div>
         {/* {"empty"} */}
         <div className="">

@@ -1,5 +1,5 @@
-"use client"
-import React, {useEffect} from "react";
+"use client";
+import React, { useEffect } from "react";
 import Header from "../header.jsx";
 import Footer from "../homePage/footer.jsx";
 import FirstSection from "./firstSection.jsx";
@@ -10,8 +10,9 @@ import FifthSection from "./fifthSection.jsx";
 import SixthSection from "./sixthSection.jsx";
 import SeventhSection from "./seventhSection.jsx";
 import Download from "@/components/examPage/Download/index.js";
-import analytics from '../../utils/analytics.jsx';
+import analytics from "../../utils/analytics.jsx";
 import LoginPopup from "../LoginPopup";
+
 import SelectGradePopup from '../common/SelectGradePopup.jsx';
 import BookSessionPopup from '../bookSessionPopup';
 const HomePage = () => {
@@ -37,4 +38,5 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+
+export default HomePage;

@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import "./liveCourses.css";
 import { BsDownload } from "react-icons/bs";
 function FirstSection() {
   return (
-    <div className=" poppins h-full mx-auto   text-white bg-blue-500">
+    <div className=" poppins h-full mx-auto   text-white bg-[#007BFF]">
       <div className=" flex justify-center max-md:flex-col max-md:py-0  max-md:pt-16  py-16">
         <div className="relative  md:hidden items-center mx-auto inline-block text-black mt-10 w-[335px]">
           <select className="block appearance-none font-[600] text-[#007BFF]  w-full bg-white border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -22,11 +23,11 @@ function FirstSection() {
           </div>
         </div>
         <Image
-          className="relative max-md:hidden ml-10  rounded-3xl w-[578px] h-[528px] object-cover"
+          className="relative max-md:hidden   rounded-3xl w-[586px] h-[502px] object-cover"
           alt=""
-          height={578}
-          width={528}
-          src="/livecourses/firstSection/mask-group@2x.png"
+          height={586}
+          width={502}
+          src="/../livecourses/firstSection/image2.svg"
         />
         <Image
           className="relative mt-6  mx-auto md:hidden pb-7  object-cover"
@@ -47,7 +48,7 @@ function FirstSection() {
                 + Revision + Test Series
               </span>
             </div>
-            <div className=" font-extrabold my-7">
+            <div className=" font-bold my-7">
               <span className=" text-5xl text-yellow-400 max-md:text-blue-500  ">
                 NEET
               </span>
