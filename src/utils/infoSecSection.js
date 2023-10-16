@@ -15,8 +15,9 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/iit.svg",
-            targetExams:"JEEMAIN",
-            grades:[11,12,13]
+            svg2: "/header/iit2.svg",
+            targetExams: "JEEMAIN",
+            grades: [11, 12, 13],
           },
           {
             lid: 1,
@@ -25,8 +26,9 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/medical.svg",
-            targetExams:"NEET",
-            grades:[11,12,13]
+            svg2: "/header/medical2.svg",
+            targetExams: "NEET",
+            grades: [11, 12, 13],
           },
           {
             lid: 2,
@@ -35,8 +37,9 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/cuet.svg",
-            targetExams:"CUET",
-            grades:[12]
+            svg2: "/header/cuet2.svg",
+            targetExams: "CUET",
+            grades: [12],
           },
         ],
       },
@@ -53,8 +56,9 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/iit.svg",
-            targetExams:"JEEMAIN",
-            grades:[9,10]
+            svg2: "/header/iit2.svg",
+            targetExams: "JEEMAIN",
+            grades: [9, 10],
           },
           {
             lid: 1,
@@ -63,17 +67,19 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/medical.svg",
-            targetExams:"NEET",
-            grades:[9,10]
+            svg2: "/header/medical2.svg",
+            targetExams: "NEET",
+            grades: [9, 10],
           },
-          // {
-          //   lid: 2,
-          //   name: "CUET Foundation",
-          //   subItemAbout: "common entrance test",
-          //   examTime: "26 weeks to exam",
-          //   listPresent: "false",
-          //   svg: "/header/cuet.svg",
-          // },
+          {
+            lid: 2,
+            name: "CUET Foundation",
+            subItemAbout: "common entrance test",
+            examTime: "26 weeks to exam",
+            listPresent: "false",
+            svg: "/header/cuet.svg",
+            svg2: "/header/cuet2.svg",
+          },
         ],
       },
       {
@@ -89,8 +95,9 @@ const items = [
             examTime: "class 8 only",
             listPresent: "false",
             svg: "/header/iit.svg",
-            targetExams:"FOUNDATION",
-            grades:[6,7,8]
+            svg2: "/header/iit2.svg",
+            targetExams: "FOUNDATION",
+            grades: [6, 7, 8],
           },
           {
             lid: 1,
@@ -99,8 +106,9 @@ const items = [
             examTime: "26 weeks to exam",
             listPresent: "false",
             svg: "/header/medical.svg",
-            targetExams:"APTITUDETEST",
-            grades:[4,5]
+            svg2: "/header/medical2.svg",
+            targetExams: "APTITUDETEST",
+            grades: [4, 5],
           },
         ],
       },

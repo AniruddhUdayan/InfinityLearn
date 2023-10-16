@@ -9,6 +9,7 @@ export const bookSessionNewUser = createSlice({
     isGradeSelected:false,
     isExamSelected:false,
     isStudentProfileCompleted: false,
+    isNewUser:false
   },
   reducers: {
     // Note this change
@@ -33,7 +34,10 @@ export const bookSessionNewUser = createSlice({
     setIsStudentProfileCompleted(state, action) {
         state.isStudentProfileCompleted = action.payload;
       },
+    setIsNewUser(state, action) {
+      state.isNewUser = action.payload;
+    },
   },
 });
-export const { storeName, storeClass, storeCourse, setIsNameEntered, setIsGradeSelected, setIsExamSelected, setIsStudentProfileCompleted } = bookSessionNewUser.actions;
+export const { storeName, storeClass, storeCourse, setIsNameEntered, setIsGradeSelected, setIsExamSelected, setIsStudentProfileCompleted, setIsNewUser } = bookSessionNewUser.actions;
 export default bookSessionNewUser.reducer;

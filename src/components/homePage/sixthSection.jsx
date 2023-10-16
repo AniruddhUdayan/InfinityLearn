@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
-import {setComponentToShow} from '../../store/modalToShow';
+import { setComponentToShow } from "../../store/modalToShow";
 import { GoArrowUpRight } from "react-icons/go";
+
 function SixthSection() {
   const [svgWidth, setSvgWidth] = useState(410);
   const showOverlay = useSelector(
@@ -40,16 +41,18 @@ function SixthSection() {
     return () => window.removeEventListener("resize", updateWidth1);
   }, []);
   const startLearning = async () => {
-    dispatch(setComponentToShow('SendOtp'));
+    dispatch(setComponentToShow("SendOtp"));
     dispatch(showOverlayMode(!showOverlay));
   };
 
   return (
-    <div className=" flex flex-col max-md:pt-12 max-2xl:pt-[74px] justify-center">
+    <div className=" flex flex-col max-md:pt-12 pt-[74px] justify-center">
       <div className=" w-full flex h-min justify-center items-center">
         <button
           onClick={startLearning}
-          className="text-white items-center h-[52px] max-md:mt-8  hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600  bg-[#007BFF] rounded-2xl"
+          className="text-white items-center h-[52px] max-md:mt-8  
+          hover:space-x-2 w-80 max-md:w-[340px] hover:bg-blue-600 
+           bg-[#007BFF] rounded-2xl"
         >
           <div className=" flex justify-center gap-2">
             <div className="">start learning for free </div>
@@ -60,7 +63,7 @@ function SixthSection() {
         </button>
       </div>
 
-      <div className=" h-min bg-gray-200 max-md:mt-3 max-2xl:mt-[68px] ">
+      <div className=" h-min bg-gray-200 max-md:mt-3 mt-[80px] ">
         <div className=" max-w-screen-xl mx-auto px-4 flex max-md:flex-col  justify-between relative">
           <div className=" flex flex-col max-md:justify-end   mt-20  ">
             <div className=" text-[64px] max-md:text-[32px]  max-md:px-5   font-[700]   text-[#007BFF]">
@@ -178,7 +181,7 @@ function SixthSection() {
             <div className="mb-4 ml- text-black text-center text-4xl font-bold">
               download the app
             </div>
-            <div className="flex max-md:w-96 pl-10 max-md:justify-center items-center  justify-between">
+            <div className="flex max-md:w- pl-10 max-md:justify-center items-center  justify-between">
               {/* <div className=" bg-black bg-apple rounded-xl w-full  h-fit"> */}
 
               <a

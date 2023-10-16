@@ -3,7 +3,7 @@ export const bookSessionPopup = createSlice({
   name: "new user",
   initialState: {
     isPopupShow: false,
-    componentName:"FinalSuccess"
+    componentName:null
   },
   reducers: {
     setIsPopupShow(state, action) {

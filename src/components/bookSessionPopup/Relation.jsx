@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { setComponentToShow } from '../../store/BookSession/BookSessionPopup';
 import { FaCheck } from "react-icons/fa";
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const relations = ['father','mother','guardian','not sure', 'the student'];
 
 function Card(props){
@@ -29,17 +31,29 @@ function Relation() {
     const dispatch = useDispatch();
     const handleRelation = (relation) => {
         if (selectedRelations.includes(relation)) {
-            setSelectedCourses((prevRelation) =>
+            setSelectedRelations((prevRelation) =>
                 prevRelation.filter((c) => c !== relation)
             );
         } else {
             setSelectedRelations((prevRelation) => [...prevRelation, relation]);
         }
     };
-
+    const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
+    const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
+    const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
     const handleContinue = ()=>{
+        console.log(selectedRelations)
         dispatch(setRelations(selectedRelations));
         dispatch(setComponentToShow("SessionSuccess"));
+        analytics.track('book_session_details_entered_2',{
+            page_url:window.location.href,
+            platform:'Web',
+            grade: Number(userGrade),
+            target_exam: userExam,
+            phone: userDetails?.phone,
+            first_name: userDetails?.firstName,
+            last_name:userDetails?.lastName,
+        })
     }
   return (
     <div>
@@ -57,6 +71,7 @@ function Relation() {
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">
+                        <ProgressTabs />
                             <Row>
                                 <Col md={12}>
                                     <h2 className="session_heading">Who will be attending the call?</h2>

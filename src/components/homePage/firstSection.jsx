@@ -131,7 +131,7 @@ function FirstSection() {
   };
   return (
     <div
-      className="flex pb-32 max-md:pt-16 max-md:px-0 poppins max-2xl:px-10  
+      className="flex pb-32 max-md:pt-16 max-md:px-0 poppins 2xl:justify-center px-10  
       max-md:pb-8 w-full max-md:min-h-screen 
       items-center justify-around bg-[#007BFF]
       
@@ -160,17 +160,20 @@ function FirstSection() {
           />
         </div>
         <div className=" max-md:w-full max-md:flex max-md:justify-center max-md:items-center">
-          <div className="flex flex-col max-2xl:mt-16 max-md:w-[335px]  gap-2 justify-center">
+          <div className="flex flex-col mt-16 max-md:w-[335px]  gap-2 justify-center">
             <div className="mb-1 items-stretch flex">
               <div
                 className="rounded-s-2xl rounded-e-none 
              border-[1px] border-r-0
-            max-2xl:bg-transparent max-md:bg-white px-4 py-2 max-md:text-[#080E14] max-2xl:text-white pe-2 flex justify-center items-center"
+            max-2xl:bg-transparent max-md:bg-white px-4
+             py-2 max-md:text-[#080E14] max-2xl:text-white pe-2 
+             flex justify-center items-center"
               >
                 +91
               </div>
               <input
-                className="rounded--2xl max-2xl:w-[303px] max-md:h-12 max-md:placeholder:text-sm 
+                className="rounded--2xl w-[303px] 
+                max-md:h-12 max-md:placeholder:text-sm 
               max-md:rounded--3xl max-md:bg-white
                max-md:placeholder-gray-500 bg-[#007BFF]
                 placeholder-text:ml-3

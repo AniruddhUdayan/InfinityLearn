@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import {setComponentToShow} from '../../store/modalToShow';
+import analytics from '../../utils/analytics';
 function EnterName() {
   const showOverlay = useSelector(
     (state) => state.mobileVerification.showOverlay
@@ -23,6 +24,11 @@ function EnterName() {
   const storeNameHandler = () => {
     dispatch(storeName(name));
     dispatch(setComponentToShow('SelectGrade'));
+    analytics.track("name_entered", {
+        page_url: window.location.href,
+        first_name: name,
+        platform:'Web'
+      });
   };
   const handleToggleOverlay = () => {
     dispatch(showOverlayMode(!showOverlay));

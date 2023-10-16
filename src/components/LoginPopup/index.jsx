@@ -10,12 +10,19 @@ import EnterName from './EnterName';
 import SelectGrade from './SelectGrade';
 import SelectExam from './SelectExam';
 import './css/loginpopup.css';
+import analytics from '../../utils/analytics';
 
 function LoginPopup() {
   const showOverlay = useSelector((state) => state.mobileVerification.showOverlay);
   const componentName = useSelector((state) => state.componentToShow.componentName);
   const dispatch = useDispatch();
-
+  const closePopup = ()=>{
+    dispatch(showOverlayMode(!showOverlay));
+    analytics.track('form_closed',{
+      page_url:window.location.href,
+      platform:'Web',
+  })
+  }
   const renderComponent = () => {
     switch (componentName) {
       case 'SendOtp':
@@ -38,7 +45,7 @@ function LoginPopup() {
   return (
     <>
       <Modal show={showOverlay} size="lg" centered className='login_popup' aria-labelledby="example-modal-sizes-title-lg">
-        <Modal.Header closeButton onClick={() => { dispatch(showOverlayMode(!showOverlay)); }}>
+        <Modal.Header closeButton onClick={closePopup}>
         </Modal.Header>
         <Modal.Body className="login_body">
           {renderComponent()}

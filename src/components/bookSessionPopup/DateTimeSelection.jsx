@@ -7,7 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { setComponentToShow } from '../../store/BookSession/BookSessionPopup';
-
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const slots = [
     {
         date: 'thu 3 Aug',
@@ -44,6 +45,9 @@ const DateTimeSelection = () => {
     const [selectedTime, setTime] = useState("");
     const [timeSlots, setTimeSlots] = useState([]);
     const dispatch = useDispatch();
+    const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
+    const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
+    const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
     const handleDate = (date)=>{
         setDate(date);
         setTimeSlots(date?.timeslots);
@@ -55,9 +59,19 @@ const DateTimeSelection = () => {
     } 
 
     const handleContinue = ()=>{
-        dispatch(setSelectedDate(selectedDate));
+        dispatch(setSelectedDate(selectedDate?.date));
         dispatch(setSelectedTime(selectedTime));
         dispatch(setComponentToShow("Relation"));
+        analytics.track('book_session_details_entered_1',{
+            page_url:window.location.href,
+            platform:'Web',
+            grade: Number(userGrade),
+            target_exam: userExam,
+            phone: userDetails?.phone,
+            first_name: userDetails?.firstName,
+            last_name:userDetails?.lastName,
+            couselling_date: selectedDate?.date
+        })
     }
     return (
         <div>
@@ -73,6 +87,7 @@ const DateTimeSelection = () => {
                         />
                     </Col>
                     <Col xs={12} md={6}>
+                    <ProgressTabs />
                         <div className="right_box">
                             <Row>
                                 <Col md={12}>

@@ -241,43 +241,74 @@
     height: 20px;
     position: relative;
   }
+  .session_progress{
+    padding-top: 20px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: auto !important;
+    width: auto !important;
+    height: auto;
+  }
 
-  .step {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: #0074D9;
+  .session_progress .steps_bar {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.session_progress .step {
+    width: 30px;
+    height: 28px;
     border-radius: 50%;
-    color: #fff;
-    text-align: center;
-    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
+    line-height: 1em;
+    background-color: #e8e8e8;
+    font-weight: 500;
+    color: grey;
     position: relative;
-    z-index: 1;
-  }
-
-  .step::after {
-    content: "";
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    margin-top: -1px;
-    width: calc(100% - 20px);
+}
+.session_progress .step.complete {
+    background-color: #007BFF;
+    color: #fff;
+}
+.session_progress .step.active {
+    background-color: #007BFF;
+    color: #fff;
+    border: 1px solid #007BFF;
+}
+.session_progress .step_sep {
     height: 2px;
-    background-color: #ccc;
-  }
-
-  .step:first-child::before {
-    content: "";
+    width: 162px;
+    background-color: #007BFF;
+}
+.step.complete .step_sep {
+    background-color: #007BFF;
+}
+.session_progress .step_desc {
+    content: "Verify OTP";
     position: absolute;
-    left: 0;
-    top: 50%;
-    margin-top: -1px;
-    width: 50%;
-    height: 2px;
-    background-color: #ccc;
-  }
-
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 6px);
+    font-size: 12px;
+    color: grey;
+    white-space: nowrap;
+}
+.session_progress .step.active .step_desc {
+    color: #000;
+    font-weight: 700;
+}
+.session_progress_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .session_popup.modal .modal-lg  {
         width: 100% !important;
@@ -347,6 +378,31 @@
     .device_lists.active{
         border: 1px solid #007BFF;
         background:#E6F2FF; 
+    }
+    .session_progress .step {
+        width: 20px;
+        height: 16px;
+        font-size: 12px;
+    }
+    .session_progress .step_desc {
+        font-size: 10px;
+    }
+    .IL_scac_tests_grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+    }
+    .session_progress .steps_bar {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        max-width: 85%;
+        margin: 0 auto;
+    }
+    .bss_button_row{
+        display: none !important;
     }
 }
 
@@ -419,6 +475,9 @@
     .device_lists.active{
         border: 1px solid #007BFF;
         background:#E6F2FF; 
+    }
+    .bss_button_row{
+        display: none !important;
     }
 }
 
