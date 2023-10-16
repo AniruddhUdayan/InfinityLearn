@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { storeCourse} from "../../store/newUserSlice";
+import { storeCourse} from "../../store/BookSession/BookSessionNewUser";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -10,8 +10,8 @@ import { FaCheck } from "react-icons/fa";
 import { getExams, sendOtp } from "../../services/userServics";
 import { allowedExamNamesCT } from "../../services/app.constants";
 import analytics from '../../utils/analytics';
-import {setComponentToShow} from '../../store/modalToShow';
-
+import {setComponentToShow} from '../../store/BookSession/BookSessionPopup';
+import ProgressTabs from './ProgressTabs';
 function Card(props) {
     const { data, isSelected, onClick } = props;
     return (
@@ -35,23 +35,18 @@ function Card(props) {
     );
 }
 const SelectExam = () => {
-    const showOverlay = useSelector(
-        (state) => state.mobileVerification.showOverlay
-    );
-    const [name, setName] = useState("");
-    const [selectedClass, setSelectedClass] = useState(null);
     const [selectedExams, setSelectedExams] = useState([]);
     const phoneNumber = useSelector(
-        (state) => state.mobileVerification.phoneNumber
+        (state) => state.bookSessionData.phoneNumber
     );
     const userName = useSelector(
-        (state) => state.newUser.name
+        (state) => state.bookSessionNewUser.name
     );
     const userGrade = useSelector(
-        (state) => state.newUser.class?.name?.replace(/[^0-9]/g, '')
+        (state) => state.bookSessionNewUser.class?.name?.replace(/[^0-9]/g, '')
     );
     const selectedGrade = useSelector(
-        (state) => state.newUser.class
+        (state) => state.bookSessionNewUser.class
     );
     const [exams, setExams] = useState([]);
     console.log(userGrade)
@@ -88,13 +83,6 @@ const SelectExam = () => {
     }, [])
 
     const dispatch = useDispatch();
-    // const storeNameHandler = () => {
-    //   dispatch(storeClass(name));
-    // };
-    // const handleToggleOverlay = () => {
-    //     dispatch(showOverlayMode(true));
-    //     return <MobileVerification />;
-    // };
     const [selectedCourses, setSelectedCourses] = useState([]);
 
     const handleClassClick = (course) => {
@@ -139,10 +127,20 @@ const SelectExam = () => {
           } finally {
             // setLoading(false);
           }
+          analytics.track("target_exam_entered", {
+            page_url: window.location.href,
+            target_exam: selectedExams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+            platform:'Web'
+          });
       };
 
       const changeGrade = ()=>{
         dispatch(setComponentToShow('SelectGrade'));
+        analytics.track("grade_change_clicked", {
+            page_url: window.location.href,
+            grade: Number(userGrade),
+            platform:'Web'
+          });
       }
     return (
         <div>
@@ -160,6 +158,7 @@ const SelectExam = () => {
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">
+                        <ProgressTabs />
                         <Row>
                             <Col md={12}>
                                 <h2 className="otp_heading">Every champion sets a goal. Let's define yours</h2>

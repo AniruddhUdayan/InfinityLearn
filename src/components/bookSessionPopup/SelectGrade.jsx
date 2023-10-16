@@ -2,19 +2,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeClass } from "../../store/newUserSlice";
+import { storeClass } from "../../store/BookSession/BookSessionNewUser";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { getGrades } from "../../services/userServics";
-import {setComponentToShow} from '../../store/modalToShow';
+import {setComponentToShow} from '../../store/BookSession/BookSessionPopup';
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const SelectGrade = () => {
     const [grades, setGrades] = useState([]);
-    const showOverlay = useSelector(
-      (state) => state.mobileVerification.showOverlay
-    );
-    const [name, setName] = useState("");
     const [selectedClass, setSelectedClass] = useState(null);
   
     useEffect(()=>{
@@ -39,30 +37,18 @@ const SelectGrade = () => {
   
     const handleClassClick = (stdClass) => {
       setSelectedClass(stdClass);
-      dispatch(storeClass(stdClass));
     };
-    const [showCourse, setShowCourse] = useState(false);
   
     const dispatch = useDispatch();
-    // const storeNameHandler = () => {
-    //   dispatch(storeClass(name));
-    // };
-    const handleToggleOverlay = () => {
-      dispatch(showOverlayMode(!showOverlay));
-    };
-    const handleToggleOverlay1 = () => {
-      dispatch(showOverlayMode(!showOverlay));
-      setShowCourse(false);
-    };
     const handleContinue = () => {
+        dispatch(storeClass(selectedClass));
       dispatch(setComponentToShow('SelectExam'));
+      analytics.track("grade_entered", {
+        page_url: window.location.href,
+        first_name: Number(selectedClass?.name?.replace(/[^0-9]/g, '')),
+        platform:'Web'
+      });
     };
-    const handleHideCourse = () => {
-      console.log("clicked ");
-      setShowCourse(false);
-    };
-  
-    function handleBack1() {}
     return (
         <div>
             <Container>
@@ -78,6 +64,7 @@ const SelectGrade = () => {
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">
+                        <ProgressTabs />
                         <Row>
                             <Col md={12}>
                                 <h2 className="otp_heading">Every champion sets a goal. Let's define yours</h2>

@@ -7,7 +7,9 @@ import { sendOtp, verifyPhone } from "../../services/userServics";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import {setComponentToShow} from '../../store/modalToShow';
+import {setComponentToShow} from '../../store/BookSession/BookSessionPopup';
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const SendOtp = () => {
     const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
@@ -53,6 +55,11 @@ const SendOtp = () => {
   };
 
   const phoneNumberHandler = async () => {
+    analytics.track("send_otp_clicked", {
+      page_url: window.location.href,
+      phone: number,
+      platform:'Web'
+    });
     let body = {
         isdCode:'+91',
         phone: phoneNumber || number
@@ -79,6 +86,11 @@ const SendOtp = () => {
     }else{
         setIsNumber(false)
     }
+    analytics.track("number_entered", {
+      page_url: window.location.href,
+      phone: number,
+      platform:'Web'
+    });
   };
 
   const handleKeyPress = (e) => {
@@ -102,6 +114,7 @@ const SendOtp = () => {
             </Col>
             <Col xs={12} md={6}>
               <div className="right_box">
+              <ProgressTabs />
               <Row>
                 <Col md={12}>
                     <h2 className="otp_heading">Drop your number, we’ve <br/> got the rest!</h2>

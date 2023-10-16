@@ -3,42 +3,32 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { storePhoneNumber } from "../../store/mobVeriSlice";
 import { sendSQSMsg,sendOtp, validateOTP, updateUserProfile } from "../../services/userServics";
 import * as moment from 'moment';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import analytics from '../../utils/analytics';
-import {setComponentToShow} from '../../store/modalToShow';
+import {setComponentToShow} from '../../store/BookSession/BookSessionPopup';
+import {setIsStudentProfileCompleted} from '../../store/BookSession/BookSessionNewUser';
+import ProgressTabs from './ProgressTabs';
 const OtpVerification = () => {
-    const dummyOtp = ["1", "2", "3", "4"];
     const [otp, setOtp] = useState(Array(4).fill(""));
     const [timer, setTimer] = useState(30);
-    const [editingNumber, setEditingNumber] = useState(false);
     const phoneNumber = useSelector(
-      (state) => state.mobileVerification.phoneNumber
+      (state) => state.bookSessionData.phoneNumber
     );
     const selectedGrade = useSelector(
-      (state) => state.newUser.class
+      (state) => state.bookSessionNewUser.class
   );
   const selectedExams = useSelector(
-    (state) => state.newUser.course
+    (state) => state.bookSessionNewUser.course
 );
 const isExitingUser = useSelector(
   (state) => state.mobileVerification.isExitingUser
 );
-  
-    const [tempNumber, setTempNumber] = useState("");
-    const [showOverlay, setShowOverlay] = useState(false);
-  
     const dispatch = useDispatch();
     const otpRefs = useRef([]);
-  
-    const handleNumberEdit = () => {
-      dispatch(storePhoneNumber(tempNumber));
-      setEditingNumber(false);
-    };
   
     useEffect(() => {
       if (timer > 0) {
@@ -46,13 +36,6 @@ const isExitingUser = useSelector(
         return () => clearTimeout(id);
       }
     }, [timer]);
-  
-    // const handleOtpChange = (index) => (e) => {
-    //   const value = e.target.value;
-    //   if (value === "" || /^\d$/.test(value)) {
-    //     setOtp([...otp.slice(0, index), value, ...otp.slice(index + 1)]);
-    //   }
-    // };
     const handleOtpChange = (index) => (e) => {
       const value = e.target.value;
   
@@ -86,7 +69,6 @@ const isExitingUser = useSelector(
         const response = await validateOTP(body);
         console.log(response)
         setOtpError(false);
-        setShowOverlay(true);
         if (!isExitingUser) {
           updateUser(response)
         } else {
@@ -94,7 +76,7 @@ const isExitingUser = useSelector(
           localStorage.setItem('user_details_from_server', JSON.stringify(response?.userDto));
           registerSuccess(response?.userDto);
           sendLsq();
-          dispatch(setComponentToShow('Success'));
+          dispatch(setComponentToShow('DateTimeSelection'));
         }
       } catch (error) {
         setOtpError(true);
@@ -115,13 +97,19 @@ const isExitingUser = useSelector(
         localStorage.setItem('user_details_from_server', JSON.stringify(updatedUserData?.userDto));
         registerSuccess(updatedUserData?.userDto);
         sendLsq();
-        dispatch(setComponentToShow('Success'));
+        dispatch(setComponentToShow('DateTimeSelection'));
+        dispatch(setIsStudentProfileCompleted(true));
         
     } catch{
       console.error('Error fetching data:', error.message);
     } finally{
 
     }
+    analytics.track("verify_otp_clicked", {
+      page_url: window.location.href,
+      phone: phoneNumber,
+      platform:'Web'
+    });
    }
   
     const [otpError, setOtpError] = useState(false);
@@ -175,10 +163,29 @@ const isExitingUser = useSelector(
       } finally {
         // setLoading(false);
       }
+      analytics.track("resend_otp_clicked", {
+        page_url: window.location.href,
+        phone: phoneNumber,
+        platform:'Web'
+      });
     }
 
     const editMobileNum = ()=>{
       dispatch(setComponentToShow('SendOtp'));
+    }
+    const handleTC = ()=>{
+      analytics.track("t&c_clicked", {
+        page_url: window.location.href,
+        phone: phoneNumber,
+        platform:'Web'
+      });
+    }
+    const hadlePrivacy = ()=>{
+      analytics.track("t&p&p_clicked", {
+        page_url: window.location.href,
+        phone: phoneNumber,
+        platform:'Web'
+      });
     }
   return (
     <div>
@@ -195,6 +202,7 @@ const isExitingUser = useSelector(
           </Col>
           <Col xs={12} md={6}>
             <div>
+          <ProgressTabs />
             <Row>
               <Col md={12}>
                 <h2 className="otp_heading">Just ensuring it's our genius student. Enter the OTP</h2>
@@ -272,7 +280,9 @@ const isExitingUser = useSelector(
           width={17}
           alt="mob-ver-otp"
         />
-        <label className="term_label">By signing up you agree to our <a>T&C</a> <a>and Privacy Policy</a></label>
+        <label className="term_label">By signing up you agree to our 
+        <a className="term_condition" onClick={handleTC} href="https://infinitylearn.com/terms" target="blank">T&C</a> and
+        <a className="term_condition" onClick={hadlePrivacy} href="https://infinitylearn.com/privacy" target="blank"> Privacy Policy</a></label>
                 </div>
               </Col>
             </Row>

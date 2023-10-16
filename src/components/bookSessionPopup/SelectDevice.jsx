@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { setComponentToShow } from '../../store/BookSession/BookSessionPopup';
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const devices = [
     {
         icon:"/bookSession/laptopIcon.svg" ,
@@ -28,13 +30,25 @@ const devices = [
 const SelectDevice = () => {
     const [selectedDevice, setSelectedDevice] = useState('');
     const dispatch = useDispatch();
-
+    const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
+    const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
+    const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
     const handleChange = (device)=>{
         setSelectedDevice(device);
     }
 
     const handleContinue = () => {
-        dispatch(setDevice(selectedDevice))
+        dispatch(setDevice(selectedDevice?.text));
+        dispatch(setComponentToShow("MoreDetails"));
+        analytics.track('personalisation_details_entered_2',{
+            page_url:window.location.href,
+            platform:'Web',
+            grade: userGrade,
+            target_exam: userExam,
+            phone: userDetails?.phone,
+            first_name: userDetails?.firstName,
+            last_name:userDetails?.lastName,
+        });
     }
     return (
         <div>
@@ -51,6 +65,7 @@ const SelectDevice = () => {
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">
+                        <ProgressTabs />
                             <Row>
                                 <Col md={12}>
                                     <h2 className="session_heading">How will you be attending the session?</h2>

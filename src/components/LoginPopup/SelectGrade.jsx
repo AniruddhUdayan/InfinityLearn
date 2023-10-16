@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { getGrades } from "../../services/userServics";
 import {setComponentToShow} from '../../store/modalToShow';
+import analytics from '../../utils/analytics';
 const SelectGrade = () => {
     const [grades, setGrades] = useState([]);
     const showOverlay = useSelector(
@@ -56,6 +57,11 @@ const SelectGrade = () => {
     };
     const handleContinue = () => {
       dispatch(setComponentToShow('SelectExam'));
+      analytics.track("grade_entered", {
+        page_url: window.location.href,
+        first_name: Number(selectedClass?.name?.replace(/[^0-9]/g, '')),
+        platform:'Web'
+      });
     };
     const handleHideCourse = () => {
       console.log("clicked ");

@@ -1,9 +1,47 @@
-import React from 'react'
+"use client";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from "next/image";
+import { setComponentToShow } from '../../store/BookSession/BookSessionPopup';
+import { setIsPersonalizeStarted } from '../../store/BookSession/BookSessionData';
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const SessionSuccess = () => {
+  const dispatch = useDispatch();
+  const date = useSelector(
+    (state) => state.bookSessionData.selectedDate
+  );
+  const time = useSelector(
+    (state) => state.bookSessionData.selectedTime
+  );
+  const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
+  const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
+  const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
+const [isSkipNow, setSkipNow] = useState(false)
+
+const handleSkipNow = ()=>{
+  setSkipNow(!isSkipNow);
+  analytics.track('skip_for_now_clicked',{
+    page_url:window.location.href,
+    platform:'Web',
+    grade: userGrade,
+    target_exam: userExam
+})
+}
+
+const handlePersonalized = ()=>{
+  dispatch(setIsPersonalizeStarted(true));
+  dispatch(setComponentToShow("Language"));
+  analytics.track('personalisation_clicked',{
+    page_url:window.location.href,
+    platform:'Web',
+    grade: userGrade,
+    target_exam: userExam
+})
+}
   return (
     <div>
              <Container>
@@ -18,18 +56,21 @@ const SessionSuccess = () => {
         />
             </Col>
             <Col xs={12} md={6}>
-            <Row>
+            <ProgressTabs />
+                { isSkipNow &&             
+              <Row>
                 <Col xs={12} md={12}>
-                    <div className="success_Icon">
+                  <div className="success_Icon">
                     <Image
-          src="/bookSession/sessionSuccess.png"
-          height={200}
-          width={200}
-          alt="mob-ver-1"
-        /> 
-                    </div>
+                      src="/bookSession/sessionSuccess.png"
+                      height={200}
+                      width={200}
+                      alt="mob-ver-1"
+                    />
+                  </div>
                 </Col>
               </Row>
+              }
               <Row>
                 <Col md={12}>
                     <h2 className="session_success_heading">
@@ -43,15 +84,15 @@ const SessionSuccess = () => {
                         <ul className='session_success_card_list'>
                             <li>
                                 <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'></img>
-                                <span className='sscText'>thursday, 3 august </span>
+                                <span className='sscText'>{date} </span>
                             </li>
                             <li>
                                 <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'></img>
-                                <span className='sscText'>1 pm</span>
+                                <span className='sscText'>{time}</span>
                             </li>
                             <li>
                                 <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'></img>
-                                <span className='sscText'>class 11 - NEET Preparation </span>
+                                <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                             </li>
                         </ul>
                     </div>
@@ -60,23 +101,42 @@ const SessionSuccess = () => {
               </Row>
               <Row>
                 <Col xs={12} md={12}>
-                    <div className="bss_button_row">
-                    <button className={`otp_button`}>start learning <span>&#8599;</span></button>
-                    </div>
+                    {
+                      !isSkipNow &&
+                      <div className="bss_button_row">
+                      <button onClick={handlePersonalized} className={`otp_button`}>personalize you session <span>&#8599;</span></button>
+                      <button onClick={handleSkipNow} className={`skip_button`}>skip for now</button>
+                      </div>
+                    }
+                    {
+                      isSkipNow && 
+                      <div className="bss_button_row">
+                      <button  className={`otp_button`}>start learning <span>&#8599;</span></button>
+                      </div>
+                    }
                 </Col>
               </Row>
             </Col>
           </Row>
         </Container>
-        <div className="marketpr_show">
-                <div className="feslofrbottom">
-                    <div className="pac_festpr_flexshow">
-                        <button className={`otp_button`}>
-                        start learning <span>&#8599;</span>
-                        </button>
-                    </div>
-                </div>
+      <div className="marketpr_show">
+        <div className="feslofrbottom">
+            {
+              !isSkipNow && 
+              <div className="pac_festpr_flexshow">
+              <button onClick={handlePersonalized} className={`otp_button`}> personalize you session <span>&#8599;</span></button>
+              <button onClick={handleSkipNow} className={`skip_button`}>skip for now</button>
             </div>
+            }
+
+            {
+              isSkipNow &&
+              <div className="pac_festpr_flexshow">
+              <button className={`otp_button`}> start learning <span>&#8599;</span></button>
+            </div>
+            }
+        </div>
+      </div>
     </div>
   )
 }

@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import {setComponentToShow} from '../../store/modalToShow';
+import analytics from '../../utils/analytics';
 const SendOtp = () => {
     const phoneNumber = useSelector(
         (state) => state.mobileVerification.phoneNumber
@@ -38,7 +39,7 @@ const SendOtp = () => {
       dispatch(storePhoneNumber(number));
       dispatch(setIsExitingUser(userData?.existingUser));
       if(userData?.existingUser){
-        phoneNumberHandler()
+        phoneNumberHandler();
       } else {
         dispatch(setComponentToShow('EnterName'));
       }
@@ -47,6 +48,11 @@ const SendOtp = () => {
     } finally {
       // setLoading(false);
     }
+    analytics.track("send_otp_clicked", {
+      page_url: window.location.href,
+      phone: number,
+      platform:'Web'
+    });
   }
   const handleToggleOverlay = () => {
     dispatch(showOverlayMode(!showOverlay));
@@ -76,6 +82,11 @@ const SendOtp = () => {
     console.log(value.length);
     if(value?.length == 10){
       setIsNumber(true);
+      analytics.track("number_entered", {
+        page_url: window.location.href,
+        phone: number,
+        platform:'Web'
+      });
     }else{
         setIsNumber(false)
     }

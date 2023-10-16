@@ -1,10 +1,30 @@
 import React from 'react'
+import { useSelector } from "react-redux";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from "next/image";
 import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const FinalSuccess = () => {
+    const date = useSelector(
+      (state) => state.bookSessionData.selectedDate
+    );
+    const time = useSelector(
+      (state) => state.bookSessionData.selectedTime
+    );
+    const language = useSelector(
+        (state) => state.bookSessionData.language
+      );
+      const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
+    const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
+    const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
+    const handleSign  = ()=>{
+        analytics.track('form_closed',{
+            page_url:window.location.href,
+            platform:'Web',
+        })
+    }
     return (
         <div>
             <Container>
@@ -19,11 +39,8 @@ const FinalSuccess = () => {
                         />
                     </Col>
                     <Col xs={12} md={6}>
-                        {/* <Row>
-                            <Col xs={12} md={12}>
-                                <ProgressTabs />
-                            </Col>
-                        </Row> */}
+                        <div className='right_box'>
+                        <ProgressTabs />
                         <Row>
                             <Col xs={12} md={12}>
                                 <div className="success_Icon">
@@ -50,19 +67,19 @@ const FinalSuccess = () => {
                                     <ul className='session_success_card_list'>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'></img>
-                                            <span className='sscText'>thursday, 3 august </span>
+                                            <span className='sscText'>{date} </span>
                                         </li>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'></img>
-                                            <span className='sscText'>1 pm</span>
+                                            <span className='sscText'>{time}</span>
                                         </li>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'></img>
-                                            <span className='sscText'>class 11 - NEET Preparation </span>
+                                            <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                                         </li>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/languageIcon.svg' alt='classicon'></img>
-                                            <span className='sscText'>english </span>
+                                            <span className='sscText'>{language} </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -71,17 +88,18 @@ const FinalSuccess = () => {
                         <Row>
                             <Col xs={12} md={12}>
                                 <div className="bss_button_row">
-                                    <button className={`otp_button`}>sign in <span>&#8599;</span></button>
+                                    <button onClick={handleSign} className={`otp_button`}>sign in <span>&#8599;</span></button>
                                 </div>
                             </Col>
                         </Row>
+                        </div>
                     </Col>
                 </Row>
             </Container>
             <div className="marketpr_show">
                 <div className="feslofrbottom">
                     <div className="pac_festpr_flexshow">
-                        <button className={`otp_button`}>
+                        <button onClick={handleSign} className={`otp_button`}>
                             sign in <span>&#8599;</span>
                         </button>
                     </div>

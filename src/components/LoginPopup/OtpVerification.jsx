@@ -122,6 +122,11 @@ const isExitingUser = useSelector(
     } finally{
 
     }
+    analytics.track("verify_otp_clicked", {
+      page_url: window.location.href,
+      phone: phoneNumber,
+      platform:'Web'
+    });
    }
   
     const [otpError, setOtpError] = useState(false);
@@ -175,10 +180,29 @@ const isExitingUser = useSelector(
       } finally {
         // setLoading(false);
       }
+      analytics.track("resend_otp_clicked", {
+        page_url: window.location.href,
+        phone: phoneNumber,
+        platform:'Web'
+      });
     }
 
     const editMobileNum = ()=>{
       dispatch(setComponentToShow('SendOtp'));
+    }
+    const handleTC = ()=>{
+      analytics.track("t&c_clicked", {
+        page_url: window.location.href,
+        phone: phoneNumber,
+        platform:'Web'
+      });
+    }
+    const hadlePrivacy = ()=>{
+      analytics.track("t&p&p_clicked", {
+        page_url: window.location.href,
+        phone: phoneNumber,
+        platform:'Web'
+      });
     }
   return (
     <div>
@@ -272,7 +296,9 @@ const isExitingUser = useSelector(
           width={17}
           alt="mob-ver-otp"
         />
-        <label className="term_label">By signing up you agree to our <a>T&C</a> <a>and Privacy Policy</a></label>
+        <label className="term_label">By signing up you agree to our 
+        <a className="term_condition" onClick={handleTC} href="https://infinitylearn.com/terms" target="blank">T&C</a> and
+        <a className="term_condition" onClick={hadlePrivacy} href="https://infinitylearn.com/privacy" target="blank"> Privacy Policy</a></label>
                 </div>
               </Col>
             </Row>
