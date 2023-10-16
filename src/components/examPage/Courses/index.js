@@ -1,3 +1,4 @@
+"use client";
 import { Button, Tab, Tabs, radioClasses } from "@mui/material"
 import { useRef, useState } from "react"
 import LiveCourseCard from "./LiveCourseCard"
@@ -46,7 +47,7 @@ const Courses = () => {
     }
     return (
         <div className="p-4 lg:p-10 bg-[#F1F2F6]">
-            <div className="text-center font-bold text-5xl mb-6 text-[#080E14]">courses for <span className="text-[#007BFF]">you</span></div>
+            <div className="text-center font-bold text-5xl mb-10 text-[#080E14] mt-8 lg:mt-0">courses for <span className="text-[#007BFF]">you</span></div>
             <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className="flex justify-start mb-10" themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'center' } }}>
                 <Tab label="all" className="" themeColor='yellow' />
                 <Tab label="live courses" className="" themeColor='yellow' />
@@ -54,13 +55,13 @@ const Courses = () => {
                 <Tab label="crash courses" className="" themeColor='yellow' />
             </Tabs>
 
-            <div className="mb-10">
+            <div className="mb-6">
                 <div className="text-3xl font-bold text-[#080E14] mb-4">live courses</div>
                 <div className="hidden lg:block"><LiveCourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} /></div>
                 <div className="lg:hidden"><CourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} live={true} views={'1.3k'} /></div>
             </div>
             <div>
-                <div className="text-3xl font-bold text-[#080E14] flex justify-between">
+                <div className="text-3xl font-bold text-[#080E14] flex justify-between mt-6">
                     recorded courses
                     <div className="hidden lg:flex gap-2">
                         <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollRecordedRight} >
@@ -76,7 +77,7 @@ const Courses = () => {
                 </div>
             </div>
             <div>
-                <div className="text-3xl font-bold text-[#080E14] flex justify-between">
+                <div className="text-3xl font-bold text-[#080E14] flex justify-between mt-6">
                     crash courses
                     <div className="hidden lg:flex gap-2">
                         <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollCrashRight} >
@@ -92,7 +93,7 @@ const Courses = () => {
                 </div>
             </div>
             <div className="my-8 text-center">
-                <Button variant="contained" className="w-full lg:w-auto flex gap-2" sx={{ borderRadius: '0.5rem', paddingX: '4rem' }}>
+                <Button variant="contained" className="w-full lg:w-auto flex gap-2 " sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
                     book free counselling session
                     <Image src={arrow} alt="arrow" width={15} className="" />
                 </Button>

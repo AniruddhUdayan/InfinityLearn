@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image"
 import play from './../../../../../public/images/play-icon.svg'
 import flag from './../../../../../public/images/blue-flag.svg'
@@ -7,19 +8,19 @@ import watchers from './../../../../../public/images/watchers.svg'
 
 const ClassesCardFull = ({ img, sub, title, desc, started, by, byImg, isLive, watching, time, fullwidth}) => {
     return (
-        <div className={`grid p-4 shadow-[0px_4px_15px_0px_#007BFF40] rounded-xl gap-4 min-w-[20rem] ` + (fullwidth ? 'w-full grid-cols-1 lg:grid-cols-2' : 'w-auto grid-cols-1')}>
+        <div className={`grid p-3 lg:p-4 shadow-[0px_4px_15px_0px_#007BFF40] rounded-xl gap-4 min-w-[22rem] lg:min-w-[calc(33%-0.25rem)] ` + (fullwidth ? 'w-full grid-cols-1 lg:grid-cols-2' : 'w-auto grid-cols-1')}>
             <div className={`relative `}>
                 <Image src={img} alt="main" className="w-full" />
                 {isLive && (
                     <Image src={play} alt="play" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[2rem]" />
                 )}
                 {isLive && (
-                    <div className="absolute top-4 right-4 flex items-center gap-2 bg-[#FF0001] rounded-md px-2 py-1">
+                    <div className="absolute top-2 lg:top-4 right-2 lg:right-4 flex items-center gap-2 bg-[#FF0001] rounded-md px-2 py-1">
                         <Image src={live} alt="live" />
                         <div className="text-white text-sm">Live</div>
                     </div>                
                 )}
-                <div className="absolute top-4 left-0 flex items-center gap-2 px-2 py-1 pe-4" style={{
+                <div className="absolute top-2 lg:top-4 left-0 flex items-center gap-2 px-2 py-1 pe-4" style={{
                     backgroundImage: `url(${flag.src})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'right',

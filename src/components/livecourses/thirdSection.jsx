@@ -19,7 +19,7 @@ function TimeTableCard(props) {
   };
 
   return (
-    <div className=" flex w-full items-center max-md:items-start max-md:gap-0 max-md:justify-start  py-5 gap-12 justify-evenly ">
+    <div className=" flex w-full  items-center max-md:items-start max-md:gap-0 max-md:justify-start  py-5 gap-12 justify-evenly ">
       <div className=" flex max-md:mr-4 max-md:w-1/5  flex-col">
         <div className=" text-2xl text-black font-light">{props.data.day}</div>
         <div className=" flex text-lg gap-1  opacity-50">
@@ -30,7 +30,10 @@ function TimeTableCard(props) {
       <div className=" flex gap-12 max-md:gap5 justify-evenly w-full max-md:flex-col ">
         {props.data.class.map((item, index) => (
           // <div className=" flex ">
-          <div key={index} className=" flex  bg-white max-md:h-full max-md:w-full max-md:gap-2 max-md:items-center  max-md:p-0 m p-4 w-1/2 rounded-2xl ">
+          <div
+            key={index}
+            className=" flex  bg-white max-md:h-full max-md:w-full max-md:gap-2 max-md:items-center  max-md:p-0 m p-4 w-1/2 rounded-2xl "
+          >
             <div
               className={` relative ${
                 item.subject === "Biology" ? " bg-[#8EC37A]" : ""
@@ -120,7 +123,7 @@ const DateSelector = ({ onFromChange, onToDate }) => {
   };
 
   return (
-    <div className="relative z-30 max-md:mt-4 max-md:w-full max-md:text-center inline-block text-left">
+    <div className="relative max-md:mt-[32px] z-30  max-md:w-full max-md:text-center inline-block text-left">
       <div>
         <button
           type="button"
@@ -216,17 +219,20 @@ function ThirdSection() {
   };
 
   return (
-    <div className="p-16 max-md:p-0 pb-32 px-32 max-md:mx-5  max-md:px-0  border-2">
-      <div className="text-black max-md:p-0 max-md:px-3 max-md:py-3 h-min items-center p-8 rounded-xl bg-slate-200 flex flex-col">
-        <div className="text-5xl flex w-full max-md:justify-center mb-4 font-extrabold">
+    <div className="p-16 max-md:mt-20 max-md:p-0  pb-32 px-32 max-md:mx-5  max-md:px-0  border-2">
+      <div className=" font-[#080E14]  max-md:p-[20px]  h-min items-center p-8 rounded-xl bg-slate-200 flex flex-col">
+        <div className="text-5xl flex max-md:mt-[32px] w-full max-md:justify-center mb-4 font-extrabold">
           schedule
         </div>
-        <div className="flex max-md:flex-col  w-full items-center mb-8 justify-between">
-          <div className="text-opacity-50  text-lg max-md:text-sm max-md:text-center  tracking-wider font-extralight">
+        <div className="flex text-[#52565B] text-lg font-[400]  max-md:text-[14px]  max-md:flex-col max-md:mt-[32px]   w-full items-center mb-8 justify-between">
+          <div className=" max-md:text-center  ">
             syllabus will be completed by
-            <span className="font-bold"> 12 Dec, 2023</span> after which
-            revision will commence.
+            <span className="font-[600]"> 12 Dec, 2023</span>
+            <span className=" max-md:hidden">
+              after which revision will commence.
+            </span>
           </div>
+          <div className="md:hidden">after which revision will commence.</div>
           <DateSelector onFromChange={handleFromDate} onToDate={handleToDate} />
         </div>
 

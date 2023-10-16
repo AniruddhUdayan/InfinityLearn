@@ -20,19 +20,15 @@ export const mobVeriSlice = createSlice({
     },
     setIsExitingUser(state, action) {
       state.isExitingUser = action.payload;
-      console.log(state)
     },
     setIsOtpSent(state, action) {
       state.isOtpSent = action.payload;
-      console.log(state)
     },
     setIsOtpVerified(state, action) {
       state.isOtpVerified = action.payload;
-      console.log(state)
     },
     setIsPhoneVerified(state, action) {
       state.isPhoneVerified = action.payload;
-      console.log(state)
     },
   },
 });

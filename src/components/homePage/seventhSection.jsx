@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storePhoneNumber } from "@/store/mobVeriSlice";
-import LoginPopup from "../LoginPopup";
+import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
+import {verifyPhone, sendOtp} from '../../services/userServics';
+import analytics from '../../utils/analytics';
+import {setComponentToShow} from '../../store/modalToShow'
 function SeventhSection() {
   // Added useState for 'query'
   const [query, setQuery] = useState("");
@@ -21,7 +22,7 @@ function SeventhSection() {
     }
   };
 
-  const handleToggleOverlay = () => {
+  const handleToggleOverlay = async () => {
     if (query.length === 0) {
       setError("Please enter a number.");
     } else if (query.length < 10) {
@@ -30,15 +31,45 @@ function SeventhSection() {
       setError("");
       dispatch(storePhoneNumber(query));
       dispatch(showOverlayMode(!showOverlay));
+      let body = {
+        isdCode:'+91',
+        phone: query
+      }
+      try {
+        const userData = await verifyPhone(body);
+        dispatch(setIsExitingUser(userData?.existingUser));
+        analytics.track('otp_count', {
+          phone: query,
+          whatsapp_consent: false
+        });
+        if(userData?.existingUser){
+          sentOtp();
+        } else {
+          dispatch(setComponentToShow('EnterName'));
+          dispatch(showOverlayMode(!showOverlay));
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      } finally {
+      }
     }
   };
 
-  if (showOverlay) {
-    return (
-      <div>
-        <LoginPopup />
-      </div>
-    );
+  const sentOtp =  async() =>{
+    let body = {
+      isdCode:'+91',
+      phone: query
+    }
+    try {
+      const response = await sendOtp(body);
+      console.log(response);
+      dispatch(setComponentToShow('OtpVerification'));
+      dispatch(showOverlayMode(!showOverlay));
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    } finally {
+      // setLoading(false);
+    }
   }
   return (
     <div className="bg-[#00364E] min-h-max h-min">

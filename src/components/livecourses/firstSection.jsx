@@ -1,19 +1,39 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import { BsDownload } from "react-icons/bs";
 function FirstSection() {
   return (
-    <div className=" h-full mx-auto  text-white bg-blue-500">
+    <div className=" poppins h-full mx-auto   text-white bg-blue-500">
       <div className=" flex justify-center max-md:flex-col max-md:py-0  max-md:pt-16  py-16">
-        <img
+        <div className="relative  md:hidden items-center mx-auto inline-block text-black mt-10 w-[335px]">
+          <select className="block appearance-none font-[600] text-[#007BFF]  w-full bg-white border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="12/neet">{"class 12 + |  NEET"}</option>
+            <option value="12/iit">12/IIT</option>
+          </select>
+          <div className="pointer-events-none rounded-2xl absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg
+              className="fill-current h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M7.293 10.293a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 01-1.414-1.414l4-4z" />
+            </svg>
+          </div>
+        </div>
+        <Image
           className="relative max-md:hidden ml-10  rounded-3xl w-[578px] h-[528px] object-cover"
           alt=""
-          src="livecourses/firstSection/mask-group@2x.png"
+          height={578}
+          width={528}
+          src="/livecourses/firstSection/mask-group@2x.png"
         />
-        <img
-          className="relative ml-10 md:hidden pb-7 w-[308px] h-[328px] object-cover"
+        <Image
+          className="relative mt-6  mx-auto md:hidden pb-7  object-cover"
           alt=""
-          src="livecourses/firstSection/image1.svg"
+          width={227}
+          height={195}
+          src="/../livecourses/firstSection/image1.svg"
         />
 
         <div className=" max-md:bg-white  max-md:px-4 max-md:text-black max-md:ml-0 ml-10  pb-12 flex flex-col justify-evenly ">
@@ -50,28 +70,36 @@ function FirstSection() {
           </div>
           <div className="flex max-md:flex-col font-thin my-4 gap-9 items-start justify-evenly ">
             <div className="flex  items-center gap-3 justify-evenly">
-              <img
-                className="relative max-md:hidden w-8 h-8"
+              <Image
+                className="relative max-md:hidden"
                 alt=""
-                src="/livecourses/firstSection/subjectslogo.svg"
+                width={32}
+                height={32}
+                src="/../livecourses/firstSection/subjectslogo.svg"
               />
-              <img
-                className="relative w-10  md:hidden  h-10"
+              <Image
+                className="relative   md:hidden  "
                 alt=""
-                src="/livecourses/firstSection/image2.svg"
+                width={32}
+                height={32}
+                src="/../livecourses/firstSection/subjectslogo1.svg"
               />
               <div className="relative ">Biology, Physics, Chemistry</div>
             </div>
             <div className="flex flex-row items-center justify-start gap-3">
-              <img
-                className="relative max-md:hidden w-8 h-8"
+              <Image
+                className="relative max-md:hidden "
                 alt=""
-                src="/livecourses/firstSection/calendar.svg"
+                width={32}
+                height={32}
+                src="/../livecourses/firstSection/calendar.svg"
               />
-              <img
-                className="relative w-10 md:hidden h-10"
+              <Image
+                className="relative  md:hidden"
                 alt=""
-                src="/livecourses/firstSection/image3.svg"
+                width={32}
+                height={32}
+                src="/../livecourses/firstSection/calendar1.svg"
               />
               <div className="relative ">
                 <span>{`batch starts `}</span>
@@ -88,7 +116,7 @@ function FirstSection() {
                 <div className="  lowercase font-medium ">/month</div>
               </div>
               <div className=" flex items-center max-md:w-max gap-3">
-                <div className=" text-red-500  text-lg [text-decoration:line-through] lowercase font-medium text-crimson">
+                <div className="   text-lg [text-decoration:line-through] lowercase font-medium text-crimson">
                   {" "}
                   ₹ 2,550
                 </div>

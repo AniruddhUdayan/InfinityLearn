@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
-import LoginPopup from "../LoginPopup";
+import { setComponentToShow } from "../../store/modalToShow";
 const options = [
   "personal attention",
   "india's top faculty",
@@ -13,10 +13,14 @@ const options = [
 ];
 function OptionZero() {
   return (
-    <div className="flex max-md:flex-grow  min-h-56   flex-col 4">
-      <div className="text-4xl text-black font-bold">focused</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
-      <div className="text-xl text-black max-md:text-base">
+    <div className="flex max-md:flex-grow   min-h-56   flex-col 4">
+      <div className="text-4xl max-md:[32px] font-[700] text-black ">
+        focused
+      </div>
+      <div className="text-4xl max-md:[32px]  font-[700] text-blue-500 mb-5 ">
+        guidance
+      </div>
+      <div className="text-xl max-md:[14px] font-[400] text-black">
         Experience tailored guidance designed to cater to unique learning needs.
         We ensure every student receives the individual attention they deserve.
       </div>
@@ -27,9 +31,11 @@ function OptionZero() {
 function OptionOne() {
   return (
     <div className="flex min-h-56  flex-col ">
-      <div className="text-4xl text-black font-bold">learn from the</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">experts</div>
-      <div className="text-xl text-black max-md:text-base ">
+      <div className="text-4xl text-black max-md:[32px]   font-[700]">
+        learn from the
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]">experts</div>
+      <div className="text-xl text-black max-md:[14px] font-[400]  ">
         learn from the finest faculty in jee/neet/cbse. our faculty consists of
         {` the country's most seasoned and insightful educators.`}
       </div>
@@ -39,11 +45,13 @@ function OptionOne() {
 function OptionTwo() {
   return (
     <div className="flex min-h-56  flex-col">
-      <div className="text-4xl text-black font-bold">clear doubts,</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">
+      <div className="text-4xl  max-md:[32px] text-black font-[700]">
+        clear doubts,
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]">
         clear concepts
       </div>
-      <div className="text-xl text-black max-md:text-base ">
+      <div className="text-xl text-black max-md:[14px] font-[400] ">
         we prioritise understanding over rote learning. our dedicated doubt
         resolution sessions ensure all your queries are addressed for a clear
         path to success.
@@ -54,9 +62,11 @@ function OptionTwo() {
 function OptionThree() {
   return (
     <div className="flex 6 min-h-56  flex-col ">
-      <div className="text-4xl text-black font-bold">premium learning,</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold">guidance</div>
-      <div className="text-xl text-black max-md:text-base ">
+      <div className="text-4xl max-md:[32px] text-black font-[700]">
+        premium learning,
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]">guidance</div>
+      <div className="text-xl text-black max-md:[14px] font-[400] ">
         gain access to top-notch learning resources. our study materials are
         meticulously curated by experts to provide comprehensive coverage of all
         topics.
@@ -67,9 +77,11 @@ function OptionThree() {
 function OptionFour() {
   return (
     <div className="flex  min-h-56  flex-col ">
-      <div className="text-4xl text-black font-bold">structured success</div>
-      <div className="text-4xl text-blue-500 mb-5 font-bold"> plan</div>
-      <div className="text-xl text-black max-md:text-base ">
+      <div className="text-4xl  max-md:[32px] text-black font-[700]">
+        structured success
+      </div>
+      <div className="text-4xl text-blue-500 mb-5 font-[700]"> plan</div>
+      <div className="text-xl text-black max-md:[14px] font-[400] ">
         follow a structured study plan designed for assured success in jee neet
         academics. our test series and question bank are crafted to boost exam
         readiness.
@@ -120,49 +132,42 @@ const SwitchTabs = ({ data, onTabChange }) => {
   );
 };
 
-const SwitchTabs1 = ({ options }) => {
+const SwitchTabs1 = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const tabsRef = useRef(null);
 
-  useEffect(() => {
-    const offsetLeft = tabsRef.current.children[selectedTab].offsetLeft;
-    const halfTabWidth = tabsRef.current.children[selectedTab].offsetWidth / 2;
-    tabsRef.current.scrollLeft =
-      offsetLeft - window.innerWidth / 2 + halfTabWidth;
-  }, [selectedTab]);
+  const handleTabClick = (option, index) => {
+    setSelectedTab(index);
+    onTabChange && onTabChange(option, index);
+  };
 
   return (
-    <div className="w-full overflow-x-auto relative whitespace-nowrap">
-      <div className="flex" ref={tabsRef}>
-        {options.map((option, index) => (
-          <div
+    <div className="bg-white md:hidden no-scrollbar text-black h-11 relative w-full">
+      <div className="flex space-x-4 whitespace-nowrap overflow-x-auto">
+        {data.map((option, index) => (
+          <span
             key={index}
-            className={`p-2 w-24 text-center ${
+            className={`inline-flex items-center justify-center px-4 py-2 cursor-pointer ${
               index === selectedTab
                 ? "text-blue-500 border-b-2 border-blue-500"
                 : "text-gray-400"
             }`}
-            onClick={() => setSelectedTab(index)}
+            onClick={() => handleTabClick(option, index)}
           >
             {option}
-          </div>
+          </span>
         ))}
-        <div
-          className="absolute bottom-0 w-24 text-center text-blue-500"
-          style={{
-            transform: `translateX(${selectedTab * 100}%)`,
-            transition: "transform 0.3s ease",
-          }}
-        >
-          —
-        </div>
       </div>
-      <div className="p-2 mt-2">{`Selected tab: ${options[selectedTab]}`}</div>
     </div>
   );
 };
 
+// export default SwitchTabs;
+
 function ThirdSection() {
+  const showOverlay = useSelector(
+    (state) => state.mobileVerification.showOverlay
+  );
+  const dispatch = useDispatch();
   const optionComponents = {
     0: <OptionZero />,
     1: <OptionOne />,
@@ -170,11 +175,7 @@ function ThirdSection() {
     3: <OptionThree />,
     4: <OptionFour />,
   };
-  const [svgWidth, setSvgWidth] = useState(500);
-  const showOverlay = useSelector(
-    (state) => state.mobileVerification.showOverlay
-  );
-  const dispatch = useDispatch();
+
   const useWindowWidth = () => {
     // Initialize state with undefined so server and client HTML match
     const [windowWidth, setWindowWidth] = useState(undefined);
@@ -198,7 +199,7 @@ function ThirdSection() {
 
     return windowWidth;
   };
-
+  const [svgWidth, setSvgWidth] = useState(590);
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 315 : 592);
   };
@@ -217,6 +218,7 @@ function ThirdSection() {
   const [endpoint, setEndpoint] = useState("day");
   const onTabChange = (tab, index) => {
     setSelectedOption(index);
+    console.log(index);
     setEndpoint(tab === "Day" ? "day" : "week");
   };
   const handleClick = (index) => {
@@ -229,26 +231,20 @@ function ThirdSection() {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
   };
 
-  const startLearning = async () =>{
+  const startLearning = async () => {
+    dispatch(setComponentToShow("SendOtp"));
     dispatch(showOverlayMode(!showOverlay));
-  }
-  if (showOverlay) {
-    return (
-      <div>
-      <LoginPopup />
-    </div>
-    );
-  }
+  };
   return (
-    <div className="items-center h-min py-16 bg-white">
+    <div className="items-center container no-scrollbar h-min py-16 bg-white">
       <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />
-          {isMobileView &&
-            // <div className=" w-min ">
-            //   {/*<SwitchTabs1 data={options} onTabChange={onTabChange} />  */}
-            // </div>
-            ""}
+          {isMobileView && (
+            <div className=" overflow-x-auto ">
+              <SwitchTabs1 data={options} onTabChange={onTabChange} />
+            </div>
+          )}
         </div>
       </div>
       <div
@@ -278,11 +274,14 @@ function ThirdSection() {
             )}
           </div>
           <div className=" w-full flex justify-center items-center">
-          <button onClick={startLearning} className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl">
-            <div>
-              start learning for free <span>&#8599;</span>
-            </div>
-          </button>
+            <button
+              onClick={startLearning}
+              className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl"
+            >
+              <div>
+                start learning for free <span>&#8599;</span>
+              </div>
+            </button>
           </div>
         </div>
       </div>

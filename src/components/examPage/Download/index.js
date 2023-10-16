@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import phone from "./../../../../public/images/phone.svg";
 import apple from "./../../../../public/images/apple.svg";
 import android from "./../../../../public/images/android.svg";
@@ -6,25 +8,107 @@ import Image from "next/image";
 import { Button, Input, InputBase } from "@mui/material";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setPhoneNumber,
+  setSelectedDate,
+  setSelectedTime,
+  setRelations,
+  setLanguage,
+  setDevice,
+  setMoreDetails,
+  setIsPersonalizeCompleted,
+} from "../../../store/BookSession/BookSessionData";
+import {
+  showOverlayMode,
+  setIsExitingUser,
+  setIsOtpSent,
+  setIsOtpVerified,
+  setIsPhoneVerified,
+} from "../../../store/mobVeriSlice";
+
+import { verifyPhone, sendOtp } from "../../../services/userServics";
+import analytics from "../../../utils/analytics";
+import {
+  setIsPopupShow,
+  setComponentToShow,
+} from "../../../store/BookSession/BookSessionPopup";
 
 const poppins = Poppins({
-	subsets: ["latin"],
-	weight: "500",
-  });
-  const poppins700 = Poppins({
-	subsets: ["latin"],
-	weight: "700",
-  });
-  const poppins400 = Poppins({
-	subsets: ["latin"],
-	weight: "400",
-  });
-  const poppins600 = Poppins({
-	subsets: ["latin"],
-	weight: "600",
-  });
+  subsets: ["latin"],
+  weight: "500",
+});
+const poppins700 = Poppins({
+  subsets: ["latin"],
+  weight: "700",
+});
+const poppins400 = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+});
+const poppins600 = Poppins({
+  subsets: ["latin"],
+  weight: "600",
+});
 
 const Download = () => {
+  const [query, setQuery] = useState("");
+  const isPopupShow = useSelector(
+    (state) => state.bookSessionPopup.isPopupShow
+  );
+  const dispatch = useDispatch();
+
+  const handleInputChange = (e) => {
+    if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
+      setQuery(e.target.value);
+    }
+  };
+
+  const handleToggleOverlay = async () => {
+    if (query.length === 10) {
+      dispatch(setPhoneNumber(query));
+      let body = {
+        isdCode: "+91",
+        phone: query,
+      };
+      try {
+        const userData = await verifyPhone(body);
+        dispatch(setIsExitingUser(userData?.existingUser));
+        analytics.track("otp_count", {
+          phone: query,
+          whatsapp_consent: false,
+        });
+        if (userData?.existingUser) {
+          sentOtp();
+        } else {
+          dispatch(setComponentToShow("EnterName"));
+          dispatch(setIsPopupShow(!isPopupShow));
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      } finally {
+      }
+    } else {
+      console.error("Phone number should be 10 digits!");
+    }
+  };
+  const sentOtp = async () => {
+    let body = {
+      isdCode: "+91",
+      phone: query,
+    };
+    try {
+      const response = await sendOtp(body);
+      console.log(response);
+      dispatch(setComponentToShow("OtpVerification"));
+      dispatch(setIsPersonalizeCompleted(!isPopupShow));
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    } finally {
+      // setLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="w-full flex flex-col lg:flex-row justify-center bg-[#F1F2F6] pt-8 lg:pt-16 px-4 lg:px-16 pb-0 gap-8 text-[#080E14]">
@@ -160,27 +244,27 @@ const Download = () => {
             }
           </div>
         </div>
-        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px]">
-		<div className="flex flex-row ">
-          <div
-            className={`${poppins.className} sm:h-[56px] h-[48px] w-[335px] sm:w-auto bg-white rounded-tl-[12px] rounded-bl-[12px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500]  sm:gap-1`}
-          >
-            <span className="text-[#080E14] mr-[6px]">+91 </span>
-            <input
-              className="outline-none w-auto"
-              type="text"
-              placeholder="enter your mobile number"
-            //   value={query}
-            //   onChange={handleInputChange}
-            />
+        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px] w-auto lg:w-7/12 max-w-[437px]">
+          <div className="flex flex-row w-auto">
+            <div
+              className={`${poppins.className} sm:h-[56px] h-[48px] w-auto px-[12px] sm:w-auto bg-white rounded-tl-[12px] rounded-bl-[12px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500] gap-0  sm:gap-1`}
+            >
+              <span className="text-[#080E14] sm:mr-[6px]">+91 </span>
+              <input
+                className="outline-none w-[181px] text-[#080E14]"
+                type="text"
+                placeholder="enter your mobile number"
+                value={query}
+                onChange={handleInputChange}
+              />
+            </div>
+            <button
+              onClick={handleToggleOverlay}
+              className="bg-[#007BFF]   text-white px-[24px] text-[14px] sm:text-[16px] sm:px-[28px] rounded-tr-[12px] rounded-br-[12px]"
+            >
+              book now
+            </button>
           </div>
-          <button
-            // onClick={handleToggleOverlay1}
-            className="bg-[#007BFF] text-white px-[24px] text-[14px] sm:text-[16px] sm:px-[28px] rounded-tr-[12px] rounded-br-[12px]"
-          >
-            book now
-          </button>
-        </div>
           <div className="hidden lg:block">
             we will send an otp for verification
           </div>

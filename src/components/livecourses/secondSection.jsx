@@ -1,6 +1,8 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-
+import "./liveCourses.css";
+import { Nav } from "react-bootstrap";
 const options = [
   "overview",
   "learn with live classes",
@@ -8,6 +10,8 @@ const options = [
   "practice mock test",
   "study with IL books",
 ];
+// import React, { useEffect, useRef, useState } from "react";
+
 const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
@@ -28,7 +32,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
   }, [data]);
 
   return (
-    <div className="max-md:hidden bg-white text-black relative">
+    <div className="max-md:hidden bg-[#F1F2F6] text-black relative">
       <div className="h-full mt-1 whitespace-nowrap  flex items-center">
         {data.map((tab, index) => (
           <span
@@ -52,63 +56,49 @@ const SwitchTabs = ({ data, onTabChange }) => {
 
 const SwitchTabs1 = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [highlightStyle, setHighlightStyle] = useState({});
-  const tabsRef = useRef([]);
 
-  const activeTab = (tab, index) => {
+  const handleTabClick = (index) => {
     setSelectedTab(index);
-    onTabChange(tab, index);
-
-    // Update highlight style
-    const { offsetLeft, offsetWidth } = tabsRef.current[index];
-    setHighlightStyle({ left: offsetLeft, width: offsetWidth });
-
-    // Ensure the selected tab scrolls into view in the center
-    tabsRef.current[index].scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    onTabChange && onTabChange(data[index]);
   };
 
-  //Add refs dynamically
-  useEffect(() => {
-    tabsRef.current = tabsRef.current.slice(0, data.length);
-  }, [data]);
-
-  // Automatic tab switching
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const nextTab = (selectedTab + 1) % data.length; // Cycle through tabs
-      activeTab(data[nextTab], nextTab);
-    }, 2000); // Switch tab every 2 seconds
-
-    return () => clearInterval(intervalId); // Cleanup: clear interval on unmount
-  }, [selectedTab, data]);
-
   return (
-    <div className="bg-white text-black relative overflow-x-auto">
-      <div className="h-full mt-1 no-scrollbar flex items-center whitespace-nowrap">
-        {data.map((tab, index) => (
+    <div className="bg-[#F1F2F6] md:hidden no-scrollbar font-[500] text-[#080E14] max-md:text-[14px]  h-11 relative w-full">
+      <div className="flex space-x-4 whitespace-nowrap overflow-x-auto">
+        {data.map((option, index) => (
           <span
             key={index}
-            ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full px-4 py-2 text-center text-base cursor-pointer 
-                        ${selectedTab === index ? "text-black" : ""}`}
-            onClick={() => activeTab(tab, index)}
+            className={`inline-flex items-center justify-center px-4 py-2 cursor-pointer ${
+              index === selectedTab
+                ? "text-blue-500 border-b-2 border-blue-500"
+                : "t"
+            }`}
+            onClick={() => handleTabClick(index)}
           >
-            {tab}
+            {option}
           </span>
         ))}
-        <span
-          className="border-b-2 border-blue-500 absolute bottom-0 transition-all duration-500"
-          style={highlightStyle}
-        ></span>
       </div>
     </div>
   );
 };
 function SecondSection() {
+  const [svgWidth, setSvgWidth] = useState(700);
+  const [svgheight, setSvgheight] = useState(530);
+  const updateWidth = () => {
+    setSvgWidth(window.innerWidth <= 768 ? 279 : 700);
+    setSvgheight(window.innerWidth <= 530 ? 277 : 530);
+  };
+  useEffect(() => {
+    // Update width on mount
+    updateWidth();
+
+    // Add resize event listener
+    window.addEventListener("resize", updateWidth);
+
+    // Cleanup: remove event listener on unmount
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
   const [selectedOption, setSelectedOption] = useState(0);
 
   const [endpoint, setEndpoint] = useState("day");
@@ -118,40 +108,85 @@ function SecondSection() {
   const handleClick = (index) => {
     setSelectedOption(index);
   };
+  // const windowWidth = useWindowWidth();
+  // const isMobileView = typeof windowWidth !== "undefined" && windowWidth <= 768;
 
   const borderPosition = {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
   };
   return (
-    <div className="items-center min-h-screen py-16 bg-white">
-      <div className="w-[70%] max-w-[1000px] mx-auto flex flex-col">
-        <div className="flex justify-evenly mb-10 space-x-16 w-full h-max relative">
-          <SwitchTabs data={options} onTabChange={onTabChange} />
+    <div className="items-center max-md:h-fit min-h-scree max-md:pb-16 max-mt:mb24 max-md:pt-[31px]  py-16 bg-[#F1F2F6]">
+      {/* <div className="w-[70%] max-w-[1000px]  flex flex-col"> */}
+      <div className="flex w-full items-center bg-[#F1F2F6] max-md:overflow-x-auto no-scrollbar  justify-center mb-10  h-max relative">
+        <SwitchTabs data={options} onTabChange={onTabChange} />
+        {/* {isMobileView && ( */}
+        <div className=" overflow-x-auto  ">
+          <SwitchTabs1 data={options} onTabChange={onTabChange} />
         </div>
       </div>
-      <div className="flex justify-evenly max-md:flex-col max-md:ml-0  mx-auto ml-9 max-md:items-start  items-center">
-        <div className=" md:hidden mb-7">
-          <img
-            src="./livecourses/secondSection/image1.svg"
-            height={530}
-            width={700}
+      {/* </div> */}
+      <div
+        className="flex justify-evenly md:mt-[60px] max-md:flex-col max-md:ml-0  mx-auto ml-9 
+      max-md:items-start  items-center"
+      >
+        <div className=" md:hidden  mx-auto w-[279px] h-full  mb-7">
+          <Image
+            src="/livecourses/secondSection/image1.png"
+            height={svgWidth}
+            width={svgWidth}
             alt="thirdSection"
           />
         </div>
-        <div className="flex pl-10 max-md:pl-8 flex-col">
-          <div className="text-5xl text-black font-extrabold">all-rounder </div>
-          <div className="text-5xl text-blue-500 mb-5 font-extrabold">
+        <div className="flex pl-10 max-md:pl-8 max-md:gap-4 flex-col">
+          <div className="text-5xl font-[700] max-md:text-[32px] text-[#080E14] ">
+            all-rounder{" "}
+          </div>
+          <div className="text-5xl font-[700]  max-md:text-[32px]  text[#007BFF] mb-5 ">
             learning!
           </div>
-          <div className="text-base ml-auto max-md:ml-0 gap-5 text-black font-thin flex flex-col">
-            <div> 1000+ hrs live classes </div>
-            <div> 3000+ hrs recorded content</div>
-            <div> AITS - 24 biweekly mock tests</div>
-            <div> world class IL books</div>
+          <div className="text-base ml-auto max-md:ml-0 gap-5  flex flex-col">
+            <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
+              <Image src="/../tick.svg" height={25} width={25} />
+              <div className=" whitespace-nowrap">
+                1000+ hrs live{" "}
+                <span className=" ml-1 text-[#080E14;] text-[14px] font-[600]">
+                  classes{" "}
+                </span>
+              </div>
+            </div>{" "}
+            <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
+              <Image src="/../tick.svg" height={25} width={25} />
+              <div>
+                3000+ hrs{" "}
+                <span className=" text-[#080E14;] text-[14px] font-[600]">
+                  recorded content
+                </span>
+              </div>
+            </div>
+            <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
+              <Image src="/../tick.svg" height={25} width={25} />
+              <div>
+                <span className=" text-[#080E14;] text-[14px] font-[600]">
+                  AITS
+                </span>
+                - 24 biweekly mock tests
+              </div>
+            </div>
+            <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
+              <Image src="/../tick.svg" height={25} width={25} />
+              <div>
+                world class
+                <span className=" ml-2 text-[#080E14;] text-[14px] font-[600]">
+                  IL books
+                </span>
+                -
+              </div>
+            </div>
+            <div></div>
           </div>
         </div>
-        <img
-          src="./livecourses/secondSection/image1.svg"
+        <Image
+          src="/livecourses/secondSection/image1.png"
           height={530}
           width={600}
           alt="thirdSection"
