@@ -1,7 +1,7 @@
 
 /* styles.css (or your CSS/SCSS file) */
 .custom-scrollbar::-webkit-scrollbar {
-    width: 5px;
+    width: 0px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
