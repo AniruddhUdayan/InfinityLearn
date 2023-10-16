@@ -230,7 +230,7 @@ function Reviews() {
         setLineLength(` w-48  max-md:w-28 `);
       }
       return () => clearInterval(interval);
-    }, 2500000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [scrollPos]);
