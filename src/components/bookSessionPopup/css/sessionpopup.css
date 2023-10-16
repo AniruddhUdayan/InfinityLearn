@@ -303,6 +303,12 @@
     color: #000;
     font-weight: 700;
 }
+.session_progress_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .session_popup.modal .modal-lg  {
         width: 100% !important;
@@ -395,6 +401,9 @@
         max-width: 85%;
         margin: 0 auto;
     }
+    .bss_button_row{
+        display: none !important;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 576px) {
@@ -466,6 +475,9 @@
     .device_lists.active{
         border: 1px solid #007BFF;
         background:#E6F2FF; 
+    }
+    .bss_button_row{
+        display: none !important;
     }
 }
 

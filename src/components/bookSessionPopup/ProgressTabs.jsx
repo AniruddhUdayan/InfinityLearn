@@ -13,39 +13,45 @@ const ProgressTabs = () => {
       <div>
         {
           isNewUser ? 
-    (      <Row>
-          <Col xs={12} md={12} className="session_progress">
-            <div className="steps_bar">
-              <div className="step one complete active">
-                1
-                <div className="step_desc">
-                student details
-                </div>
-              </div>
-              <div className="step_sep">
-    
-              </div>
-              <div className={`step three ${ isStudentProfileCompleted ? 'complete active' : ''}`}>
-                2
-                <div className="step_desc">
-                book session
-                </div>
-              </div>
-              <div className="step_sep">
-    
-              </div>
-              <div className={`step four ${isPersonalizeStarted ? 'complete active' : ''}`}>
-                3
-                <div className="step_desc">
-                personalized session
-                </div>
-              </div>
+    (    
+      <div className='session_progress_center'>
+      <Row>
+      <Col xs={12} md={12} className="session_progress">
+        <div className="steps_bar">
+          <div className="step one complete active">
+            1
+            <div className="step_desc">
+            student details
             </div>
-          </Col>
-        </Row>)
+          </div>
+          <div className="step_sep">
+
+          </div>
+          <div className={`step three ${ isStudentProfileCompleted ? 'complete active' : ''}`}>
+            2
+            <div className="step_desc">
+            book session
+            </div>
+          </div>
+          <div className="step_sep">
+
+          </div>
+          <div className={`step four ${isPersonalizeStarted ? 'complete active' : ''}`}>
+            3
+            <div className="step_desc">
+            personalized session
+            </div>
+          </div>
+        </div>
+      </Col>
+    </Row>
+    </div>
+        )
 
         :
-        (<Row>
+        (
+          <div className='session_progress_center'>
+            <Row>
         <Col xs={12} md={12} className="session_progress">
           <div className="steps_bar">
             <div className="step one complete active">
@@ -65,7 +71,9 @@ const ProgressTabs = () => {
             </div>
           </div>
         </Col>
-      </Row>)
+      </Row>
+            </div>
+        )
         }
       </div>
   )
