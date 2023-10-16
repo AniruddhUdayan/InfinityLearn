@@ -6,9 +6,9 @@ import flag from './../../../../../public/images/green-flag.svg'
 import views1 from './../../../../../public/images/views-1.svg'
 import expand from './../../../../../public/images/expand_more.svg'
 
-const CourseCard = ({ title, img, classes, views, desc, price, live, point1, point2, isRecommended }) => {
+const CourseCard = ({ title, img, classes, views, desc, price, live, point1, point2, isRecommended, ref2 }) => {
     return (
-        <div className="p-2 lg:p-4 bg-white shadow-[0px_4px_15px_0px_#007BFF40] rounded-2xl flex flex-col min-w-full lg:min-w-[calc(33%-0.25rem)] ">
+        <div className="p-2 lg:p-4 bg-white shadow-[0px_4px_15px_0px_#007BFF40] rounded-2xl flex flex-col min-w-full lg:min-w-[calc(33%-0.25rem)] snap-center" ref={ref2}>
             <div className="relative">
                 <Image src={img} alt="course" className="w-full" />
                 {isRecommended &&

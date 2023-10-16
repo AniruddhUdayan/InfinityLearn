@@ -25,7 +25,7 @@ const Promise = () => {
                     </div>
                     <div className='flex flex-col gap-4 items-center p-6 text-center'>
                         <Image src={study} alt="attention" width={45} />
-                        organized study material
+                        sri chaitanya study material
                     </div>
                 </div>
             </div>

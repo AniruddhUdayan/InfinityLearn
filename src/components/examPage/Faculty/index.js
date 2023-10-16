@@ -7,7 +7,7 @@ import { Button, LinearProgress } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 
-const Faculty = () => {
+const Faculty = ({ classFor, examFor }) => {
 	const [progress, setProgress] = useState(0)
 	const carousel = useRef(null)
 	const carouselEle = useRef(null)
@@ -65,7 +65,7 @@ const Faculty = () => {
 	return (
 		<div className="bg-[#F3F3F3] p-4 lg:p-10 py-6 lg:py-10 w-full">
 			<div className="text-4xl lg:text-5xl font-bold text-[#080E14] flex justify-between">
-				<span>study with india's <span className='text-[#007BFF]'>best teachers</span></span>
+				<span>study with india's <span className='text-[#007BFF]'>best {examFor.toUpperCase() ?? 'JEE'} teachers</span></span>
 				<div className="hidden lg:flex gap-2">
 					<Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollFacultiesRight} >
 						<Image src={expand} alt="expand" width={10} className="rotate-180" />

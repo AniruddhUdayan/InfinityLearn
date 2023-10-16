@@ -1,6 +1,6 @@
 "use client";
 import { Button, Tab, Tabs, radioClasses } from "@mui/material"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import LiveCourseCard from "./LiveCourseCard"
 import liveCourse from './../../../../public/images/live-course-1.svg'
 import CourseCard from "./CourseCard"
@@ -13,6 +13,9 @@ const Courses = () => {
     const [tabValue, setTabValue] = useState(0)
     const recordedRef = useRef(null)
     const crashRef = useRef(null)
+    const recordedEleRef = useRef(null)
+    const crashEleRef = useRef(null)
+
     const recordedCourses = [
         {title: 'complete recordings', img: greenGirl, classes: 'IITJEE CLASS 11', views: '1.2k', desc: 'Full Course Coverage, Revision and Test Series', price: '1,660'},
         {title: 'complete recordings', img: greenGirl, classes: 'IITJEE CLASS 11', views: '1.2k', desc: 'Full Course Coverage, Revision and Test Series', price: '1,660'},
@@ -45,9 +48,41 @@ const Courses = () => {
     const scrollCrashRight = () => {
         crashRef.current.scrollTo({left: -crashRef.current.scrollWidth, behavior: 'smooth'})
     }
+
+    useEffect(() => {
+        const temp = ( parent, child ) => {
+            if (window.innerWidth >= 1024) return
+            const interval = setInterval(() => {
+                if (parent.current.scrollLeft + 1 >= parent.current.scrollWidth - parent.current.offsetWidth) {
+                    parent.current.scrollTo({left: 0, behavior: 'smooth'})
+                } else if (parent.current.scrollLeft == 0) {
+                    if (child.current.offsetWidth < parent.current.offsetWidth / 2){
+                        parent.current.scrollTo({
+                            left: parent.current.scrollLeft + child.current.offsetWidth/2,
+                            behavior: "smooth",
+                        })	
+                    } else {
+                        parent.current.scrollTo({
+                            left: parent.current.scrollLeft + child.current.offsetWidth,
+                            behavior: "smooth",
+                        })
+                    }
+                } else {
+                    parent.current.scrollTo({
+                        left: parent.current.scrollLeft + child.current.offsetWidth,
+                        behavior: "smooth",
+                    })
+                }
+            }, 3000)
+            return () => clearInterval(interval)    
+        }
+        temp(recordedRef, recordedEleRef)
+        temp(crashRef, crashEleRef)
+    }, [])
+
     return (
         <div className="p-4 lg:p-10 bg-[#F1F2F6]">
-            <div className="text-center font-bold text-5xl mb-10 text-[#080E14] mt-8 lg:mt-0">courses for <span className="text-[#007BFF]">you</span></div>
+            <div className="lg:text-center font-bold text-5xl mb-10 text-[#080E14] mt-8 lg:mt-0">courses recommended by <span className="text-[#007BFF]">toppers</span></div>
             <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className="flex justify-start mb-10" themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'center' } }}>
                 <Tab label="all" className="" themeColor='yellow' />
                 <Tab label="live courses" className="" themeColor='yellow' />
@@ -72,8 +107,8 @@ const Courses = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="flex overflow-x-auto lg:overflow-hidden gap-4 py-4 no-scrollbar -ms-4 px-4" ref={recordedRef}>
-                    {recordedCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} />)}
+                <div className="flex overflow-x-auto lg:overflow-hidden gap-4 py-4 no-scrollbar -ms-4 px-4 snap-x lg:snap-none" ref={recordedRef}>
+                    {recordedCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={recordedEleRef} />)}
                 </div>
             </div>
             <div>
@@ -88,8 +123,8 @@ const Courses = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="flex overflow-x-auto lg:overflow-hidden gap-4 py-4 no-scrollbar -ms-4 px-4" ref={crashRef}>
-                    {crashCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} />)}
+                <div className="flex overflow-x-auto lg:overflow-hidden gap-4 py-4 no-scrollbar -ms-4 px-4 snap-x lg:snap-none" ref={crashRef}>
+                    {crashCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={crashEleRef} />)}
                 </div>
             </div>
             <div className="my-8 text-center">

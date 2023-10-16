@@ -8,11 +8,11 @@ import p3 from './../../../../public/images/revise-3.svg'
 import star from './../../../../public/images/star-big-blue.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 
-const Revise = () => {
+const Revise = ({ classFor, examFor }) => {
     return (
         <div className="p-4 lg:p-10 py-8 lg:py-10 bg-[#00364E] text-white relative">
             <Image src={star} alt="star" className='absolute top-0 left-40 hidden lg:block' />
-            <div className="text-4xl lg:text-5xl font-bold lg:text-center lg:px-36 leading-[3.5rem] lg:mt-8">Revise syllabus with <span className="text-[#FCDE5A]">Sri Chaitanya Test Series for JEE</span></div>
+            <div className="text-4xl lg:text-5xl font-bold lg:text-center lg:px-36 leading-[3.5rem] lg:mt-8">Revise syllabus with <span className="text-[#FCDE5A]">Sri Chaitanya Test Series for {examFor.toUpperCase() ?? 'JEE'}</span></div>
             <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 lg:px-48">
                 <div className="flex flex-col gap-4">
 					<div className='flex gap-2'>
