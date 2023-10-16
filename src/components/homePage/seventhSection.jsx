@@ -1,16 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode, storePhoneNumber, setIsExitingUser } from "../../store/mobVeriSlice";
+import { setIsExitingUser } from "../../store/mobVeriSlice";
 import {verifyPhone, sendOtp} from '../../services/userServics';
 import analytics from '../../utils/analytics';
-import {setComponentToShow} from '../../store/modalToShow'
+import {setIsPopupShow,setComponentToShow} from '../../store/BookSession/BookSessionPopup';
+import {setPhoneNumber} from '../../store/BookSession/BookSessionData';
+import {setIsNewUser} from '../../store/BookSession/BookSessionNewUser';
 function SeventhSection() {
   // Added useState for 'query'
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
-  const showOverlay = useSelector(
-    (state) => state.mobileVerification.showOverlay
+  const isPopupShow = useSelector(
+    (state) => state.bookSessionPopup.isPopupShow
   );
   const dispatch = useDispatch();
 
@@ -29,8 +31,8 @@ function SeventhSection() {
       setError("Number should be of 10 digits.");
     } else {
       setError("");
-      dispatch(storePhoneNumber(query));
-      dispatch(showOverlayMode(!showOverlay));
+      dispatch(setPhoneNumber(query));
+      dispatch(setIsPopupShow(!isPopupShow));
       let body = {
         isdCode:'+91',
         phone: query
@@ -45,8 +47,9 @@ function SeventhSection() {
         if(userData?.existingUser){
           sentOtp();
         } else {
+          dispatch(setIsNewUser(true))
           dispatch(setComponentToShow('EnterName'));
-          dispatch(showOverlayMode(!showOverlay));
+          dispatch(setIsPopupShow(!isPopupShow));
         }
       } catch (error) {
         console.error('Error fetching data:', error.message);
@@ -64,7 +67,7 @@ function SeventhSection() {
       const response = await sendOtp(body);
       console.log(response);
       dispatch(setComponentToShow('OtpVerification'));
-      dispatch(showOverlayMode(!showOverlay));
+      dispatch(setIsPopupShow(!isPopupShow));
     } catch (error) {
       console.error('Error fetching data:', error.message);
     } finally {
@@ -109,7 +112,7 @@ function SeventhSection() {
               onClick={handleToggleOverlay}
               className="md:w-32 max-md:w-40 max-md:text-black max-md:rounded-r-3xl rounded-r-lg bg-yellow-500"
             >
-              join for free
+              book now
             </button>
           </div>
           {error && (

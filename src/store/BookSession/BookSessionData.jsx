@@ -9,7 +9,7 @@ export const bookSessionData = createSlice({
     language:"",
     device:"",
     moreDetails:"",
-    isPersonalizeCompleted:false
+    isPersonalizeStarted:false
   },
   reducers: {
     // Note this change
@@ -26,18 +26,18 @@ export const bookSessionData = createSlice({
       state.relations = action.payload;
     },
     setLanguage(state, action) {
-      state.isNameEntered = action.payload;
+      state.language = action.payload;
     },
     setDevice(state, action) {
-      state.isGradeSelected = action.payload;
+      state.device = action.payload;
     },
     setMoreDetails(state, action) {
-      state.isExamSelected = action.payload;
+      state.moreDetails = action.payload;
     },
-    setIsPersonalizeCompleted(state, action) {
-        state.isPersonalizeCompleted = action.payload;
+    setIsPersonalizeStarted(state, action) {
+        state.isPersonalizeStarted = action.payload;
       },
   },
 });
-export const {setPhoneNumber, setSelectedDate, setSelectedTime, setRelations, setLanguage, setDevice, setMoreDetails, setIsPersonalizeCompleted } = bookSessionData.actions;
+export const {setPhoneNumber, setSelectedDate, setSelectedTime, setRelations, setLanguage, setDevice, setMoreDetails, setIsPersonalizeStarted } = bookSessionData.actions;
 export default bookSessionData.reducer;

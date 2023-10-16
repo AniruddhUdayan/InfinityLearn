@@ -7,17 +7,42 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { setComponentToShow } from '../../store/BookSession/BookSessionPopup';
-
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 const MoreDetails = () => {
   const [enteredText, setEnteredText] = useState('');
   const dispatch = useDispatch();
-
-  const handleChange = (device)=>{
-      setEnteredText(device);
+  const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
+  const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
+  const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
+  const handleChange = (event)=>{
+      console.log(event)
+    const value = event.target.value;
+      setEnteredText(value);
   }
 
   const handleContinue = () => {
-      dispatch(setMoreDetails(enteredText))
+      dispatch(setMoreDetails(enteredText));
+      dispatch(setComponentToShow("FinalSuccess"));
+      analytics.track('personalisation_details_entered_3',{
+        page_url:window.location.href,
+        platform:'Web',
+        grade: userGrade,
+        target_exam: userExam,
+        phone: userDetails?.phone,
+        first_name: userDetails?.firstName,
+        last_name:userDetails?.lastName,
+    });
+  }
+   
+  const handleSkipNow = ()=>{
+    dispatch(setComponentToShow("FinalSuccess"));
+    analytics.track('skip_for_now_clicked',{
+        page_url:window.location.href,
+        platform:'Web',
+        grade: userGrade,
+        target_exam: userExam
+    })
   }
   return (
       <div>
@@ -34,6 +59,7 @@ const MoreDetails = () => {
                   </Col>
                   <Col xs={12} md={6}>
                       <div className="right_box">
+                  <ProgressTabs />
                           <Row>
                               <Col md={12}>
                                   <h2 className="session_heading">Just a few more details!</h2>
@@ -43,7 +69,7 @@ const MoreDetails = () => {
                           <Row className="mt-4">
                               <Col xs={12} md={12}>
                                   <div className="">
-                                  <textarea className="more_textarea" name="" id="" cols="40" rows="10"></textarea>
+                                  <textarea value={enteredText} onChange={handleChange} className="more_textarea" name="" id="" cols="40" rows="10"></textarea>
                                   </div>
                               </Col>
                           </Row>
@@ -56,7 +82,7 @@ const MoreDetails = () => {
                                       >
                                           continue <span>&#8599;</span>
                                       </button>
-                                      <button className={`skip_button`}>
+                                      <button onClick={handleSkipNow} className={`skip_button`}>
                                         skip for now
                                       </button>
                                   </div>
@@ -75,7 +101,7 @@ const MoreDetails = () => {
                       >
                           continue <span>&#8599;</span>
                       </button>
-                      <button className={`skip_button`}>
+                      <button onClick={handleSkipNow} className={`skip_button`}>
                                         skip for now
                                       </button>
                   </div>

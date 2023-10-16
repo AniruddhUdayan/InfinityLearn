@@ -133,16 +133,26 @@ const SelectExam = () => {
             analytics.track('otp_count', {
                 phone: query,
                 whatsapp_consent: false
-              })
+              });
           } catch (error) {
             console.error('Error fetching data:', error.message);
           } finally {
             // setLoading(false);
           }
+          analytics.track("target_exam_entered", {
+            page_url: window.location.href,
+            target_exam: selectedExams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+            platform:'Web'
+          });
       };
 
       const changeGrade = ()=>{
         dispatch(setComponentToShow('SelectGrade'));
+        analytics.track("grade_change_clicked", {
+            page_url: window.location.href,
+            grade: Number(userGrade),
+            platform:'Web'
+          });
       }
     return (
         <div>

@@ -2,30 +2,26 @@
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode } from "@/store/mobVeriSlice";
-import { storeName} from "../../store/newUserSlice";
+import { storeName} from "../../store/BookSession/BookSessionNewUser";
 import Image from "next/image";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import {setComponentToShow} from '../../store/modalToShow';
+import {setComponentToShow} from '../../store/BookSession/BookSessionPopup';
+import ProgressTabs from './ProgressTabs';
+import analytics from '../../utils/analytics';
 function EnterName() {
-  const showOverlay = useSelector(
-    (state) => state.mobileVerification.showOverlay
-  );
-  function handleBack() {
-    setShowClassOverlay(true);
-  }
-  const [showClassOverlay, setShowClassOverlay] = useState(true);
   const [name, setName] = useState("");
 
   const dispatch = useDispatch();
   const storeNameHandler = () => {
     dispatch(storeName(name));
     dispatch(setComponentToShow('SelectGrade'));
-  };
-  const handleToggleOverlay = () => {
-    dispatch(showOverlayMode(!showOverlay));
+    analytics.track("name_entered", {
+        page_url: window.location.href,
+        first_name: name,
+        platform:'Web'
+      });
   };
 
     return (
@@ -43,6 +39,7 @@ function EnterName() {
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">
+                    <ProgressTabs />
                         <Row>
                             <Col md={12}>
                                 <h2 className="otp_heading">Tell us your name, our next topper!</h2>

@@ -17,11 +17,20 @@ import SelectDevice from './SelectDevice';
 import MoreDetails from './MoreDetails';
 import FinalSuccess from './FinalSuccess';
 import './css/sessionpopup.css';
+import analytics from '../../utils/analytics';
 
 function BookSessionPopup() {
   const isPopupShow = useSelector((state) => state.bookSessionPopup.isPopupShow);
   const componentName = useSelector((state) => state.bookSessionPopup.componentName);
   const dispatch = useDispatch();
+
+  const closePopup = ()=>{
+    dispatch(setIsPopupShow(!isPopupShow));
+    analytics.track('form_closed',{
+      page_url:window.location.href,
+      platform:'Web',
+  })
+  }
 
   const renderComponent = () => {
     switch (componentName) {
@@ -59,7 +68,7 @@ function BookSessionPopup() {
   return (
     <>
       <Modal show={isPopupShow} size="lg" centered className='session_popup' aria-labelledby="example-modal-sizes-title-lg">
-        <Modal.Header closeButton onClick={() => { dispatch(setIsPopupShow(!isPopupShow)); }}>
+        <Modal.Header closeButton onClick={closePopup}>
         </Modal.Header>
         <Modal.Body className="session_body">
           {renderComponent()}
