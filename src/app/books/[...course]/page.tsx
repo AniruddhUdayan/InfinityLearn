@@ -8,7 +8,7 @@ import Review from "@/components/Review&Detail/Review";
 import BookDemo from "@/components/BookDemo/BookDemo";
 import Download from "@/components/examPage/Download";
 import subItem from "@/utils/infoHeader";
-import '@/components/bookspage/bookspage.css'
+import "@/components/bookspage/bookspage.css";
 // import Review from "@/components/Review&Detail/Review";
 // import Bookdemo from "@/components/BookDemo/Bookdemo";
 
@@ -101,7 +101,7 @@ export default function Home({ params }: any) {
     <>
       <Header />
       <div className="h-full bg-[#FFF] max-sm:bg-[#007BFF] pb-[61px] flex justify-center">
-        <div className="sm:flex sm:flex-col lg:flex-row sm:gap-[40px] sm:mx-[112px] sm:pt-[28px]">
+        <div className="sm:flex sm:flex-col sm:mx-[112px] max-sm:w-[375px] lg:flex-row sm:gap-[40px]  sm:pt-[28px]">
           <div className="flex flex-col gap-[20px]">
             <div className="flex h-full flex-col ">
               <div className="">
@@ -124,7 +124,7 @@ export default function Home({ params }: any) {
                     </div>
                   </div>
                   <div
-                    className={`max-sm:hidden h-auto flex justify-center items-center max-sm:items-center  sm:left-2 sm:top-0  overflow-hidden`}
+                    className={`max-sm:hidden h-auto flex justify-center items-center  sm:left-2 sm:top-0  overflow-hidden`}
                   >
                     <Image
                       src={imagePath}
@@ -133,16 +133,15 @@ export default function Home({ params }: any) {
                       height={442}
                     />
                   </div>
-                  <div className="sm:px-[20px] sm:py-[15px] sm:hidden max-sm:w-auto">
-                    <div className="sm:hidden relative sm:h-[366px] flex flex-col justify-center items-center top-14 mt-[32px] rounded-[20px] border-[5px] border-solid border-[#FCDE5A] bg-opacity-0 py-[16px] max-sm:w-[375px] sm:px-[42px]">
-                      <Image
-                        src={imagePath}
-                        alt="Your Logo"
-                        width={250}
-                        height={334}
-                      />
-                    </div>
+                  <div className="sm:hidden relative  flex flex-col justify-center items-center top-14 mt-[32px] rounded-[20px] border-[5px] border-solid border-[#FCDE5A] bg-opacity-0 py-[16px] mx-[20px]">
+                    <Image
+                      src={imagePath}
+                      alt="Your Logo"
+                      width={250}
+                      height={250}
+                    />
                   </div>
+
                   <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
                     <div
                       className={`h-[32px] w-[32px] bg-white rounded-[8px] transform rotate-180 ${
@@ -235,16 +234,14 @@ export default function Home({ params }: any) {
               </div>
             </div>
           </div>
-          <div className="mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-[1224px] sm:min-w-[410px] overflow-scroll custom-scrollbar"
-         
-          >
+          <div className="sm:mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-[1224px] sm:min-w-[410px] w-auto overflow-scroll custom-scrollbar">
             <div
-              className={`${poppins700.className} w-auto text-[#080E14] sm:text-[48px] text-[20px] font-bold leading-60 `}
+              className={`${poppins700.className} w-auto text-[#080E14] sm:text-[48px] text-[20px] font-bold leading-60 mx-[20px]`}
             >
               <div> IL books for</div>
               <div className="sm:h-[72px] h-[36px] overflow-hidden w-auto relative">
                 <span
-                  className={`text-[#007BFF] inline-block transition-transform transform duration-[1000ms] ${
+                  className={`sm:text-[#007BFF] text-[#FFF] inline-block transition-transform transform duration-[1000ms] ${
                     isSlideDown ? "translate-y-0" : "-translate-y-full"
                   }`}
                   style={{ position: "absolute", top: 0, left: 0 }}
@@ -258,7 +255,7 @@ export default function Home({ params }: any) {
                 {params.course[3]}
               </span>
             </div>
-            <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap">
+            <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap mx-[20px]">
               <div
                 className={`${poppins600.className} text-[14px] sm:text-[18px] text-[#080E14] font-[600]`}
               >
@@ -318,8 +315,8 @@ export default function Home({ params }: any) {
                 </div>
               </div>
             </div>
-            <div className="ml-2 flex flex-row max-sm:flex-col max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
-              <div className="flex w-full sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300">
+            <div className=" flex flex-row max-sm:flex-col max-sm:justify-center items-start max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
+              <div className="flex w-[295px] h-[76px]  sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] sm:gap-[10px] transform hover:scale-105 transition-transform duration-300 ">
                 <div>
                   {" "}
                   <div className="relative right-[21.5px]">
@@ -361,7 +358,7 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="relative  flex justify-between w-full max-sm:h-auto sm:w-[188px] h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="relative w-[295px] h-[76px]   flex justify-between max-sm:h-auto sm:w-[188px] sm:h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -391,7 +388,7 @@ export default function Home({ params }: any) {
                   </div>
                 </div>
               </div>
-              <div className="relative  flex w-full  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="relative w-[295px] h-[64px]  flex  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -472,7 +469,7 @@ export default function Home({ params }: any) {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="sm:w-[688px] ">
               <Review />
             </div>
           </div>

@@ -8,7 +8,7 @@ import Review from "@/components/Review&Detail/Review";
 import BookDemo from "@/components/BookDemo/BookDemo";
 import Download from "@/components/examPage/Download";
 import Link from "next/link";
-import '@/components/bookspage/bookspage.css'
+
 // import Review from "@/components/Review&Detail/Review";
 // import Bookdemo from "@/components/BookDemo/Bookdemo";
 

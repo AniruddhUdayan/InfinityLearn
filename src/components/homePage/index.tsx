@@ -12,30 +12,31 @@ import SeventhSection from "./seventhSection.jsx";
 import Download from "@/components/examPage/Download/index.js";
 import analytics from "../../utils/analytics.jsx";
 import LoginPopup from "../LoginPopup";
-import SelectGradePopup from "../common/SelectGradePopup.jsx";
-import PackageSummary from "../PackageSubscription/PackageSummary.jsx";
-import PackageSubscription from "../PackageSubscription/index.jsx";
+
+import SelectGradePopup from '../common/SelectGradePopup.jsx';
+import BookSessionPopup from '../bookSessionPopup';
 const HomePage = () => {
-  useEffect(() => {
-    analytics.page();
-  }, []);
-  return (
-    <div>
-      <Header />
-      <FirstSection />
-      <SecondSection />
-      <ThirdSection />
-      <FourthSection />
-      <FifthSection />
-      {/* <Download /> */}
-      <SixthSection />
-      <SeventhSection />
-      <Footer />
-      <LoginPopup />
-      {/* <PackageSubscription /> */}
-      <SelectGradePopup />
-    </div>
-  );
-};
+    useEffect(() => {
+        analytics.page() 
+      }, [])
+    return (
+        <div>
+            <Header />
+            <FirstSection />
+            <SecondSection />
+            <ThirdSection />
+            <FourthSection />
+            <FifthSection />
+            {/* <Download /> */}
+            <SixthSection />
+            <SeventhSection />
+            <Footer />
+            <LoginPopup />
+            <SelectGradePopup />
+            <BookSessionPopup />
+        </div>
+    )
+}
+
 
 export default HomePage;
