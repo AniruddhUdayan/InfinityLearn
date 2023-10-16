@@ -27,7 +27,7 @@ const Language = () => {
         analytics.track('personalisation_details_entered_1',{
             page_url:window.location.href,
             platform:'Web',
-            grade: userGrade,
+            grade: Number(userGrade),
             target_exam: userExam,
             phone: userDetails?.phone,
             first_name: userDetails?.firstName,

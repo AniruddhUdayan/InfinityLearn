@@ -27,7 +27,7 @@ const handleSkipNow = ()=>{
   analytics.track('skip_for_now_clicked',{
     page_url:window.location.href,
     platform:'Web',
-    grade: userGrade,
+    grade: Number(userGrade),
     target_exam: userExam
 })
 }
