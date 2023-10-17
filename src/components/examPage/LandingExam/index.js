@@ -20,11 +20,11 @@ const LandingExam = ({ classFor, examFor }) => {
 	const carousel = useRef(null)
 	const carouselEle = useRef(null)
 	const banners = [
-		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor.toUpperCase() ?? 'JEE')+' 2024' },
-		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor.toUpperCase() ?? 'JEE')+' 2024' },
-		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor.toUpperCase() ?? 'JEE')+' 2024' },
-		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor.toUpperCase() ?? 'JEE')+' 2024' },
-		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor.toUpperCase() ?? 'JEE')+' 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor?.toUpperCase() ?? 'JEE')+' 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor?.toUpperCase() ?? 'JEE')+' 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor?.toUpperCase() ?? 'JEE')+' 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor?.toUpperCase() ?? 'JEE')+' 2024' },
+		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor?.toUpperCase() ?? 'JEE')+' 2024' },
 	]
   
 	useEffect(() => {
@@ -82,8 +82,8 @@ const LandingExam = ({ classFor, examFor }) => {
 			</div>
 
 			<div className=" py-0 lg:py-8">
-				<div className="px-4 lg:px-36 text-5xl lg:text-7xl font-extrabold text-white leading-[3.8rem] my-8">power up your <span className="text-[#FCDE5A]">{examFor.toUpperCase() ?? 'JEE'} PREP</span> with Infinity Learn</div>
-				<div className="px-4 lg:px-36 py-4 text-lg text-[#D7D7D7]"><span className="text-white lg:text-[#FCDE5A] font-bold lg:font-normal">{examFor.toUpperCase() ?? 'JEE'}</span> is the most competitive entrance examination in India. Offering the best online class experience, our targeted batch covers all essential subjects.</div>
+				<div className="px-4 lg:px-36 text-5xl lg:text-7xl font-extrabold text-white leading-[3.8rem] my-8">power up your <span className="text-[#FCDE5A]">{examFor?.toUpperCase() ?? 'JEE'} PREP</span> with Infinity Learn</div>
+				<div className="px-4 lg:px-36 py-4 text-lg text-[#D7D7D7]"><span className="text-white lg:text-[#FCDE5A] font-bold lg:font-normal">{examFor?.toUpperCase() ?? 'JEE'}</span> is the most competitive entrance examination in India. Offering the best online class experience, our targeted batch covers all essential subjects.</div>
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
 					<div className="flex flex-col px-4 lg:px-36 bg-white lg:bg-transparent text-[#080E14] lg:text-[#efefef] order-last lg:order-none font-semibold">
 						<div className='flex items-center gap-3 mt-4'>
@@ -94,12 +94,12 @@ const LandingExam = ({ classFor, examFor }) => {
 						<div className='flex items-center gap-3 mt-4'>
 							<Image src={date} alt='date' width={32} height={0} className='hidden lg:block' />
 							<Image src={dateB} alt='date' width={32} height={0} className='lg:hidden' />
-							<span>date of {examFor.toUpperCase() ?? 'JEE'} 2024 to be announced</span>
+							<span>date of {examFor?.toUpperCase() ?? 'JEE'} 2024 to be announced</span>
 						</div>
 						<div className='flex items-center gap-3 mt-4'>
 							<Image src={people} alt='date' width={32} height={0} className='hidden lg:block' />
 							<Image src={peopleB} alt='date' width={32} height={0} className='lg:hidden' />
-							<span>18 lakh + {examFor.toUpperCase() ?? 'JEE'} applicants | 1.1 lakh seats</span>
+							<span>18 lakh + {examFor?.toUpperCase() ?? 'JEE'} applicants | 1.1 lakh seats</span>
 						</div>
 					</div>
 					<div className="px-8 lg:px-20 flex flex-col gap-4 mt-6 lg:mt-0">
@@ -120,7 +120,7 @@ const LandingExam = ({ classFor, examFor }) => {
 					</div>
 				</div>
 				<div className="cursor-pointer font-semibold flex gap-2 justify-center mb-4 lg:mb-0 text-[#007BFF] pt-4 lg:text-white bg-white lg:bg-transparent">
-					{examFor.toUpperCase() === 'NEET' ? 'JEE' : 'NEET'} details
+					{examFor?.toUpperCase() === 'NEET' ? 'JEE' : 'NEET'} details
 					<Image src={arrowR} alt='arrow' width={12} height={0} className="hidden lg:block" />
 					<Image src={arrowRB} alt='arrow' width={12} height={0} className="lg:hidden" />
 				</div>
