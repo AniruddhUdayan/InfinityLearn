@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import green from './../../../../public/images/green-girl.svg'
+import green from './../../../../public/images/green-girl.webp'
 import cap from './../../../../public/images/cap.svg'
 import star from './../../../../public/images/star-big.svg'
 
@@ -11,7 +11,7 @@ const Scholarship = () => {
 			<div className="bg-[#00364E] text-[#CECFD0] px-4 pt-8 lg:pt-0 lg:px-10 grid grid-cols-1 lg:grid-cols-2 overflow-hidden lg:mx-20 lg:rounded-2xl lg:overflow-visible">
 				<div className='p-2 lg:p-4 pb-0 lg:pb-0 flex justify-end flex-col items-center relative order-last lg:order-none'>
 					<Image src={cap} alt='cap' width={120} height={0} className='-mb-8 z-10 w-[80px] lg:w-[120px] lg:hidden' />
-					<Image src={green} alt='green' width={600} height={0} className='z-10 w-[355px] lg:w-[600px] static lg:absolute' />
+					<Image src={green} alt='green' width={600} height={0} className='z-10 w-[355px] lg:w-[600px] static lg:absolute aspect-[13/10]' />
 					<div className='mb-6 lg:hidden z-10 self-stretch'>
 						<Button variant='contained' disableElevation fullWidth color='primary' sx={{ borderRadius: '0.5rem', paddingX: '4rem'}}>
 							apply to scholarships

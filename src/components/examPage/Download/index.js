@@ -201,7 +201,7 @@ const Download = () => {
           alt="phone"
           width={400}
           height={0}
-          className="lg:-mb-[2px] max-sm:hidden"
+          className="lg:-mb-[2px] max-sm:hidden aspect-[2/3]"
         />
         <div className="flex justify-center">
           <Image
@@ -209,7 +209,7 @@ const Download = () => {
             alt="phone"
             width={313}
             height={470}
-            className="lg:-mb-[2px] sm:hidden "
+            className="lg:-mb-[2px] sm:hidden aspect-[2/3]"
           />
         </div>
         <div className="lg:hidden mb-4">

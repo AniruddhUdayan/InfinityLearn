@@ -2,9 +2,9 @@
 import { Button, Tab, Tabs, radioClasses } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
 import LiveCourseCard from "./LiveCourseCard"
-import liveCourse from './../../../../public/images/live-course-1.svg'
+import liveCourse from './../../../../public/images/live-course-1.webp'
 import CourseCard from "./CourseCard"
-import greenGirl from './../../../../public/images/rc-green-girl.svg'
+import greenGirl from './../../../../public/images/rc-green-girl.webp'
 import expand from './../../../../public/images/expand_more.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 import Image from "next/image"

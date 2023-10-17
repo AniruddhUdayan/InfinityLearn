@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image"
 import check from './../../../../public/images/check-icon.svg'
-import main from './../../../../public/images/mc-main.svg'
-import mainTeacher from './../../../../public/images/mc-teacher-1.svg'
+import main from './../../../../public/images/mc-main.webp'
+import mainTeacher from './../../../../public/images/mc-teacher-1.webp'
 import expand from './../../../../public/images/expand_more.svg'
 import ClassesCardFull from './ClassesCardFull'
 import { Button, Tab, Tabs } from "@mui/material"

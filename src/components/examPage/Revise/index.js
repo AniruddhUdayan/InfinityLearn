@@ -2,9 +2,9 @@
 import { Button } from '@mui/material'
 import check from './../../../../public/images/check-icon.svg'
 import Image from "next/image"
-import p1 from './../../../../public/images/revise-1.svg'
-import p2 from './../../../../public/images/revise-2.svg'
-import p3 from './../../../../public/images/revise-3.svg'
+import p1 from './../../../../public/images/revise-1.webp'
+import p2 from './../../../../public/images/revise-2.webp'
+import p3 from './../../../../public/images/revise-3.webp'
 import star from './../../../../public/images/star-big-blue.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 

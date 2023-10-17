@@ -1,8 +1,8 @@
 import expand from './../../../../public/images/expand_more.svg'
 import check from './../../../../public/images/check-icon.svg'
 import Image from 'next/image'
-import book from './../../../../public/images/book.svg'
-import bookM from './../../../../public/images/book-m.svg'
+import book from './../../../../public/images/book.webp'
+import bookM from './../../../../public/images/book.webp'
 import { Button } from '@mui/material'
 
 const Books = ({ classFor, examFor }) => {

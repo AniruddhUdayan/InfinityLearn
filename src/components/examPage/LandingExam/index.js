@@ -1,6 +1,6 @@
 "use client";
 import LandingCard from "./LandingCard"
-import orange from './../../../../public/images/orange-girl-1.svg'
+import orange from './../../../../public/images/orange-girl-1.webp'
 import date from './../../../../public/images/date-icon.svg'
 import pcb from './../../../../public/images/pcb-icon.svg'
 import people from './../../../../public/images/people-icon.svg'

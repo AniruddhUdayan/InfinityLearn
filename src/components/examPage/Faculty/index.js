@@ -1,8 +1,8 @@
 import expand from './../../../../public/images/expand_more.svg'
 import FacultyCard from "./FacultyCard"
-import faculty1 from './../../../../public/images/faculty1.svg'
-import faculty2 from './../../../../public/images/faculty2.svg'
-import faculty3 from './../../../../public/images/faculty3.svg'
+import faculty1 from './../../../../public/images/faculty1.webp'
+import faculty2 from './../../../../public/images/faculty2.webp'
+import faculty3 from './../../../../public/images/faculty3.webp'
 import { Button, LinearProgress } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
