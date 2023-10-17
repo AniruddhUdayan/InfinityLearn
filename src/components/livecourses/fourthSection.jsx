@@ -39,7 +39,7 @@ const teacher = [
     experience: "10 + years teaching",
     subject: "Maths",
     aluminiTaught: "taught 64 NEET Toppers",
-    image: "livecourses/fourthSection/teachers/image1.svg",
+    image: "/images/faculty1.webp",
   },
   {
     id: 1,
@@ -48,7 +48,7 @@ const teacher = [
     experience: "10 + years teaching",
     subject: "Maths",
     aluminiTaught: "taught 64 NEET Toppers",
-    image: "./livecourses/fourthSection/teachers/image2.svg",
+    image: "/images/faculty2.webp",
   },
   {
     id: 2,
@@ -57,7 +57,7 @@ const teacher = [
     experience: "10 + years teaching",
     subject: "Maths",
     aluminiTaught: "taught 64 NEET Toppers",
-    image: "./livecourses/fourthSection/teachers/image3.svg",
+    image: "/images/faculty3.webp",
   },
 ];
 function NewLevelShower(props) {

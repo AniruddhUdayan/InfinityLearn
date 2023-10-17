@@ -12,7 +12,7 @@ const ResultCard = ({ result, ref2 }) => {
 			</div>
 			<div className="p-2 flex rounded-xl bg-white mt-10 shadow-[0px_4px_20px_0px_#0083E833] w-[20rem] min-w-[20rem] relative mb-4 gap-4 z-20">
 				<div>
-					<Image src={result.image} alt={result.name} width={120} height={0} className="w-[90px] lg:w-[120px]" />
+					<Image src={result.image} alt={result.name} width={120} height={0} className="w-[90px] lg:w-[120px] aspect-square" />
 				</div>
 				<div className="p-4 flex flex-col">
 					<div className="text-[#080E14] text-lg font-bold">{result.name}</div>

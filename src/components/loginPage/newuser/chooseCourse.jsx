@@ -126,7 +126,7 @@ function ChooseCourse({ handleBack }) {
     >
       <div className="bg-white  max-md:w-screen max-md:rounded-none gap-10 max-md:h-screen flex p-8 rounded-xl justify-evenly relative">
         <Image
-          src="../../../../public/login/newUser/newUser3.svg"
+          src="../../../../public/login/newUser/newUser3.webp"
           height={400}
           width={400}
           alt="newUser-ver-1"

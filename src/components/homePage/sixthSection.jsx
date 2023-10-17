@@ -143,7 +143,7 @@ function SixthSection() {
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/../homepage/sixthSection/apple.svg"
+                    src="/../homepage/sixthSection/apple.webp"
                     height={50}
                     width={180}
                     alt="Download on the Apple App Store"
@@ -170,7 +170,7 @@ function SixthSection() {
           <div className=" flex flex-col justify-end">
             <div className=" md:mt-10 mt-3 relative">
               <Image
-                src="/../homepage/sixthSection/sixthSec1.svg"
+                src="/../homepage/sixthSection/sixthSec1.webp"
                 alt="Sixth Section Background"
                 height={730}
                 width={491}

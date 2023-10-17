@@ -29,8 +29,8 @@ const poppins600 = Poppins({
   weight: "600",
 });
 const imagePaths = [
-  "/images/book.png",
-  "/images/bio.svg",
+  "/images/book.webp",
+  "/images/bio.webp",
   // Add more image paths as needed
 ];
 export default function Home({ params }: any) {
@@ -65,10 +65,10 @@ export default function Home({ params }: any) {
     }
 
     setTimeout(() => {
-      if (imagePath === "/images/book.png") {
-        setImagePath("/images/bio.svg");
+      if (imagePath === "/images/book.webp") {
+        setImagePath("/images/bio.webp");
       } else {
-        setImagePath("/images/book.png");
+        setImagePath("/images/book.webp");
       }
 
       setIsAnimating(false);
@@ -164,12 +164,12 @@ export default function Home({ params }: any) {
                       01
                     </div>
                     <div className="flex flex-row w-[93.5px] border-gray-400 h-[4px] rounded-[4px] bg-gray-400">
-                      {imagePath === "/images/book.png" ? (
+                      {imagePath === "/images/book.webp" ? (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
                       )}
-                      {imagePath === "/images/bio.svg" ? (
+                      {imagePath === "/images/bio.webp" ? (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
@@ -477,7 +477,7 @@ export default function Home({ params }: any) {
       </div>
       <div className="bg-[#F1F2F6] h-auto py-[32px] px-[20px sm:hidden flex flex-col items-center gap-[36px]">
         <Image
-          src="/images/books3.png"
+          src="/images/books3.webp"
           alt="Your Logo"
           width={335}
           height={231}
@@ -552,7 +552,7 @@ export default function Home({ params }: any) {
           </div>
           <div className="relative bottom-[45px]">
             <Image
-              src="/images/teacher.svg"
+              src="/images/teacher.webp"
               alt="Your Logo"
               width={130}
               height={160}

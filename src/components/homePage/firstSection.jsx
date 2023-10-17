@@ -153,7 +153,7 @@ function FirstSection() {
         <div className="mt-12 lg:ml-7 pr-0 md:hidden">
           <Image
             className="my-image"
-            src="/homepage/firstSection/imageRes.png"
+            src="/homepage/firstSection/imageRes.webp"
             width={600}
             height={350}
             alt="firstSectionRes"
@@ -206,7 +206,7 @@ function FirstSection() {
       <div className="mt-[30px] max-md:hidden">
         <Image
           className=""
-          src="/homepage/firstSection/firstSection.png"
+          src="/homepage/firstSection/firstSection.webp"
           width={490}
           height={541}
           alt="firstSection"

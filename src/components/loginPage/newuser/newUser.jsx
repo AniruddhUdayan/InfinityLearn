@@ -38,7 +38,7 @@ function NewUser() {
         >
           <div className="bg-white max-md:h-screen max-md:rounded-none  max-md:w-screen gap-10   flex p-8 rounded-xl justify-evenly relative">
             <Image
-              src="/login/newUser/newUser1.png"
+              src="/login/newUser/newUser1.webp"
               className=" max-md:hidden"
               height={400}
               width={400}

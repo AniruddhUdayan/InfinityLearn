@@ -252,7 +252,7 @@ function ThirdSection() {
        justify-between  items-center rowww"
       >
         <Image
-          src="/homepage/thirdSection/thirdSection.png"
+          src="/homepage/thirdSection/thirdSection.webp"
           height={svgWidth}
           width={svgWidth}
           alt="thirdSection"

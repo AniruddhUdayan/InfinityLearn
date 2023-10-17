@@ -8,7 +8,7 @@ const LiveCourseCard = ({ title, desc, classes, img, price, point1, point2, isRe
     return (
         <div className="p-4 bg-white shadow-[0px_4px_15px_0px_#007BFF40] rounded-2xl my-2 flex ">
             <div className="w-[45%] relative">
-                <Image src={img} alt="live course" className="w-full" />
+                <Image src={img} alt="live course" className="w-full aspect-[5/3]" />
                 {isRecommended &&
                     <div className="absolute top-[0.5rem] -left-[1px] px-6 py-2 flex items-center" style={{
                         backgroundImage: `url(${flag.src})`,

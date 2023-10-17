@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import phone from "./../../../../public/images/phone.svg";
+import phone from "./../../../../public/images/phone.webp";
 import apple from "./../../../../public/images/apple.svg";
 import android from "./../../../../public/images/android.svg";
 import check from "./../../../../public/images/check-icon.svg";
@@ -56,6 +56,7 @@ const Download = () => {
   const isPopupShow = useSelector(
     (state) => state.bookSessionPopup.isPopupShow
   );
+  
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
@@ -101,7 +102,7 @@ const Download = () => {
       const response = await sendOtp(body);
       console.log(response);
       dispatch(setComponentToShow("OtpVerification"));
-      dispatch(setIsPersonalizeCompleted(!isPopupShow));
+      dispatch(setIsPopupShow(!isPopupShow));
     } catch (error) {
       console.error("Error fetching data:", error.message);
     } finally {
@@ -200,15 +201,15 @@ const Download = () => {
           alt="phone"
           width={400}
           height={0}
-          className="lg:-mb-[2px] max-sm:hidden"
+          className="lg:-mb-[2px] max-sm:hidden aspect-[2/3]"
         />
         <div className="flex justify-center">
           <Image
-            src="/images/appver.svg"
+            src="/images/appver.webp"
             alt="phone"
             width={313}
             height={470}
-            className="lg:-mb-[2px] sm:hidden "
+            className="lg:-mb-[2px] sm:hidden aspect-[2/3]"
           />
         </div>
         <div className="lg:hidden mb-4">

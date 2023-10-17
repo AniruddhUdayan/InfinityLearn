@@ -263,7 +263,7 @@ function Plans() {
               flex-col items-center justify-center w-full"
               >
                 <Image
-                  src="/../livecourses/plan/image4.svg"
+                  src="/../livecourses/plan/image4.webp"
                   width={605}
                   height={444}
                   alt="eigthsection"
