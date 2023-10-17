@@ -313,6 +313,19 @@
 .session_skip{
     margin-top: 100px;
 }
+.session_progress .mob_steps_flex{
+    display: none;
+}
+.session_progress .mob_step_sep {
+    height: 3px;
+    width: 100px;
+    background-color: #007BFF;
+    opacity: 0.5;
+    margin-left: 10px;
+}
+.session_progress .mob_step_sep.active {
+    opacity: 1;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .session_popup.modal .modal-lg  {
         width: 100% !important;
@@ -411,6 +424,14 @@
     .session_skip{
         margin-top: 80px;
     }
+    .steps_mob_d_done{
+        display: none !important;
+    }
+    .session_progress .mob_steps_flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 576px) {
@@ -489,6 +510,14 @@
     .session_skip{
         margin-top: 80px;
     }
+    .steps_mob_d_done{
+        display: none !important;
+    }
+    .session_progress .mob_steps_flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media only screen and (min-width: 577px) and (max-width: 766px) {
@@ -553,6 +582,14 @@
     }
     .session_skip{
         margin-top: 80px;
+    }
+    .steps_mob_d_done{
+        display: none !important;
+    }
+    .session_progress .mob_steps_flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
