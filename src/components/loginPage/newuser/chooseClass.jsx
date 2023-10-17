@@ -95,7 +95,7 @@ function ChooseClass({ handleBack }) {
         >
           <div className="bg-white gap-10  flex p-8 max-md:h-screen max-md:rounded-none rounded-xl justify-evenly relative">
             <Image
-              src="/login/newUser/newUser2.png"
+              src="/login/newUser/newUser2.webp"
               height={400}
               width={400}
               className=" max-md:hidden"

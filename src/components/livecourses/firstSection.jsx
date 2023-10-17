@@ -27,14 +27,14 @@ function FirstSection() {
           alt=""
           height={586}
           width={502}
-          src="/../livecourses/firstSection/image2.svg"
+          src="/../livecourses/firstSection/image2.webp"
         />
         <Image
           className="relative mt-6  mx-auto md:hidden pb-7  object-cover"
           alt=""
           width={227}
           height={195}
-          src="/../livecourses/firstSection/image1.svg"
+          src="/../livecourses/firstSection/image1.webp"
         />
 
         <div className=" max-md:bg-white  max-md:px-4 max-md:text-black max-md:ml-0 ml-10  pb-12 flex flex-col justify-evenly ">

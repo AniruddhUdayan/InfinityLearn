@@ -63,7 +63,7 @@ function FifthSection() {
             <span className=" text-blue-600">IL books</span> for NEET
           </div>
           <Image
-            src="/../livecourses/fifthSection/books/book1.svg"
+            src="/images/book.webp"
             width={436}
             height={580}
             alt="books"

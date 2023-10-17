@@ -131,7 +131,7 @@ function SecondSection() {
       >
         <div className=" md:hidden  mx-auto w-[279px] h-full  mb-7">
           <Image
-            src="/livecourses/secondSection/image1.png"
+            src="/livecourses/secondSection/image1.webp"
             height={svgWidth}
             width={svgWidth}
             alt="thirdSection"
@@ -146,7 +146,7 @@ function SecondSection() {
           </div>
           <div className="text-base ml-auto max-md:ml-0 gap-5  flex flex-col">
             <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
-              <Image src="/../tick.svg" height={25} width={25} />
+              <Image src="/../tick.svg" height={25} width={25}  alt=""/>
               <div className=" whitespace-nowrap">
                 1000+ hrs live{" "}
                 <span className=" ml-1 text-[#080E14;] text-[14px] font-[600]">
@@ -155,7 +155,7 @@ function SecondSection() {
               </div>
             </div>{" "}
             <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
-              <Image src="/../tick.svg" height={25} width={25} />
+              <Image src="/../tick.svg" height={25} width={25}  alt=""/>
               <div>
                 3000+ hrs{" "}
                 <span className=" text-[#080E14;] text-[14px] font-[600]">
@@ -164,7 +164,7 @@ function SecondSection() {
               </div>
             </div>
             <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
-              <Image src="/../tick.svg" height={25} width={25} />
+              <Image src="/../tick.svg" height={25} width={25}  alt=""/>
               <div>
                 <span className=" text-[#080E14;] text-[14px] font-[600]">
                   AITS
@@ -173,7 +173,7 @@ function SecondSection() {
               </div>
             </div>
             <div className=" text-[#52565B] text-[14px] font-[400] flex items-center gap-3">
-              <Image src="/../tick.svg" height={25} width={25} />
+              <Image src="/../tick.svg" height={25} width={25}  alt=""/>
               <div>
                 world class
                 <span className=" ml-2 text-[#080E14;] text-[14px] font-[600]">
@@ -186,7 +186,7 @@ function SecondSection() {
           </div>
         </div>
         <Image
-          src="/livecourses/secondSection/image1.png"
+          src="/livecourses/secondSection/image1.webp"
           height={530}
           width={600}
           alt="thirdSection"
