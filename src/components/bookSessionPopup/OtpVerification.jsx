@@ -193,7 +193,7 @@ const isExitingUser = useSelector(
         <Row>
           <Col xs={12} md={6}>
           <Image
-          src="/login/mobVer/mobVer2.png"
+          src="/login/mobVer/mobVer2.webp"
           height={400}
           width={400}
           alt="mob-ver-otp"

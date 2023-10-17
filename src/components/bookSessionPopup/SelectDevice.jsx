@@ -56,7 +56,7 @@ const SelectDevice = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="/login/newUser/newUser1.png"
+                            src="/login/newUser/newUser1.webp"
                             height={250}
                             width={600}
                             alt="mob-ver-1"

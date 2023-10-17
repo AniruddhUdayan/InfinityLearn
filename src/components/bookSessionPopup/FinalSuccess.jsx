@@ -31,7 +31,7 @@ const FinalSuccess = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="/login/mobVer/SuccessImage.png"
+                            src="/login/mobVer/SuccessImage.webp"
                             height={250}
                             width={600}
                             alt="mob-ver-1"
@@ -66,19 +66,19 @@ const FinalSuccess = () => {
                                 <div className='session_success_card'>
                                     <ul className='session_success_card_list'>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'></Image>
+                                            <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon' />
                                             <span className='sscText'>{date} </span>
                                         </li>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'></Image>
+                                            <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon' />
                                             <span className='sscText'>{time}</span>
                                         </li>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'></Image>
+                                            <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon' />
                                             <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                                         </li>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/languageIcon.svg' alt='classicon'></Image>
+                                            <img className='sscIcon' src='/bookSession/languageIcon.svg' alt='classicon' />
                                             <span className='sscText'>{language} </span>
                                         </li>
                                     </ul>

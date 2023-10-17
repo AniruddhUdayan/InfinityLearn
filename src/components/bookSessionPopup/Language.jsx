@@ -41,7 +41,7 @@ const Language = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="/login/mobVer/mobVer2.png"
+                            src="/login/mobVer/mobVer2.webp"
                             height={250}
                             width={600}
                             alt="mob-ver-1"

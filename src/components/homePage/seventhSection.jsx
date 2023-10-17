@@ -32,7 +32,6 @@ function SeventhSection() {
     } else {
       setError("");
       dispatch(setPhoneNumber(query));
-      dispatch(setIsPopupShow(!isPopupShow));
       let body = {
         isdCode:'+91',
         phone: query
