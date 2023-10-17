@@ -83,7 +83,7 @@ const NewUserDetails = () => {
                max-md:text-[#080E14] max-2xl:text-black 
               pe-2 flex justify-center items-center"
               >
-                <Image src="/../tick1.svg" width={25} height={25} />
+                <Image src="/../tick1.svg" width={25} height={25}  alt=""/>
               </div>
             </div>
           </Form.Group>

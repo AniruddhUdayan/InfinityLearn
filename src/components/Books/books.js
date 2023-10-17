@@ -228,7 +228,7 @@ function Reviews() {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [scrollPos]);
+  }, [cN, pN, scrollPos]);
 
   return (
     <div>

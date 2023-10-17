@@ -85,7 +85,7 @@ const SelectExam = () => {
 
         Exams();
 
-    }, [])
+    }, )
 
     const dispatch = useDispatch();
     // const storeNameHandler = () => {
@@ -159,7 +159,7 @@ const SelectExam = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                    <img src="/login/mobVer/SuccessImage.png" className="side_image max-md:hidden" alt="" />
+                    <Image src="/login/mobVer/SuccessImage.png" className="side_image max-md:hidden" alt="" />
                         {/* <Image
                             src="/login/mobVer/SuccessImage.png"
                             height={250}
