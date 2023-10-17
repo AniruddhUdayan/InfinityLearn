@@ -119,7 +119,7 @@ function Card(props) {
 
   return (
     <div
-      className="flex mb-12  w-[392px] h-[365px] 
+      className="flex mb-12 h-[365px] 
       max-md:h-[391px] max-md:w-[335px] md:justify-evenly  
       shadow-md  flex-col max-md:gap-10 px-5 max-md:px-4 
     flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-[#080E14] "
@@ -283,7 +283,7 @@ function FifthSection() {
           </div>
         </div>
         <Image
-          src="/../homepage/fifthSection/topper.svg"
+          src="/../homepage/fifthSection/topper.webp"
           className="max-md:hidden max-xl:mr-5 "
           height={400}
           width={600}

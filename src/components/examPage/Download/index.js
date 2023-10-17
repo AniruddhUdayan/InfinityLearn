@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import phone from "./../../../../public/images/phone.svg";
+import phone from "./../../../../public/images/phone.webp";
 import apple from "./../../../../public/images/apple.svg";
 import android from "./../../../../public/images/android.svg";
 import check from "./../../../../public/images/check-icon.svg";
@@ -205,7 +205,7 @@ const Download = () => {
         />
         <div className="flex justify-center">
           <Image
-            src="/images/appver.svg"
+            src="/images/appver.webp"
             alt="phone"
             width={313}
             height={470}
