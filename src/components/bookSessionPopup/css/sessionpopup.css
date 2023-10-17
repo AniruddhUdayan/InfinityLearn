@@ -17,6 +17,7 @@
   } */
 
   .session_heading{
+    font-family: 'Poppins', sans-serif;
     margin-top: 50px;
     font-size: 28px;
     line-height: 36px;
@@ -309,6 +310,22 @@
     align-items: center;
     margin-bottom: 20px;
 }
+.session_skip{
+    margin-top: 100px;
+}
+.session_progress .mob_steps_flex{
+    display: none;
+}
+.session_progress .mob_step_sep {
+    height: 3px;
+    width: 100px;
+    background-color: #007BFF;
+    opacity: 0.5;
+    margin-left: 10px;
+}
+.session_progress .mob_step_sep.active {
+    opacity: 1;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .session_popup.modal .modal-lg  {
         width: 100% !important;
@@ -404,6 +421,17 @@
     .bss_button_row{
         display: none !important;
     }
+    .session_skip{
+        margin-top: 80px;
+    }
+    .steps_mob_d_done{
+        display: none !important;
+    }
+    .session_progress .mob_steps_flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 576px) {
@@ -479,6 +507,17 @@
     .bss_button_row{
         display: none !important;
     }
+    .session_skip{
+        margin-top: 80px;
+    }
+    .steps_mob_d_done{
+        display: none !important;
+    }
+    .session_progress .mob_steps_flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media only screen and (min-width: 577px) and (max-width: 766px) {
@@ -540,6 +579,17 @@
     .device_lists.active{
         border: 1px solid #007BFF;
         background:#E6F2FF; 
+    }
+    .session_skip{
+        margin-top: 80px;
+    }
+    .steps_mob_d_done{
+        display: none !important;
+    }
+    .session_progress .mob_steps_flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

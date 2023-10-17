@@ -147,14 +147,14 @@ const SelectExam = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                    <Image src="/login/mobVer/SuccessImage.png" className="side_image max-md:hidden" alt="" />
-                        {/* <Image
-                            src="/login/mobVer/SuccessImage.png"
+                    {/* <Image src="/login/mobVer/SuccessImage.webp" className="side_image max-md:hidden" alt="" /> */}
+                        <Image
+                            src="/login/mobVer/SuccessImage.webp"
                             height={250}
                             width={600}
                             alt="mob-ver-1"
                             className="max-md:hidden"
-                        /> */}
+                        />
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">
