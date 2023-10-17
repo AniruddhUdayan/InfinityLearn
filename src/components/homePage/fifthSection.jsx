@@ -48,20 +48,20 @@ const reviews = [
     image: "reviews/image3.svg",
   },
 ];
-function LevelShower(props) {
-  return (
-    <div className=" max-md:w-64   max-lg:px-0 max-xl:">
-      <div className="flex max-md:ml-0 max-2xl:ml-10items-center">
-        <div className="w-4 h-4 mr-6 font-semibold">01</div>
-        <div className=" w-48 max-md:w-28 h-0.5 mt-2 bg-white"></div>
-        <div className="w-4 h-4 font-semibold ml-6">05</div>
-      </div>
-      <div
-        className={`relative bottom-2  ${props.data}  left-10 bg-blue-500 h-2`}
-      ></div>
-    </div>
-  );
-}
+// function LevelShower(props) {
+//   return (
+//     <div className=" max-md:w-64   max-lg:px-0 max-xl:">
+//       <div className="flex max-md:ml-0 max-2xl:ml-10items-center">
+//         <div className="w-4 h-4 mr-6 font-semibold">01</div>
+//         <div className=" w-48 max-md:w-28 h-0.5 mt-2 bg-white"></div>
+//         <div className="w-4 h-4 font-semibold ml-6">05</div>
+//       </div>
+//       <div
+//         className={`relative bottom-2  ${props.data}  left-10 bg-blue-500 h-2`}
+//       ></div>
+//     </div>
+//   );
+// }
 function Card(props) {
   const check = props.data.video;
 

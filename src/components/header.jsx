@@ -16,7 +16,6 @@ const poppins = Poppins({
   weight: "500",
 });
 
-
 const items = ["courses", "study material", "results", "more"];
 function BooksCard(props) {
   return (
@@ -268,10 +267,9 @@ function Header() {
   const [foundItem, setFoundItem] = useState(null);
   const [foundSubItem, setFoundSubItem] = useState(null);
 
-  
   // const isBooksPage = window.location.pathname.includes('/books/NEET/11/12/12plus' || 'books/JEE/11/12/12plus' || 'books/CUET/11/12/12plus');
   // const signInButtonText = isBooksPage ? 'Books' : 'Sign In';
-  // console.log(params) 
+  // console.log(params)
 
   useEffect(() => {
     // Whenever activeItem changes, update foundItem
@@ -317,12 +315,6 @@ function Header() {
   const hoverHandler2 = (index) => {
     setActiveSubItem(activeSubItem != null ? index : null);
   };
-  // console.log("active Item", activeItem);
-
-  // console.log("active SubItem", activeSubItem);
-
-  // console.log("foundItem", foundItem);
-  // console.log("foundSubItem     4", foundSubItem);
   const [visibleBooksCards, setVisibleBooksCards] = useState([]);
   const [isResHeaderVisible, setIsResHeaderVisible] = useState(false);
 
@@ -348,12 +340,9 @@ function Header() {
   return (
     <div>
       <nav
-
         className={`bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 max-lg:w-full 
         max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4
          px-14 w-screen max-md:border-b-0 border-b-[1px] border-whte border-gray-400 border-opacity-50`}
-
-        
       >
         <div className="flex justify-evenly   items-center">
           <Image
@@ -466,9 +455,8 @@ function Header() {
             className="rounded-xl w-auto max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
             style={{ height: 32 }}
           >
-
             <div className="text-blue-500 sm:bg-white max-2xl:px-4 items-center max-sm:text-[#007BFF] font-semibold max-md:px-3 rounded-[20px] px-[20px]">
-            sign in
+              sign in
             </div>
           </button>
           <div className="md:hidden  text-white hover:cursor-pointer ml-5">

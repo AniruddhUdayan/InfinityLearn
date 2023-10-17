@@ -30,8 +30,8 @@ function PackageSubscription() {
                 <PackageSummary />
               </Col>
               <Col xs={12} md={6} className="custom-width-col">
-                {/* <ActiveTabs />
-                    <SelectDuration />
+                <ActiveTabs />
+                {/*  <SelectDuration />
                     <MobileVerification />
                     <OtpCheck /> */}
                 {/* <NewUserDetails /> */}
