@@ -56,6 +56,7 @@ const Download = () => {
   const isPopupShow = useSelector(
     (state) => state.bookSessionPopup.isPopupShow
   );
+  
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
@@ -101,7 +102,7 @@ const Download = () => {
       const response = await sendOtp(body);
       console.log(response);
       dispatch(setComponentToShow("OtpVerification"));
-      dispatch(setIsPersonalizeCompleted(!isPopupShow));
+      dispatch(setIsPopupShow(!isPopupShow));
     } catch (error) {
       console.error("Error fetching data:", error.message);
     } finally {
