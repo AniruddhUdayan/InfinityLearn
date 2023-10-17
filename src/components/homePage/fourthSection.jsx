@@ -2,7 +2,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
-
+import Lottie from "lottie-react";
+// import LottieAnimation from "./fireAnimation.jsx";
+import animationData from "./fireanimation.json";
 // import "./letssee.css";
 const courses = [
   {
@@ -222,72 +224,7 @@ function ScrollableDiv() {
     </div>
   );
 }
-// function ScrollableDiv() {
-//   const scrollRef = useRef(null);
-//   const [activeDash, setActiveDash] = useState(0);
-//   const [cardWidth, setCardWidth] = useState(368);
 
-//   useEffect(() => {
-//     setCardWidth(window.innerWidth <= 768 ? window.innerWidth : 368);
-
-//     const interval = setInterval(() => {
-//       if (scrollRef.current) {
-//         scrollRef.current.scrollLeft += cardWidth;
-//         setActiveDash((prevActiveDash) => (prevActiveDash + 1) % 5);
-
-//         if (
-//           scrollRef.current.scrollLeft >=
-//           scrollRef.current.scrollWidth - scrollRef.current.offsetWidth
-//         ) {
-//           scrollRef.current.scrollLeft = 0;
-//         }
-//       }
-//     }, 2000);
-
-//     return () => clearInterval(interval);
-//   }, [cardWidth]);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
-//     };
-
-//     scrollRef.current.addEventListener("scroll", handleScroll);
-
-//     return () => {
-//       // eslint-disable-next-line react-hooks/exhaustive-deps
-//       // scrollRef.current.removeEventListener("scroll", handleScroll);
-//     };
-//   }, [cardWidth]);
-
-//   return (
-//     <div className="md:hidden">
-//       <div
-//         ref={scrollRef}
-//         className="h-auto flex px-10 items-center gap-12 no-scrollbar overflow-x-scroll whitespace-nowrap"
-//         style={{ scrollBehavior: "smooth", width: cardWidth }}
-//       >
-//         {courses
-//           .filter((course) => course.id >= 3 && course.id <= 7)
-//           .map((course) => (
-//             <Card key={course.id} data={course} />
-//           ))}
-//       </div>
-//       <div className="flex justify-center mt-10">
-//         {Array.from({ length: 5 }, (_, index) => (
-//           <div
-//             key={index}
-//             className={`dash h-1 rounded-full mx-2 ${
-//               index === activeDash
-//                 ? "active w-16 bg-blue-500 "
-//                 : "bg-blue-300 w-10"
-//             }`}
-//           ></div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
 function Courses() {
   const [scrollPos, setScrollPos] = useState(0);
   const [activeDash, setDashCard] = useState(0);
@@ -336,53 +273,6 @@ function Courses() {
   );
 }
 
-// function Courses() {
-//   const [scrollPos, setScrollPos] = useState(0);
-//   const [activeDash, setDashCard] = useState(0);
-
-//   const dashWidth = [50, 50, 50, 50, 50];
-//   useEffect(() => {
-//     const maxScroll = courses.length - 5; // total cards minus visible cards
-//     const interval = setInterval(() => {
-//       if (scrollPos >= maxScroll) {
-//         setScrollPos(0);
-//         setDashCard(0);
-//       } else {
-//         setScrollPos((prev) => prev + 2);
-//         setDashCard((activeDash + 1) % 5);
-//       }
-//     }, 1500);
-
-//     return () => clearInterval(interval);
-//   }, [scrollPos, activeDash]);
-
-//   return (
-//     <div className="flex max-md:hidden flex-col justify-center w-full items-center h-ull bg-blue-200">
-//       <div className="overflow-hidden h-auto relative   w-5/6">
-//         <div
-//           className="flex transition-transform   duration-1000 "
-//           style={{ transform: `translateX(-${scrollPos * 5}%)` }} // Adjust based on card width and margin
-//         >
-//           {courses.map((course) => (
-//             <Card key={course.id} data={course} />
-//           ))}
-//         </div>
-//       </div>
-//       <div className=" flex justify-center mt-10">
-//         {Array.from({ length: 5 }, (_, index) => (
-//           <div
-//             key={index}
-//             className={`dash h-1 rounded-full mx-2 b ${
-//               index === activeDash
-//                 ? "active w-16 bg-blue-500 "
-//                 : " bg-blue-300 w-10"
-//             }`}
-//           ></div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
 function FourthSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [dashIndex, setDashIndex] = useState(0);
@@ -408,13 +298,21 @@ function FourthSection() {
       >
         <div className="flex flex-col items-center">
           <div className="flex items-center mb-10">
-            <Image
+            {/* <Image
               src="fire.svg"
               className=" w-auto h-auto"
               height={40}
               width={40}
               fit="contain"
               alt=" fire.svg"
+            /> */}
+            {/* <LottieAnimation /> */}
+            <Lottie
+              animationData={animationData}
+              autoplay={true}
+              loop={true}
+              speed={1.5}
+              style={{ width: 96, height: 96 }}
             />
             <div className="mt-8 max-md:mb-4 max-md:text-3xl max-md:font-extrabold text-6xl font-bold text-black">
               new and
