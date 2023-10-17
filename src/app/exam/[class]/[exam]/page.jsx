@@ -14,12 +14,13 @@ import Masterclasses from '@/components/examPage/Masterclasses';
 import Scholarship from '@/components/examPage/Scholarship'
 import Books from '@/components/examPage/Books'
 import Faculty from '@/components/examPage/Faculty'
-import { useRouter } from 'next/navigation'
+import PackageSubscription from '@/components/PackageSubscription'
 
 const ExamPage = ({ params }) => {
     return (
         <div className='poppins'>
             <Header />
+            <PackageSubscription />
             <LandingExam classFor={params.class} examFor={params.exam} />
             <Promise classFor={params.class} examFor={params.exam} />
             <Courses classFor={params.class} examFor={params.exam} />
