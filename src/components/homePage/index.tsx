@@ -2,8 +2,8 @@
 import React, { useEffect } from "react";
 import Header from "../header.jsx";
 import Footer from "../homePage/footer.jsx";
-import FirstSection from "./firstSection.jsx";
-import SecondSection from "./secondSection.jsx";
+import FirstSection from "./firstSection/firstSection.jsx";
+import SecondSection from "./secondSection/secondSection.jsx";
 import ThirdSection from "./thirdSection.jsx";
 import FourthSection from "./fourthSection.jsx";
 import FifthSection from "./fifthSection.jsx";
