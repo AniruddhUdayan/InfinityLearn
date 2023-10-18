@@ -185,14 +185,25 @@ function ScrollableDiv() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
+      if (scrollRef.current) {
+        setActiveDash(Math.round(scrollRef.current.scrollLeft / cardWidth) % 5);
+      }
     };
 
-    scrollRef.current.addEventListener("scroll", handleScroll);
+    if (
+      scrollRef.current &&
+      typeof scrollRef.current.addEventListener === "function"
+    ) {
+      scrollRef.current.addEventListener("scroll", handleScroll);
+    }
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      scrollRef.current.removeEventListener("scroll", handleScroll);
+      if (
+        scrollRef.current &&
+        typeof scrollRef.current.removeEventListener === "function"
+      ) {
+        scrollRef.current.removeEventListener("scroll", handleScroll);
+      }
     };
   }, [cardWidth]);
 
@@ -274,6 +285,20 @@ function Courses() {
 }
 
 function FourthSection() {
+  const [svgWidth, setSvgWidth] = useState(90);
+  const updateWidth = () => {
+    setSvgWidth(window.innerWidth <= 1024 ? 60 : 90);
+  };
+  useEffect(() => {
+    // Update width on mount
+    updateWidth();
+
+    // Add resize event listener
+    window.addEventListener("resize", updateWidth);
+
+    // Cleanup: remove event listener on unmount
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
   const [activeCard, setActiveCard] = useState(0);
   const [dashIndex, setDashIndex] = useState(0);
 
@@ -312,11 +337,11 @@ function FourthSection() {
               autoplay={true}
               loop={true}
               speed={1.5}
-              style={{ width: 96, height: 96 }}
+              style={{ width: svgWidth, height: svgWidth }}
             />
-            <div className="mt-8 max-md:mb-4 max-md:text-3xl max-md:font-extrabold text-6xl font-bold text-black">
+            <div className="mt-8 max-md:mb-4 max-md:text-[36px] text-6xl font-bold text-black">
               new and
-              <span className="text-6xl ml-2 max-md:ml-2 max-md:text-3xl max-md:font-extrabold font-bold text-[#007BFF]">
+              <span className="text-6xl ml-2 max-md:ml-2 max-md:text-[36px]  font-bold text-[#007BFF]">
                 trending
               </span>
             </div>

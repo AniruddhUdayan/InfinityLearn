@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 import "./liveCourses.css";
 import { BsDownload } from "react-icons/bs";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 function FirstSection() {
   return (
     <div className=" poppins h-full mx-auto   text-white bg-[#007BFF]">
@@ -158,6 +160,7 @@ function FirstSection() {
         </div>
       </div>
     </div>
+    // <Container fluid></Container>
   );
 }
 export default FirstSection;

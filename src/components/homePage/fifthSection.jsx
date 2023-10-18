@@ -1,6 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+
+import { Carousel, ProgressBar, CarouselItem } from "react-bootstrap";
 const reviews = [
   {
     name: "Ruchil",
@@ -69,7 +71,7 @@ function Card(props) {
     return (
       <div
         className="flex  w-[365px] h-[365px] max-2xl:mb-  max-md:h-fll 
-      max-md:py-4  my-6 shadow-md max-md:h-[391px] max-md:w-[355px] max-md:h-fll justify-evenly max-md:gap-     flex-col px-2
+      max-md:py-5  my-6 shadow-md max-md:h-[391px] max-md:w-full max-md:h-fll justify-evenly max-md:gap-     flex-col px-2
       flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
       >
         <Image
@@ -77,7 +79,7 @@ function Card(props) {
           // className=" rounded-full"
           height={161}
           width={292}
-          className="  max-md:mt-10 mt-20  w-[100%] h-[100%]"
+          className="  max-md:mt-16 mt-24  w-[100%] h-[100%]"
           fit="contain"
           alt="cards svg"
         />
@@ -103,7 +105,7 @@ function Card(props) {
         <div
           className=" flex bottom-20 max-2xl:right-2 max-md:ml-1 max-md:gap-3
           max-md:justify-start max-md:flex-col 
-       relative max-md:right-40 max-md:bottom-10    max-md:items-center "
+       relative max-md:right-40 max-md:bottom-20    max-md:items-center "
         >
           <div className="flex z-50 ml-4 max-md:gap-1  flex-col flex-grow">
             <div className=" font-bold">{props.data.name}</div>
@@ -119,8 +121,8 @@ function Card(props) {
 
   return (
     <div
-      className="flex mb-12  w-[392px] h-[365px] 
-      max-md:h-[391px] max-md:w-[335px] md:justify-evenly  
+      className="flex mb-12 max-md:w-full  w-[392px] h-[365px] 
+      max-md:h-[391px]  md:justify-evenly  
       shadow-md  flex-col max-md:gap-10 px-5 max-md:px-4 
     flex-shrink-0 py-8 my-4 rounded-2xl w-1/4 bg-white text-[#080E14] "
     >
@@ -188,6 +190,56 @@ function NewLevelShower({ currentIndex }) {
     </div>
   );
 }
+function Trial() {
+  const [scrollPos, setScrollPos] = useState(0);
+  const [lineLength, setLineLength] = useState(9);
+  // useEffect(() => {
+  //   const maxScroll = reviews.length - 1;
+  //   const interval = setInterval(() => {
+  //     if (scrollPos >= maxScroll) {
+  //       setScrollPos(0);
+  //     } else {
+  //       setScrollPos((prev) => prev + 1);
+  //     }
+  //   }, 2400);
+
+  //   return () => clearInterval(interval);
+  // }, [scrollPos]);
+  function handleSlide() {
+    const maxScroll = reviews.length - 1;
+    if (scrollPos >= maxScroll) {
+      setScrollPos(0);
+    } else {
+      setScrollPos((prev) => prev + 1);
+    }
+  }
+
+  return (
+    <div className=" sm:hidden  items-center">
+      <div className=" flex ml-[10px] mt-9">
+        <NewLevelShower currentIndex={scrollPos} />
+      </div>
+
+      <Carousel
+        controls={false}
+        className=" items-center mx-auto w-[350px] top-4"
+        interval={2000}
+        onSlide={handleSlide}
+      >
+        {reviews.map((review, index) => (
+          <CarouselItem key={index}>
+            <div
+              className="d-flex justify-content-center align-items-center mx-3"
+              style={{ height: "100%" }}
+            >
+              <Card data={review} />
+            </div>
+          </CarouselItem>
+        ))}
+      </Carousel>
+    </div>
+  );
+}
 
 function Reviews() {
   const [lineWidth, setLineWidth] = useState(" w-4 ");
@@ -236,7 +288,7 @@ function Reviews() {
   }, [scrollPos]);
 
   return (
-    <div className="">
+    <div className=" max-sm:hidden">
       <div
         className=" bg-[#00364E]   max-lg:w-full max-lg:px-0 
       w-full max-xl:px-10
@@ -244,7 +296,10 @@ function Reviews() {
       >
         <NewLevelShower currentIndex={scrollPos} />
       </div>
-      <div className="  flex relative  max-md:h-full max-md:top-7 top-10 flex-col justify-center items-center ">
+      <div
+        className="  flex relative  max-md:h-full max-md:top-10 
+      max-2xl:top-10 max-md:px-10  flex-col justify-center items-center "
+      >
         <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto max-2xl:w-screen  relative w-5/">
           <div
             className="flex gap-8 max-md:gap-[70px] max-md:px-5 transition-transform duration-1000"
@@ -259,17 +314,32 @@ function Reviews() {
     </div>
   );
 }
+
 function FifthSection() {
+  const [svgWidth, setSvgWidth] = useState(592);
+  const updateWidth = () => {
+    setSvgWidth(window.innerWidth <= 1024 ? 400 : 592);
+  };
+  useEffect(() => {
+    // Update width on mount
+    updateWidth();
+
+    // Add resize event listener
+    window.addEventListener("resize", updateWidth);
+
+    // Cleanup: remove event listener on unmount
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
   return (
     <div className=" mb-40  max-md:h-[450px] h-[782px]  w-full bg-[#00364E]">
       <div
         className=" bg-[#00364E]  flex max-md:pt-10  justify-evenly max-md:ml-3
-       max-md:justify-start text-start items-start pt-20 "
+       max-md:justify-start text-start items-start pt-20 max-xl: "
       >
         <div
-          className=" flex max-2xl:px-28 max-md:item-center max-md:px-5 
+          className=" flex max-2xl:px-28 max-md:pb-16 max-md:item-center max-md:px-5 
           max-md:py-0 max-2xl:w-1/2 font-[700] text-[32px] max-md:w-full
-         h-max max-2xl:py-24 flex-col justify-between justify-cnter"
+         h-max max-xl:p-24 max-xl:pb-24 flex-col justify-between justify-cnter"
         >
           <div className=" text-white text-6xl max-md:text-4xl ">
             inspiring
@@ -285,12 +355,14 @@ function FifthSection() {
         <Image
           src="/../homepage/fifthSection/topper.svg"
           className="max-md:hidden max-xl:mr-5 "
-          height={400}
-          width={600}
+          height={svgWidth}
+          width={svgWidth}
           alt="topper.svg"
         />
       </div>
       <Reviews />
+      <Trial />
+      {/* <ScrollableDiv /> */}
     </div>
   );
 }

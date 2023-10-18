@@ -1,4 +1,5 @@
 "use client";
+import "./secondSection.css";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,8 +9,9 @@ import {
   setShowGradePopup,
   setSelectedExam,
   setGrades,
-} from "../../store/HomePage/examGradeSelection";
+} from "../../../store/HomePage/examGradeSelection";
 import { useDispatch, useSelector } from "react-redux";
+import { Container } from "react-bootstrap";
 export const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
@@ -27,15 +29,17 @@ export const SwitchTabs = ({ data, onTabChange }) => {
   return (
     <div>
       <div
-        className="rounded-2xl bg-gray-200 text-[#080E14]"
+        className="rounded-2xl ove bg-gray-200 text-[#080E14]"
         style={{ height: 34 }}
       >
-        <div className="h-full mt-1 gap-12 max-md:gap-3 flex items-center relative">
+        <div className="h-full  mt-1 gap-12 max-md:gap-3 flex items-center relative">
           {data.map((tab, index) => (
             <div
               key={index}
-              className={` max-md:py-3 h-[40px] font-[600] max-md:text-[14px]  max-md:px-1 p  w-[100px] 
-              max-md:w-[87px] max-md:h-[37px] py-[10px] text-sm text-center cursor-pointer
+              className={` max-md:py-3  h-[40px] font-[600] max-md:text-[14px] 
+               max-md:px-1 p  w-[100px] 
+              max-md:w-[87px]  max-md:h-[37px] py-[10px] 
+              text-sm text-center cursor-pointer
               ${
                 selectedTab === index
                   ? "bg-yellow-300 text-[#080E14]"
@@ -56,8 +60,15 @@ export const SwitchTabs = ({ data, onTabChange }) => {
     </div>
   );
 };
-const Card3 = ({ imageUrl, altText, titleLineOne, titleLineTwo }) => {
+const Card3 = ({ svg1, svg2, altText, titleLineOne, titleLineTwo }) => {
   const [svgWidth, setSvgWidth] = useState(90);
+  const [src, setSrc] = useState(svg1);
+  function handleMouseEnter() {
+    setSrc(svg2);
+  }
+  function handleMouseOut() {
+    setSrc(svg1);
+  }
 
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 50 : 90);
@@ -74,11 +85,13 @@ const Card3 = ({ imageUrl, altText, titleLineOne, titleLineTwo }) => {
   }, []);
   return (
     <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseOut}
       className="hover:cursor-pointer hover:text-white text-blac hover:bg-blue-500 flex
        max-md:flex-col p-7 bg-blue-200 gap-7 max-md:px-2 max-md:rounded-2xl max-md:py-6
     justify-evenly w-full max-md:w-1/2 items-center rounded-[2rem] border-black"
     >
-      <Image src={imageUrl} height={svgWidth} width={svgWidth} alt={altText} />
+      <Image src={src} height={svgWidth} width={svgWidth} alt={altText} />
       <div className="flex flex-col">
         <div className="card-text font-semibold text-2xl max-md:text-lg k">
           {titleLineOne}
@@ -148,10 +161,18 @@ function SecondSecCard(props) {
     </div>
   );
 }
-const Card2 = ({ src, altText, title, subtitle }) => {
+const Card2 = ({ svg1, svg2, altText, title, subtitle }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [svgWidth, setSvgWidth] = useState(90);
-
+  const [src, setSrc] = useState(svg1);
+  function handleMouseEnter() {
+    setIsHovered(true);
+    setSrc(svg2);
+  }
+  function handleMouseOut() {
+    setIsHovered(false);
+    setSrc(svg1);
+  }
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 50 : 90);
   };
@@ -167,8 +188,8 @@ const Card2 = ({ src, altText, title, subtitle }) => {
   }, []);
   return (
     <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseOut}
       className={`flex hover:cursor-pointer flex-col p-20 max-md:px-1 max-md:py-10 h-min 
       gap-3 items-center bg-blue-200 rounded-3xl
        border-2 w-full hover:bg-blue-500 hover:text-white
@@ -180,10 +201,23 @@ const Card2 = ({ src, altText, title, subtitle }) => {
     </div>
   );
 };
-const Card1 = ({ src, altText, text }) => {
+const Card1 = ({ svg1, svg2, altText, text }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [svgWidth, setSvgWidth] = useState(96.74);
-
+  // if (isHovered == true) {
+  //   setSrc(svg1);
+  // } else {
+  //   setSrc(svg2);
+  // }
+  const [src, setSrc] = useState(svg1);
+  function handleMouseEnter() {
+    setIsHovered(true);
+    setSrc(svg2);
+  }
+  function handleMouseOut() {
+    setIsHovered(false);
+    setSrc(svg1);
+  }
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 50 : 96.74);
   };
@@ -195,8 +229,8 @@ const Card1 = ({ src, altText, text }) => {
   }, []);
   return (
     <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseOut}
       className={`hover:cursor-pointer flex max-md:flex-col 
       max-md:gap-2 max-md:w-1/3  gap-7 justify-evenly bg-blue-200 text-black
       w-full items-center  py-4
@@ -233,9 +267,9 @@ function Class11to12() {
         competitive exam
       </div>
       <div
-        className=" flex max-md:px-1 md:w-full max-md:gap-3   
+        className=" flex max-md:px-1 md:w-full max-md:gap-[12px] gap-[20px]
        max-md:w-auto max-md:overflow-x-auto
-        max-xl:h-full gap-5
+        max-xl:h-full 
        no-scrollbar  "
       >
         {items[0]?.subItems[0]?.lists?.map((item, index) => (
@@ -268,9 +302,9 @@ function Class9to10() {
       </div>
       <div className=" flex flex-col gap-8">
         <div
-          className=" flex max-md:px-1 md:w-full max-md:gap-3   
+          className=" flex max-md:px-1 md:w-full max-md:gap-[12px] gap-[20px]
        max-md:w-auto max-md:overflow-x-auto
-        max-xl:h-full  gap-5
+        max-xl:h-full 
        no-scrollbar  "
         >
           {items[0]?.subItems[1]?.lists?.map((item, index) => (
@@ -285,20 +319,23 @@ function Class9to10() {
           className="  no-scrollbar    
         max-md:overflow-x-auto max-md:gap-1 max-md:px-0 w-full 
         max-2xl:h-max
-        max-md:p max-md:-6  flex gap-4 "
+        max-md:p max-md:-6  flex gap-[16px] "
         >
           <Card1
-            src="/../homepage/secondSection/math1.svg"
+            svg1="/../homepage/secondSection/Black/Math.svg"
+            svg2="/../homepage/secondSection/White/Math.svg"
             altText="math"
             text="Math"
           />
           <Card1
-            src="/../homepage/secondSection/science2.svg"
+            svg1="/../homepage/secondSection/Black/Science.svg"
+            svg2="/../homepage/secondSection/White/Science.svg"
             altText="english"
             text="Science"
           />
           <Card1
-            src="/../homepage/secondSection/english1.svg"
+            svg1="/../homepage/secondSection/Black/English.svg"
+            svg2="/../homepage/secondSection/White/English.svg"
             altText="math"
             text="English"
           />
@@ -334,7 +371,8 @@ function Class4to8() {
       <div className=" flex flex-col gap-8">
         <div className=" flex  w-full gap-5 hover:text-white hover:cursor-pointer max-md:px-4  ">
           <Card2
-            src="/header/iit.svg"
+            svg1="/../homepage/secondSection/Black/Foundation.svg"
+            svg2="/../homepage/secondSection/White/Foundation.svg"
             altText="An alternative text for image"
             title="Foundation"
             subtitle="engineering + medical "
@@ -346,9 +384,9 @@ function Class4to8() {
         </div>
         <div className=" flex flex-col gap-8">
           <div
-            className=" flex max-md:px-1 md:w-full max-md:gap-3   
+            className=" flex max-md:px-1 md:w-full max-md:gap-[12px] gap-[20px]
        max-md:w-auto max-md:overflow-x-auto
-        max-xl:h-full gap-5
+        max-xl:h-full
        no-scrollbar  "
           >
             {items[0]?.subItems[0]?.lists?.map((item, index) => (
@@ -359,19 +397,22 @@ function Class4to8() {
             infinity futurz{" "}
             <span className=" font-normal opacity-50 text-2xl">(cbse)</span>
           </div>
-          <div className=" gap-4 no-scrollbar    max-md:overflow-x-auto max-md:gap-1 max-md:px-0 w-full max-md:p max-md:-6  flex xl:gap-4">
+          <div className=" gap-[16px] no-scrollbar    max-md:overflow-x-auto max-md:gap-[4px] max-md:px-0 w-full max-md:p max-md:-6  flex xl:gap-[16px]">
             <Card1
-              src="/../homepage/secondSection/math1.svg"
+              svg1="/../homepage/secondSection/Black/Math.svg"
+              svg2="/../homepage/secondSection/White/Math.svg"
               altText="math"
               text="Math"
             />
             <Card1
-              src="/../homepage/secondSection/science2.svg"
+              svg1="/../homepage/secondSection/Black/Science.svg"
+              svg2="/../homepage/secondSection/White/Science.svg"
               altText="english"
               text="Science"
             />
             <Card1
-              src="/../homepage/secondSection/english1.svg"
+              svg1="/../homepage/secondSection/Black/English.svg"
+              svg2="/../homepage/secondSection/White/English.svg"
               altText="math"
               text="English"
             />
@@ -390,7 +431,8 @@ function Class1to3() {
       <div className=" flex flex-col gap-8">
         <div className=" flex  w-full gap-5 max-md:px-4   ">
           <Card2
-            src="/../homepage/secondSection/headstart.svg"
+            svg1="/../homepage/secondSection/Black/Headstart.svg"
+            svg2="/../homepage/secondSection/White/Headstart.svg"
             altText="An alternative text for image"
             title="Headstart Program"
             subtitle="english +math +science +coding"
@@ -401,13 +443,15 @@ function Class1to3() {
         </div>
         <div className="max-md:px-3 flex max-md:overflow-x-auto gap-6">
           <Card3
-            imageUrl="/../homepage/secondSection/math1.svg"
+            svg1="/../homepage/secondSection/Black/DesignersProgram.svg"
+            svg2="/../homepage/secondSection/White/DesignersProgram.svg"
             altText="math"
             titleLineOne="Young Product"
             titleLineTwo="Designer's Program"
           />
           <Card3
-            imageUrl="/../homepage/secondSection/hots1.svg"
+            svg1="/../homepage/secondSection/Black/ThinkingSkills.svg"
+            svg2="/../homepage/secondSection/White/ThinkingSkills.svg"
             altText="science"
             titleLineOne="High Order thinking"
             titleLineTwo="Skills"
@@ -429,9 +473,15 @@ function SecondSection() {
     setEndpoint(tab === "Day" ? "day" : "week");
   };
   return (
+    // <div>
+    //   <Container>
+    //     <Col>
+    //     </Col>
+    //   </Container>
+    // </div>
     <div className="items-center h-full  bg-gray-200">
       <div className="max-w-[1000px] max-2xl:px-4 max-md:px-3   max-lg: max-md:w-[100%] mx-auto">
-        <div className="flex justify-evenly p-6 text-center max-md:hidden font-bold text-4xl gap-4 relative bottom-[4.5rem] mx-auto flex-row items-center h-36 bg-yellow-300 px-4 rounded-2xl">
+        <div className="flex stat justify-evenly  p-6 text-center max-md:hidden font-bold text-4xl gap-4 relative bottom-[4.5rem] mx-auto flex-row items-center h-36 bg-yellow-300 px-4 rounded-2xl">
           <div className="text-black flex flex-col border-black">
             <div className="text-center font-normal text-2xl text-[#080E14]">
               Learners
@@ -455,22 +505,24 @@ function SecondSection() {
         </div>
 
         <h1
-          className=" max-md:hidden text-[#080E14] max-2xl:text-center mx-auto max-md:mx-3 
+          className=" max-md:hidden text-[#080E14] max-2xl:text-center mx-auto max-md:mx-3
           max-md:py-10 md:mb-6 max-md:w-full 
         max-md:text-start max-md:justify-start tracking-wide max-md:tracking-normal
-        text-5xl max-md:text-[32px] font-extrabold "
+        text-5xl max-md:text-[32px] res1 font-extrabold "
         >
           select your learning
           <span className=" text-blue-500 "> goal </span>
           grade-wise
         </h1>
         <h1
-          className="md:hidden flex flex-col  max-2xl:text-center mx-auto max-md:mx-3 
-          max-md:py-10 md:mb-6 max-md:w-full max-md:px-[20px] 
+          className="md:hidden flex flex-col  max-2xl:text-center mx-auto max-md:mx-3
+          max-md:py-10 md:mb-6 max-md:w-full 
         max-md:text-start max-md:justify-start tracking-wide max-md:tracking-normal
-        text-5xl max-md:text-[32px] font-extrabold "
+        text-5xl max-md:text-[28px] font-extrabold "
         >
-          <div className="text-[#080E14]">select your learning</div>
+          <div className=" whitespace-nowrap text-[#080E14]">
+            select your learning
+          </div>
           <div className="  ">
             <span className=" text-[#007BFF]"> goal </span>
             grade-wise

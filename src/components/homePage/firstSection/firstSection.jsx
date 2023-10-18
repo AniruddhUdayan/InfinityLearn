@@ -8,16 +8,20 @@ import {
   showOverlayMode,
   storePhoneNumber,
   setIsExitingUser,
-} from "../../store/mobVeriSlice";
-import { verifyPhone, sendOtp } from "../../services/userServics";
-import analytics from "../../utils/analytics";
-import { setComponentToShow } from "../../store/modalToShow";
+} from "../../../store/mobVeriSlice";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { verifyPhone, sendOtp } from "../../../services/userServics";
+import analytics from "../../../utils/analytics";
+import { setComponentToShow } from "../../../store/modalToShow";
 const words = ["learning", "academic"];
 const duration = 2000; // Duration in milliseconds for each word
 const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
+import "./firstSection.css";
 function WordSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animating, setAnimating] = useState(true);
@@ -35,10 +39,7 @@ function WordSlider() {
   }, []);
 
   return (
-    <div
-      className="slider-container tracking-wide  max-md:pl-5  font-  z-0 h-24 max-md:h-12 max-md:p max-md:text-[44px] text-[#FCDE5A]
-     flex items-center justify-start text-7xl font-bold"
-    >
+    <div className="slider-container tracking-wide head-text-modified ">
       <div className={animating ? "word-entering z-0" : " z-0 word-exiting"}>
         {words[currentIndex]}
       </div>
@@ -46,11 +47,12 @@ function WordSlider() {
   );
 }
 
-function Trial() {
+function Stats() {
   return (
     <div
-      className="flex mt-10 max-lg:w-full mb-6 max-lg:mx-10
-     max-lg:h-24 justify-evenly text-[#007BFF] p-6  text-center  font-bold text-base gap-3 mx-auto
+      className="flex mt-10 stats  max-lg:w-full mb-6 max-lg:mx-10
+     max-lg:h-24 justify-evenly text-[#007BFF] p-6 
+      text-center  font-bold text-base gap-3 mx-auto
      flex-row items-center h-20 bg-white px-4 rounded-2xl"
     >
       <div className=" flex flex-col   border-opacity-20 ">
@@ -130,90 +132,60 @@ function FirstSection() {
     }
   };
   return (
-    <div
-      className="flex pb-32 max-md:pt-16 max-md:px-0 poppins 2xl:justify-center px-10  
-      max-md:pb-8 w-full max-md:min-h-screen 
-      items-center justify-around bg-[#007BFF]
-      
-     max-md:flex-col max-md:h-fit"
-    >
-      <div className=" text-white max-md:w-full max-2xl:w-1/2 flex flex-col">
-        <div className=" text-selection flex flex-col max-md:w-full max-md:px-5 text-start justify-enter itemscenter">
-          <div className="max-md:pt-6 pt-9   max-md:pl-5 tracking-wide   text-7xl max-md:text-[44px] font-bold">
-            power up your
-          </div>
-          <WordSlider />
-          <div className="   tracking-wide  max-md:pl-5    max-md:text-[44px] text-7xl font-bold">
-            journey with
-          </div>
-          <div className="  tracking-wide  max-md:pl-5    max-md:text-[44px] text-7xl font-bold">
-            infinity learn
-          </div>
-        </div>
-        <div className="mt-12 lg:ml-7 pr-0 md:hidden">
+    <div className=" poppins h-screen firstSection  " fluid>
+      <Row>
+        <Col>
+          <Col>
+            <div className="head-text max-md:pt-6 pt-9">power up your </div>
+            <WordSlider />
+            <div className="head-text">journey with </div>
+            <div className="head-text">infinity learn </div>
+          </Col>
+          <Col className=" imageRes ">
+            <Image
+              className="imageRes"
+              src="/homepage/firstSection/imageRes.png"
+              width={600}
+              height={350}
+              alt="firstSectionRes"
+            />
+          </Col>
+          <Col className=" inputSec">
+            <Col className="flex flex-col treew md:mt-16 mt-[32px] max-md:w-[335px]  gap-2 justify-center">
+              <div className="mb-1 items-stretch flex">
+                <div className="iSDCode">+91</div>
+                <input
+                  className="focus-no-outline Input "
+                  type="text"
+                  placeholder="enter your mobile number"
+                  value={query}
+                  onChange={handleInputChange}
+                />
+                <button onClick={handleToggleOverlay} className="jFF">
+                  join for free
+                </button>
+              </div>
+              <div className="otp">we will send an otp for verification</div>
+            </Col>
+          </Col>
+          <Col className=" mx-auto md:hidden max-md:pr-5 max-md:pl-5">
+            <Stats />
+          </Col>
+        </Col>
+      </Row>
+      <Row>
+        <div className="imageNonRes w-full">
           <Image
-            className="my-image"
-            src="/homepage/firstSection/imageRes.png"
-            width={600}
-            height={350}
-            alt="firstSectionRes"
+            src="/homepage/firstSection/firstSection.png"
+            width={490}
+            height={541}
+            alt="firstSection"
           />
         </div>
-        <div className=" max-md:w-full max-md:flex max-md:justify-center max-md:items-center">
-          <div className="flex flex-col mt-16 max-md:w-[335px]  gap-2 justify-center">
-            <div className="mb-1 items-stretch flex">
-              <div
-                className="rounded-s-2xl rounded-e-none 
-             border-[1px] border-r-0
-            max-2xl:bg-transparent max-md:bg-white px-4
-             py-2 max-md:text-[#080E14] max-2xl:text-white pe-2 
-             flex justify-center items-center"
-              >
-                +91
-              </div>
-              <input
-                className="rounded--2xl w-[303px] 
-                max-md:h-12 max-md:placeholder:text-sm 
-              max-md:rounded--3xl max-md:bg-white
-               max-md:placeholder-gray-500 bg-[#007BFF]
-                placeholder-text:ml-3
-                 focus:outline-none focus:border-white
-
-                 placeholder-[#F0F0F0]
-                text-black max-md:w-96  border-l-0
-                 pl-2 max-2xl:h-[56px] placeholder-[400] placeholder:[16px]  text-base md:text-lg border-[1px] "
-                type="text"
-                placeholder="enter your mobile number"
-                value={query}
-                onChange={handleInputChange}
-              />
-              <button
-                onClick={handleToggleOverlay}
-                className="md:w-32 max-md:w-40 font-[600] text-black max-md:rounded-r-3xl rounded-r-2xl bg-[#FCDE5A]"
-              >
-                join for free
-              </button>
-            </div>
-            <div className="max-md:text-sm font-[500] text-[16px] max-md:px-6">
-              we will send an otp for verification
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="  md:hidden max-md:w-full items-center flex justify-center">
-        <Trial />
-      </div>
-      <div className="mt-[30px] max-md:hidden">
-        <Image
-          className=""
-          src="/homepage/firstSection/firstSection.png"
-          width={490}
-          height={541}
-          alt="firstSection"
-        />
-      </div>
+      </Row>
     </div>
   );
 }
-
+{
+}
 export default FirstSection;
