@@ -9,30 +9,11 @@ import { Button, Input, InputBase } from "@mui/material";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setPhoneNumber,
-  setSelectedDate,
-  setSelectedTime,
-  setRelations,
-  setLanguage,
-  setDevice,
-  setMoreDetails,
-  setIsPersonalizeCompleted,
-} from "../../../store/BookSession/BookSessionData";
-import {
-  showOverlayMode,
-  setIsExitingUser,
-  setIsOtpSent,
-  setIsOtpVerified,
-  setIsPhoneVerified,
-} from "../../../store/mobVeriSlice";
-
+import { setPhoneNumber,} from "../../../store/BookSession/BookSessionData";
+import {setIsExitingUser,} from "../../../store/mobVeriSlice";
 import { verifyPhone, sendOtp } from "../../../services/userServics";
 import analytics from "../../../utils/analytics";
-import {
-  setIsPopupShow,
-  setComponentToShow,
-} from "../../../store/BookSession/BookSessionPopup";
+import {setIsPopupShow,setComponentToShow} from "../../../store/BookSession/BookSessionPopup";
 
 const poppins = Poppins({
   subsets: ["latin"],

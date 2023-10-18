@@ -12,30 +12,44 @@ import analytics from '../../utils/analytics';
 const slots = [
     {
         date: 'thu 3 Aug',
+        daymonth:'3 Aug',
+        day:'thu',
         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
     },
     {
         date: 'fir 4 Aug',
+        daymonth:'4 Aug',
+        day:'fri',
         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
     },
     {
         date: 'sat 5 Aug',
+        daymonth:'5 Aug',
+        day:'sat',
         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
     },
     {
         date: 'sun 6 Aug',
+        daymonth:'6 Aug',
+        day:'Aug',
         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
     },
     {
         date: 'mon 7 Aug',
+        daymonth:'7 Aug',
+        day:'mon',
         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
     },
     {
         date: 'tus 8 Aug',
+        daymonth:'8 Aug',
+        day:'tus',
         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
     },
     {
         date: 'web 10 Aug',
+        daymonth:'10 Aug',
+        day:'web',
         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
     }
 ]
@@ -100,7 +114,11 @@ const DateTimeSelection = () => {
                                     <label className="session_label">select date</label>
                                     <div className="date_selection_box">
                                         {slots.map((item, index) => (
-                                            <button onClick={()=>handleDate(item)} key={index} className={`date_selection_btn ${selectedDate == item ? 'active': ''}`}>{item?.date}</button>
+                                            // <button onClick={()=>handleDate(item)} key={index} className={`date_selection_btn ${selectedDate == item ? 'active': ''}`}>{item?.date}</button>
+                                            <div onClick={()=>handleDate(item)} key={index} className={`date_selection_btn ${selectedDate == item ? 'active': ''}`}>
+                                                <p className="date_day">{item?.day}</p>
+                                                <p className="day_month">{item?.daymonth}</p>
+                                            </div>
                                         ))}
                                     </div>
                                 </Col>

@@ -8,7 +8,39 @@
 /* div::-webkit-scrollbar {
   display: none;
 } */
-
+html {
+  scroll-behavior: smooth;
+}
+.btn.focus,
+.btn:focus,
+.btn:not(:disabled):not(.disabled).active,
+.btn:not(:disabled):not(.disabled):active,
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+}
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+a,
+i,
+span {
+    display: inline-block;
+}
+a,
+a:focus,
+a:hover {
+    text-decoration: none;
+}
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

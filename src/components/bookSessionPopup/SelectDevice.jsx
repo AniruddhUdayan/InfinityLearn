@@ -78,7 +78,7 @@ const SelectDevice = () => {
                                         {
                                             devices.map((de,index)=>(
                                                 <div className={`device_lists ${selectedDevice == de ? 'active' :''}`} key={index} onClick={()=>handleChange(de)}>
-                                                    <Image src={de?.icon} alt={de?.icon} />
+                                                    <img src={de?.icon} alt={de?.icon} />
                                                     <p className="device_Icon_text">{de?.text}</p>
                                                 </div>
                                             ))

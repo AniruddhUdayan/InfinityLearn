@@ -116,7 +116,7 @@ const SendOtp = () => {
               <div className="right_box">
               <Row>
                 <Col md={12}>
-                    <h2 className="otp_heading">Drop your number, we’ve <br/> got the rest!</h2>
+                    <h1 className="otp_heading">Drop your number, we’ve <br/> got the rest!</h1>
                 </Col>
               </Row>
               <Row>

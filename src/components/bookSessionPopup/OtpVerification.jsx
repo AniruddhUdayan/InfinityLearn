@@ -201,7 +201,7 @@ const isExitingUser = useSelector(
         />
           </Col>
           <Col xs={12} md={6}>
-            <div>
+            <div className="right_box">
           <ProgressTabs />
             <Row>
               <Col md={12}>

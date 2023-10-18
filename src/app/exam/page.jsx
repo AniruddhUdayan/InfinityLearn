@@ -14,7 +14,8 @@ import Masterclasses from '@/components/examPage/Masterclasses';
 import Scholarship from '@/components/examPage/Scholarship'
 import Books from '@/components/examPage/Books'
 import Faculty from '@/components/examPage/Faculty'
-
+import LoginPopup from "../../components/LoginPopup";
+import BookSessionPopup from "../../components/bookSessionPopup";
 const ExamPage = () => {
     return (
         <div className='poppins'>
@@ -32,6 +33,8 @@ const ExamPage = () => {
             <School />
             <Download />
             <Footer /> 
+            <LoginPopup />
+            <BookSessionPopup />
         </div>
     )
 }
