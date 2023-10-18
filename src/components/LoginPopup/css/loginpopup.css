@@ -16,7 +16,7 @@
     display: none;
   } */
 .btn-close {
-    opacity: 1;
+    opacity: 1 !important;
 }
 .side_image{
     width: 100%;
@@ -27,7 +27,6 @@
     margin-right: 50px;
 }
 .otp_heading {
-    /* font-family: 'Poppins', sans-serif; */
     margin-top: 50px;
     margin-bottom: 50px;
     font-size: 28px;
