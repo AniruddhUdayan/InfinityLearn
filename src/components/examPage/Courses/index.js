@@ -81,9 +81,9 @@ const Courses = () => {
     }, [])
 
     return (
-        <div className="p-4 lg:p-10 bg-[#F1F2F6]">
+        <div className="p-4 lg:p-10 bg-[#F1F2F6] overflow-hidden">
             <div className="lg:text-center font-bold text-5xl mb-10 text-[#080E14] mt-8 lg:mt-0">courses recommended by <span className="text-[#007BFF]">toppers</span></div>
-            <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className="flex justify-start mb-10" themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'center' } }}>
+            <Tabs variant="scrollable" value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className="flex justify-start mb-10" themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'center' } }}>
                 <Tab label="all" className="" themeColor='yellow' />
                 <Tab label="live courses" className="" themeColor='yellow' />
                 <Tab label="recorded" className="" themeColor='yellow' />

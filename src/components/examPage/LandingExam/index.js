@@ -82,7 +82,7 @@ const LandingExam = ({ classFor, examFor }) => {
 			</div>
 
 			<div className=" py-0 lg:py-8">
-				<div className="px-4 lg:px-36 text-5xl lg:text-7xl font-extrabold text-white leading-[3.8rem] my-8">power up your <span className="text-[#FCDE5A]">{examFor?.toUpperCase() ?? 'JEE'} PREP</span> with Infinity Learn</div>
+				<div className="px-4 lg:px-36 text-5xl lg:text-7xl font-bold text-white leading-[3.8rem] my-8">power up your <span className="text-[#FCDE5A]">{examFor?.toUpperCase() ?? 'JEE'} PREP</span> with Infinity Learn</div>
 				<div className="px-4 lg:px-36 py-4 text-lg text-[#D7D7D7]"><span className="text-white lg:text-[#FCDE5A] font-bold lg:font-normal">{examFor?.toUpperCase() ?? 'JEE'}</span> is the most competitive entrance examination in India. Offering the best online class experience, our targeted batch covers all essential subjects.</div>
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
 					<div className="flex flex-col px-4 lg:px-36 bg-white lg:bg-transparent text-[#080E14] lg:text-[#efefef] order-last lg:order-none font-semibold">

@@ -10,7 +10,7 @@ const LiveCourseCard = ({ title, desc, classes, img, price, point1, point2, isRe
             <div className="w-[45%] relative">
                 <Image src={img} alt="live course" className="w-full aspect-[5/3]" />
                 {isRecommended &&
-                    <div className="absolute top-[0.5rem] -left-[1px] px-6 py-2 flex items-center" style={{
+                    <div className="absolute top-[0.5rem] -left-[1px] px-6 py-2 flex items-center text-white" style={{
                         backgroundImage: `url(${flag.src})`,
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'contain',
@@ -28,7 +28,7 @@ const LiveCourseCard = ({ title, desc, classes, img, price, point1, point2, isRe
                 <div className="text-2xl font-bold text-[#080E14]">{title}</div>
                 <div className="text-[#6B6E72]">{desc}</div>
                 <div></div>
-                <div className="text-[#52565B]">starting at <span className="font-bold text-lg text-[#00254C]">₹{price}/month</span></div>
+                <div className="text-[#52565B] text-lg">starting at <span className=" text-lg text-[#00254C]">₹{price}/month</span></div>
                 <div className="flex flex-col gap-2">
                     <div className="flex gap-2">
                         <Image src={classesImg} alt="classes" width={20} />
