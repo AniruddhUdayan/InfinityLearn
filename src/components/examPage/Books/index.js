@@ -23,14 +23,14 @@ const Books = ({ classFor, examFor }) => {
                     </div>
                 </div>
                 <div className='p-4 lg:p-6 py-8 lg:py-6 rounded-3xl flex flex-col gap-2 justify-evenly bg-[#FEF8DE80] lg:bg-[#F0F3FF]'>
-                    <div className='font-semibold text-2xl lg:text-3xl'>{examFor?.toUpperCase() ?? 'JEE'} Maths class 11<span className='lg:hidden text-[#6B6E72] text-base font-normal'> (12 Books)</span></div>
+                    <div className='font-extrabold text-2xl lg:text-3xl'>{examFor?.toUpperCase() ?? 'JEE'} Maths class 11<span className='lg:hidden text-[#6B6E72] text-base font-normal'> (12 Books)</span></div>
                     <div className='text-[#6B6E72] text-xl hidden lg:block'>(12 Books)</div>
                     <div className='flex items-end gap-1'>
-                        <div className='text-xl lg:text-3xl font-semibold text-[#007BFF]'>₹12,000</div>
-                        <div className='text-base lg:text-lg text-[#322C12] font-semibold'>(-20%)</div>
-                        <div className='text-[#52565B] line-through'>₹15,000</div>
+                        <div className='text-xl lg:text-3xl font-bold text-[#007BFF]'>₹12,000</div>
+                        <div className='text-base lg:text-lg text-[#322C12] font-bold'>(-20%)</div>
+                        <div className='text-[#52565B] line-through font-semibold'>₹15,000</div>
                     </div>
-                    <div className='text-[#FF7A00] text-sm'>SPECIAL PRICE! <span className='text-[#52565B]'>offer ends 21st august</span></div>
+                    <div className='text-[#FF7A00] text-sm font-bold '>SPECIAL PRICE! <span className='text-[#52565B] font-normal'>offer ends 21st august</span></div>
                     <div className="flex flex-col gap-4 text-[#52565B] my-4 mb-10 lg:mb-4">
                         <div className='flex gap-2'>
                             <Image src={check} alt="check" width={20} height={0} className='' />
