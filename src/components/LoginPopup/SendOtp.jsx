@@ -105,8 +105,9 @@ const SendOtp = () => {
             <Col xs={12} md={6}>            
             <Image
           src="/login/mobVer/mobVer1.webp"
-          height={200}
+          height={400}
           width={400}
+          objectFit=""
           alt="mob-ver-1"
           className="side_image max-md:hidden"
         />

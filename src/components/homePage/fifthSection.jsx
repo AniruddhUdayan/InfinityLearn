@@ -284,7 +284,7 @@ function FifthSection() {
         </div>
         <Image
           src="/../homepage/fifthSection/topper.webp"
-          className="max-md:hidden max-xl:mr-5 "
+          className="max-md:hidden max-xl:mr-5 aspect-[3/2]"
           height={400}
           width={600}
           alt="topper.svg"

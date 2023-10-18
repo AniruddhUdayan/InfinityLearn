@@ -147,7 +147,7 @@ function SixthSection() {
                     height={50}
                     width={180}
                     alt="Download on the Apple App Store"
-                    className=" pb-[0.8rem] "
+                    className=" aspect-[18/5]"
                   />
                 </a>
 
@@ -159,9 +159,9 @@ function SixthSection() {
                   <Image
                     src="/../homepage/sixthSection/playstore.svg"
                     height={50}
-                    width={186}
+                    width={180}
                     alt="playsto.svg"
-                    className=" pb-2"
+                    className=" aspect-[18/5]"
                   />
                 </a>
               </div>
@@ -174,6 +174,7 @@ function SixthSection() {
                 alt="Sixth Section Background"
                 height={730}
                 width={491}
+                className="aspect-[2/3]"
               />
             </div>
           </div>

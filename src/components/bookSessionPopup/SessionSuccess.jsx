@@ -71,7 +71,7 @@ const handlePersonalized = ()=>{
                 </Col>
               </Row>
               }
-              <Row>
+              <Row className={`${!isSkipNow ? 'session_skip' :''}`}>
                 <Col md={12}>
                     <h2 className="session_success_heading">
                     Super! session has <br /> been booked</h2>
