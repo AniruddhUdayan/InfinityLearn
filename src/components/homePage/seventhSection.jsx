@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsExitingUser } from "../../store/mobVeriSlice";
-import {verifyPhone, sendOtp} from '../../services/userServics';
-import analytics from '../../utils/analytics';
-import {setIsPopupShow,setComponentToShow} from '../../store/BookSession/BookSessionPopup';
-import {setPhoneNumber} from '../../store/BookSession/BookSessionData';
-import {setIsNewUser} from '../../store/BookSession/BookSessionNewUser';
+import { verifyPhone, sendOtp } from "../../services/userServics";
+import analytics from "../../utils/analytics";
+import {
+  setIsPopupShow,
+  setComponentToShow,
+} from "../../store/BookSession/BookSessionPopup";
+import { setPhoneNumber } from "../../store/BookSession/BookSessionData";
+import { setIsNewUser } from "../../store/BookSession/BookSessionNewUser";
 function SeventhSection() {
   // Added useState for 'query'
   const [query, setQuery] = useState("");
@@ -33,46 +36,46 @@ function SeventhSection() {
       setError("");
       dispatch(setPhoneNumber(query));
       let body = {
-        isdCode:'+91',
-        phone: query
-      }
+        isdCode: "+91",
+        phone: query,
+      };
       try {
         const userData = await verifyPhone(body);
         dispatch(setIsExitingUser(userData?.existingUser));
-        analytics.track('otp_count', {
+        analytics.track("otp_count", {
           phone: query,
-          whatsapp_consent: false
+          whatsapp_consent: false,
         });
-        if(userData?.existingUser){
+        if (userData?.existingUser) {
           sentOtp();
         } else {
-          dispatch(setIsNewUser(true))
-          dispatch(setComponentToShow('EnterName'));
+          dispatch(setIsNewUser(true));
+          dispatch(setComponentToShow("EnterName"));
           dispatch(setIsPopupShow(!isPopupShow));
         }
       } catch (error) {
-        console.error('Error fetching data:', error.message);
+        console.error("Error fetching data:", error.message);
       } finally {
       }
     }
   };
 
-  const sentOtp =  async() =>{
+  const sentOtp = async () => {
     let body = {
-      isdCode:'+91',
-      phone: query
-    }
+      isdCode: "+91",
+      phone: query,
+    };
     try {
       const response = await sendOtp(body);
       console.log(response);
-      dispatch(setComponentToShow('OtpVerification'));
+      dispatch(setComponentToShow("OtpVerification"));
       dispatch(setIsPopupShow(!isPopupShow));
     } catch (error) {
-      console.error('Error fetching data:', error.message);
+      console.error("Error fetching data:", error.message);
     } finally {
       // setLoading(false);
     }
-  }
+  };
   return (
     <div className="bg-[#00364E] min-h-max h-min">
       <div className="flex max-md:flex-col max-md:py-12 max-md:px-2 max-md:ml-2 justify-evenly py-40">
@@ -101,10 +104,18 @@ function SeventhSection() {
         <div className="flex flex-col h-full">
           <div className="flex h-4/5 max-md:px-    md:h-3/5 mt-9 mb-5">
             <input
-              className="rounded-l-lg max-md:h-12 max-md:placeholder:text-sm max-md:rounded-l-3xl max-md:bg-white max-md:placeholder-gray-500 bg-blue-500 text-black w-full sm:w-1/2 md:w-96 h-10 md:h-12 pl-4 md:pl-6 text-base md:text-lg border-2 placeholder-white"
+              className="rounded-l-lg max-md:h-12
+               max-md:placeholder:text-sm max-md:rounded-l-3xl
+                max-md:bg-white max-md:placeholder-gray-500
+                 bg-blue-500 text-black w-full sm:w-1/2 md:w-96
+                  h-10 md:h-12 pl-4 md:pl-6 text-base md:text-lg
+                   border-2 placeholder-white
+                     placeholder-text:ml-4
+                   "
               type="text"
               placeholder="enter your mobile number"
-              value={query} maxLength={10}
+              value={query}
+              maxLength={10}
               onChange={handleInputChange}
             />
             <button
