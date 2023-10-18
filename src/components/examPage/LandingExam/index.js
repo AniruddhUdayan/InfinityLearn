@@ -61,8 +61,15 @@ const LandingExam = ({ classFor, examFor }) => {
 	}, [activeIndex])
 	
 	return (
-		<div className="w-full text-[#EFEFEF] bg-[#007BFF] mt-[4.8rem] md:mt-0">
-
+		<div className="w-full text-[#EFEFEF] bg-[#007BFF] mt-[5.3rem] md:mt-0">
+			<div className="mx-4">
+				<Button variant="contained" color="white" fullWidth sx={{
+					justifyContent: 'space-between',
+				}}>
+					class {classFor ?? 12}+ | {examFor?.toUpperCase() ?? 'JEE'}
+					
+				</Button>
+			</div>
 			<div ref={carousel} className="overflow-x-auto no-scrollbar flex gap-4 py-8 pb-4 px-4 snap-x">
 				{banners.map((banner, index) => (
 					<LandingCard key={index} pic={banner.pic} rank={banner.rank} name={banner.name} batch={banner.batch} ref2={carouselEle} />
