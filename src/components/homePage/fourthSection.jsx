@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
-import Lottie from "lottie-react";
+import Lottie, { useLottie } from "lottie-react";
 // import LottieAnimation from "./fireAnimation.jsx";
 import animationData from "./fireanimation.json";
 // import "./letssee.css";
@@ -313,7 +313,7 @@ function FourthSection() {
     setDashIndex(newDashIndex);
   };
   const options = {
-    animationData: groovyWalkAnimation,
+    animationData: animationData,
     loop: true,
     style: {
       width: svgWidth,
