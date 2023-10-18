@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { Nav } from "react-bootstrap";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../store/mobVeriSlice";
 import { setComponentToShow } from "../../store/modalToShow";
@@ -13,7 +15,7 @@ const options = [
 ];
 function OptionZero() {
   return (
-    <div className="flex max-md:flex-grow   min-h-56   flex-col 4">
+    <div className="flex max-md:flex-grow   h-64   flex-col 4">
       <div className="text-4xl max-md:[32px] font-[700] text-black ">
         focused
       </div>
@@ -30,7 +32,7 @@ function OptionZero() {
 }
 function OptionOne() {
   return (
-    <div className="flex min-h-56  flex-col ">
+    <div className="flex h-64 flex-col ">
       <div className="text-4xl text-black max-md:[32px]   font-[700]">
         learn from the
       </div>
@@ -44,7 +46,7 @@ function OptionOne() {
 }
 function OptionTwo() {
   return (
-    <div className="flex min-h-56  flex-col">
+    <div className="flex h-64 max-xl:mr-[161px]  flex-col">
       <div className="text-4xl  max-md:[32px] text-black font-[700]">
         clear doubts,
       </div>
@@ -61,7 +63,7 @@ function OptionTwo() {
 }
 function OptionThree() {
   return (
-    <div className="flex 6 min-h-56  flex-col ">
+    <div className="flex 6 h-64  flex-col ">
       <div className="text-4xl max-md:[32px] text-black font-[700]">
         premium learning,
       </div>
@@ -76,7 +78,7 @@ function OptionThree() {
 }
 function OptionFour() {
   return (
-    <div className="flex  min-h-56  flex-col ">
+    <div className="flex  h-64 flex-col ">
       <div className="text-4xl  max-md:[32px] text-black font-[700]">
         structured success
       </div>
@@ -110,7 +112,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
   }, [data]);
 
   return (
-    <div className="max-md:hidden bg-white text-black relative">
+    <div className=" max-xl:hidden bg-white text-black relative">
       <div className="h-full mt-1 whitespace-nowrap  flex items-center">
         {data.map((tab, index) => (
           <span
@@ -124,7 +126,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
           </span>
         ))}
         <span
-          className="border-b-2 border-blue-500 absolute bottom-0 transition-all duration-500"
+          className="border-b-2 bg-black border-blue-500 absolute bottom-0 transition-all duration-500"
           style={{ left, width: widths[selectedTab] }}
         ></span>
       </div>
@@ -141,7 +143,10 @@ const SwitchTabs1 = ({ data, onTabChange }) => {
   };
 
   return (
-    <div className="bg-white md:hidden no-scrollbar text-black h-11 relative w-full">
+    <div
+      className="bg-white  no-scrollbar text-black h-11 relative w-screen
+    "
+    >
       <div className="flex space-x-4 whitespace-nowrap overflow-x-auto">
         {data.map((option, index) => (
           <span
@@ -199,7 +204,7 @@ function ThirdSection() {
 
     return windowWidth;
   };
-  const [svgWidth, setSvgWidth] = useState(590);
+  const [svgWidth, setSvgWidth] = useState(592);
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 315 : 592);
   };
@@ -225,8 +230,9 @@ function ThirdSection() {
     setSelectedOption(index);
   };
   const windowWidth = useWindowWidth();
-  const isMobileView = typeof windowWidth !== "undefined" && windowWidth <= 768;
-
+  const isMobileView =
+    typeof windowWidth !== "undefined" && windowWidth <= 1280;
+  console.log(windowWidth, "jvmjv", isMobileView);
   const borderPosition = {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
   };
@@ -237,7 +243,7 @@ function ThirdSection() {
   };
   return (
     <div className="items-center container no-scrollbar h-min py-16 bg-white">
-      <div className="md:w-[70%] md:max-w-[1000px] max-md:w-full mx-auto flex flex-col">
+      <div className="md:w-[95%]   max-md:w-full mx-auto flex flex-col">
         <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
           <SwitchTabs data={options} onTabChange={onTabChange} />
           {isMobileView && (
@@ -248,7 +254,7 @@ function ThirdSection() {
         </div>
       </div>
       <div
-        className="flex md:px-20  max-md:flex-col max-md:w-full  
+        className="flex md:-20 gap-6 w-[95%]  max-md:flex-col max-md:w-full  
        justify-between  items-center rowww"
       >
         <Image
@@ -258,7 +264,10 @@ function ThirdSection() {
           alt="thirdSection"
           className="my-imag max-md:w-screen  md:w-1/2"
         />
-        <div className=" flex md:w-1/2 md:pr-36 md:items-start items-center max-md:mt-8 max-md:ml-6 flex-col">
+        <div
+          className=" flex md:w-1/2 min-h-full  md:items-start items-center
+         max-md:mt-8 max-md:ml-6 flex-col"
+        >
           <div className="optionContaier  max-md:h-[200px]">
             {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
               (Component, index) => (
@@ -273,10 +282,10 @@ function ThirdSection() {
               )
             )}
           </div>
-          <div className=" w-full flex justify-center items-center">
+          <div className=" w-full max-md:mt-10 flex justify-start max-md:justify-center items-center">
             <button
               onClick={startLearning}
-              className="text-white h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-blue-500 rounded-2xl"
+              className="text-white font-[600] h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-xl"
             >
               <div>
                 start learning for free <span>&#8599;</span>

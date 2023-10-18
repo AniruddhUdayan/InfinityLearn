@@ -17,7 +17,7 @@ const ProgressTabs = () => {
       <div className='session_progress_center'>
       <Row>
       <Col xs={12} md={12} className="session_progress">
-        <div className="steps_bar">
+        <div className="steps_bar steps_mob_d_done">
           <div className="step one complete active">
             1
             <div className="step_desc">
@@ -43,6 +43,17 @@ const ProgressTabs = () => {
             </div>
           </div>
         </div>
+                  <div className='mob_steps_flex'>
+                    <div className={`mob_step_sep active`}>
+
+                    </div>
+                    <div className={`mob_step_sep ${ isStudentProfileCompleted ? 'active' : ''}`}>
+
+                    </div>
+                    <div className={`mob_step_sep ${isPersonalizeStarted ? 'active' : ''}`}>
+
+                    </div>
+                  </div>
       </Col>
     </Row>
     </div>
@@ -53,7 +64,7 @@ const ProgressTabs = () => {
           <div className='session_progress_center'>
             <Row>
         <Col xs={12} md={12} className="session_progress">
-          <div className="steps_bar">
+          <div className="steps_bar steps_mob_d_done">
             <div className="step one complete active">
               1
               <div className="step_desc">
@@ -70,6 +81,14 @@ const ProgressTabs = () => {
               </div>
             </div>
           </div>
+          <div className='mob_steps_flex'>
+                    <div className={`mob_step_sep  active`}>
+
+                    </div>
+                    <div className={`mob_step_sep ${ isPersonalizeStarted ? 'active' : ''}`}>
+
+                    </div>
+                  </div>
         </Col>
       </Row>
             </div>

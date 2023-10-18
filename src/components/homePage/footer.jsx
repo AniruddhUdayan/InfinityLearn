@@ -29,7 +29,7 @@ function Footer() {
               alt="brand logo"
               className="my-image-footer"
             />
-            <div className="md:w-[80%] mt-6 flex flex-col gap-4 text-[16px] font-[500]">
+            <div className="md:w-[80%] mt-6 flex flex-col  text-[16px] font-[500]">
               <div className="flex flex-row gap-4">
                 <FaPhoneAlt className="" />
                 <p>+91 9999999999</p>
@@ -113,8 +113,8 @@ function Footer() {
           <div className="md:basis-2/4 text-black mb-4 mt-6">
             <div className="flex flex-col gap-6 ">
               <div className="flex flex-row w-full flex-wrap   text-[14px] lg:text-[16px]  font-normal mt-4">
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
-                  <div className="font-[600] text-[16px] lg:text-[18px] ">
+                <div className="flex flex-col gap-1 m-2 min-w-[150px]">
+                  <div className="font-[600] mb-3 text-[16px] lg:text-[18px] ">
                     company
                   </div>
                   <Link
@@ -160,8 +160,8 @@ function Footer() {
                     <p>become a Teacher</p>
                   </Link>
                 </div>
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
-                  <div className="font-[600] text-[18px]">support</div>
+                <div className="flex flex-col gap-1 m-2 min-w-[150px]">
+                  <div className="font-[600] mb-3 text-[18px]">support</div>
                   <Link className=" no-underline text-black" href="/">
                     <p>get in touch</p>
                   </Link>
@@ -187,8 +187,8 @@ function Footer() {
                     <p>terms and conditions</p>
                   </Link>
                 </div>
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
-                  <div className="font-[600] text-[18px]">courses</div>
+                <div className="flex flex-col gap-1 m-2 min-w-[150px]">
+                  <div className="font-[600] mb-3 text-[18px]">courses</div>
                   <Link className=" no-underline text-black" href="/">
                     <p>IIT JEE</p>
                   </Link>
@@ -214,8 +214,8 @@ function Footer() {
                     <p>CBSE tutions</p>
                   </Link>
                 </div>
-                <div className="flex flex-col gap-3 m-2 min-w-[150px]">
-                  <div className="font-[600] text-[18px]">more</div>
+                <div className="flex flex-col gap-1 m-2 min-w-[150px]">
+                  <div className="font-[600] text-[18px] mb-3">more</div>
                   <Link className=" no-underline text-black" href="/">
                     <p>IL for schools</p>
                   </Link>
@@ -334,49 +334,49 @@ function Footer() {
                 Popular Books
               </div>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/"
               >
                 HC Verma Part 1
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/"
               >
                 HC Verma Part 2
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/"
               >
                 RS Agarwal
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/"
               >
                 RD Sharma
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/"
               >
                 Lakhmir Singh
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry/"
               >
                 DK Goel
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/"
               >
                 Sandeep Garg
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths/"
               >
                 TS Grewal
@@ -387,25 +387,25 @@ function Footer() {
                 NCERT solutions
               </div>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/"
               >
                 Class 12 NCERT Solutions
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/"
               >
                 Class 11 NCERT Solutions
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/"
               >
                 Class 10 NCERT Solutions
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/"
               >
                 Class 9 NCERT Solutions
@@ -417,13 +417,13 @@ function Footer() {
                 Class 8 NCERT Solutions
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/"
               >
                 Class 7 NCERT Solutions
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths/"
               >
                 Class 6 NCERT Solutions
@@ -434,43 +434,43 @@ function Footer() {
                 NCERT exempler
               </div>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/"
               >
                 Class 12 NCERT Exemplar
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/"
               >
                 Class 11 NCERT Exemplar
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/"
               >
                 Class 10 NCERT Exemplar
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/"
               >
                 Class 9 NCERT Exemplar
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/"
               >
                 Class 8 NCERT Exemplar
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/"
               >
                 Class 7 NCERT Exemplar
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-11/maths/"
               >
                 Class 6 NCERT Exemplar
@@ -487,31 +487,31 @@ function Footer() {
                 Rajasthan State Board
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/"
               >
                 West Bengal State Board
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/maths/"
               >
                 Gujarat State Board
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/biology/"
               >
                 Telengana State Board
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/physics/"
               >
                 Andhra Pradesh State Board
               </a>
               <a
-                className=" no-underline text-black"
+                className=" no-underline text-black mb-3"
                 href="https://infinitylearn.com/surge/study-materials/ncert-solutions/class-12/chemistry/"
               >
                 Uttar Pradesh State Board
@@ -522,25 +522,25 @@ function Footer() {
         <div className="flex flex-row flex-wrap justify-s gap-2 text-[16px] font-light">
           <div className="flex flex-col gap-1 font-[400] m-2 min-w-[210px]">
             <div className="font-[600] text-[18px] mb-[20px]">Subject</div>
-            <a className=" no-underline text-black" href="">
+            <a className=" no-underline text-black mb-3" href="">
               Maths
             </a>
-            <a className=" no-underline text-black" href="">
+            <a className=" no-underline text-black mb-3" href="">
               Science
             </a>
-            <a className=" no-underline text-black" href="">
+            <a className=" no-underline text-black mb-3" href="">
               Physics
             </a>
-            <a className=" no-underline text-black" href="">
+            <a className=" no-underline text-black mb-3" href="">
               Chemistry
             </a>
-            <a className=" no-underline text-black" href="">
+            <a className=" no-underline text-black mb-3"  href="">
               Economics
             </a>
-            <a className=" no-underline text-black" href="">
+            <a className=" no-underline text-black mb-3" href="">
               Accounting
             </a>
-            <a className=" no-underline text-black" href="">
+            <a className=" no-underline text-black mb-3" href="">
               Business Studies
             </a>
           </div>

@@ -20,7 +20,7 @@ const ExamPage = ({ params }) => {
     return (
         <div className='poppins'>
             <Header />
-            <PackageSubscription />
+            {/* <PackageSubscription /> */}
             <LandingExam classFor={params.class} examFor={params.exam} />
             <Promise classFor={params.class} examFor={params.exam} />
             <Courses classFor={params.class} examFor={params.exam} />

@@ -234,7 +234,7 @@ export default function Home({ params }: any) {
               </div>
             </div>
           </div>
-          <div className="sm:mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-[1224px] sm:min-w-[410px] w-auto overflow-scroll custom-scrollbar">
+          <div className="sm:mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-[684px] sm:min-w-[410px] w-auto overflow-scroll custom-scrollbar">
             <div
               className={`${poppins700.className} w-auto text-[#080E14] sm:text-[48px] text-[20px] font-bold leading-60 mx-[20px]`}
             >

@@ -56,7 +56,7 @@ const SelectDevice = () => {
                 <Row>
                     <Col xs={12} md={6}>
                         <Image
-                            src="/login/newUser/newUser1.png"
+                            src="/login/newUser/newUser1.webp"
                             height={250}
                             width={600}
                             alt="mob-ver-1"
@@ -78,7 +78,7 @@ const SelectDevice = () => {
                                         {
                                             devices.map((de,index)=>(
                                                 <div className={`device_lists ${selectedDevice == de ? 'active' :''}`} key={index} onClick={()=>handleChange(de)}>
-                                                    <img src={de?.icon} alt={de?.icon} />
+                                                    <Image src={de?.icon} alt={de?.icon} />
                                                     <p className="device_Icon_text">{de?.text}</p>
                                                 </div>
                                             ))

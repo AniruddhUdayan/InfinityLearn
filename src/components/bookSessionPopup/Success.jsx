@@ -10,7 +10,7 @@ const Success = () => {
           <Row>
             <Col xs={12} md={6}>
             <Image
-          src="/login/mobVer/SuccessImage.png"
+          src="/login/mobVer/SuccessImage.webp"
           height={250}
           width={600}
           alt="mob-ver-1"

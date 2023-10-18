@@ -55,7 +55,9 @@ function SixthSection() {
            bg-[#007BFF] rounded-2xl"
         >
           <div className=" flex justify-center gap-2">
-            <div className="">start learning for free </div>
+            <div className=" text-[16px] font-[600]">
+              start learning for free{" "}
+            </div>
             <div>
               <GoArrowUpRight size={24} />
             </div>
@@ -66,29 +68,30 @@ function SixthSection() {
       <div className=" h-min bg-gray-200 max-md:mt-3 mt-[80px] ">
         <div className=" max-w-screen-xl mx-auto px-4 flex max-md:flex-col  justify-between relative">
           <div className=" flex flex-col max-md:justify-end   mt-20  ">
-            <div className=" text-[64px] max-md:text-[32px]  max-md:px-5   font-[700]   text-[#007BFF]">
+            <div className=" text-[64px] max-xl:text-[54px] max-md:text-[32px]  max-md:px-5   font-[700]   text-[#007BFF]">
               best study
-              <span className="text-[#007BFF] ml-2 max-md:text-[32px] md:hidden  mb-4 font-[700] text-6xl">
+              <span className="text-[#007BFF] ml-2 max-xl:text-[54px] max-md:text-[32px] md:hidden  mb-4 font-[700] text-6xl">
                 material,{" "}
               </span>
             </div>
-            <div className="text-[#007BFF] max-md:px-5  text-[64px]  max-md:hidden max-md:text-[32px]    font-[700] ">
+            <div className="text-[#007BFF] max-xl:text-[54px] max-md:px-5  text-[64px]  max-md:hidden max-md:text-[32px]    font-[700] ">
               material,{" "}
-              <span className="text-[#080E14] font-[700] max-md:text-[32px]   text-[64px]">
+              <span className="text-[#080E14] max-xl:text-[54px] font-[700] max-md:text-[32px]   text-[64px]">
                 now at
               </span>
             </div>
-            <div className=" text-[#080E14] max-md:px-5  max-md:text-[32px]  font-[700] md:mb-10 max-md:mb-1  text-[64px]">
-              <span className=" md:hidden text-black max-md:text-[32px]  text-[64px]  font-[700] ">
+            <div className=" text-[#080E14] max-xl:text-[54px] max-md:px-5  max-md:text-[32px]  font-[700] md:mb-10 max-md:mb-1  text-[64px]">
+              <span className=" max-xl:text-[54px] md:hidden text-black max-md:text-[32px]  text-[64px]  font-[700] ">
                 now at
               </span>{" "}
-              your finger <span className="max-md:hidden">tips!</span>
+              your finger{" "}
+              <span className=" max-xl:text-[54px] max-md:hidden">tips!</span>
             </div>
-            <div className=" text-[#080E14] max-md:px-5 md:hidden  max-md:text-[32px] font-[700] md:mb-10 max-md:mb-6  text-6xl">
+            <div className=" max-xl:text-[54px] text-[#080E14] max-md:px-5 md:hidden  max-md:text-[32px] font-[700] md:mb-10 max-md:mb-6  text-6xl">
               tips!
             </div>
-            <div className="flex max-md:px-5 max-md:flex-col flex-wrap">
-              <div className="w-1/2 max-md:w-full p-2">
+            <div className="flex max-md:px-5 max-xl:flex-col flex-wrap">
+              <div className="w-1/2 whitespace-nowrap max-md:w-full p-2">
                 <div className="flex items-center space-x-4 mb-5 ">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
@@ -143,11 +146,11 @@ function SixthSection() {
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/../homepage/sixthSection/apple.webp"
-                    height={50}
+                    src="/homepage/sixthSection/apple.webp"
+                    height={80}
                     width={180}
                     alt="Download on the Apple App Store"
-                    className=" pb-[0.8rem] "
+                    className=" aspect-[18/5]"
                   />
                 </a>
 
@@ -159,9 +162,9 @@ function SixthSection() {
                   <Image
                     src="/../homepage/sixthSection/playstore.svg"
                     height={50}
-                    width={186}
+                    width={180}
                     alt="playsto.svg"
-                    className=" pb-2"
+                    className=" aspect-[18/5]"
                   />
                 </a>
               </div>
@@ -170,10 +173,11 @@ function SixthSection() {
           <div className=" flex flex-col justify-end">
             <div className=" md:mt-10 mt-3 relative">
               <Image
-                src="/../homepage/sixthSection/sixthSec1.webp"
+                src="/homepage/sixthSection/sixthSec1.webp"
                 alt="Sixth Section Background"
                 height={730}
                 width={491}
+                className="aspect-[2/3]"
               />
             </div>
           </div>
@@ -181,7 +185,7 @@ function SixthSection() {
             <div className="mb-4 ml- text-black text-center text-4xl font-bold">
               download the app
             </div>
-            <div className="flex max-md:w- pl-10 max-md:justify-center items-center  justify-between">
+            <div className="flex max-md:w-  max-md:justify-center items-center  justify-between">
               {/* <div className=" bg-black bg-apple rounded-xl w-full  h-fit"> */}
 
               <a
