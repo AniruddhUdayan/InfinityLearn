@@ -190,7 +190,7 @@ function ScrollableDiv() {
 
     return () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      scrollRef.current.removeEventListener("scroll", handleScroll);
+      scrollRef.current?.removeEventListener("scroll", handleScroll);
     };
   }, [cardWidth]);
 

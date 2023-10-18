@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Header from "../header.jsx";
-import Footer from "../homePage/footer.jsx";
+import Footer from "./footer.jsx";
 import FirstSection from "./firstSection.jsx";
 import SecondSection from "./secondSection.jsx";
 import ThirdSection from "./thirdSection.jsx";
@@ -30,7 +30,7 @@ const HomePage = () => {
             {/* <Download /> */}
             <SixthSection />
             <SeventhSection />
-            <Footer />
+            <Footer/>
             <LoginPopup />
             <SelectGradePopup />
             <BookSessionPopup />
