@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
-import Lottie from "lottie-react";
+
+import Lottie, { useLottie } from "lottie-react";
 // import LottieAnimation from "./fireAnimation.jsx";
 import animationData from "./fireanimation.json";
 // import "./letssee.css";
@@ -312,11 +313,22 @@ function FourthSection() {
     const newDashIndex = Math.floor(scrollPosition / 2);
     setDashIndex(newDashIndex);
   };
+  // const options = {
+  //   animationData,
+  //   loop: true,
+  //   autoplay: true,
+  // };
+
   const options = {
-    animationData,
+    animationData: animationData,
     loop: true,
-    autoplay: true,
+    style: {
+      width: svgWidth,
+      height: svgWidth,
+    },
   };
+
+  const { View } = useLottie(options);
 
   const dashWidth = [50, 50, 50, 50, 50];
 
@@ -328,20 +340,13 @@ function FourthSection() {
       >
         <div className="flex flex-col items-center">
           <div className="flex items-center mb-10">
-            {/* <Image
-              src="fire.svg"
-              className=" w-auto h-auto"
-              height={40}
-              width={40}
-              fit="contain"
-              alt=" fire.svg"
-            /> */}
-            {/* <LottieAnimation /> */}
+            {View}
+            {/* <Lottie animationData={animationData} loop={true} />
             <Lottie
-              options={options}
+              options={lottieOptions}
               style={{ width: svgWidth, height: svgWidth }}
               speed={1.5}
-            />
+            /> */}
             <div className="mt-8 max-md:mb-4 max-md:text-[36px] text-6xl font-bold text-black">
               new and
               <span className="text-6xl ml-2 max-md:ml-2 max-md:text-[36px]  font-bold text-[#007BFF]">
