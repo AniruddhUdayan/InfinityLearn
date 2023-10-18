@@ -1,0 +1,34 @@
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+  .stat {
+    display: flex;
+  }
+}
+@media (max-width: 320px) {
+  .res {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: max-content;
+  }
+  .res1 {
+    white-space: nowrap;
+  }
+}
+.scrollable-tabs {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: min-content;
+}
+
+/* This ensures that there's no unnecessary vertical scrollbar */
+.scrollable-tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollable-tabs::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.scrollable-tabs::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}

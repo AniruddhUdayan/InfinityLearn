@@ -45,7 +45,6 @@
 .form-select {
   width: 340px !important;
   border-radius: 0.75rem;
-  
 }
 
 @media only screen and (min-width: 481px) and (max-width: 576px) {
@@ -124,4 +123,67 @@
         width: 90% !important;
         max-width: 90% !important;
     } */
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.circle {
+  background-color: #e9ecef;
+  border-radius: 50%;
+  width: 36px; /* Increased from 24px */
+  height: 36px; /* Increased from 24px */
+  display: inline-block;
+  line-height: 36px; /* Adjusted to match height */
+  color: #6c757d;
+  z-index: 1;
+}
+
+.dashed-line {
+  position: absolute;
+  top: 50%; /* Centered vertically */
+  transform: translateY(-50%); /* Centered vertically */
+  left: 25%;
+  flex-grow: 1;
+  height: 3px; /* Increased from 1px */
+  width: calc(100% - 36px); /* Adjusted to match new circle size */
+  background: #e9ecef;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    #e9ecef 8px,
+    #e9ecef 10px /* Made dashes thicker */
+  );
+  z-index: 0;
+}
+
+.filled {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    #007bff 8px,
+    #007bff 10px /* Made dashes thicker */
+  );
+}
+
+.active .circle {
+  background-color: #007bff;
+  color: white;
+}
+
+.labels {
+  font-size: 14px;
+}
+
+.label {
+  flex: 2;
+ 
+  text-align: start;
 }
