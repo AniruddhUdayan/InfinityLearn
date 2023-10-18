@@ -22,70 +22,70 @@ const courses = [
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image1.png",
+    svg: "/courses/image1.webp",
   },
   {
     id: 4,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image1.png",
+    svg: "/courses/image1.webp",
   },
   {
     id: 5,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image2.png",
+    svg: "/courses/image2.webp",
   },
   {
     id: 6,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.png",
+    svg: "/courses/image3.webp",
   },
   {
     id: 7,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.png",
+    svg: "/courses/image3.webp",
   },
   {
     id: 8,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.png",
+    svg: "/courses/image3.webp",
   },
   {
     id: 9,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.png",
+    svg: "/courses/image3.webp",
   },
   {
     id: 10,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.png",
+    svg: "/courses/image3.webp",
   },
   {
     id: 11,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.png",
+    svg: "/courses/image3.webp",
   },
   {
     id: 12,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.png",
+    svg: "/courses/image3.webp",
   },
 ];
 function Card(props) {
@@ -343,13 +343,13 @@ function FourthSection() {
             /> */}
             {View}
             {/* <LottieAnimation /> */}
-            <Lottie
+            {/* <Lottie
               animationData={animationData}
               autoplay={true}
               loop={true}
               speed={1.5}
               style={{ width: svgWidth, height: svgWidth }}
-            />
+            /> */}
             <div className="mt-8 max-md:mb-4 max-md:text-[36px] text-6xl font-bold text-black">
               new and
               <span className="text-6xl ml-2 max-md:ml-2 max-md:text-[36px]  font-bold text-[#007BFF]">
