@@ -144,7 +144,7 @@ function FirstSection() {
           <Col className=" imageRes ">
             <Image
               className="imageRes"
-              src="/homepage/firstSection/imageRes.png"
+              src="/../homepage/firstSection/imageRes.webp"
               width={600}
               height={350}
               alt="firstSectionRes"
@@ -176,7 +176,7 @@ function FirstSection() {
       <Row>
         <div className="imageNonRes w-full">
           <Image
-            src="/homepage/firstSection/firstSection.png"
+            src="/homepage/firstSection/firstSection.webp"
             width={490}
             height={541}
             alt="firstSection"
