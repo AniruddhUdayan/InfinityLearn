@@ -110,6 +110,7 @@ a {
   }
   .poppins {
     font-family: "Poppins", sans-serif;
+    font-weight: bold;
   }
   .box_auto {
     display: inline-block;
@@ -317,11 +318,11 @@ ul {
   animation: slideOut 1s forwards;
 }
 .container {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
-.container::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+.container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 .word {
   animation-duration: 1000ms;
