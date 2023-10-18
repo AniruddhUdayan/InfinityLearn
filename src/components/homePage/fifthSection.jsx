@@ -192,19 +192,6 @@ function NewLevelShower({ currentIndex }) {
 }
 function Trial() {
   const [scrollPos, setScrollPos] = useState(0);
-  const [lineLength, setLineLength] = useState(9);
-  // useEffect(() => {
-  //   const maxScroll = reviews.length - 1;
-  //   const interval = setInterval(() => {
-  //     if (scrollPos >= maxScroll) {
-  //       setScrollPos(0);
-  //     } else {
-  //       setScrollPos((prev) => prev + 1);
-  //     }
-  //   }, 2400);
-
-  //   return () => clearInterval(interval);
-  // }, [scrollPos]);
   function handleSlide() {
     const maxScroll = reviews.length - 1;
     if (scrollPos >= maxScroll) {
@@ -222,7 +209,7 @@ function Trial() {
 
       <Carousel
         controls={false}
-        className=" items-center mx-auto w-[350px] top-4"
+        className=" items-center mx-auto w-fit max-w-[380px] top-4"
         interval={2000}
         onSlide={handleSlide}
       >
