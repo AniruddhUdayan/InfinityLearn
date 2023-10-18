@@ -107,9 +107,10 @@ function SeventhSection() {
               className="rounded-l-lg max-md:h-12
                max-md:placeholder:text-sm max-md:rounded-l-3xl
                 max-md:bg-white max-md:placeholder-gray-500
-                 bg-blue-500 text-black w-full sm:w-1/2 md:w-96
+                 bg-blue-500 text-white w-full sm:w-1/2 md:w-96
                   h-10 md:h-12 pl-4 md:pl-6 text-base md:text-lg
                    border-2 placeholder-white
+                   
                      placeholder-text:ml-4
                    "
               type="text"
