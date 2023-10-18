@@ -92,7 +92,7 @@ function SixthSection() {
             </div>
             <div className="flex max-md:px-5 max-xl:flex-col flex-wrap">
               <div className="w-1/2 whitespace-nowrap max-md:w-full p-2">
-                <div className="flex items-center space-x-4 mb-5 ">
+                <div className="flex items-center space-x-4 mb-[20px] max-md:mb-[23px] ">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
                     height={svgWidth1}
@@ -104,7 +104,7 @@ function SixthSection() {
                     live classes
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 mb-5 ">
+                <div className="flex items-center space-x-4 mb-[20px] max-md:mb-[20px] ">
                   <Image
                     src="/../homepage/sixthSection/tick.svg"
                     height={svgWidth1}
