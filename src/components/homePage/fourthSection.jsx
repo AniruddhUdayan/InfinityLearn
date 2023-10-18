@@ -312,6 +312,16 @@ function FourthSection() {
     const newDashIndex = Math.floor(scrollPosition / 2);
     setDashIndex(newDashIndex);
   };
+  const options = {
+    animationData: groovyWalkAnimation,
+    loop: true,
+    style: {
+      width: svgWidth,
+      height: svgWidth,
+    },
+  };
+
+  const { View } = useLottie(options);
 
   const dashWidth = [50, 50, 50, 50, 50];
 
@@ -331,6 +341,7 @@ function FourthSection() {
               fit="contain"
               alt=" fire.svg"
             /> */}
+            {View}
             {/* <LottieAnimation /> */}
             <Lottie
               animationData={animationData}
