@@ -83,15 +83,15 @@ const handlePersonalized = ()=>{
                     <div className='session_success_card'>
                         <ul className='session_success_card_list'>
                             <li>
-                                <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'></img>
+                                <Image className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'></Image>
                                 <span className='sscText'>{date} </span>
                             </li>
                             <li>
-                                <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'></img>
+                                <Image className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'></Image>
                                 <span className='sscText'>{time}</span>
                             </li>
                             <li>
-                                <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'></img>
+                                <Image className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'></Image>
                                 <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                             </li>
                         </ul>
