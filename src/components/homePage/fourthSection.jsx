@@ -312,6 +312,11 @@ function FourthSection() {
     const newDashIndex = Math.floor(scrollPosition / 2);
     setDashIndex(newDashIndex);
   };
+  const options = {
+    animationData,
+    loop: true,
+    autoplay: true,
+  };
 
   const dashWidth = [50, 50, 50, 50, 50];
 
@@ -333,11 +338,9 @@ function FourthSection() {
             /> */}
             {/* <LottieAnimation /> */}
             <Lottie
-              animationData={animationData}
-              autoplay={true}
-              loop={true}
-              speed={1.5}
+              options={options}
               style={{ width: svgWidth, height: svgWidth }}
+              speed={1.5}
             />
             <div className="mt-8 max-md:mb-4 max-md:text-[36px] text-6xl font-bold text-black">
               new and
