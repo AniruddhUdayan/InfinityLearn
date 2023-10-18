@@ -7,8 +7,8 @@ import { Button } from '@mui/material'
 
 const Scholarship = () => {
 	return (
-		<div className='bg-[#F1F2F6] lg:transform lg:-translate-y-1/2 '>
-			<div className="bg-[#00364E] text-[#CECFD0] px-4 pt-8 lg:pt-0 lg:px-10 grid grid-cols-1 lg:grid-cols-2 overflow-hidden lg:mx-20 lg:rounded-2xl lg:overflow-visible">
+		<div className='bg-[#F1F2F6] lg:-mb-24 '>
+			<div className="bg-[#00364E] text-[#CECFD0] px-4 pt-8 lg:pt-0 lg:px-10 grid grid-cols-1 lg:grid-cols-2 overflow-hidden lg:mx-20 lg:rounded-2xl lg:overflow-visible lg:transform lg:-translate-y-1/2">
 				<div className='p-2 lg:p-4 pb-0 lg:pb-0 flex justify-end flex-col items-center relative order-last lg:order-none'>
 					<Image src={cap} alt='cap' width={120} height={0} className='-mb-8 z-10 w-[80px] lg:w-[120px] lg:hidden' />
 					<Image src={green} alt='green' width={600} height={0} className='z-10 w-[355px] lg:w-[600px] static lg:absolute aspect-[13/10]' />
