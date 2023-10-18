@@ -146,11 +146,11 @@ function SixthSection() {
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/homepage/sixthSection/apple.webp"
+                    src="/homepage/sixthSection/apple1.svg"
                     height={80}
                     width={180}
                     alt="Download on the Apple App Store"
-                    className=" aspect-[18/5]"
+                    className=" aspect-[18/5] mb-1"
                   />
                 </a>
 
