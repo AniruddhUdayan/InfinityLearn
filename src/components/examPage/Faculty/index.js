@@ -85,10 +85,8 @@ const Faculty = ({ classFor, examFor }) => {
 					<FacultyCard ref2={carouselEle} key={i} name={f?.name} image={f?.image} headline={f?.headline} subject={f?.subject} usp={f?.usp} />
 				))}
 			</div>
-			<div className="text-center mt-4 lg:mt-10">
-				<Button variant='outlined' className="w-full lg:w-auto" disableElevation color='black' sx={{ fontWeight: 'bold', borderRadius: '0.5rem', paddingX: '4rem' }} >
-					meet the teachers
-				</Button>
+			<div className="text-center mt-4 lg:mt-10 text-[#007BFF] ">
+				explore all
 			</div>
 		</div>
 	)

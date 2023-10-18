@@ -38,7 +38,7 @@ const CourseCard = ({ title, img, classes, views, desc, price, live, point1, poi
             <div className="text-[#52565B] text-sm ">{desc}</div>
             <div className="h-[1px] w-full my-6 bg-[#99CAFF]"></div>
             <div className="flex justify-between gap-4 mb-3 items-center">
-                <div className="text-[#52565B]">starting at <span className="text-[#00254C] font-semibold">₹{price}/month</span></div>
+                <div className="text-[#52565B] text-lg">starting at <span className="text-[#00254C]">₹{price}/month</span></div>
                 {!live && <div className="text-[#007BFF] text-sm">see more <Image src={expand} width={7} alt={'expand'} className='rotate-90 inline-block ms-2' /></div>}
             </div>
             {live && <>

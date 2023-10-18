@@ -71,7 +71,7 @@ const Card3 = ({ svg1, svg2, altText, titleLineOne, titleLineTwo }) => {
   }
 
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 768 ? 50 : 90);
+    setSvgWidth(window.innerWidth < 768 ? 50 : 90);
   };
   useEffect(() => {
     // Update width on mount
@@ -174,7 +174,7 @@ const Card2 = ({ svg1, svg2, altText, title, subtitle }) => {
     setSrc(svg1);
   }
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 768 ? 50 : 90);
+    setSvgWidth(window.innerWidth < 768 ? 50 : 90);
   };
   useEffect(() => {
     // Update width on mount
@@ -219,7 +219,7 @@ const Card1 = ({ svg1, svg2, altText, text }) => {
     setSrc(svg1);
   }
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 768 ? 50 : 96.74);
+    setSvgWidth(window.innerWidth < 768 ? 50 : 96.74);
   };
 
   useEffect(() => {
