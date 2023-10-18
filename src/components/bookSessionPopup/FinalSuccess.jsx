@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector } from "react-redux";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -6,16 +6,15 @@ import Row from 'react-bootstrap/Row';
 import Image from "next/image";
 import ProgressTabs from './ProgressTabs';
 import analytics from '../../utils/analytics';
+import { sendSQSMsg } from "../../services/userServics";
+import * as moment from 'moment';
 const FinalSuccess = () => {
-    const date = useSelector(
-      (state) => state.bookSessionData.selectedDate
-    );
-    const time = useSelector(
-      (state) => state.bookSessionData.selectedTime
-    );
-    const language = useSelector(
-        (state) => state.bookSessionData.language
+    const bookSessionData = useSelector(
+        (state) => state.bookSessionData
       );
+useEffect(()=>{
+sendLSQ();
+},[])
       const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
     const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
     const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
@@ -25,6 +24,30 @@ const FinalSuccess = () => {
             platform:'Web',
         })
     }
+    const sendLSQ = async ()=>{
+  let Fields = {
+    mx_Grade : Number(userDetails?.grade?.name?.replace(/[^0-9]/g, '')),
+    mx_Exam: userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+    mx_Primary_Target_Exam : userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+    mx_Custom_6 : "website",
+    mx_Parent_Or_Student: bookSessionData?.relations?.join(','),
+    mx_Date_and_Time: `${bookSessionData?.selectedDate}, ${bookSessionData?.selectedTime}`,
+    mx_Device: bookSessionData?.device,
+    mx_Languages: bookSessionData?.language
+  }
+  let Payload = {
+    "ActivityDateTime": moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+    "Fields": Fields,
+    "FirstName": userDetails?.firstName,
+    "LastName": userDetails?.lastName,
+    "environment": 'staging',
+    "phone": userDetails?.phone,
+    "productId": 1,
+    "Source": "IL Website",
+    "type": "Lead",
+  }
+  sendSQSMsg(Payload);
+}
     return (
         <div>
             <Container>
@@ -67,11 +90,11 @@ const FinalSuccess = () => {
                                     <ul className='session_success_card_list'>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon' />
-                                            <span className='sscText'>{date} </span>
+                                            <span className='sscText'>{bookSessionData?.selectedDate} </span>
                                         </li>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon' />
-                                            <span className='sscText'>{time}</span>
+                                            <span className='sscText'>{bookSessionData?.selectedTime}</span>
                                         </li>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon' />
@@ -79,7 +102,7 @@ const FinalSuccess = () => {
                                         </li>
                                         <li>
                                             <img className='sscIcon' src='/bookSession/languageIcon.svg' alt='classicon' />
-                                            <span className='sscText'>{language} </span>
+                                            <span className='sscText'>{bookSessionData?.language} </span>
                                         </li>
                                     </ul>
                                 </div>

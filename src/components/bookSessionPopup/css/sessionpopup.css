@@ -17,11 +17,11 @@
   } */
 
   .session_heading{
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
     margin-top: 50px;
     font-size: 28px;
     line-height: 36px;
-    font-weight: 800;
+    font-weight: 900;
     text-transform: lowercase;
     color: #080E14;
   }
@@ -32,30 +32,44 @@
     margin-bottom: 10px;
   }
   .date_selection_box {
-    max-width: 400px; 
     overflow-x: scroll;
     white-space: nowrap;
+    width: 100%;
 }
 .date_selection_box::-webkit-scrollbar {
     width: 5px;
     display: none;
   }
 .date_selection_btn {
-    display: inline-flex;
     border: 1px solid #9C9FA1;
     border-radius: 12px;
     padding: 12px 10px 12px 10px;
-    font-weight: 600;
-    font-size: 16px;
+    display: inline-block;
+    width: 65px;
+    height: 75px;
     color: #000000;
-    margin-right: 15px;
+    text-align: center;
+    margin: 10px;
+    text-align: center;
 }
 .date_selection_btn.active{
     border: 1px solid #06AA2F;
     background: #D6F4DE;
 }
+.date_day {
+    margin: 0px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+}
+.day_month {
+    font-weight: 500;
+    font-size: 14px;
+    color: #52565B;
+    margin-top: 5px;
+}
 .time_selection_box {
-    max-width: 400px;
+    width: 100%;
     overflow-x: scroll;
     white-space: nowrap;
 }
@@ -64,7 +78,7 @@
     display: none;
   }
 .time_selection_btn {
-    display: inline-flex;
+    display: inline-block;
     border: 1px solid #9C9FA1;
     border-radius: 12px;
     padding: 12px;
@@ -335,8 +349,8 @@
         padding: 0px;
     }
     .right_box {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
     .session_popup.modal .modal-dialog {
         transform: none;
@@ -358,9 +372,6 @@
         overflow: auto;
         border-radius: 0px !important;
     }
-    .date_selection_box {
-        max-width: 350px; 
-    }
     .date_selection_btn {
         display: inline-block;
         padding: 12px 8px 12px 8px;
@@ -371,9 +382,6 @@
     .date_selection_btn.active{
         border: 2px solid #007BFF;
         background:#E6F2FF;
-    }
-    .time_selection_box {
-        max-width: 350px;
     }
     .time_selection_btn {
         padding: 12px 8px 12px 8px;
@@ -443,8 +451,8 @@
         padding: 0px;
     }
     .right_box {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
     .session_popup.modal .modal-dialog {
         transform: none;
@@ -466,9 +474,6 @@
         font-size: 22px;
         line-height: 30px;
     }
-    .date_selection_box {
-        max-width: 450px; 
-    }
     .date_selection_btn {
         display: inline-block;
         padding: 12px 8px 12px 8px;
@@ -479,9 +484,6 @@
     .date_selection_btn.active{
         border: 2px solid #007BFF;
         background:#E6F2FF;
-    }
-    .time_selection_box {
-        max-width: 450px;
     }
     .time_selection_btn {
         padding: 12px 8px 12px 8px;
@@ -527,8 +529,8 @@
         max-width: 60% !important;
     }
     .right_box {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
     .button_mobile_none{
         display: block !important;
@@ -542,9 +544,6 @@
         font-size: 26px;
         line-height: 30px;
     }
-    .date_selection_box {
-        max-width: 500px; 
-    }
     .date_selection_btn {
         display: inline-block;
         padding: 12px 8px 12px 8px;
@@ -555,9 +554,6 @@
     .date_selection_btn.active{
         border: 2px solid #007BFF;
         background:#E6F2FF;
-    }
-    .time_selection_box {
-        max-width: 500px;
     }
     .time_selection_btn {
         padding: 12px 8px 12px 8px;
@@ -600,8 +596,8 @@
         max-width: 85% !important;
     }
     .right_box {
-        margin-left: 15px;
-        margin-right: 16px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
     .session_heading {
         margin-top: 30px;

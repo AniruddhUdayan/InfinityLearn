@@ -9,13 +9,12 @@ import { setComponentToShow } from '../../store/BookSession/BookSessionPopup';
 import { setIsPersonalizeStarted } from '../../store/BookSession/BookSessionData';
 import ProgressTabs from './ProgressTabs';
 import analytics from '../../utils/analytics';
+import { sendSQSMsg } from "../../services/userServics";
+import * as moment from 'moment';
 const SessionSuccess = () => {
   const dispatch = useDispatch();
-  const date = useSelector(
-    (state) => state.bookSessionData.selectedDate
-  );
-  const time = useSelector(
-    (state) => state.bookSessionData.selectedTime
+  const bookSessionData = useSelector(
+    (state) => state.bookSessionData
   );
   const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
   const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
@@ -29,7 +28,8 @@ const handleSkipNow = ()=>{
     platform:'Web',
     grade: Number(userGrade),
     target_exam: userExam
-})
+});
+sendLSQ();
 }
 
 const handlePersonalized = ()=>{
@@ -40,7 +40,31 @@ const handlePersonalized = ()=>{
     platform:'Web',
     grade: userGrade,
     target_exam: userExam
-})
+});
+
+}
+
+const sendLSQ = async ()=>{
+  let Fields = {
+    mx_Grade : Number(userDetails?.grade?.name?.replace(/[^0-9]/g, '')),
+    mx_Exam: userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+    mx_Primary_Target_Exam : userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
+    mx_Custom_6 : "website",
+    mx_Parent_Or_Student: bookSessionData?.relations?.join(','),
+    mx_Date_and_Time: `${bookSessionData?.selectedDate}, ${bookSessionData?.selectedTime}`
+  }
+  let Payload = {
+    "ActivityDateTime": moment().utc().format("YYYY-MM-DD HH:mm:ss"),
+    "Fields": Fields,
+    "FirstName": userDetails?.firstName,
+    "LastName": userDetails?.lastName,
+    "environment": 'staging',
+    "phone": userDetails?.phone,
+    "productId": 1,
+    "Source": "IL Website",
+    "type": "Lead",
+  }
+  sendSQSMsg(Payload);
 }
   return (
     <div>
@@ -53,10 +77,12 @@ const handlePersonalized = ()=>{
           width={600}
           alt="mob-ver-1"
           className=" max-md:hidden"
+          layout="responsive"
         />
             </Col>
             <Col xs={12} md={6}>
-            <ProgressTabs />
+              <div className="right_box">
+              <ProgressTabs />
                 { isSkipNow &&             
               <Row>
                 <Col xs={12} md={12}>
@@ -83,15 +109,15 @@ const handlePersonalized = ()=>{
                     <div className='session_success_card'>
                         <ul className='session_success_card_list'>
                             <li>
-                                <Image className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'></Image>
-                                <span className='sscText'>{date} </span>
+                                <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'/>
+                                <span className='sscText'>{bookSessionData?.selectedDate} </span>
                             </li>
                             <li>
-                                <Image className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'></Image>
-                                <span className='sscText'>{time}</span>
+                                <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'/>
+                                <span className='sscText'>{bookSessionData?.selectedTime}</span>
                             </li>
                             <li>
-                                <Image className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'></Image>
+                                <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'/>
                                 <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                             </li>
                         </ul>
@@ -116,6 +142,7 @@ const handlePersonalized = ()=>{
                     }
                 </Col>
               </Row>
+              </div>
             </Col>
           </Row>
         </Container>

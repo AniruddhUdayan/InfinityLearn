@@ -6,7 +6,7 @@ import { store } from "../store/store.js"; // Adjust path as needed
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ThemeRegistry from "../components/ThemeRegistry/ThemeRegistry";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 // If 'next/font/google' doesn't have TypeScript definitions, you might use any
 const inter = Inter({ subsets: ["latin"] }) as any;
 

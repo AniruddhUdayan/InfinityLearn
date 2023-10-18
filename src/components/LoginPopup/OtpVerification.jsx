@@ -218,7 +218,7 @@ const isExitingUser = useSelector(
         />
           </Col>
           <Col xs={12} md={6}>
-            <div>
+            <div className="right_box">
             <Row>
               <Col md={12}>
                 <h2 className="otp_heading">Just ensuring it's our genius student. Enter the OTP</h2>
