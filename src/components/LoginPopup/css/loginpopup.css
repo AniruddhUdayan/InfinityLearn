@@ -1,4 +1,3 @@
-
 .login_popup.modal .modal-lg  {
     width: 1000px !important;
     max-width: 1100px !important;
@@ -35,6 +34,7 @@
     font-weight: 900;
     text-transform: lowercase;
     color: #080E14;
+    letter-spacing: 0.5px;
 }
 
 
@@ -43,7 +43,8 @@
     font-weight: 400;
     font-size: 15px;
     color: #080E14;
-
+    letter-spacing: 0.5px;
+    font-family: 'Poppins';
 }
 
 .otp_button_row {
@@ -59,6 +60,10 @@
     box-shadow: 0px 7px 7px 0px #007BFF1F;
     border-radius: 12px;
     padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
 }
 .otp_button:disabled{
     opacity: 0.5;
@@ -70,6 +75,7 @@
     border: 1px solid #9C9FA1;
     border-radius: 12px;
     padding: 0px 10px 0px 0px;
+    height: 50px;
 }
 .name_input{
     display: flex;
@@ -92,6 +98,7 @@
     text-decoration: underline;
     font-weight: 400;
     font-size: 14px;
+    letter-spacing: 0.5px;
 }
 
 .success_Icon {
@@ -109,6 +116,7 @@
     text-transform: lowercase;
     color: #080E14;
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .class_lable {
@@ -116,11 +124,11 @@
     font-size: 18px;
     color: #080E14;
     margin-bottom: 10px;
+    letter-spacing: 0.5px;
 }
 
 .select_exam_row {
     padding: 0px 10px 0px 30px;
-    ;
 }
 .exam_change_flex {
     display: flex;
@@ -139,6 +147,7 @@
     font-size: 20px;
     font-weight: 700;
     color: #080E14;
+    letter-spacing: 0.5px;
 }
 .otp_border_blue {
     border: 1px solid #007BFF !important;
@@ -170,6 +179,7 @@
     color: #3A3A3A;
     margin-left: 5px;
     text-transform: lowercase;
+    letter-spacing: 0.5px;
 }
 
 .term_label_flex {
@@ -208,6 +218,7 @@
     width: 100%;
     background: #3378FD;
     border-radius: 6px;
+    letter-spacing: 0.5px;
 }
 /* Mob show btn  end*/
 .exam_card_head {
@@ -220,6 +231,7 @@
     font-weight: 400;
     font-size: 12px;
     color: #080E14;
+    letter-spacing: 0.5px;
 }
 
 .exam_card_active {
