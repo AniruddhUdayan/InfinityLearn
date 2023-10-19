@@ -15,8 +15,9 @@
     width: 5px;
     display: none;
   } */
-.btn-close {
+  .login_popup.modal .modal-header .btn-close {
     opacity: 1 !important;
+    background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat !important;
 }
 .side_image{
     width: 100%;
