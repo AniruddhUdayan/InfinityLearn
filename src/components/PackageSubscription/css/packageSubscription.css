@@ -184,6 +184,121 @@
 
 .label {
   flex: 2;
- 
+
   text-align: start;
+}
+
+/* Css for package summary page */
+
+.package-summary-container {
+  border-radius: 20px;
+  background: #f1f2f6;
+  position: relative;
+  bottom: 40px;
+  height: 100%;
+  width: 100%;
+}
+.package-summary-logo {
+  margin: 12px;
+}
+.package-summary-sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 32px;
+  margin-left: 38px;
+  margin-right: 38px;
+}
+.package-summary-head {
+  color: #000;
+  /* font-family: Poppins; */
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px; /* 150% */
+}
+.package-summary-package {
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.package-summary-package-1 {
+  display: flex;
+  flex-direction: column;
+}
+.package-summary-package-1-head {
+  color: #000;
+  /* font-family: Poppins; */
+  font-size: 18px;
+  font-style: normal;
+  /* font-weight: 600; */
+  line-height: 30px; /* 166.667% */
+}
+.package-summary-package-1-sub {
+  color: #050505;
+  /* font-family: Poppins; */
+  font-size: 14px;
+  font-style: normal;
+  /* font-weight: 400; */
+  line-height: 21px;
+  text-transform: capitalize;
+}
+.package-summary-package-class {
+  display: flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 42px;
+  border: 1px solid var(--tertiary-60, #ff7a00);
+  background: #ffe4cc;
+  width: 110px;
+}
+.package-summary-package-class-text {
+  color: var(--tertiary-60, #ff7a00);
+  /* font-family: Poppins; */
+  font-size: 14px;
+  font-style: normal;
+  /* font-weight: 700; */
+  line-height: 21px; /* 150% */
+}
+.package-summary-package-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.package-summary-package-checklist-text {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  color: #000;
+  /* font-family: Poppins; */
+  font-size: 14px;
+  font-style: normal;
+  /* font-weight: 400; */
+  line-height: 21px; /* 150% */
+  /* text-transform: lowercase; */
+}
+.package-summary-package-coupon{
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 0px 20px 0px rgba(154, 160, 211, 0.30);
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  padding: 14px;
+}
+.package-summary-package-coupon:hover{
+  
+}
+.package-summary-package-coupon-text{
+  color: #777;
+/* font-family: Poppins; */
+font-size: 14px;
+font-style: normal;
+/* font-weight: 400; */
+line-height: 21px; /* 150% */
 }

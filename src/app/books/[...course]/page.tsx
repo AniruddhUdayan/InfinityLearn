@@ -11,6 +11,7 @@ import subItem from "@/utils/infoHeader";
 import "@/components/bookspage/bookspage.css";
 import LoginPopup from "@/components/LoginPopup";
 import BookSessionPopup from "@/components/bookSessionPopup";
+import PackageSubscription from "@/components/PackageSubscription";
 // import Review from "@/components/Review&Detail/Review";
 // import Bookdemo from "@/components/BookDemo/Bookdemo";
 
@@ -650,6 +651,7 @@ export default function Home({ params }: any) {
       <Footer />
       <LoginPopup/>
       <BookSessionPopup/>
+      <PackageSubscription />
     </>
   );
 }
