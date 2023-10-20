@@ -26,6 +26,14 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/LoginPopup/index.jsx", "src/components/header.jsx", "src/components/common/SelectGradePopup.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/components/LoginPopup/index.jsx",
+    "src/components/header.jsx",
+    "src/components/common/SelectGradePopup.jsx"
+  ],
   "exclude": ["node_modules"]
 }

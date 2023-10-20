@@ -387,7 +387,8 @@ export default function Home() {
               </div>
               <div className="flex px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#FFF] transform hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-row gap-2">
-                  <Link href="/books/JEE/8/9/10"
+                  <Link
+                    href="/books/JEE/8/9/10"
                     className={`${poppins.className} text-[#007BFF] text-[16px] font-[600]`}
                   >
                     buy now

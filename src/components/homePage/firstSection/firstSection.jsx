@@ -52,7 +52,7 @@ function Stats() {
     <div
       className="flex mt-10 stats  max-lg:w-full mb-6 max-lg:mx-10
      max-lg:h-24 justify-evenly text-[#007BFF] p-6 
-      text-center  font-bold text-base gap-3 mx-auto
+      text-center  font-bold text-base gap-3 mx-auto stats
      flex-row items-center h-20 bg-white px-4 rounded-2xl"
     >
       <div className=" flex flex-col   border-opacity-20 ">
@@ -132,11 +132,13 @@ function FirstSection() {
     }
   };
   return (
-    <div className=" poppins h-screen firstSection  " fluid>
+    <div className=" poppins h-screen firstSection  ">
       <Row>
         <Col>
-          <Col>
-            <div className="head-text max-md:pt-6 pt-9">power up your </div>
+          <Col className="  ">
+            <div className=" items-center head-text max-md:pt-6 pt-9">
+              power up your{" "}
+            </div>
             <WordSlider />
             <div className="head-text">journey with </div>
             <div className="head-text">infinity learn </div>
@@ -168,7 +170,7 @@ function FirstSection() {
               <div className="otp">we will send an otp for verification</div>
             </Col>
           </Col>
-          <Col className=" mx-auto md:hidden max-md:pr-5 max-md:pl-5">
+          <Col className=" mx-auto px-5 md:hidden">
             <Stats />
           </Col>
         </Col>

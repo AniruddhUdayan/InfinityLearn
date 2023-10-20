@@ -1,10 +1,11 @@
 /* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css?family=Poppins");
-
-@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 /* div::-webkit-scrollbar {
   display: none;
 } */
@@ -110,7 +111,6 @@ a {
   }
   .poppins {
     font-family: "Poppins", sans-serif;
-    font-weight: bold;
   }
   .box_auto {
     display: inline-block;

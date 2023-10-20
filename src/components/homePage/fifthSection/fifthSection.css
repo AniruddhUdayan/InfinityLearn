@@ -1,0 +1,8 @@
+@media (max-width: 320px) {
+  smallS {
+    width: 300px;
+  }
+  card {
+    left: 250px;
+  }
+}
