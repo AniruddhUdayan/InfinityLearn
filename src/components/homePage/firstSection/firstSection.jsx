@@ -132,7 +132,7 @@ function FirstSection() {
     }
   };
   return (
-    <div className=" poppins h-screen firstSection  ">
+    <div className=" w-screen poppins h-screen firstSection  ">
       <Row>
         <Col>
           <Col className="  ">

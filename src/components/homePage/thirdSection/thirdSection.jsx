@@ -175,7 +175,7 @@ const SwitchTabs1 = ({ data, onTabChange }) => {
         {data.map((option, index) => (
           <span
             key={index}
-            className={`inline-flex items-center justify-center px-4 py-2 cursor-pointer ${
+            className={`inline-flex items-center justify-center px-2 py-2 cursor-pointer ${
               index === selectedTab
                 ? "text-blue-500 border-b-2 border-blue-500"
                 : "text-gray-400"

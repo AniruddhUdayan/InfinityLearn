@@ -2,6 +2,38 @@
 .poppins {
   font-family: "Poppins", sans-serif;
 }
+/* firstSection.css */
+
+/* ... Your existing CSS ... */
+
+/* Media query for screens between 312px and 480px */
+@media only screen and (min-width: 312px) and (max-width: 480px) {
+  .inputSec {
+    padding: 10px; /* Adjust based on your design */
+  }
+
+  .inputSec .Input {
+    font-size: 14px; /* Adjust based on your design */
+    padding: 8px 12px;
+    color: black;
+  }
+
+  .inputSec .iSDCode {
+    font-size: 14px; /* Adjust based on your design */
+    padding: 8px 12px;
+  }
+
+  .inputSec .jFF {
+    font-size: 12px; /* Adjust based on your design */
+    padding: 8px 12px;
+  }
+
+  .inputSec .otp {
+    font-size: 14px; /* Adjust based on your design */
+    margin-top: 5px;
+  }
+}
+
 input::placeholder {
   color: #f0f0f0;
   font-size: 16px;
@@ -188,6 +220,7 @@ input.focus-no-outline:focus {
     display: flex;
     justify-content: center;
     margin-right: 20px;
+    width: auto;
     margin-left: 20px;
   }
   .head-text,
@@ -217,6 +250,7 @@ input.focus-no-outline:focus {
     height: 48px;
     background-color: white;
     font-size: 13px;
+    color: black;
   }
   input::placeholder {
     color: #9c9fa1;
@@ -261,6 +295,7 @@ input.focus-no-outline:focus {
     width: 335px;
     height: 48px;
     background-color: white;
+    color: black;
     font-size: 13px;
   }
   input::placeholder {
