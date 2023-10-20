@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import SixthSection from "../livecourses/sixthSection";
-import SeventhSection from "../homePage/seventhSection";
+import SeventhSection from "../homePage/seventhSection/seventhSection";
 function EigthSection() {
   return (
     <div className=" pt-96">
