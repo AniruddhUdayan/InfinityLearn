@@ -343,6 +343,12 @@
         margin-left: 30px;
         margin-right: 30px;
     }
+    .single_input{
+        margin: 0px;
+    }
+    .margin_100 {
+        margin-top: 0px;
+    }
     .login_popup.modal .modal-dialog {
         transform: none;
         margin: 0px;
@@ -448,6 +454,12 @@
         margin-left: 30px;
         margin-right: 30px;
     }
+    .single_input{
+        margin: 0px;
+    }
+    .margin_100 {
+        margin-top: 0px;
+    }
     .login_popup.modal .modal-dialog {
         transform: none;
         margin: 0px;
@@ -551,6 +563,18 @@
         margin-left: 30px;
         margin-right: 30px;
     }
+    .single_input{
+        margin: 0px;
+    }
+    .single_input_btn {
+        position: relative;
+        bottom: 0;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+    .margin_100 {
+        margin-top: 0px;
+    }
     .button_mobile_none{
         display: block !important;
         position: relative;
@@ -568,6 +592,12 @@
     .right_box {
         margin-left: 20px;
         margin-right: 20px;
+    }
+    .single_input{
+        margin: 0px;
+    }
+    .margin_100 {
+        margin-top: 30px;
     }
     .otp_heading {
         margin-top: 30px;
