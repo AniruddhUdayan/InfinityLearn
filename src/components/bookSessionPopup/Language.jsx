@@ -40,10 +40,8 @@ const Language = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/login/mobVer/mobVer2.webp"
-                            height={250}
-                            width={600}
                             alt="mob-ver-1"
                             className=" max-md:hidden"
                         />

@@ -124,3 +124,11 @@ export async function sendSQSMsg(payload) {
         console.log(error)
     })
 }
+
+export function setCookie(name, value, expireDays, path) {
+    const d = new Date();
+    d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
+    const expires = `expires=${d.toUTCString()}`;
+    const cpath = path ? `; path=${path}` : '';
+    document.cookie = `${name}=${value};Domain=${`.devinfinitylearn.in`}; ${expires}${cpath};  SameSite=Lax`;
+}

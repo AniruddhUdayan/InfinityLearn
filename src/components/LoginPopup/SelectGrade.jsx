@@ -74,12 +74,12 @@ const SelectGrade = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/login/newUser/newUser2.webp"
                             height={400}
-                            width={400}
+                            width={600}
                             alt="mob-ver-1"
-                            className=" max-md:hidden"
+                            className="side_image max-md:hidden"
                         />
                     </Col>
                     <Col xs={12} md={6}>

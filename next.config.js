@@ -2,7 +2,9 @@
 const nextConfig = {
     env: {
         environment: 'local',
-        uamAPI: "https://stagingapi.devinfinitylearn.in/"
+        uamAPI: "https://stagingapi.devinfinitylearn.in/",
+        studentPortal: "https://dashboard.devinfinitylearn.in/",
+        domain:".devinfinitylearn.in"
       },
 }
 

@@ -61,12 +61,10 @@ function Relation() {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/bookSession/relation.webp"
-                            height={250}
-                            width={600}
                             alt="mob-ver-1"
-                            className=" max-md:hidden"
+                            className="side_image max-md:hidden"
                         />
                     </Col>
                     <Col xs={12} md={6}>
