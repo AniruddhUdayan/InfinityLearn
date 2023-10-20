@@ -35,6 +35,12 @@ function BooksCard(props) {
 
 function SubItemCard(props) {
   const [selectedItem, setSelectedItem] = useState(null);
+  const handleHover = () => {
+    props.onSubMenuToggle(props.index, props.subIndex);
+  };
+  const handlehover1 = () => {
+    props.onRemove();
+  };
   const handleClick = () => {
     if (props.subItem) {
       props.onSubMenuToggle(props.index, props.subIndex);
@@ -56,6 +62,8 @@ function SubItemCard(props) {
         isSelected ? "bg-[#F1F2F6]" : ""
       } hover:bg-[#D4E9FF]`}
       onClick={handleClick}
+      onMouseEnter={handleHover}
+      //onMouseLeave={handlehover1}
     >
       {props.data.listHeading === true ? (
         <div className="px-4">{props.data.name}</div>
@@ -134,7 +142,11 @@ function ResHeader({
   }
 
   return (
-    <div className="md:hidden fixed  overflow-y-auto no-scrollbar flex-col top-0 left-0 w-full h-screen  bg-white text-black z-50 flex ">
+    <div
+      className="md:hidden fixed  overflow-y-auto no-scrollbar 
+    flex-col top-0 left-0
+     w-full h-screen  bg-white text-black z-50 flex "
+    >
       <div className=" flex py-7 px-2 bg-white justify-end">
         <button
           className=" justify-end px-4  items-end close-button "
@@ -303,6 +315,15 @@ function Header() {
   const toggleSubMenuItems = (index, subItem) => {
     setActiveSubItem([index, subItem]);
   };
+  const removeToggle = () => {
+    setActiveSubItem((prevState) => {
+      // Copy the array
+      let newArray = [...prevState];
+      // Set the last item to false
+      newArray[newArray.length - 1] = false;
+      return newArray;
+    });
+  };
   const hoverHandler1 = (index) => {
     if (activeItem !== null) {
       setFoundItem(null);
@@ -313,7 +334,9 @@ function Header() {
     setActiveItem(index === activeItem ? null : index);
   };
   const hoverHandler2 = (index) => {
-    setActiveSubItem(activeSubItem != null ? index : null);
+    setActiveSubItem([index]);
+
+    // setActiveSubItem(activeSubItem != null ? index : null);
   };
   const [visibleBooksCards, setVisibleBooksCards] = useState([]);
   const [isResHeaderVisible, setIsResHeaderVisible] = useState(false);
@@ -337,6 +360,10 @@ function Header() {
       setVisibleBooksCards((prev) => [...prev, index]);
     }
   };
+  // console.log(activeItem, "activeItem");
+  // console.log(activeSubItem, "activeSubItem");
+  // console.log(foundItem, "foundItem");
+  // console.log(foundSubItem, "foundSubItem");
   return (
     <div>
       <nav
@@ -344,7 +371,7 @@ function Header() {
         max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4
          px-14 w-screen max-md:border-b-0 border-b-[1px] border-whte border-gray-400 border-opacity-50`}
       >
-        <div className="flex justify-evenly   items-center">
+        <div className="flex justify-evenly smallerS  items-center">
           <Image
             className="mx-6 lg:mx-0 max-md:hidden"
             src="/images/logo/logo.svg"
@@ -361,11 +388,13 @@ function Header() {
           />
 
           <div className="flex-grow  z-30">
-            <ul className="flex text-white mb-0 max-md:hidden justify-around ">
+            <ul className="flex text-white pl-0 mb-0 max-md:hidden justify-around ">
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
-                    className={`flex px-7 items-center group hover:cursor-pointer  hover:border-white hover:border-[1px] border-solid  hover:rounded-3xl p-1 transform hover:scale-105 transition-transform duration-300`}
+                    className={`flex px-7 items-center group hover:cursor-pointer whitespace-nowrap 
+                     hover:border-white hover:border-[1px] border-solid  hover:rounded-3xl p-1
+                     transform hover:scale-105 transition-transform duration-300`}
                     onClick={() => toggleSubMenu(index)}
                     onMouseEnter={() => hoverHandler1(index)}
                   >
@@ -376,13 +405,14 @@ function Header() {
                     <ul
                       className="absolute w-fit z-20  left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg p-0"
                       onMouseLeave={() => hoverHandler1(null)}
+                      //onMouseEnter={() => hoverHandler2(index)}
                     >
                       {foundItem?.subItems.map((subItem, subIndex) => (
                         <li
                           key={subIndex}
                           className="px-4 py-2 "
                           // onClick={() => toggleSubMenuItems(index, subItem.id)}
-                          // onMouseEnter={() => hoverHandler2(index)}
+                          //onMouseEnter={() => hoverHandler2(index)}
                         >
                           <SubItemCard
                             data={subItem}
@@ -390,6 +420,7 @@ function Header() {
                             index={index}
                             subIndex={subItem.id}
                             onSubMenuToggle={toggleSubMenuItems}
+                            onRemove={removeToggle}
                           />
                           {activeSubItem != null && (
                             <ul className=" z-20 rounded-lg rounded-tl-none rounded-bl-none absolute w-fit bg-white   border-white border-2 top-[-2px] left-full flex flex-col p-2">
@@ -438,12 +469,14 @@ function Header() {
             </ul>
           </div>
           <div className="flex mx-7 max-xl:hidden max-lg:hidden max-md:hidden">
-            <Image
-              src="/header/call.svg"
-              width={50}
-              height={50}
-              alt="call.svg"
-            />
+            <Link href="tel:1800419427">
+              <Image
+                src="/header/call.svg"
+                width={50}
+                height={50}
+                alt="call.svg"
+              />
+            </Link>
             <div className="flex flex-col">
               <div className="text-yellow-300 text-[14px]">
                 need help? talk to experts
@@ -451,14 +484,16 @@ function Header() {
               <div className="text-yellow-300 text-[16px]">1800-419-427</div>
             </div>
           </div>
-          <button
-            className="rounded-xl w-auto max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
-            style={{ height: 32 }}
-          >
-            <div className="text-blue-500 sm:bg-white max-2xl:px-4 items-center max-sm:text-[#007BFF] font-semibold max-md:px-3 rounded-[20px] px-[20px]">
-              sign in
-            </div>
-          </button>
+          <Link href="https://student.infinitylearn.com/signin?page=signin">
+            <button
+              className="rounded-xl w-auto whitespace-nowrap  max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
+              style={{ height: 32 }}
+            >
+              <div className="text-blue-500 sm:bg-white max-2xl:px-4 items-center max-sm:text-[#007BFF] font-semibold max-md:px-3 rounded-[20px] px-[20px]">
+                sign in
+              </div>
+            </button>
+          </Link>
           <div className="md:hidden  text-white hover:cursor-pointer ml-5">
             <SlMenu
               size={20}

@@ -1,0 +1,10 @@
+@media (max-width: 320px) {
+    .text-c1 {
+      font-size: 24px;
+    }
+    .inpp {
+      padding-left: 0;
+      width: 300px;
+    }
+  }
+  

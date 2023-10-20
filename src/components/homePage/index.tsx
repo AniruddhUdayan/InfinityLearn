@@ -4,11 +4,11 @@ import Header from "../header.jsx";
 import Footer from "../homePage/footer.jsx";
 import FirstSection from "./firstSection/firstSection.jsx";
 import SecondSection from "./secondSection/secondSection.jsx";
-import ThirdSection from "./thirdSection.jsx";
-import FourthSection from "./fourthSection.jsx";
-import FifthSection from "./fifthSection.jsx";
-import SixthSection from "./sixthSection.jsx";
-import SeventhSection from "./seventhSection.jsx";
+import ThirdSection from "./thirdSection/thirdSection.jsx";
+import FourthSection from "./fourthSection/fourthSection.jsx";
+import FifthSection from "./fifthSection/fifthSection.jsx";
+import SixthSection from "./sixthSection/sixthSection.jsx";
+import SeventhSection from "./seventhSection/seventhSection.jsx";
 import Download from "@/components/examPage/Download/index.js";
 import analytics from "../../utils/analytics.jsx";
 import LoginPopup from "../LoginPopup";
@@ -30,11 +30,12 @@ const HomePage = () => {
       <FifthSection />
       {/* <Download /> */}
       <SixthSection />
+      {/* <Download /> */}
       <SeventhSection />
       <Footer />
       <LoginPopup />
       <SelectGradePopup />
-      {/* <PackageSubscription /> */}
+      {/* <PackageSubscrption /> */}
       <BookSessionPopup />
     </div>
   );

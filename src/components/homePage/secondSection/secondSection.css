@@ -1,7 +1,70 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"); */
 @media only screen and (min-width: 577px) and (max-width: 767px) {
   .stat {
     display: flex;
   }
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  /* font: bold; */
+}
+.row > * {
+  padding-left: 20px /* your desired value here */;
+  padding-right: 20px;
+}
+.text_ls {
+  font-size: 48px;
+  padding-top: 20px;
+  margin-bottom: 32px;
+  line-height: 1;
+  font-weight: bold;
+  color: #080e14;
+  text-transform: lowercase;
+  /* font-family: "Poppins", sans-serif; */
+  /* letter-spacing: 0.025em; */
+  color: #080e14;
+  text-align: center;
+
+  /* font-weight: bold; */
+}
+.text_xs {
+  font-weight: bolder;
+  letter-spacing: 0.01em;
+  display: flex;
+  font-size: 32px;
+  display: none;
+  flex-direction: column;
+
+  text-align: center;
+  justify-content: center;
+  /* margin-left: auto;
+  margin-right: auto; */
+
+  text-align: start;
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+  /* margin-left: 0.75rem;  */
+  /* assuming default Tailwind spacing scale */
+  /* margin-right: 0.75rem; */
+}
+.switchT {
+  height: 100%;
+
+  display: flex;
+
+  /* justify-content: center; */
+  justify-content: center;
+  width: 100%;
+
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-bottom: 48px;
+  height: fit-content;
 }
 @media (max-width: 320px) {
   .res {
@@ -12,23 +75,208 @@
   .res1 {
     white-space: nowrap;
   }
+  .switchtabs {
+    width: fit-content;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
 }
-.scrollable-tabs {
-  overflow-x: auto;
-  white-space: nowrap;
-  width: min-content;
+.card3 {
+  cursor: default; /* default cursor, will be overridden by hover state */
+  color: black;
+  background-color: #d4e9ff;
+  display: flex;
+  padding: 1.75rem;
+  gap: 1.75rem;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+  border-radius: 2rem;
+  .card3-sec {
+    display: flex;
+    flex-direction: column;
+  }
+  .card3-text {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+}
+.card3:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #3b82f6;
 }
 
-/* This ensures that there's no unnecessary vertical scrollbar */
-.scrollable-tabs::-webkit-scrollbar {
-  height: 6px;
+.card2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex-grow: 1;
+  padding-left: 24px;
+  padding-right: 24px;
+  flex-grow: 1;
+  background-color: #d4e9ff;
+  border-radius: 1.5rem;
+  height: 361px;
+  width: 318px;
+  border-radius: 20px;
+
+  .card2-sec {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.card2:hover {
+  cursor: pointer;
+  background-color: #3b82f6;
+  color: white;
 }
 
-.scrollable-tabs::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
+.card1 {
+  cursor: pointer;
+  display: flex;
+  height: 150px;
+
+  gap: 1.75rem;
+  justify-content: space-evenly;
+  background-color: #d4e9ff;
+  color: black; /* text-black in Tailwind */
+  width: 100%; /* w-full in Tailwind */
+  align-items: center; /* items-center in Tailwind */
+  padding-top: 1rem; /* py-4 in Tailwind */
+  padding-bottom: 1rem; /* py-4 in Tailwind */
+  border-radius: 2rem; /* rounded-[2rem] in Tailwind */
+}
+.card1:hover {
+  color: white; /* hover:text-white in Tailwind */
+  background-color: #3b82f6; /* hover:bg-blue-500 in Tailwind */
+}
+.card0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  height: auto;
+  padding: 20px 1.5rem;
+  flex-grow: 1;
+  background-color: #d4e9ff;
+  width: auto;
+  height: auto;
+  border-radius: 1.5rem; /* rounded-[1.5rem] in Tailwind */
+  height: 361px;
+  width: 332px;
+}
+.card0:hover {
+  cursor: pointer; /* hover:cursor-pointer in Tailwind */
+  background-color: #3b82f6; /* hover:bg-blue-500 in Tailwind */
+  color: white; /* hover:text-white in Tailwind */
+}
+.class11to12 {
+  display: flex;
+  flex-direction: column;
+  height: auto; /* h-max in Tailwind */
+  padding-bottom: 5rem; /* pb-20 in Tailwind */
+  justify-content: flex-start;
+  .class11to12-items {
+    display: flex;
+    gap: 20px; /* gap-[20px] in Tailwind */
+    width: auto;
+    overflow-x: hidden;
+  }
+  .competitiveExamDiv {
+    font-size: 2rem; /* text-4xl in Tailwind */
+    color: black; /* text-black in Tailwind */
+    margin-bottom: 1.5rem; /* mb-6 in Tailwind */
+    font-weight: 600; /* font-semibold in Tailwind */
+  }
+}
+@media (max-width: 768px) {
+  .class11to12 {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* h-max in Tailwind */
+    padding-bottom: 5rem; /* pb-20 in Tailwind */
+    justify-content: flex-start;
+    .class11to12-items {
+      padding-left: 0.25rem; /* max-md:px-1 in Tailwind */
+      padding-right: 0.25rem;
+      gap: 12px; /* max-md:gap-[12px] in Tailwind */
+      width: auto; /* max-md:w-auto in Tailwind */
+      overflow-x: auto; /* max-md:overflow-x-auto in Tailwind */
+    }
+    .competitiveExamDiv {
+      font-size: 1.875rem; /* max-md:text-3xl in Tailwind */
+      margin-left: 1rem; /* max-md:ml-4 in Tailwind */
+    }
+  }
+  .card0 {
+    flex-shrink: 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    width: 161px;
+    height: 209px;
+  }
+  .card3 {
+    border-radius: 1rem;
+    flex-direction: column;
+    padding: 1.5rem 0.5rem;
+    .card3-text {
+      font-size: 1.125rem;
+    }
+  }
+  .card1 {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 33%;
+    border-radius: 1rem;
+  }
+  .card2 {
+    padding: 2.5rem 0.25rem;
+  }
 }
 
-.scrollable-tabs::-webkit-scrollbar-track {
-  background: #f1f1f1;
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .text_ls {
+    display: none;
+  }
+  .text_xs {
+    display: block;
+  }
+  .switchT {
+    padding-left: 1rem; /* 4 units * 0.25rem */
+    padding-right: 1rem;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+  .text_ls {
+    display: none;
+  }
+  .text_xs {
+    display: block;
+  }
+  .card2 {
+    padding: 2.5rem 0.25rem;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+  .text_ls {
+    display: none;
+  }
+  .text_xs {
+    display: block;
+  }
+  .card2 {
+    padding: 2.5rem 0.25rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
 }

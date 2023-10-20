@@ -1,0 +1,26 @@
+.carousel-indicators {
+    /* regular width */
+    display: none;
+  }
+  .regular-dash {
+    width: 16px;
+    height: 2px;
+  }
+  .regular-dash,
+  .elongated-dash {
+    transition: width 0.3s ease-out;
+  }
+  .elongated-dash {
+    width: 32px; /* Or however long you want the elongated dash to be */
+  }
+  @media (max-width: 320px) {
+    .text-head1 {
+      font-size: 28px;
+    }
+    .cc {
+      width: 300px;
+      .ccp {
+        font-size: smaller;
+      }
+    }
+  }
