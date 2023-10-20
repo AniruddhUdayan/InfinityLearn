@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { storePhoneNumber } from "../../store/mobVeriSlice";
-import { sendSQSMsg,sendOtp, validateOTP, updateUserProfile } from "../../services/userServics";
+import { sendSQSMsg,sendOtp, validateOTP, updateUserProfile, setCookie } from "../../services/userServics";
 import * as moment from 'moment';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -16,6 +16,8 @@ const OtpVerification = () => {
     const [otp, setOtp] = useState(Array(4).fill(""));
     const [timer, setTimer] = useState(30);
     const [editingNumber, setEditingNumber] = useState(false);
+    const [policyAgreement, setPolicyAgreement] = useState(true);
+    const [whatsappConsent, setWhatsappConsent] = useState(true);
     const phoneNumber = useSelector(
       (state) => state.mobileVerification.phoneNumber
     );
@@ -94,6 +96,7 @@ const isExitingUser = useSelector(
           localStorage.setItem('user_details_from_server', JSON.stringify(response?.userDto));
           registerSuccess(response?.userDto);
           sendLsq();
+          setCookie('INFINITY_LEARN', JSON.stringify(response),1 );
           dispatch(setComponentToShow('Success'));
         }
       } catch (error) {
@@ -115,6 +118,7 @@ const isExitingUser = useSelector(
         localStorage.setItem('user_details_from_server', JSON.stringify(updatedUserData?.userDto));
         registerSuccess(updatedUserData?.userDto);
         sendLsq();
+        console.log(updatedUserData,'updatedUserData')
         dispatch(setComponentToShow('Success'));
         
     } catch{
@@ -161,7 +165,7 @@ const isExitingUser = useSelector(
         phone: userDetails?.phone,
         target_exam: userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
         grade: Number(userDetails?.grade?.name?.replace(/[^0-9]/g, '')),
-        whatsapp_consent: false
+        whatsapp_consent: whatsappConsent
       })
     }
 
@@ -197,7 +201,7 @@ const isExitingUser = useSelector(
         platform:'Web'
       });
     }
-    const hadlePrivacy = ()=>{
+    const handlePrivacy = ()=>{
       analytics.track("t&p&p_clicked", {
         page_url: window.location.href,
         phone: phoneNumber,
@@ -211,8 +215,8 @@ const isExitingUser = useSelector(
           <Col xs={12} md={6}>
           <Image
           src="/login/mobVer/mobVer2.webp"
-          height={400}
-          width={400}
+          height={600}
+          width={500}
           alt="mob-ver-otp"
           className=" max-md:hidden"
         />
@@ -245,7 +249,7 @@ const isExitingUser = useSelector(
                       value={digit}
                       maxLength={1}
                       ref={(el) => (otpRefs.current[index] = el)}
-                      className={`border rounded-xl w-20  h-12 mr-2 text-center text-base ${
+                      className={`border rounded-xl w-20  h-12 text-center text-base ${
                         otpError ? "otp_border_error" : "otp_border_blue"
                       }`}
                       onChange={handleOtpChange(index)}
@@ -289,29 +293,17 @@ const isExitingUser = useSelector(
             </Row>
             <Row className="mt-5">
               <Col xs={12} md={12} lg={12}>
-                <div className="term_flex">
-                <Image
-          src="/login/mobVer/check_box.svg"
-          height={14}
-          width={17}
-          alt="mob-ver-otp"
-        />
-        <label className="term_label">By signing up you agree to our 
+        <input className="styled-checkbox" defaultChecked={policyAgreement} value={policyAgreement} onChange={(e)=>setPolicyAgreement(e?.target?.checked)} id="styled-checkbox-2" type="checkbox" />
+        <label htmlFor="styled-checkbox-2" className="term_label">By signing up you agree to our 
         <a className="term_condition" onClick={handleTC} href="https://infinitylearn.com/terms" target="blank">T&C</a> and
-        <a className="term_condition" onClick={hadlePrivacy} href="https://infinitylearn.com/privacy" target="blank"> Privacy Policy</a></label>
-                </div>
+        <a className="term_condition" onClick={handlePrivacy} href="https://infinitylearn.com/privacy" target="blank"> Privacy Policy</a></label>
               </Col>
             </Row>
             <Row className="mt-2">
               <Col xs={12} md={12} lg={12}>
                 <div className="term_flex">
-                <Image
-          src="/login/mobVer/check_box.svg"
-          height={14}
-          width={17}
-          alt="mob-ver-otp"
-        />
-        <label className="term_label term_label_flex">Receive updates on Whatsapp
+        <input className="styled-checkbox" defaultChecked={whatsappConsent} value={whatsappConsent} onChange={(e)=>setWhatsappConsent(e?.target?.checked)} id="whatapp_checkbox" type="checkbox" />
+        <label htmlFor="whatapp_checkbox" className="term_label term_label_flex">Receive updates on Whatsapp
         <Image
           src="/login/mobVer/whatsapp_icon.svg"
           height={20}
@@ -327,8 +319,8 @@ const isExitingUser = useSelector(
                 <div className="otp_button_row">
                   <button
                     onClick={verifyOtp}
-                    disabled={otp.join(',').replace(/[^0-9]/g, '').length < 4}
-                    className={`otp_button ${otp == "" ? 'opacity_off':''}`}
+                    disabled={otp.join(',').replace(/[^0-9]/g, '').length < 4 || !policyAgreement}
+                    className={`otp_button`}
                   >
                     Verify OTP {}<span>&#8599;</span>
                   </button>
@@ -344,7 +336,8 @@ const isExitingUser = useSelector(
           <div className="pac_festpr_flexshow">
             <button
               onClick={verifyOtp}
-              className={`otp_button ${otp == "" ? 'opacity_off' : ''}`}
+              className={`otp_button`}
+              disabled={otp.join(',').replace(/[^0-9]/g, '').length < 4 || !policyAgreement}
             >
               Verify OTP <span>&#8599;</span>
             </button>

@@ -9,6 +9,10 @@ import analytics from '../../utils/analytics';
 import { sendSQSMsg } from "../../services/userServics";
 import * as moment from 'moment';
 const FinalSuccess = () => {
+    const studentPortal = process.env.studentPortal;
+    const startLearning = ()=>{
+      window.open(`${studentPortal}`,'_self');
+    }
     const bookSessionData = useSelector(
         (state) => state.bookSessionData
       );
@@ -53,12 +57,10 @@ sendLSQ();
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/login/mobVer/SuccessImage.webp"
-                            height={250}
-                            width={600}
                             alt="mob-ver-1"
-                            className=" max-md:hidden"
+                            className="side_image max-md:hidden"
                         />
                     </Col>
                     <Col xs={12} md={6}>
@@ -68,7 +70,7 @@ sendLSQ();
                             <Col xs={12} md={12}>
                                 <div className="success_Icon">
                                     <Image
-                                        src="/bookSession/sessionSuccess.png"
+                                        src="/bookSession/sessionSuccess.svg"
                                         height={200}
                                         width={200}
                                         alt="mob-ver-1"
@@ -89,15 +91,15 @@ sendLSQ();
                                 <div className='session_success_card'>
                                     <ul className='session_success_card_list'>
                                         <li>
-                                            <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon' />
+                                            <img className='sscIcon' src='/bookSession/dateIcon.svg' alt='dateicon' />
                                             <span className='sscText'>{bookSessionData?.selectedDate} </span>
                                         </li>
                                         <li>
-                                            <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon' />
+                                            <img className='sscIcon' src='/bookSession/timeIcon.svg' alt='timeicon' />
                                             <span className='sscText'>{bookSessionData?.selectedTime}</span>
                                         </li>
                                         <li>
-                                            <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon' />
+                                            <img className='sscIcon' src='/bookSession/classIcon.svg' alt='classicon' />
                                             <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                                         </li>
                                         <li>
@@ -111,7 +113,7 @@ sendLSQ();
                         <Row>
                             <Col xs={12} md={12}>
                                 <div className="bss_button_row">
-                                    <button onClick={handleSign} className={`otp_button`}>sign in <span>&#8599;</span></button>
+                                    <button onClick={startLearning} className={`otp_button`}>sign in <span>&#8599;</span></button>
                                 </div>
                             </Col>
                         </Row>
@@ -122,7 +124,7 @@ sendLSQ();
             <div className="marketpr_show">
                 <div className="feslofrbottom">
                     <div className="pac_festpr_flexshow">
-                        <button onClick={handleSign} className={`otp_button`}>
+                        <button onClick={startLearning} className={`otp_button`}>
                             sign in <span>&#8599;</span>
                         </button>
                     </div>
