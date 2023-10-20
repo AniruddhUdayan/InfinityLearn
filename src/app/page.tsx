@@ -1,6 +1,8 @@
 // import Footer from "@/components/footer";
 // import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import HomePage from "@/components/homePage";
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div className=" no-scrollbar  max-md:w-full">
+      <div className=" no-scrollbar poppins  max-md:w-full">
         <HomePage />
       </div>
     </>

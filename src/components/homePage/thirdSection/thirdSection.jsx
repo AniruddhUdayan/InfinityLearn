@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Nav } from "react-bootstrap";
+import "./thirdSection.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
-import { showOverlayMode } from "../../store/mobVeriSlice";
-import { setComponentToShow } from "../../store/modalToShow";
+import { showOverlayMode } from "../../../store/mobVeriSlice";
+import { setComponentToShow } from "../../../store/modalToShow";
 const options = [
   "personal attention",
   "india's top faculty",
@@ -46,7 +47,7 @@ function OptionOne() {
 }
 function OptionTwo() {
   return (
-    <div className="flex h-64 max-xl:mr-[161px]  flex-col">
+    <div className="flex h-64   flex-col">
       <div className="text-4xl  max-md:[32px] text-black font-[700]">
         clear doubts,
       </div>
@@ -136,18 +137,41 @@ const SwitchTabs = ({ data, onTabChange }) => {
 
 const SwitchTabs1 = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
+  const containerRef = useRef(null);
 
   const handleTabClick = (option, index) => {
     setSelectedTab(index);
     onTabChange && onTabChange(option, index);
+
+    // Ensure the container is available and has been rendered
+    if (containerRef.current) {
+      const container = containerRef.current;
+      const clickedTab = container.children[index];
+
+      // Calculate the scroll position required to center the clicked tab
+      const halfContainerWidth = container.offsetWidth / 2;
+      const halfTabWidth = clickedTab.offsetWidth / 2;
+      const containerPadding = parseFloat(
+        window.getComputedStyle(container).paddingLeft
+      );
+
+      const scrollLeft =
+        clickedTab.offsetLeft +
+        halfTabWidth -
+        halfContainerWidth -
+        containerPadding;
+
+      // Update the container's scroll position
+      container.scrollLeft = scrollLeft;
+    }
   };
 
   return (
-    <div
-      className="bg-white  no-scrollbar text-black h-11 relative w-screen
-    "
-    >
-      <div className="flex space-x-4 whitespace-nowrap overflow-x-auto">
+    <div className="bg-white no-scrollbar text-black h-11 relative w-screen">
+      <div
+        ref={containerRef}
+        className="flex space-x-4 whitespace-nowrap overflow-x-auto"
+      >
         {data.map((option, index) => (
           <span
             key={index}
@@ -266,7 +290,7 @@ function ThirdSection() {
         />
         <div
           className=" flex md:w-1/2 min-h-full  md:items-start items-center
-         max-md:mt-8 max-md:ml-6 flex-col"
+         max-md:mt-8 max-md:ml-[20px] mx-auto flex-col"
         >
           <div className="optionContaier  max-md:h-[200px]">
             {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
@@ -282,7 +306,7 @@ function ThirdSection() {
               )
             )}
           </div>
-          <div className=" w-full max-md:mt-10 flex justify-start max-md:justify-center items-center">
+          <div className=" w-full slof max-md:mt-10 flex justify-start max-md:justify-center items-center">
             <button
               onClick={startLearning}
               className="text-white font-[600] h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-xl"
