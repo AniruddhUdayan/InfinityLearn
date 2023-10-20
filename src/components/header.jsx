@@ -469,12 +469,14 @@ function Header() {
             </ul>
           </div>
           <div className="flex mx-7 max-xl:hidden max-lg:hidden max-md:hidden">
-            <Image
-              src="/header/call.svg"
-              width={50}
-              height={50}
-              alt="call.svg"
-            />
+            <Link href="tel:1800419427">
+              <Image
+                src="/header/call.svg"
+                width={50}
+                height={50}
+                alt="call.svg"
+              />
+            </Link>
             <div className="flex flex-col">
               <div className="text-yellow-300 text-[14px]">
                 need help? talk to experts
