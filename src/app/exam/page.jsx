@@ -1,7 +1,7 @@
 "use client";
 // import LandingExam from "../../components/LandingExam"
 import LandingExam from "@/components/examPage/LandingExam";
-import Header from "@/components/header/header.jsx";
+import Header from "@/components/header.jsx";
 import Footer from "@/components/footer";
 import Download from "@/components/examPage/Download";
 import School from "@/components/examPage/School";

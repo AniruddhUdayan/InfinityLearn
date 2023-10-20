@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Header from "@/components/header/header.jsx";
+import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Image from "next/image";
 import { Poppins } from "next/font/google";

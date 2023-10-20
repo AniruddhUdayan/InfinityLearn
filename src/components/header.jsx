@@ -6,7 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdCall, MdClose } from "react-icons/md";
 import { BsArrowLeft } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
-import subItem from "../../utils/infoHeader";
+import subItem from "../utils/infoHeader";
 import Link from "next/link";
 
 import { Poppins } from "next/font/google";

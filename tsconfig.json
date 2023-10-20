@@ -32,7 +32,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/LoginPopup/index.jsx",
-    "src/components/homePage/header.jsx",
+    "src/components/header.jsx",
     "src/components/common/SelectGradePopup.jsx"
   ],
   "exclude": ["node_modules"]

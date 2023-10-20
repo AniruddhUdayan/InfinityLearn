@@ -6,7 +6,7 @@ import FourthSection from "@/components/livecourses/fourthSection.jsx";
 import FifthSection from "@/components/livecourses/fifthSection.jsx";
 import EigthSection from "@/components/livecourses/eigthSection.jsx";
 import SeventhSection from "@/components/livecourses/seventhSection.jsx";
-import Header from "@/components/header/header.jsx";
+import Header from "@/components/header.jsx";
 import Footer from "@/components/footer";
 import Head from "next/head";
 import Plans from "@/components/livecourses/plans.jsx";
