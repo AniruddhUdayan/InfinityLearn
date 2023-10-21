@@ -17,7 +17,7 @@ import Row from "react-bootstrap/Row";
 import analytics from "../../utils/analytics";
 import { setComponentToShow } from "../../store/BookSession/BookSessionPopup";
 import { setIsStudentProfileCompleted } from "../../store/BookSession/BookSessionNewUser";
-import ProgressTabs from "/ProgressTabs";
+import ProgressTabs from "./ProgressTabs";
 const OtpVerification = () => {
   const [otp, setOtp] = useState(Array(4).fill(""));
   const [timer, setTimer] = useState(30);

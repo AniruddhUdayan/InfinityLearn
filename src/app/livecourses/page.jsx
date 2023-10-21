@@ -1,5 +1,5 @@
 import React from "react";
-import FirstSection from "@/components/livecourses/firstSection.jsx";
+import FirstSection from "@/components/livecourses/firstSection/firstSection";
 import SecondSection from "@/components/livecourses/secondSection.jsx";
 import ThirdSection from "@/components/livecourses/thirdSection.jsx";
 import FourthSection from "@/components/livecourses/fourthSection.jsx";
