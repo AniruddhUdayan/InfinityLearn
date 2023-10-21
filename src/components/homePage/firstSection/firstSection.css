@@ -2,6 +2,89 @@
 .poppins {
   font-family: "Poppins", sans-serif;
 }
+/* firstSection.css */
+
+/* ... Your existing CSS ... */
+
+/* Media query for screens between 312px and 480px */
+/* .stats {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  max-width: 100%;
+  max-height: 24px;
+  padding: 6px;
+  justify-content: space-evenly;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  gap: 3px;
+  margin: 0 auto;
+  align-items: center;
+  height: 20px;
+  background-color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 10px;
+  color: #007bff;
+}
+
+.stats-div1 {
+  display: flex;
+  flex-direction: column;
+  --tw-border-opacity: 0.2;
+}
+
+.stats > div > div:first-child {
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.stats > div > div:last-child {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.stats > .border-r-2 {
+  border-right: 2px solid #007bff;
+  opacity: 0.2;
+  height: 100%;
+}
+
+.stats > div > div:last-child > div {
+  margin-right: 1px;
+} */
+.stats {
+}
+@media only screen and (min-width: 312px) and (max-width: 480px) {
+  .inputSec {
+    padding: 10px; /* Adjust based on your design */
+  }
+
+  .inputSec .Input {
+    font-size: 14px; /* Adjust based on your design */
+    padding: 8px 12px;
+    color: black;
+  }
+
+  .inputSec .iSDCode {
+    font-size: 14px; /* Adjust based on your design */
+    padding: 8px 12px;
+  }
+
+  .inputSec .jFF {
+    font-size: 12px; /* Adjust based on your design */
+    padding: 8px 12px;
+  }
+
+  .inputSec .otp {
+    font-size: 14px; /* Adjust based on your design */
+    margin-top: 5px;
+  }
+}
+
 input::placeholder {
   color: #f0f0f0;
   font-size: 16px;
@@ -10,7 +93,7 @@ input.focus-no-outline:focus {
   outline: none;
 }
 .imageNonRes {
-  padding-bottom: 81px;
+  /* padding-bottom: 81px; */
   padding-top: 31px;
 }
 .row > div {
@@ -28,13 +111,13 @@ input.focus-no-outline:focus {
   padding-left: 114px;
   padding-right: 114px;
   /* height: max-content; */
+  gap: 120px;
   height: auto;
-  padding-bottom: 92px;
+  padding-bottom: 72px;
   display: flex;
-  gap: 153px;
 
   font-family: "Poppins", sans-serif;
-  justify-content: space-around;
+  /* justify-content: space-evenly; */
   width: 100vw;
   align-items: center;
   background-color: #007bff;
@@ -175,11 +258,13 @@ input.focus-no-outline:focus {
   }
   .inputSec {
     width: fit-content;
+    padding-left: 2px;
+    padding-right: 2px;
     /* height: 32px; */
   }
 }
 
-@media only screen and (min-width: 321px) and (max-width: 480px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   .firstSection {
     gap: 0;
     padding: auto;
@@ -188,12 +273,17 @@ input.focus-no-outline:focus {
     display: flex;
     justify-content: center;
     margin-right: 20px;
+    width: auto;
     margin-left: 20px;
+  }
+  .imageRes {
+    width: auto !important;
   }
   .head-text,
   .head-text-modified {
     font-size: 44px;
-    padding-left: 20px;
+    padding-left: 30px;
+    align-items: center;
 
     font-size: 44px;
 
@@ -217,6 +307,7 @@ input.focus-no-outline:focus {
     height: 48px;
     background-color: white;
     font-size: 13px;
+    color: black;
   }
   input::placeholder {
     color: #9c9fa1;
@@ -261,6 +352,7 @@ input.focus-no-outline:focus {
     width: 335px;
     height: 48px;
     background-color: white;
+    color: black;
     font-size: 13px;
   }
   input::placeholder {
@@ -292,9 +384,9 @@ input.focus-no-outline:focus {
   }
   .firstSection {
     padding-top: 64px;
-    padding-bottom: 94px;
+    padding-bottom: 62px;
     padding-left: 10px;
-    padding-right: 20px;
+    padding-right: 30px;
     gap: 20px;
 
     align-items: center;
@@ -359,6 +451,7 @@ input.focus-no-outline:focus {
     padding-left: 10px;
     padding-right: 15px;
     gap: 40px;
+    padding-bottom: 62px;
   }
   .imageNonRes {
     padding-right: 20px;
@@ -423,7 +516,17 @@ input.focus-no-outline:focus {
     padding-top: 10px;
   }
 }
+@media (min-width: 1440px) {
+  .stat {
+    width: 1010px;
+  }
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .stats {
+    width: 1010px;
+  }
+
   .firstSection {
     padding-left: 80px;
     padding-right: 80px;

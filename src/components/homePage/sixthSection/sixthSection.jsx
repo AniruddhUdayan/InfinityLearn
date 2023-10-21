@@ -131,7 +131,7 @@ function SixthSection() {
               <div className="mb-4 ml-3 tracking-wider text-[24px] font-[600] text-black">
                 download the app
               </div>
-              <div className="flex items-center justify-start">
+              <div className="flex items-center  justify-start">
                 <a
                   href="https://apps.apple.com/sg/app/infinity-learn/id1642492194"
                   target="_blank"
@@ -139,8 +139,8 @@ function SixthSection() {
                 >
                   <Image
                     src="/../images/apple.svg"
-                    height={80}
-                    width={236}
+                    height={50}
+                    width={276}
                     alt="Download on the Apple App Store"
                     className=" aspect-[18/5] mb-"
                   />
@@ -154,7 +154,7 @@ function SixthSection() {
                   <Image
                     src="/../homepage/sixthSection/playstore.svg"
                     height={50}
-                    width={236}
+                    width={276}
                     alt="playsto.svg"
                     className=" aspect-[18/5]"
                   />

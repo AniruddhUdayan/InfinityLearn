@@ -1,26 +1,133 @@
 .carousel-indicators {
-    /* regular width */
-    display: none;
+  /* regular width */
+  display: none;
+}
+.regular-dash {
+  width: 16px;
+  height: 2px;
+}
+.regular-dash,
+.elongated-dash {
+  transition: width 0.3s ease-out;
+}
+.elongated-dash {
+  width: 32px; /* Or however long you want the elongated dash to be */
+}
+
+.card {
+  flex-shrink: 0;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-left: 1rem /* 16px */;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start;
+  text-align: start;
+  padding-top: 1.75rem /* 28px */;
+  padding-bottom: 1.75rem /* 28px */;
+  .cdc {
+    text-align: start;
+    color: #080e14;
+    justify-content: flex-start;
+    flex-grow: 1;
+    border-bottom-width: 2px;
   }
-  .regular-dash {
-    width: 16px;
-    height: 2px;
+  .cpc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .regular-dash,
-  .elongated-dash {
-    transition: width 0.3s ease-out;
+}
+
+.fourthSection {
+  width: 100%;
+  padding-top: 2.5rem /* 40px */;
+  padding-bottom: 2.5rem /* 40px */;
+  overflow: hidden;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #d4e9ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .fous-text-ch {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    margin-bottom: 2.5rem;
   }
-  .elongated-dash {
-    width: 32px; /* Or however long you want the elongated dash to be */
+  .focus-text-content {
+    margin-top: 2rem;
+    font-size: 64px;
+    font-weight: 700;
+    /* color: #080e14; */
   }
-  @media (max-width: 320px) {
-    .text-head1 {
-      font-size: 28px;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .focus-text-content {
+    margin-bottom: 1rem;
+    font-size: 32px !important;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+  .focus-text-content {
+    margin-bottom: 1rem;
+    font-size: 32px !important;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .focus-text-content {
+    margin-bottom: 1rem;
+    font-size: 52px !important;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+}
+@media not all and (min-width: 1536px) {
+  .cdc {
+    margin-bottom: 1rem /* 16px */;
+  }
+  .cpc {
+    margin-top: 0.75rem;
+  }
+}
+@media (max-width: 320px) {
+  .text-head1 {
+    font-size: 28px;
+  }
+  .cc {
+    width: 300px;
+    .ccp {
+      font-size: smaller;
     }
-    .cc {
-      width: 300px;
-      .ccp {
-        font-size: smaller;
-      }
-    }
   }
+}
+@media (max-width: 768px) {
+  .card {
+    width: 335px;
+    height: 382px;
+    margin-left: 1.25rem /* 20px */;
+    margin-right: 1.25rem /* 20px */;
+  }
+  .fourthSection {
+    border-top-width: 4px;
+  }
+
+  .cdc {
+    width: 100%;
+    margin-left: 1rem;
+  }
+  .cpc {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}

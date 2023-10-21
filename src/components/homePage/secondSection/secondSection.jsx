@@ -60,7 +60,7 @@ export const SwitchTabs = ({ data, onTabChange }) => {
           ))}
           <span
             className="h-10 z-0 max-md:h-[37px] bg-yellow-300 text-black absolute 
-            transition-all duration-500 rounded-2xl mt-2"
+            transition-all  duration-300 rounded-2xl mt-2"
             style={{ left, width: tabWidth }}
           />
         </div>

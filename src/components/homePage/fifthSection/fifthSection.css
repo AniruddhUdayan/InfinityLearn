@@ -1,8 +1,274 @@
-@media (max-width: 320px) {
-    smallS {
-      width: 300px;
-    }
-    card {
-      left: 250px;
+.RS {
+  align-items: center;
+  .nls {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 2.25rem;
+  }
+  .carous {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    max-width: 380px;
+    top: 1rem;
+  }
+}
+.image-container {
+  position: relative;
+  width: 365px;
+  height: 161px;
+  overflow: hidden;
+}
+
+/* Background image (video) */
+.image-container .background-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Play button logo centered on the background image */
+.image-container .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 52px;
+  opacity: 0.75;
+}
+.Reviews {
+  .nlss {
+    background-color: #00364e;
+    width: 100%;
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }
+  .rev {
+    display: flex;
+    position: relative;
+    top: 2.5rem;
+    .carouss {
+      overflow: hidden;
+      width: 100vw;
+      position: relative;
+      .carouss-item {
+        display: flex;
+        gap: 2rem;
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        transition-duration: 1000ms;
+      }
     }
   }
+}
+
+.fifthSection {
+  margin-bottom: 10rem;
+  height: 782px;
+  width: 100%;
+  width: 100%;
+  background-color: #00364e;
+  .fsc {
+  }
+
+  .fsh {
+    display: flex;
+    padding-left: 7rem /* 112px */;
+    padding-right: 7rem;
+    padding-top: 87px;
+    padding-bottom: 127px;
+    width: 50%;
+    font-weight: 700;
+    font-size: 32px;
+    flex-direction: column;
+    height: max-content;
+    justify-content: space-between;
+    .fshc {
+      font-size: 64px;
+
+      font-weight: 700;
+      text-transform: lowercase;
+      line-height: 75px;
+      word-wrap: break-word;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  smallS {
+    width: 300px;
+  }
+  card {
+    left: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nlss {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media not all and (min-width: 480px) {
+  .Reviews {
+    display: none;
+  }
+}
+@media (min-width: 480px) {
+  .RS {
+    display: none;
+  }
+}
+@media not all and (min-width: 1280px) {
+  .fsh {
+    padding: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .fifthSection {
+    height: 371px;
+  }
+  .fifthSection {
+    .fsh {
+      padding-bottom: 4rem;
+
+      padding-left: 1.25rem /* 20px */;
+      padding-right: 1.25rem;
+      width: 100%;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      text-align: start;
+
+      white-space: nowrap;
+    }
+  }
+  .image-tomp {
+    display: none;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+  .fifthSection {
+    height: 371px;
+  }
+  .image-tomp {
+    display: none;
+  }
+  .fifthSection {
+    .fsh {
+      padding-bottom: 4rem;
+
+      padding-left: 1.25rem /* 20px */;
+      padding-right: 1.25rem;
+      width: 100%;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      text-align: start;
+
+      white-space: nowrap;
+    }
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+  .fifthSection {
+    height: 540px;
+    .fsh {
+      padding-bottom: 4rem;
+
+      padding-left: 1.5rem /* 20px */;
+      padding-right: 1.25rem;
+      width: 100%;
+      padding-top: 40px;
+      padding-bottom: 0px;
+      text-align: start;
+    }
+  }
+  .fshc {
+    font-size: 36px !important;
+
+    line-height: 42px !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .fshc {
+    font-size: 36px !important;
+
+    line-height: 42px !important;
+  }
+
+  .fifthSection {
+    height: 557px;
+    .fsh {
+      padding-bottom: 4rem;
+
+      padding-left: 3.5rem /* 20px */;
+      padding-right: 1.25rem;
+      width: 100%;
+      padding-top: 40px;
+      padding-bottom: 0px;
+      text-align: start;
+
+      white-space: nowrap;
+    }
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .fshc {
+    font-size: 48px !important;
+
+    line-height: 58px !important;
+  }
+
+  .fifthSection {
+    height: 700px;
+    .fsh {
+      padding-bottom: 4rem;
+
+      padding-left: 4.5rem /* 20px */;
+      padding-right: 1.25rem;
+      /* width: 100%; */
+      padding-top: 40px;
+      padding-bottom: 0px;
+      text-align: start;
+
+      white-space: nowrap;
+    }
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+}
+@media (max-width: 768px) {
+  .nlss {
+    padding-left: 1.5rem /* 24px */;
+    padding-right: 1.5rem;
+    margin-top: 3rem;
+  }
+  .carouss-item {
+    gap: 70px;
+    padding-left: 1.25rem /* 20px */;
+    padding-right: 1.25rem;
+  }
+  .rev {
+    height: 100%;
+    top: 2.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .fs {
+  }
+  .fshc {
+    font-size: 32px !important;
+
+    line-height: 38px !important;
+  }
+  .carouss {
+    overflow-x: auto;
+  }
+}

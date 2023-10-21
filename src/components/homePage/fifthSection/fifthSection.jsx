@@ -104,20 +104,7 @@ const reviews = [
     image: "reviews/image3.svg",
   },
 ];
-// function LevelShower(props) {
-//   return (
-//     <div className=" max-md:w-64   max-lg:px-0 max-xl:">
-//       <div className="flex max-md:ml-0 max-2xl:ml-10items-center">
-//         <div className="w-4 h-4 mr-6 font-semibold">01</div>
-//         <div className=" w-48 max-md:w-28 h-0.5 mt-2 bg-white"></div>
-//         <div className="w-4 h-4 font-semibold ml-6">05</div>
-//       </div>
-//       <div
-//         className={`relative bottom-2  ${props.data}  left-10 bg-blue-500 h-2`}
-//       ></div>
-//     </div>
-//   );
-// }
+
 function Card({ data, onMouseEnter, onMouseLeave }) {
   const check = data.video;
 
@@ -126,20 +113,27 @@ function Card({ data, onMouseEnter, onMouseLeave }) {
       <div
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className="flex  w-[365px]  hover:cursor-pointer h-[365px] max-2xl:mb-  max-md:h-fll 
-      max-md:py-5  my-6 shadow-md max-md:h-[391px] max-md:w-full max-md:h-fll justify-evenly max-md:gap-     flex-col px-2
-      flex-shrink-0   rounded-2xl w-/4 bg-white text-[#080E14]"
+        className="flex  max-w-[392px] max-md:h-[371px] hover:cursor-pointer h-[365px] 
+      max-md:py-5  my-6 shadow-md items-center  justify-evenly 
+        flex-col px-2
+      flex-shrink-0   rounded-2xl  bg-white text-[#080E14]"
       >
-        <Image
-          src={data.image}
-          // className=" rounded-full"
-          height={161}
-          width={292}
-          className="  max-md:mt-16  mt-24  w-[100%] h-[100%]"
-          fit="contain"
-          alt="cards svg"
-        />
-        <div className="  max-md:px-1 max-md:mt-5 mt-4 max-md:text-base max-md:w-full  text-start">
+        <div class="image-container">
+          <Image
+            src={data.image}
+            alt="Video Background"
+            class="background-image"
+            width={365}
+            height={161}
+            className=""
+          />
+          <img
+            src="/reviews/video.svg"
+            alt="Play Button Logo"
+            class="play-button"
+          />
+        </div>
+        <div className="  max-md:px-1  max-md:text-[12px] text-[#52565B] max-md:mt-5 mt-4 max-md:text-base max-md:w-full  text-start">
           {data.review}
         </div>
         <div className=" w-full flex justify-end">
@@ -152,17 +146,8 @@ function Card({ data, onMouseEnter, onMouseLeave }) {
           />
         </div>
 
-        <Image
-          src="/reviews/video.svg"
-          height={52}
-          width={40}
-          alt="video svg "
-          className=" w-[15%] bottom-[240px] max-md:bottom-[240px] left-[150px]
-           max-md:left-[150px] opacity-75   relative"
-        />
-
         <div
-          className=" flex max-md:relative max-md:bottom-20  justify-around  max-md:gap-3 w-full
+          className=" flex  justify-around  max-md:gap-3 w-full
           max-md:justify-start  max-md:flex-col 
           "
         >
@@ -180,8 +165,8 @@ function Card({ data, onMouseEnter, onMouseLeave }) {
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="flex mb-12 h-[365px]  hover:cursor-pointer   w-[392px] 
-      max-md:h-[391px] max-md:w-full  justify-evenly  
+      className="flex mb-12 max-h-[365px]  hover:cursor-pointer   max-w-[392px] 
+      max-md:h-[371px]  justify-evenly   max-md:w-[316px]
       shadow-md  flex-col max-md:gap-10 px-5 max-md:px-4 
     flex-shrink-0 py-8 my-4 rounded-2xl  bg-white text-[#080E14] "
     >
@@ -249,7 +234,7 @@ function NewLevelShower({ currentIndex }) {
     </div>
   );
 }
-function Trial() {
+function ReviewsSmall() {
   const [scrollPos, setScrollPos] = useState(0);
   function handleSlide() {
     const maxScroll = reviews.length - 1;
@@ -261,14 +246,14 @@ function Trial() {
   }
 
   return (
-    <div className=" sm:hidden  items-center">
-      <div className=" flex ml-[10px] mt-9">
+    <div className=" RS ">
+      <div className="nls">
         <NewLevelShower currentIndex={scrollPos} />
       </div>
 
       <Carousel
         controls={false}
-        className=" items-center mx-auto w-fit  max-w-[380px] top-4"
+        className=" carous"
         interval={2000}
         onSlide={handleSlide}
       >
@@ -286,88 +271,6 @@ function Trial() {
     </div>
   );
 }
-// function Trial1() {
-//   const numberOfCards = 4;
-
-//   // Duplicate the first 'numberOfCards' items at the end for a seamless loop effect
-
-//   return (
-//     <Carousel interval={2500} controls={false}>
-//       {/* {reviews.map((review, index) => (
-//         <CarouselItem key={index}>
-//           <div
-//             className="d-flex justify-content-center align-items-center mx-3"
-//             style={{ height: "100%" }}
-//           >
-//             <Card data={review} />
-//           </div>
-//         </CarouselItem>
-//       ))} */}
-//       {/* {Array.from({
-//         length: Math.ceil(extendedReviews.length / numberOfCards),
-//       }).map((_, slideIdx) => (
-//         <Carousel.Item key={slideIdx}>
-//           <div className="d-flex gap-6">
-//             {extendedReviews
-//               .slice(slideIdx * numberOfCards, (slideIdx + 1) * numberOfCards)
-//               .map((review, cardIdx) => (
-//                 <Card data={review} />
-//               ))}
-//           </div>
-//         </Carousel.Item>
-//       ))} */}
-//       <CarouselItem className=" w-[100%]">
-//         <div
-//           className="d-flex  gap-3 items-center  "
-//           style={{ height: "100%" }}
-//           // key={firstItemKey}
-//         >
-//           {reviews.map(
-//             (review, index) =>
-//               // <CarouselItem key={index}>
-
-//               index < 3 && <Card data={review} />
-
-//             // </CarouselItem>
-//           )}
-//         </div>
-//       </CarouselItem>
-//       <CarouselItem className=" w-[100%]">
-//         <Card data={reviews[2]} />
-//       </CarouselItem>
-//       {/* <CarouselItem>
-//         <div
-//           className="d-flex  gap-3 items-center  mx-4"
-//           style={{ height: "100%" }}
-//         >
-//           {reviews.map(
-//             (review, index) => (
-//               // <CarouselItem key={index}>
-
-//               <Card data={review} />
-//             )
-
-//             // </CarouselItem>
-//           )}
-//         </div>
-//       </CarouselItem> */}
-//       {/* <CarouselItem>
-//         <div
-//           className="d-flex justify-content-center align-items-center mx-3"
-//           style={{ height: "100%" }}
-//         >
-//           {reviews.map((review, index) => (
-//             // <CarouselItem key={index}>
-
-//             <Card data={review} />
-
-//             // </CarouselItem>
-//           ))}
-//         </div>
-//       </CarouselItem> */}
-//     </Carousel>
-//   );
-// }
 
 function Reviews() {
   const [isHovering, setIsHovering] = useState(false);
@@ -413,28 +316,21 @@ function Reviews() {
         }
       }
       return () => clearInterval(interval);
-    }, 2500);
+    }, 20000000);
 
     return () => clearInterval(interval);
   }, [scrollPos, isHovering]);
   // console.log(isHovering);
 
   return (
-    <div className=" max-sm:hidden">
-      <div
-        className=" bg-[#00364E]   max-lg:w-full max-lg:px-0 
-      w-full max-xl:px-10
-       max-xl: px-36 max-md:px-6 max-md:mt-12  "
-      >
+    <div className=" Reviews">
+      <div className=" nlss max-xl:px-10">
         <NewLevelShower currentIndex={scrollPos} />
       </div>
-      <div
-        className="  flex relative  max-md:h-full max-md:top-10 
-      max-2xl:top-10 max-md:px-10  flex-col justify-center items-center "
-      >
-        <div className="overflow-hidden no-scrollbar max-md:overflow-x-auto max-2xl:w-screen  relative w-5/">
+      <div className=" rev">
+        <div className="carouss no-scrollbar overflow-x-auto ">
           <div
-            className="flex gap-8 max-md:gap-[70px] max-md:px-5 transition-transform duration-1000"
+            className="carouss-item "
             style={{ transform: `translateX(-${scrollPos * sN}%)` }}
           >
             {reviews.map((review, index) => (
@@ -469,30 +365,24 @@ function FifthSection() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
   return (
-    <div className=" mb-40   max-md:h-[450px] h-[782px]  w-full bg-[#00364E]">
+    <div className=" fifthSection">
       <div
         className=" bg-[#00364E]  flex max-md:pt-10  justify-evenly max-md:ml-3
        max-md:justify-start text-start items-start pt-20 max-xl: "
       >
-        <div
-          className=" flex max-2xl:px-28 py-[127px] max-md:pb-16 max-md:item-center max-md:px-5 
-          max-md:py-0 max-2xl:w-1/2 font-[700] text-[32px] max-md:w-full
-         h-max max-xl:p-24 max-xl:pb-24 flex-col justify-between justify-cnter"
-        >
-          <div className=" text-white text-6xl max-md:text-4xl ">
+        <div className=" fsh ">
+          <div className=" text-white fshc ">
             inspiring
-            <span className=" md:hidden ml-2">stories of</span>
+            <span className=" sm:hidden ml-2">stories of</span>
           </div>
-          <div className="text-white max-md:hidden text-6xl">
-            stories of our{" "}
-          </div>
-          <div className=" text-6xl max-md:text-4xl  text-[#FCDE5A]">
-            <span className=" md:hidden mr-2">our</span>toppers{" "}
+          <div className="text-white max-sm:hidden fshc">stories of our </div>
+          <div className=" fshc  text-[#FCDE5A]">
+            <span className=" image-tomp mr-2">our</span>toppers{" "}
           </div>
         </div>
         <Image
           src="/homepage/fifthSection/topper.webp"
-          className="max-md:hidden hover:cursor-pointer max-xl:mr-5 aspect-[3/2]"
+          className="image-tomp hover:cursor-pointer max-xl:mr-5 aspect-[3/2]"
           height={400}
           width={600}
           alt="topper.svg"
@@ -500,9 +390,8 @@ function FifthSection() {
         />
       </div>
       <Reviews />
-      <Trial />
-      {/*{/* <ScrollableDiv /> */}
-      {/* <Trial1 /> */}
+      <ReviewsSmall />
+
       {showOverlay ? (
         <VideoOverlay onClose={() => setShowOverlay(false)} />
       ) : null}

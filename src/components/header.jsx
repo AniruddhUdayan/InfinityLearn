@@ -367,9 +367,9 @@ function Header() {
   return (
     <div>
       <nav
-        className={`bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 max-lg:w-full 
+        className={`bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 
         max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4
-         px-14 w-screen max-md:border-b-0 border-b-[1px] border-whte border-gray-400 border-opacity-50`}
+         px-[115px] w-screen max-md:border-b-0 border-b-[1px] border-whte border-gray-400 border-opacity-50`}
       >
         <div className="flex justify-evenly smallerS  items-center">
           <Image
@@ -388,12 +388,12 @@ function Header() {
           />
 
           <div className="flex-grow  z-30">
-            <ul className="flex text-white pl-0 mb-0 max-md:hidden justify-around ">
+            <ul className="flex text-white  mb-0 max-md:hidden justify-around ">
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
-                    className={`flex px-7 items-center group hover:cursor-pointer whitespace-nowrap 
-                     hover:border-white hover:border-[1px] border-solid  hover:rounded-3xl p-1
+                    className={`flex px-[17px] items-center group hover:cursor-pointer whitespace-nowrap 
+                     hover:border-white hover:border-[1px] text-[16px] border-solid  hover:rounded-3xl p-1
                      transform hover:scale-105 transition-transform duration-300`}
                     onClick={() => toggleSubMenu(index)}
                     onMouseEnter={() => hoverHandler1(index)}

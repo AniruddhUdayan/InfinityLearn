@@ -21,7 +21,7 @@ const HomePage = () => {
     analytics.page();
   }, []);
   return (
-    <div>
+    <div className=" w-screen">
       <Header />
       <FirstSection />
       <SecondSection />
