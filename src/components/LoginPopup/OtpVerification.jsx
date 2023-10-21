@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { storePhoneNumber } from "../../store/mobVeriSlice";
 import {
   sendSQSMsg,
   sendOtp,
@@ -15,22 +16,33 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import analytics from "../../utils/analytics";
-import { setComponentToShow } from "../../store/BookSession/BookSessionPopup";
-import { setIsStudentProfileCompleted } from "../../store/BookSession/BookSessionNewUser";
-import ProgressTabs from "./ProgressTabs";
+import { setComponentToShow } from "../../store/modalToShow";
 const OtpVerification = () => {
+  const dummyOtp = ["1", "2", "3", "4"];
   const [otp, setOtp] = useState(Array(4).fill(""));
   const [timer, setTimer] = useState(30);
+  const [editingNumber, setEditingNumber] = useState(false);
   const [policyAgreement, setPolicyAgreement] = useState(true);
   const [whatsappConsent, setWhatsappConsent] = useState(true);
-  const phoneNumber = useSelector((state) => state.bookSessionData.phoneNumber);
-  const selectedGrade = useSelector((state) => state.bookSessionNewUser.class);
-  const selectedExams = useSelector((state) => state.bookSessionNewUser.course);
+  const phoneNumber = useSelector(
+    (state) => state.mobileVerification.phoneNumber
+  );
+  const selectedGrade = useSelector((state) => state.newUser.class);
+  const selectedExams = useSelector((state) => state.newUser.course);
   const isExitingUser = useSelector(
     (state) => state.mobileVerification.isExitingUser
   );
+
+  const [tempNumber, setTempNumber] = useState("");
+  const [showOverlay, setShowOverlay] = useState(false);
+
   const dispatch = useDispatch();
   const otpRefs = useRef([]);
+
+  const handleNumberEdit = () => {
+    dispatch(storePhoneNumber(tempNumber));
+    setEditingNumber(false);
+  };
 
   useEffect(() => {
     if (timer > 0) {
@@ -38,6 +50,13 @@ const OtpVerification = () => {
       return () => clearTimeout(id);
     }
   }, [timer]);
+
+  // const handleOtpChange = (index) => (e) => {
+  //   const value = e.target.value;
+  //   if (value === "" || /^\d$/.test(value)) {
+  //     setOtp([...otp.slice(0, index), value, ...otp.slice(index + 1)]);
+  //   }
+  // };
   const handleOtpChange = (index) => (e) => {
     const value = e.target.value;
 
@@ -70,6 +89,7 @@ const OtpVerification = () => {
       const response = await validateOTP(body);
       console.log(response);
       setOtpError(false);
+      setShowOverlay(true);
       if (!isExitingUser) {
         updateUser(response);
       } else {
@@ -81,7 +101,7 @@ const OtpVerification = () => {
         registerSuccess(response?.userDto);
         sendLsq();
         setCookie("INFINITY_LEARN", JSON.stringify(response), 1);
-        dispatch(setComponentToShow("DateTimeSelection"));
+        dispatch(setComponentToShow("Success"));
       }
     } catch (error) {
       setOtpError(true);
@@ -110,9 +130,8 @@ const OtpVerification = () => {
       );
       registerSuccess(updatedUserData?.userDto);
       sendLsq();
-      setCookie("INFINITY_LEARN", JSON.stringify(response), 1);
-      dispatch(setComponentToShow("DateTimeSelection"));
-      dispatch(setIsStudentProfileCompleted(true));
+      console.log(updatedUserData, "updatedUserData");
+      dispatch(setComponentToShow("Success"));
     } catch {
       console.error("Error fetching data:", error.message);
     } finally {
@@ -207,21 +226,21 @@ const OtpVerification = () => {
       platform: "Web",
     });
   };
-
   return (
     <div>
       <Container>
         <Row>
           <Col xs={12} md={6}>
-            <img
+            <Image
               src="/login/mobVer/mobVer2.webp"
+              height={600}
+              width={500}
               alt="mob-ver-otp"
-              className="side_image max-md:hidden"
+              className=" max-md:hidden"
             />
           </Col>
           <Col xs={12} md={6}>
             <div className="right_box">
-              <ProgressTabs />
               <Row>
                 <Col md={12}>
                   <h2 className="otp_heading">
@@ -252,7 +271,7 @@ const OtpVerification = () => {
                               value={digit}
                               maxLength={1}
                               ref={(el) => (otpRefs.current[index] = el)}
-                              className={`border rounded-xl w-20  h-12  text-center text-base ${
+                              className={`border rounded-xl w-20  h-12 text-center text-base ${
                                 otpError
                                   ? "otp_border_error"
                                   : "otp_border_blue"
