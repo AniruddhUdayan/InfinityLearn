@@ -135,18 +135,26 @@ function Card0(props) {
       className={`card0`}
     >
       <Image src={svg} width={svgWidth} height={svgWidth} alt="secondSec.svg" />
-      <div className=" flex flex-col">
-        <h1 className=" lg:text-xl max-md:text-xl font-[600] mt-4  sm:mt-2 sm:text-lg">
+      <div className="  flex flex-col">
+        <h1
+          className={`" ${
+            isHovered ? "text-white" : ""
+          } text-[24px] text-[#080E14] max-md:text-xl font-[600] mt-4  sm:mt-2 sm:text-[18px] "`}
+        >
           {props.data.name}
         </h1>
-        <div className=" text-sm lg:mb-5 max-md:text-opacity-50 max-md:mb-3 sm:mb-2">
+        <div
+          className={`" ${
+            isHovered ? "text-white" : ""
+          } text-[#6B6E72] font-[500] lg:text-[18px] text-sm lg:mb-5 max-md:text-opacity-50 max-md:mb-3 sm:mb-2 "`}
+        >
           {props.data.subItemAbout}
         </div>
       </div>
       <div
         className={`" text-[#007BFF] ${
           isHovered ? "text-white" : ""
-        } max-2xl:font-bold max-md:w-full max-md:text-sm text-lg  "`}
+        } max-2xl:font-semibold max-md:w-full max-md:text-sm text-lg  "`}
       >
         {props.data.examTime}
       </div>
@@ -439,7 +447,7 @@ function SecondSection() {
     <div className="items-center h-full poppins  bg-[#E5E7EB]">
       <div className="max-w-[1000px] max-2xl:px-4 max-md:px-3   max-lg: max-md:w-[100%] mx-auto">
         <div className="flex stat justify-evenly  p-6 text-center max-md:hidden font-bold text-4xl gap-4 relative bottom-[4.5rem] mx-auto flex-row items-center h-36 bg-yellow-300 px-4 rounded-2xl">
-          <div className="text-black flex flex-col border-black">
+          <div className="text-[black] flex flex-col border-black">
             <div className="text-center font-normal text-2xl text-[#080E14]">
               Learners
             </div>
