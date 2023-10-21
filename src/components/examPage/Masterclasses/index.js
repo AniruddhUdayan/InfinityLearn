@@ -7,6 +7,7 @@ import expand from './../../../../public/images/expand_more.svg'
 import ClassesCardFull from './ClassesCardFull'
 import { Button, Tab, Tabs } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
+import './styles.css'
 
 const Masterclasses = () => {
     const [tabValue, setTabValue] = useState(0)
@@ -122,39 +123,39 @@ const Masterclasses = () => {
 	}, [])
 
     return (
-        <div className="p-4 lg:p-10 py-8 lg:py-10 bg-white">
-            <div className="text-5xl font-bold text-center px-56 text-[#080E14] mb-10 hidden lg:block">remember concepts for a lifetime with <span className="text-[#007BFF]">masterclasses</span></div>
-            <div className="text-4xl font-extrabold leading-[3rem] text-[#080E14] mb-6 lg:hidden">learn in depth with <span className="text-[#007BFF]">masterclasses</span></div>
-            <div className="lg:px-48 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0">
-                <div className="flex lg:flex-col items-center gap-4 lg:px-10 text-center text-[#52565B] border-e-[1px] border-[#99CAFF]">
-                    <Image src={check} alt="check" className="w-[1.5rem] lg:[2rem]" />
+        <div className="mc-main">
+            <div className="mc-head">remember concepts for a lifetime with <span className="blue">masterclasses</span></div>
+            <div className="mc-head-m">learn in depth with <span className="blue">masterclasses</span></div>
+            <div className="mc-pts">
+                <div className="mc-pt mc-pt-border">
+                    <Image src={check} alt="check" className="mc-pt-img" />
                     Advanced sessions for specific topics
                 </div>
-                <div className="flex lg:flex-col items-center gap-4 lg:px-10 text-center text-[#52565B] border-e-[1px] border-[#99CAFF]">
-                    <Image src={check} alt="check" className="w-[1.5rem] lg:[2rem]" />
+                <div className="mc-pt mc-pt-border">
+                    <Image src={check} alt="check" className="mc-pt-img" />
                     Advanced sessions for specific topics
                 </div>
-                <div className="flex lg:flex-col items-center gap-4 lg:px-10 text-center text-[#52565B]">
-                    <Image src={check} alt="check" className="w-[1.5rem] lg:[2rem]" />
+                <div className="mc-pt">
+                    <Image src={check} alt="check" className="mc-pt-img" />
                     Advanced sessions for specific topics
                 </div>
             </div>
-            <div className="-ms-4 my-10 flex lg:grid lg:grid-cols-3 gap-4 overflow-x-auto no-scrollbar p-4 items-stretch" ref={generalRef}>
-                <div className="lg:col-span-3 flex items-stretch lg:block">
+            <div className="mc-live no-scrollbar" ref={generalRef}>
+                <div className="mc-live-1">
                     <ClassesCardFull fullwidth={true} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='Started 1 hour ago' by='Ranjan M' byImg={mainTeacher} isLive={true} watching={'14.3k'} />
                 </div>
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='Started 1 hour ago' by='Ranjan M' byImg={mainTeacher} isLive={true} watching={'14.3k'} />
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='starts on wednesday' by='Ranjan M' byImg={mainTeacher} isLive={false} watching={'14.3k'} time={'July 5 at 1:00pm'} />
                 <ClassesCardFull fullwidth={false} img={main} sub='Chemistry' title='organic chemistry reaction study' desc='Two line detailed description about the course [...]' started='starts on wednesday' by='Ranjan M' byImg={mainTeacher} isLive={false} watching={'14.3k'} time={'July 5 at 1:00pm'} ref2={generalEleRef} />
             </div>
-            <div className="font-bold text-[#080E14] text-4xl mt-4">subject wise<span className="hidden lg:inline"> videos</span></div>
-            <div className="flex gap-4 justify-between">
-                <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className="my-4" themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'start' }, '& .MuiTab-root' : { backgroundColor: '#F1F2F6' } }}>
+            <div className="mc-subhead">subject wise<span className="mc-videos"> videos</span></div>
+            <div className="mc-tabs-wrapper">
+                <Tabs value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} themeColor='yellow' sx={{ marginY: '1rem', '& .MuiTabs-flexContainer' : { justifyContent: 'start' }, '& .MuiTab-root' : { backgroundColor: '#F1F2F6' } }}>
                     <Tab label="Chemistry" className="" themeColor='yellow' />
                     <Tab label="Physics" className="" themeColor='yellow' />
                     <Tab label="Biology" className="" themeColor='yellow' />
                 </Tabs>
-                <div className="hidden lg:flex gap-2 self-center ">
+                <div className="mc-btns-wrapper ">
                     <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0, paddingY: '0.5rem' }} onClick={tabValue === 0 ? scrollChemistryRight : tabValue === 1 ? scrollPhysicsRight : scrollBiologyRight} >
                         <Image src={expand} alt="expand" width={10} className="rotate-180" />
                     </Button>
@@ -166,30 +167,30 @@ const Masterclasses = () => {
             </div>
             
             {
-                tabValue === 0 && <div className="flex gap-4 overflow-x-auto lg:overflow-hidden no-scrollbar p-4 -ms-4" ref={chemistryRef}>
+                tabValue === 0 && <div className="mc-cards no-scrollbar" ref={chemistryRef}>
                     {subjectWise.chemistry.map((item, index) => (
                         <ClassesCardFull key={index} fullwidth={false} img={item.img} sub={item.sub} title={item.title} desc={item.desc} started={item.started} by={item.by} byImg={item.byImg} isLive={item.isLive} watching={item.watching} time={item.time} ref2={chemistryEleRef} />
                     ))}
                 </div>
             }
             {
-                tabValue === 1 && <div className="flex gap-4 overflow-x-auto lg:overflow-hidden no-scrollbar p-4 -ms-4" ref={physicsRef}>
+                tabValue === 1 && <div className="mc-cards no-scrollbar" ref={physicsRef}>
                     {subjectWise.physics.map((item, index) => (
                         <ClassesCardFull key={index} fullwidth={false} img={item.img} sub={item.sub} title={item.title} desc={item.desc} started={item.started} by={item.by} byImg={item.byImg} isLive={item.isLive} watching={item.watching} time={item.time} ref2={physicsEleRef} />
                     ))}
                 </div>
             }
             {
-                tabValue === 2 && <div className="flex gap-4 overflow-x-auto lg:overflow-hidden no-scrollbar p-4 -ms-4" ref={biologyRef}>
+                tabValue === 2 && <div className="mc-cards no-scrollbar" ref={biologyRef}>
                     {subjectWise.biology.map((item, index) => (
                         <ClassesCardFull key={index} fullwidth={false} img={item.img} sub={item.sub} title={item.title} desc={item.desc} started={item.started} by={item.by} byImg={item.byImg} isLive={item.isLive} watching={item.watching} time={item.time} ref2={biologyEleRef} />
                     ))}
                 </div>
             }
 
-            <div className="font-bold text-[#080E14] text-4xl mt-12 mb-4 flex justify-between">
+            <div className="mc-most-viewed">
                 most viewed videos
-                <div className="hidden lg:flex gap-2">
+                <div className="mc-btns-wrapper">
                     <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollMostViewedRight} >
                         <Image src={expand} alt="expand" width={10} className="rotate-180" />
                     </Button>
@@ -198,13 +199,13 @@ const Masterclasses = () => {
                     </Button>
                 </div>
             </div>
-            <div ref={mostViewedRef} className="flex gap-4 overflow-x-auto lg:overflow-hidden no-scrollbar p-4 -ms-4">
+            <div ref={mostViewedRef} className="mc-cards no-scrollbar">
                 {mostViewed.map((item, index) => (
                     <ClassesCardFull key={index} fullwidth={false} img={item.img} sub={item.sub} title={item.title} desc={item.desc} started={item.started} by={item.by} byImg={item.byImg} isLive={item.isLive} watching={item.watching} time={item.time} ref2={mostViewedEleRef} />
                 ))}
             </div>
-            <div className="mt-8 text-center hidden lg:block">
-                <Button variant="contained" className="w-full lg:w-auto" sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
+            <div className="mc-btn-wrapper">
+                <Button variant="contained" className="mc-btn" sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
                     book free counselling session
                 </Button>
             </div>

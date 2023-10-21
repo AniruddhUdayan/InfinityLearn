@@ -1,5 +1,6 @@
 "use client";
-// import LandingExam from "../../components/LandingExam"
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import LandingExam from '@/components/examPage/LandingExam'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
@@ -15,12 +16,15 @@ import Scholarship from '@/components/examPage/Scholarship'
 import Books from '@/components/examPage/Books'
 import Faculty from '@/components/examPage/Faculty'
 import PackageSubscription from '@/components/PackageSubscription'
+import LoginPopup from '@/components/LoginPopup'
+import './../../styles.css'
 
 const ExamPage = ({ params }) => {
     return (
         <div className='poppins'>
             <Header />
             {/* <PackageSubscription /> */}
+            <LoginPopup />
             <LandingExam classFor={params.class} examFor={params.exam} />
             <Promise classFor={params.class} examFor={params.exam} />
             <Courses classFor={params.class} examFor={params.exam} />

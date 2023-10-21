@@ -1,0 +1,132 @@
+.faculty-wrapper {
+    padding: 1rem; 
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; 
+    width: 100%; 
+    background: #F3F3F3;
+}
+.faculty-top {
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.blue {
+    color: #007BFF;
+}
+.faculty-btns {
+    display: none; 
+    gap: 0.5rem; 
+}
+.w-auto {
+    width: auto;
+}
+.faculty-progress {
+    display: flex; 
+    margin-top: 0.5rem; 
+    gap: 0.5rem; 
+    align-items: center; 
+}
+.faculty-progress-actual {
+    width: 50%;
+}
+.faculty-cards {
+    display: flex; 
+    overflow-x: scroll; 
+    margin-top: 1.5rem; 
+    gap: 1rem; 
+    justify-content: flex-start; 
+    width: 100%; 
+    scroll-snap-type: x var(--tw-scroll-snap-strictness); 
+}
+.faculty-explore {
+    margin-top: 1rem; 
+    text-align: center; 
+    color: #007BFF;
+}
+.fc-wrapper {
+    display: flex; 
+    margin-top: 1rem;
+    margin-bottom: 1rem; 
+    justify-content: center; 
+    min-width: 100%; 
+    scroll-snap-align: center; 
+}
+.fc-main {
+    display: flex; 
+    padding: 0.5rem; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+    align-items: center; 
+    border-radius: 0.75rem; 
+    width: fit-content; 
+    background-color: #ffffff; 
+    box-shadow: 0px 4px 20px 0px #0060A933;
+}
+.fc-img {
+    aspect-ratio: 6/5;
+}
+.fc-name {
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700; 
+    color: #000000; 
+}
+.fc-headline {
+    color: #52565B;
+}
+.fc-flex {
+    display: flex; 
+    margin-bottom: 0.5rem; 
+    gap: 0.5rem; 
+}
+.fc-pt-1 {
+    padding: 0.5rem; 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    border-radius: 0.5rem; 
+    border-width: 1px; 
+    background: #FFE4CC;
+    color: #FF7A00;
+    border-color: #FF7A00;
+}
+.fc-pt-2 {
+    padding: 0.5rem; 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    border-radius: 0.5rem; 
+    border-width: 1px; 
+    background: #D6F4DE;
+    color: #169C38;
+    border-color: #169C38;
+}
+
+@media (min-width: 1024px) { 
+    .faculty-wrapper{
+        padding: 2.5rem; 
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    .faculty-top {
+        font-size: 3rem;
+        line-height: 1; 
+    }
+    .faculty-btns {
+        display: flex; 
+    }
+    .faculty-progress {
+        display: none; 
+    }
+    .faculty-cards {
+        margin-top: 2.5rem; 
+        scroll-snap-type: none; 
+    }
+    .faculty-explore {
+        margin-top: 2.5rem;
+    }
+    .fc-wrapper {
+        min-width: calc(33% - 0.25rem);
+    }
+}

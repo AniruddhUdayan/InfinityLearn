@@ -8,37 +8,37 @@ import watchers from './../../../../../public/images/watchers.svg'
 
 const ClassesCardFull = ({ img, sub, title, desc, started, by, byImg, isLive, watching, time, fullwidth, ref2 }) => {
     return (
-        <div className={`grid p-3 lg:p-4 shadow-[0px_4px_15px_0px_#007BFF40] rounded-xl gap-4 min-w-[22rem] lg:min-w-[calc(33%-0.25rem)] ` + (fullwidth ? 'w-full grid-cols-1 lg:grid-cols-2' : 'w-auto grid-cols-1')} ref={ref2}>
-            <div className={`relative `}>
+        <div className={`mcc-main ` + (fullwidth ? 'mcc-main-full' : 'mcc-main-notfull')} ref={ref2}>            
+            <div className={`relative`}>
                 <Image src={img} alt="main" className="w-full" />
                 {isLive && (
-                    <Image src={play} alt="play" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[2rem]" />
+                    <Image src={play} alt="play" className="mcc-play" />
                 )}
                 {isLive && (
-                    <div className="absolute top-2 lg:top-4 right-2 lg:right-4 flex items-center gap-2 bg-[#FF0001] rounded-md px-2 py-1">
+                    <div className="mcc-live-wrapper">
                         <Image src={live} alt="live" />
-                        <div className="text-white text-sm">Live</div>
+                        <div className="mcc-live-text">Live</div>
                     </div>                
                 )}
-                <div className="absolute top-2 lg:top-4 left-0 flex items-center gap-2 px-2 py-1 pe-4" style={{
+                <div className="mcc-img" style={{
                     backgroundImage: `url(${flag.src})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'right',
                     backgroundSize: 'fit'
                 }}>
                     <Image src={isLive ? watchingIcon : watchers} alt="watching" />
-                    <div className="text-white text-sm">{watching}{isLive && ' watching now'}</div>
+                    <div className="mcc-live-text">{watching}{isLive && ' watching now'}</div>
                 </div>
             </div>
-            <div className="flex flex-col gap-3 items-start">
-                <div className="text-[#FF6B00] text-sm px-2 py-1 bg-[#FFE4CC] border rounded-md border-[#FF7A00]">{sub}</div>
-                <div className={"font-bold " + (fullwidth ? "text-xl lg:text-4xl" : "text-xl")}>{title}</div>
-                {fullwidth && <div className="text-[#52565B] text-xl hidden lg:block">{desc}</div>}
-                <div className={"text-[#007BFF] " + (fullwidth ? 'lg:text-xl' : '')}>{started}{time && <span className="text-[#52565B]">, {time}</span>}</div>
-                <div className="h-[1px] w-full bg-[#6DC6E1] mt-auto mb-2"></div>
-                <div className={"flex gap-2 items-center " + (fullwidth ? 'lg:text-lg' : '')}>
+            <div className="mcc-text">
+                <div className="mcc-sub">{sub}</div>
+                <div className={"mcc-title " + (fullwidth ? " mcc-title-full" : "")}>{title}</div>
+                {fullwidth && <div className="mcc-desc">{desc}</div>}
+                <div className={"mcc-started " + (fullwidth ? 'mcc-started-full' : '')}>{started}{time && <span className="mcc-time">, {time}</span>}</div>
+                <div className="mcc-hl"></div>
+                <div className={"mcc-by " + (fullwidth ? 'mcc-by-full' : '')}>
                     <Image src={byImg} alt="teacher" width={40} height={40} className="" />
-                    by <span className="font-bold">{by}</span>
+                    by <span className="mcc-bold">{by}</span>
                 </div>
             </div>
         </div>

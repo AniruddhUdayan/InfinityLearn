@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const FacultyCard = ({ ref2, name, image, headline, subject, usp }) => {
 	return (
-		<div ref={ref2} className="min-w-full lg:min-w-0 flex justify-center my-4 snap-center lg:min-w-[calc(33%-0.25rem)]">
-			<div className="bg-white rounded-xl p-2 flex flex-col gap-2 items-center shadow-[0px_4px_20px_0px_#0060A933] w-fit">
-				<Image src={image} alt={name} width={350} height={0} className="aspect-[6/5]" />
-				<div className="text-2xl text-black font-bold">{name}</div>
-				<div className="text-[#52565B]">{headline}</div>
-				<div className="flex gap-2 mb-2">
-					<div className="bg-[#FFE4CC] text-[#FF7A00] p-2 py-1 rounded-lg border border-[#FF7A00]">{subject}</div>
-					<div className="bg-[#D6F4DE] text-[#169C38] p-2 py-1 rounded-lg border border-[#169C38]">{usp}</div>
+		<div ref={ref2} className="fc-wrapper">
+			<div className="fc-main">
+				<Image src={image} alt={name} width={350} height={0} className="fc-img" />
+				<div className="fc-name">{name}</div>
+				<div className="fc-headline">{headline}</div>
+				<div className="fc-flex">
+					<div className="fc-pt-1">{subject}</div>
+					<div className="fc-pt-2">{usp}</div>
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 "use client";
-// import LandingExam from "../../components/LandingExam"
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import LandingExam from '@/components/examPage/LandingExam'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
@@ -14,8 +15,9 @@ import Masterclasses from '@/components/examPage/Masterclasses';
 import Scholarship from '@/components/examPage/Scholarship'
 import Books from '@/components/examPage/Books'
 import Faculty from '@/components/examPage/Faculty'
-import LoginPopup from "../../components/LoginPopup";
-import BookSessionPopup from "../../components/bookSessionPopup";
+import LoginPopup from '@/components/LoginPopup';
+import './styles.css'
+
 const ExamPage = () => {
     return (
         <div className='poppins'>
@@ -34,7 +36,6 @@ const ExamPage = () => {
             <Download />
             <Footer /> 
             <LoginPopup />
-            <BookSessionPopup />
         </div>
     )
 }

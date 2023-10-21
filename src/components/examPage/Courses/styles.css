@@ -1,0 +1,334 @@
+.courses-main{
+    overflow: hidden; 
+    padding: 1rem; 
+    background: #F1F2F6;
+}
+.courses-head {
+    margin-top: 2rem; 
+    margin-bottom: 2.5rem; 
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.blue {
+    color: #007BFF;
+}
+.courses-tabs {
+    display: flex; 
+    margin-bottom: 2.5rem; 
+    justify-content: flex-start; 
+}
+.courses-main-2 {
+    margin-bottom: 1.5rem; 
+}
+.courses-head-2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+    color: #080E14;    
+}
+.lg-only {
+    display: none;
+}
+.courses-live {
+    margin-bottom: 1rem; 
+}
+.courses-recorded {
+    display: flex; 
+    margin-top: 1.5rem; 
+    justify-content: space-between;
+}
+.courses-btns {
+    display: none; 
+    gap: 0.5rem; 
+}
+.w-auto {
+    width: auto;
+}
+.courses-courses {
+    display: flex; 
+    overflow-x: auto; 
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    gap: 1rem; 
+    scroll-snap-type: x var(--tw-scroll-snap-strictness); 
+}
+.courses-btn-wrapper {
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+    text-align: center; 
+}
+.courses-btn {
+    display: flex; 
+    gap: 0.5rem; 
+    width: 100%; 
+}
+.cc-main {
+    padding: 0.5rem;
+    display: flex; 
+    flex-direction: column; 
+    border-radius: 1rem; 
+    min-width: 100%; 
+    background-color: #ffffff; 
+    scroll-snap-align: center; 
+    box-shadow: 0px 4px 15px 0px #007BFF40;
+}
+.relative {
+    position: relative;
+}
+.cc-img {
+    width: 100%; 
+    aspect-ratio: 4/3;
+}
+.cc-img-rec {
+    display: flex; 
+    position: absolute; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    align-items: center; 
+    color: #ffffff; 
+    top: 0.5rem;
+}
+.cc-img-main {
+    display: flex; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+    width: 66.666667%; 
+    height: 100%; 
+    padding-left: 1rem;
+}
+.cc-img-text {
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+    flex-grow: 1;
+}
+.cc-img-text-title{
+    margin-top: 2rem; 
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+}
+.cc-img-views-div {
+    display: flex; 
+    align-items: center; 
+}
+.cc-img-view-2 {
+    margin-left: -0.8rem;
+}
+.cc-img-views {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+    margin-left: 0.5rem;
+}
+.cc-class {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    align-self: flex-start; 
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    font-weight: 600; 
+    background-color: #ffffff; 
+    color: #FF6B00;
+    margin-top: auto;
+}
+.cc-title {
+    margin-bottom: 0.5rem; 
+    margin-top: 1.5rem; 
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700; 
+}
+.cc-desc {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #52565B;
+}
+.cc-hl {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem; 
+    width: 100%; 
+    height: 1px;
+    background: #99CAFF;
+}
+.cc-footer {
+    display: flex; 
+    margin-bottom: 0.75rem; 
+    gap: 1rem; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.cc-starting {
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    color: #52565B;
+}
+.black {
+    color: #00254C;
+}
+.cc-more {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #007BFF;
+}
+.cc-90 {
+    display: inline-block; 
+    --transform-rotate: 90deg; 
+    margin-left: 0.5rem;
+}
+.cc-p1 {
+    display: flex; 
+    margin-top: 0.5rem; 
+    margin-bottom: 1rem; 
+    gap: 0.5rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #52565B;    
+}
+.cc-p2 {
+    display: flex; 
+    gap: 0.5rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+}
+.clc-main {
+    display: flex; 
+    padding: 1rem; 
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
+    border-radius: 1rem; 
+    background-color: #ffffff; 
+    box-shadow: 0px 4px 15px 0px #007BFF40;
+}
+.clc-rel {
+    position: relative; 
+    width: 45%;
+}
+.clc-img {
+    width: 100%; 
+    aspect-ratio: 5/3;
+}
+.clc-rec {
+    display: flex; 
+    position: absolute; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    align-items: center; 
+    color: #ffffff; 
+    top: 0.5rem;    
+}
+.clc-img-main {
+    display: flex; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+    align-items: flex-start; 
+    width: 66.666667%; 
+    height: 100%; 
+    padding-left: 2.5rem;
+}
+.clc-img-title {
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+}
+.clc-img-class{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    border-radius: 0.375rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    background-color: #ffffff; 
+    color: #FF6B00;
+}
+.clc-dets-main {
+    display: flex; 
+    padding: 1.5rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+    width: 55%;
+}
+.clc-title {
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.clc-desc {
+    color: #6B6E72;
+}
+.clc-starting {
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    color: #52565B;
+}
+.clc-pm {
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    color: #00254C;    
+}
+.clc-points {
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+}
+.clc-point {
+    display: flex; 
+    gap: 0.5rem; 
+}
+
+@media (min-width: 1024px) { 
+    .courses-main {
+        padding: 2.5rem; 
+    }
+    .courses-head {
+        margin-top: 0; 
+        text-align: center; 
+    }
+    .lg-only {
+        display: block;
+    }
+    .lg-not {
+        display: none;
+    }
+    .courses-btns {
+        display: flex; 
+    }
+    .courses-courses {
+        overflow: hidden; 
+        scroll-snap-type: none; 
+    }
+    .courses-btn {
+        width: auto; 
+    }
+    .cc-main {
+        padding: 1rem; 
+        min-width: calc(33% - 0.25rem);
+    }
+    .cc-img-text {
+        gap: 2rem; 
+    }
+}

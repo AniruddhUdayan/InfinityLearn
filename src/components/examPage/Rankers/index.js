@@ -9,6 +9,7 @@ import starBig from './../../../../public/images/star-big.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 import { Button, Chip } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
+import './styles.css'
 
 const Rankers = () => {
     const [selectedTags, setSelectedTags] = useState([ 'visual learner', 'theoretical', 'physical books needed', 'daily classes', 'synced with school' ])
@@ -64,56 +65,55 @@ const Rankers = () => {
 
     return (
         <>
-            <div className="lg:px-36 py-10">
-                <div className="bg-[#00364E] py-10 lg:rounded-2xl text-white relative mb-10">
-                    <Image src={starBig} alt="star" width={100} height={0} className="absolute top-0 lg:left-[10rem] right-0 lg:right-none transform" />
-                    <div className="font-bold text-5xl lg:text-center mb-8 px-4">top <span className="text-[#FCDE5A]">rankers</span></div>
-                    <div className="flex justify-center flex-col lg:flex-row gap-4 lg:gap-10 px-4">
-                        <div className="flex gap-2 items-center">
+            <div className="result-wrapper">
+                <div className="result-main">
+                    <Image src={starBig} alt="star" width={100} height={0} className="result-star" />
+                    <div className="result-head">top <span className="text-[#FCDE5A]">rankers</span></div>
+                    <div className="result-pts">
+                        <div className="result-pt">
                             <Image src={star} alt="star" width={20} />
                             31 Infinity Learners in top 100
                         </div>
-                        <div className="flex gap-2 items-center">
+                        <div className="result-pt">
                             <Image src={star} alt="star" width={20} />
                             234 Infinity Learners in top 1000
                         </div>
                     </div>
-                    <div className='px-6 lg:px-20 overflow-y-auto no-scrollbar flex gap-8 mt-10 snap-x' ref={carousel}>
+                    <div className='result-div no-scrollbar' ref={carousel}>
                         {results?.map((result, i) => <ResultCard key={`result-${i}`} result={result} ref2={carouselEle} />)}
                     </div>
-                    <div className=" flex justify-center">
+                    <div className="result-index-div">
                         {Array.from({ length: results.length }, (_, index) => (
                         <div
                             key={index}
-                            className={` h-1 rounded-full mx-1 lg:mx-2 b ${
+                            className={`result-index ${
                             index === activeIndex
-                                ? "active w-10 lg:w-16 bg-white "
-                                : " bg-[#76B8FF] w-6 lg:w-10"
+                                ? "active"
+                                : "inactive"
                             }`}
                         ></div>
                         ))}
                     </div>
-
                 </div>
-                <div className='flex flex-col lg:flex-row gap-6 items-start px-4 lg:px-0'>
-                    <div className='w-full lg:w-[40%] flex flex-col items-start'>
-                        <div className='text-5xl font-bold mb-4 leading-[3.5rem]'>help us find the <span className='text-[#007BFF]'>ideal course</span> for you</div>
-                        <div className='mb-4'>select at least <strong>5 preferences</strong></div>
-                        <div className=' hidden lg:block text-center mt-4'>
-                            <Button variant='contained' color='primary' sx={{ borderRadius: '0.5rem', paddingX: '4rem'}} className='mt-auto self-center'>
+                <div className='ideal-main'>
+                    <div className='ideal-left'>
+                        <div className='ideal-head'>help us find the <span className='blue'>ideal course</span> for you</div>
+                        <div className='ideal-select'>select at least <strong>5 preferences</strong></div>
+                        <div className='ideal-btn-1-wrapper'>
+                            <Button variant='contained' color='primary' sx={{ borderRadius: '0.5rem', paddingX: '4rem'}} className='ideal-btn-1'>
                                 view 5 courses
                             </Button>
                         </div>
                     </div>
-                    <div className='w-full lg:w-[60%] flex flex-wrap gap-5 justify-start'>
+                    <div className='ideal-chips'>
                         {allTags.map((tag, i) => 
                             <Chip key={`tag-${i}`} label={tag} variant={selectedTags.includes(tag) ? 'contained' : 'outlined'} color={selectedTags.includes(tag) ? 'yellow' : 'black'} onClick={() => selectedTags.includes(tag) ? setSelectedTags(selectedTags.filter(t => t !== tag)) : setSelectedTags([...selectedTags, tag])} sx={{ fontWeight: selectedTags.includes(tag) ? '600' : '400' }} />
                         )}
                     </div>
-                    <div className='lg:hidden self-stretch'>
+                    <div className='ideal-btn-2-wrapper'>
                         <Button variant='contained' fullWidth color='primary' sx={{ borderRadius: '0.5rem', fontWeight: '600' }} className=''>
                             view 5 courses
-                            <Image src={arrow} alt='arrow' width={15} height={0} className='ms-2' />
+                            <Image src={arrow} alt='arrow' width={15} height={0} className='ideal-btn-2-arrow' />
                         </Button>
                     </div>
                 </div>
