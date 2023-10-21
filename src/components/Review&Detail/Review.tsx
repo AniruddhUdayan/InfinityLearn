@@ -87,7 +87,7 @@ const Review = () => {
   }, [scrollDirection]);
 
   return (
-    <div className="bg-[#007BFF] sm:bg-white flex flex-col-reverse gap-[42px] justify-start pt-[21px] h-full pb-[50px] max-w-[688px]  flex-wrap-reverse ">
+    <div className="bg-[#FFF] sm:bg-white flex flex-col-reverse gap-[42px] justify-start pt-[21px] h-full pb-[50px] max-w-[688px]  flex-wrap-reverse ">
       <div className="flex flex-col w-auto sm:mx-[22px] max-sm:max-w-[375px]">
         <div
           className={`${poppins700.className} w-full flex justify-start text-[#080E14] text-[32px] font-bold py-[20px]`}

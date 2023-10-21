@@ -103,9 +103,9 @@ export default function Home({ params }: any) {
   return (
     <>
       <Header />
-      <div className="h-full bg-[#FFF] max-sm:bg-[#007BFF] pb-[61px] flex justify-center">
-        <div className="sm:flex sm:flex-col sm:mx-[112px] max-sm:w-[375px] lg:flex-row sm:gap-[40px]  sm:pt-[28px]">
-          <div className="flex flex-col gap-[20px]">
+      <div className="h-full bg-[#FFF]  pb-[61px] flex justify-center ">
+        <div className="sm:flex sm:flex-col sm:mx-[112px] max-sm:w-auto lg:flex-row sm:gap-[40px]  sm:pt-[28px] ">
+          <div className="flex flex-col gap-[20px] max-sm:bg-[#E6F2FF] max-sm:min-h-[446px]">
             <div className="flex h-full flex-col ">
               <div className="">
                 <div className="flex flex-col sm:flex-row gap-[55px] justify-center w-full  sm:h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
@@ -136,7 +136,7 @@ export default function Home({ params }: any) {
                       height={442}
                     />
                   </div>
-                  <div className="sm:hidden relative  flex flex-col justify-center items-center top-14 mt-[32px] rounded-[20px] border-[5px] border-solid border-[#FCDE5A] bg-opacity-0 py-[16px] mx-[20px]">
+                  <div className="sm:hidden relative  flex flex-col justify-center items-center top-14 mt-[32px] rounded-[20px]  bg-[#E6F2FF] bg-opacity-0 py-[16px] mx-[20px]">
                     <Image
                       src={imagePath}
                       alt="Your Logo"
@@ -163,27 +163,27 @@ export default function Home({ params }: any) {
                     </div>
                   </div>
                   <div className="sm:hidden flex  justify-center gap-[14px] items-center">
-                    <div className="text-[#FFF] text-[12px] font-semibold">
+                    <div className="text-[#FFF] max-sm:text-[#000] text-[12px] font-semibold">
                       01
                     </div>
                     <div className="flex flex-row w-[93.5px] border-gray-400 h-[4px] rounded-[4px] bg-gray-400">
                       {imagePath === "/images/book.webp" ? (
-                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8] max-sm:bg-[#007BFF]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
                       )}
                       {imagePath === "/images/bio.webp" ? (
-                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8] max-sm:bg-[#007BFF]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
                       )}
                       {imagePath === "/images/bio2.svg" ? (
-                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8]"></div>
+                        <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8] max-sm:bg-[#007BFF]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
                       )}
                     </div>
-                    <div className="text-[#FFF] text-[12px] font-semibold">
+                    <div className="text-[#FFF] max-sm:text-[#000] text-[12px] font-semibold">
                       03
                     </div>
                   </div>
@@ -244,7 +244,7 @@ export default function Home({ params }: any) {
               <div> IL books for</div>
               <div className="sm:h-[72px] h-[36px] overflow-hidden w-auto relative">
                 <span
-                  className={`sm:text-[#007BFF] text-[#FFF] inline-block transition-transform transform duration-[1000ms] ${
+                  className={`text-[#007BFF]  inline-block transition-transform transform duration-[1000ms] ${
                     isSlideDown ? "translate-y-0" : "-translate-y-full"
                   }`}
                   style={{ position: "absolute", top: 0, left: 0 }}
@@ -257,6 +257,48 @@ export default function Home({ params }: any) {
                 - class {params.course[1]} , {params.course[2]} &{" "}
                 {params.course[3]}
               </span>
+            </div>
+            <div className="sm:hidden flex flex-col gap-3 py-[20px] px-[12px]">
+              <div className="flex w-full px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#007BFF] transform hover:scale-105 transition-transform duration-300">
+                <div className="flex flex-row gap-2">
+                  <div
+                    className={`${poppins600.className} text-[#FFF] text-[16px] font-[600]`}
+                  >
+                    buy now
+                  </div>
+                  <Image
+                    src="/images/buy2.svg"
+                    alt="Your Logo"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-row">
+                <div className="w-[48px] h-[48px] flex justify-center items-center">
+                <Image
+                    src="/images/phone2.png"
+                    alt="Your Logo"
+                    width={48}
+                    height={48}
+                  />
+                </div>
+                <div className="flex w-full px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#9C9FA1] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
+                  <div className="flex flex-row gap-2 ">
+                    <div
+                      className={`${poppins600.className} text-[#080E14] text-[16px] font-[600]`}
+                    >
+                      download sample
+                    </div>
+                    <Image
+                      src="/images/download2.svg"
+                      alt="Your Logo"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap mx-[20px]">
               <div
@@ -318,7 +360,7 @@ export default function Home({ params }: any) {
                 </div>
               </div>
             </div>
-            <div className="ml-3 flex flex-row max-sm:flex-col max-sm:justify-center items-start max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
+            <div className="sm:ml-3 flex flex-row max-sm:flex-col max-sm:justify-center items-start max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
               <div className="flex w-[295px] h-[76px]  sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] sm:gap-[10px] transform hover:scale-105 transition-transform duration-300 ">
                 <div>
                   {" "}
@@ -649,8 +691,8 @@ export default function Home({ params }: any) {
 
       <Download />
       <Footer />
-      <LoginPopup/>
-      <BookSessionPopup/>
+      <LoginPopup />
+      <BookSessionPopup />
       <PackageSubscription />
     </>
   );

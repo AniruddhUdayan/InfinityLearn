@@ -103,17 +103,15 @@ const SendOtp = () => {
        <Container>
           <Row>
             <Col xs={12} md={6}>            
-            <Image
+            <img
           src="/login/mobVer/mobVer1.webp"
-          height={400}
-          width={400}
           objectFit=""
           alt="mob-ver-1"
           className="side_image max-md:hidden"
         />
             </Col>
             <Col xs={12} md={6}>
-              <div className="right_box">
+              <div className="right_box single_input">
               <Row>
                 <Col md={12}>
                     <h1 className="otp_heading">Drop your number, we’ve <br/> got the rest!</h1>
@@ -145,7 +143,7 @@ const SendOtp = () => {
               </Row>
               <Row className="button_mobile_none">
                 <Col xs={12} md={12}>
-                    <div className="otp_button_row">
+                    <div className="otp_button_row single_input_btn">
                     <button
             className={`otp_button ${
               isNumber ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-300"

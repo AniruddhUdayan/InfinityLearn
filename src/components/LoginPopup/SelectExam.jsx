@@ -159,14 +159,7 @@ const SelectExam = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                    {/* <Image src="/login/mobVer/SuccessImage.webp" className="side_image max-md:hidden" alt="" /> */}
-                        <Image
-                            src="/login/mobVer/SuccessImage.webp"
-                            height={400}
-                            width={400}
-                            alt="mob-ver-1"
-                            className="max-md:hidden"
-                        />
+                    <img src="/login/mobVer/SuccessImage.webp" className="side_image max-md:hidden" alt="" />
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">
@@ -187,7 +180,7 @@ const SelectExam = () => {
                             <Col xs={12} md={12}>
                                 <div className="select_exam_row">
                                     <label className="class_lable">
-                                        select learning goal (choose at least one)
+                                        select learning goal (<span>choose at least one</span>)
                                     </label>
                                     <div className="grid grid-cols-1 gap-4 select_exam_scroll">
                                         {exams.map((item, index) => (

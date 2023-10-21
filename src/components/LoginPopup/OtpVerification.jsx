@@ -3,43 +3,34 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { storePhoneNumber } from "../../store/mobVeriSlice";
 import {
   sendSQSMsg,
   sendOtp,
   validateOTP,
   updateUserProfile,
+  setCookie,
 } from "../../services/userServics";
 import * as moment from "moment";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import analytics from "../../utils/analytics";
-import { setComponentToShow } from "../../store/modalToShow";
+import { setComponentToShow } from "../../store/BookSession/BookSessionPopup";
+import { setIsStudentProfileCompleted } from "../../store/BookSession/BookSessionNewUser";
+import ProgressTabs from "./ProgressTabs";
 const OtpVerification = () => {
-  const dummyOtp = ["1", "2", "3", "4"];
   const [otp, setOtp] = useState(Array(4).fill(""));
   const [timer, setTimer] = useState(30);
-  const [editingNumber, setEditingNumber] = useState(false);
-  const phoneNumber = useSelector(
-    (state) => state.mobileVerification.phoneNumber
-  );
-  const selectedGrade = useSelector((state) => state.newUser.class);
-  const selectedExams = useSelector((state) => state.newUser.course);
+  const [policyAgreement, setPolicyAgreement] = useState(true);
+  const [whatsappConsent, setWhatsappConsent] = useState(true);
+  const phoneNumber = useSelector((state) => state.bookSessionData.phoneNumber);
+  const selectedGrade = useSelector((state) => state.bookSessionNewUser.class);
+  const selectedExams = useSelector((state) => state.bookSessionNewUser.course);
   const isExitingUser = useSelector(
     (state) => state.mobileVerification.isExitingUser
   );
-
-  const [tempNumber, setTempNumber] = useState("");
-  const [showOverlay, setShowOverlay] = useState(false);
-
   const dispatch = useDispatch();
   const otpRefs = useRef([]);
-
-  const handleNumberEdit = () => {
-    dispatch(storePhoneNumber(tempNumber));
-    setEditingNumber(false);
-  };
 
   useEffect(() => {
     if (timer > 0) {
@@ -47,13 +38,6 @@ const OtpVerification = () => {
       return () => clearTimeout(id);
     }
   }, [timer]);
-
-  // const handleOtpChange = (index) => (e) => {
-  //   const value = e.target.value;
-  //   if (value === "" || /^\d$/.test(value)) {
-  //     setOtp([...otp.slice(0, index), value, ...otp.slice(index + 1)]);
-  //   }
-  // };
   const handleOtpChange = (index) => (e) => {
     const value = e.target.value;
 
@@ -86,7 +70,6 @@ const OtpVerification = () => {
       const response = await validateOTP(body);
       console.log(response);
       setOtpError(false);
-      setShowOverlay(true);
       if (!isExitingUser) {
         updateUser(response);
       } else {
@@ -97,7 +80,8 @@ const OtpVerification = () => {
         );
         registerSuccess(response?.userDto);
         sendLsq();
-        dispatch(setComponentToShow("Success"));
+        setCookie("INFINITY_LEARN", JSON.stringify(response), 1);
+        dispatch(setComponentToShow("DateTimeSelection"));
       }
     } catch (error) {
       setOtpError(true);
@@ -126,7 +110,9 @@ const OtpVerification = () => {
       );
       registerSuccess(updatedUserData?.userDto);
       sendLsq();
-      dispatch(setComponentToShow("Success"));
+      setCookie("INFINITY_LEARN", JSON.stringify(response), 1);
+      dispatch(setComponentToShow("DateTimeSelection"));
+      dispatch(setIsStudentProfileCompleted(true));
     } catch {
       console.error("Error fetching data:", error.message);
     } finally {
@@ -178,7 +164,7 @@ const OtpVerification = () => {
         ?.replace(/[^a-z]/gi, "")
         .toUpperCase(),
       grade: Number(userDetails?.grade?.name?.replace(/[^0-9]/g, "")),
-      whatsapp_consent: false,
+      whatsapp_consent: whatsappConsent,
     });
   };
 
@@ -214,39 +200,28 @@ const OtpVerification = () => {
       platform: "Web",
     });
   };
-  const hadlePrivacy = () => {
+  const handlePrivacy = () => {
     analytics.track("t&p&p_clicked", {
       page_url: window.location.href,
       phone: phoneNumber,
       platform: "Web",
     });
   };
+
   return (
     <div>
-      <Container
-        className="d-flex align-items-center"
-        style={{ height: "100vh" }}
-      >
+      <Container>
         <Row>
-          <Col
-            xs={12}
-            md={6}
-            className="d-flex justify-content-center align-items-center"
-          >
-            <Image
+          <Col xs={12} md={6}>
+            <img
               src="/login/mobVer/mobVer2.webp"
-              height={400}
-              width={400}
               alt="mob-ver-otp"
-              className="max-md:hidden"
+              className="side_image max-md:hidden"
             />
           </Col>
-          <Col
-            xs={12}
-            md={6}
-            className="d-flex flex-column justify-content-center"
-          >
+          <Col xs={12} md={6}>
             <div className="right_box">
+              <ProgressTabs />
               <Row>
                 <Col md={12}>
                   <h2 className="otp_heading">
@@ -277,7 +252,7 @@ const OtpVerification = () => {
                               value={digit}
                               maxLength={1}
                               ref={(el) => (otpRefs.current[index] = el)}
-                              className={`border rounded-xl w-20  h-12 mr-2 text-center text-base ${
+                              className={`border rounded-xl w-20  h-12  text-center text-base ${
                                 otpError
                                   ? "otp_border_error"
                                   : "otp_border_blue"
@@ -315,7 +290,7 @@ const OtpVerification = () => {
                       <button
                         onClick={resendOtp}
                         className={`text-blue-500 mr-1 resend_otp_text cursor-pointer"
-                                    }`}
+                  }`}
                       >
                         <span style={{ color: "#52565B" }}>resend OTP</span>
                       </button>
@@ -325,47 +300,52 @@ const OtpVerification = () => {
               </Row>
               <Row className="mt-5">
                 <Col xs={12} md={12} lg={12}>
-                  <div className="term_flex">
-                    <Image
-                      src="/login/mobVer/check_box.svg"
-                      height={14}
-                      width={17}
-                      alt="mob-ver-otp"
-                    />
-                    <label className="term_label">
-                      By signing up you agree to our
-                      <a
-                        className="term_condition"
-                        onClick={handleTC}
-                        href="https://infinitylearn.com/terms"
-                        target="blank"
-                      >
-                        T&C
-                      </a>{" "}
-                      and
-                      <a
-                        className="term_condition"
-                        onClick={hadlePrivacy}
-                        href="https://infinitylearn.com/privacy"
-                        target="blank"
-                      >
-                        {" "}
-                        Privacy Policy
-                      </a>
-                    </label>
-                  </div>
+                  <input
+                    className="styled-checkbox"
+                    defaultChecked={policyAgreement}
+                    value={policyAgreement}
+                    onChange={(e) => setPolicyAgreement(e?.target?.checked)}
+                    id="styled-checkbox-2"
+                    type="checkbox"
+                  />
+                  <label htmlFor="styled-checkbox-2" className="term_label">
+                    By signing up you agree to our
+                    <a
+                      className="term_condition"
+                      onClick={handleTC}
+                      href="https://infinitylearn.com/terms"
+                      target="blank"
+                    >
+                      T&C
+                    </a>{" "}
+                    and
+                    <a
+                      className="term_condition"
+                      onClick={handlePrivacy}
+                      href="https://infinitylearn.com/privacy"
+                      target="blank"
+                    >
+                      {" "}
+                      Privacy Policy
+                    </a>
+                  </label>
                 </Col>
               </Row>
               <Row className="mt-2">
                 <Col xs={12} md={12} lg={12}>
                   <div className="term_flex">
-                    <Image
-                      src="/login/mobVer/check_box.svg"
-                      height={14}
-                      width={17}
-                      alt="mob-ver-otp"
+                    <input
+                      className="styled-checkbox"
+                      defaultChecked={whatsappConsent}
+                      value={whatsappConsent}
+                      onChange={(e) => setWhatsappConsent(e?.target?.checked)}
+                      id="whatapp_checkbox"
+                      type="checkbox"
                     />
-                    <label className="term_label term_label_flex">
+                    <label
+                      htmlFor="whatapp_checkbox"
+                      className="term_label term_label_flex"
+                    >
                       Receive updates on Whatsapp
                       <Image
                         src="/login/mobVer/whatsapp_icon.svg"
@@ -382,8 +362,11 @@ const OtpVerification = () => {
                   <div className="otp_button_row">
                     <button
                       onClick={verifyOtp}
-                      disabled={otp.join(",").replace(/[^0-9]/g, "").length < 4}
-                      className={`otp_button ${otp == "" ? "opacity_off" : ""}`}
+                      disabled={
+                        otp.join(",").replace(/[^0-9]/g, "").length < 4 ||
+                        !policyAgreement
+                      }
+                      className={`otp_button`}
                     >
                       Verify OTP {}
                       <span>&#8599;</span>
@@ -400,7 +383,11 @@ const OtpVerification = () => {
           <div className="pac_festpr_flexshow">
             <button
               onClick={verifyOtp}
-              className={`otp_button ${otp == "" ? "opacity_off" : ""}`}
+              className={`otp_button`}
+              disabled={
+                otp.join(",").replace(/[^0-9]/g, "").length < 4 ||
+                !policyAgreement
+              }
             >
               Verify OTP <span>&#8599;</span>
             </button>

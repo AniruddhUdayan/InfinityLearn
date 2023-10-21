@@ -29,12 +29,10 @@ function EnterName() {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/login/newUser/newUser1.webp"
-                            height={250}
-                            width={600}
                             alt="mob-ver-1"
-                            className=" max-md:hidden"
+                            className="side_image max-md:hidden"
                         />
                     </Col>
                     <Col xs={12} md={6}>
@@ -45,7 +43,7 @@ function EnterName() {
                                 <h2 className="otp_heading">Tell us your name, our next topper!</h2>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="margin_100">
                             <Col xs={12} md={12}>
                                 <div className="otp_mob_input">
                                     <label className="">
@@ -64,7 +62,7 @@ function EnterName() {
                         </Row>
                         <Row className="button_mobile_none">
                             <Col xs={12} md={12}>
-                                <div className="otp_button_row">
+                                <div className="otp_button_row single_input_btn">
                                     <button
                                         className={`otp_button ${
                                             !name ? "opacity-50 cursor-not-allowed" : ""

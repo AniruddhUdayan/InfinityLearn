@@ -15,7 +15,10 @@
     width: 5px;
     display: none;
   } */
-
+  .session_popup.modal .modal-header .btn-close {
+    opacity: 1 !important;
+    background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat !important;
+}
   .session_heading{
     margin-top: 50px;
     font-size: 28px;

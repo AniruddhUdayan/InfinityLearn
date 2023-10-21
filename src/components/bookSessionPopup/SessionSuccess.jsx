@@ -12,6 +12,10 @@ import analytics from '../../utils/analytics';
 import { sendSQSMsg } from "../../services/userServics";
 import * as moment from 'moment';
 const SessionSuccess = () => {
+  const studentPortal = process.env.studentPortal;
+  const startLearning = ()=>{
+    window.open(`${studentPortal}`,'_self');
+  }
   const dispatch = useDispatch();
   const bookSessionData = useSelector(
     (state) => state.bookSessionData
@@ -71,13 +75,10 @@ const sendLSQ = async ()=>{
              <Container>
           <Row>
             <Col xs={12} md={6}>
-            <Image
+            <img
           src="/bookSession/relation.webp"
-          height={250}
-          width={600}
           alt="mob-ver-1"
-          className=" max-md:hidden"
-          layout="responsive"
+          className="side_image max-md:hidden"
         />
             </Col>
             <Col xs={12} md={6}>
@@ -88,7 +89,7 @@ const sendLSQ = async ()=>{
                 <Col xs={12} md={12}>
                   <div className="success_Icon">
                     <Image
-                      src="/bookSession/sessionSuccess.png"
+                      src="/bookSession/sessionSuccess.svg"
                       height={200}
                       width={200}
                       alt="mob-ver-1"
@@ -109,15 +110,15 @@ const sendLSQ = async ()=>{
                     <div className='session_success_card'>
                         <ul className='session_success_card_list'>
                             <li>
-                                <img className='sscIcon' src='/bookSession/dateIcon.png' alt='dateicon'/>
+                                <img className='sscIcon' src='/bookSession/dateIcon.svg' alt='dateicon'/>
                                 <span className='sscText'>{bookSessionData?.selectedDate} </span>
                             </li>
                             <li>
-                                <img className='sscIcon' src='/bookSession/timeIcon.png' alt='timeicon'/>
+                                <img className='sscIcon' src='/bookSession/timeIcon.svg' alt='timeicon'/>
                                 <span className='sscText'>{bookSessionData?.selectedTime}</span>
                             </li>
                             <li>
-                                <img className='sscIcon' src='/bookSession/classIcon.png' alt='classicon'/>
+                                <img className='sscIcon' src='/bookSession/classIcon.svg' alt='classicon'/>
                                 <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                             </li>
                         </ul>
@@ -137,7 +138,7 @@ const sendLSQ = async ()=>{
                     {
                       isSkipNow && 
                       <div className="bss_button_row">
-                      <button  className={`otp_button`}>start learning <span>&#8599;</span></button>
+                      <button onClick={startLearning}  className={`otp_button`}>start learning <span>&#8599;</span></button>
                       </div>
                     }
                 </Col>
@@ -159,7 +160,7 @@ const sendLSQ = async ()=>{
             {
               isSkipNow &&
               <div className="pac_festpr_flexshow">
-              <button className={`otp_button`}> start learning <span>&#8599;</span></button>
+              <button onClick={startLearning} className={`otp_button`}> start learning <span>&#8599;</span></button>
             </div>
             }
         </div>
