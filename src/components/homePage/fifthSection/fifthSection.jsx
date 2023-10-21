@@ -316,7 +316,7 @@ function Reviews() {
         }
       }
       return () => clearInterval(interval);
-    }, 20000000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [scrollPos, isHovering]);

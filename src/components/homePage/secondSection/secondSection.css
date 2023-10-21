@@ -171,7 +171,7 @@
 }
 .card0:hover {
   cursor: pointer; /* hover:cursor-pointer in Tailwind */
-  background-color: #3b82f6; /* hover:bg-blue-500 in Tailwind */
+  background-color: #007bff; /* hover:bg-blue-500 in Tailwind */
   color: white; /* hover:text-white in Tailwind */
 }
 .class11to12 {
