@@ -107,12 +107,12 @@ function SeventhSection() {
               onChange={handleInputChange}
             />
           </div>
-          <button
+          {/* <button
             onClick={handleToggleOverlay}
             className="bg-[#007BFF] whitespace-nowrap    text-white px-[24px] text-[14px] sm:text-[16px] sm:px-[28px] max-sm:rounded-tr-[12px] max-sm:rounded-br-[12px] rounded-tr-[20px] rounded-br-[20px]"
           >
             book now
-          </button>
+          </button> */}
         </div>
         <div className="hidden lg:block">
           we will send an otp for verification

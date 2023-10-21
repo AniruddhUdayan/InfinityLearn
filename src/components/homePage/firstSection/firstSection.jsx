@@ -51,11 +51,11 @@ function Stats() {
   return (
     <div
       className="flex mt-10 stats  max-lg:w-full mb-6 max-lg:mx-10
-     max-lg:h-24 justify-evenly text-[#007BFF] p-6 
+     max-lg:h-24 justify-evenly text-[#007BFF] p- 
       text-center  font-bold text-base gap-3 mx-auto stats
      flex-row items-center h-20 bg-white px-4 rounded-2xl"
     >
-      <div className=" flex flex-col   border-opacity-20 ">
+      <div className="stats-div1  ">
         <div className="text-center font-[400] text-[12px] ">learners</div>
         <div className="font-[600] text-[18px] text-center">50k+</div>
       </div>
@@ -178,9 +178,9 @@ function FirstSection() {
       <Row>
         <div className="imageNonRes w-full">
           <Image
-            src="/homepage/firstSection/firstSection.webp"
+            src="/homepage/firstSection/firstSection.svg"
             width={490}
-            height={541}
+            height={606}
             alt="firstSection"
           />
         </div>

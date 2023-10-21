@@ -104,7 +104,7 @@
 .card3:hover {
   cursor: pointer;
   color: white;
-  background-color: #3b82f6;
+  background-color: #007bff;
 }
 
 .card2 {
@@ -131,7 +131,7 @@
 }
 .card2:hover {
   cursor: pointer;
-  background-color: #3b82f6;
+  background-color: #007bff;
   color: white;
 }
 
@@ -143,7 +143,7 @@
   gap: 1.75rem;
   justify-content: space-evenly;
   background-color: #d4e9ff;
-  color: black; /* text-black in Tailwind */
+  color: #080e14; /* text-black in Tailwind */
   width: 100%; /* w-full in Tailwind */
   align-items: center; /* items-center in Tailwind */
   padding-top: 1rem; /* py-4 in Tailwind */
@@ -152,7 +152,7 @@
 }
 .card1:hover {
   color: white; /* hover:text-white in Tailwind */
-  background-color: #3b82f6; /* hover:bg-blue-500 in Tailwind */
+  background-color: #007bff; /* hover:bg-blue-500 in Tailwind */
 }
 .card0 {
   display: flex;

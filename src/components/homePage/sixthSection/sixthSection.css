@@ -1,16 +1,23 @@
 @media (max-width: 320px) {
-    .sixthsection {
-      padding-top: 120px;
-    }
-    .lff {
-      width: 280px;
-      height: 42px;
-    }
-    .text-ss {
-      font-size: 28px;
-    }
-    .text-c{
-      padding-left: 0;
-      padding-right: 0;
-    }
+  .sixthsection {
+    padding-top: 120px;
   }
+  .lff {
+    width: 280px;
+    height: 42px;
+  }
+  .text-ss {
+    font-size: 28px;
+  }
+  .text-c {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media max {
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}

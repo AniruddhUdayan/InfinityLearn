@@ -16,14 +16,10 @@ const options = [
 ];
 function OptionZero() {
   return (
-    <div className="flex max-md:flex-grow   h-64   flex-col 4">
-      <div className="text-4xl max-md:[32px] font-[700] text-black ">
-        focused
-      </div>
-      <div className="text-4xl max-md:[32px]  font-[700] text-blue-500 mb-5 ">
-        guidance
-      </div>
-      <div className="text-xl max-md:[14px] font-[400] text-black">
+    <div className="option">
+      <div className="option-head1">focused</div>
+      <div className=" option-head2">guidance</div>
+      <div className="option-info">
         Experience tailored guidance designed to cater to unique learning needs.
         We ensure every student receives the individual attention they deserve.
       </div>
@@ -33,12 +29,10 @@ function OptionZero() {
 }
 function OptionOne() {
   return (
-    <div className="flex h-64 flex-col ">
-      <div className="text-4xl text-black max-md:[32px]   font-[700]">
-        learn from the
-      </div>
-      <div className="text-4xl text-blue-500 mb-5 font-[700]">experts</div>
-      <div className="text-xl text-black max-md:[14px] font-[400]  ">
+    <div className="option">
+      <div className="option-head1">learn from the</div>
+      <div className="option-head2">experts</div>
+      <div className="option-info ">
         learn from the finest faculty in jee/neet/cbse. our faculty consists of
         {` the country's most seasoned and insightful educators.`}
       </div>
@@ -47,14 +41,10 @@ function OptionOne() {
 }
 function OptionTwo() {
   return (
-    <div className="flex h-64   flex-col">
-      <div className="text-4xl  max-md:[32px] text-black font-[700]">
-        clear doubts,
-      </div>
-      <div className="text-4xl text-blue-500 mb-5 font-[700]">
-        clear concepts
-      </div>
-      <div className="text-xl text-black max-md:[14px] font-[400] ">
+    <div className="option">
+      <div className="option-head1">clear doubts,</div>
+      <div className="option-head2">clear concepts</div>
+      <div className="option-info ">
         we prioritise understanding over rote learning. our dedicated doubt
         resolution sessions ensure all your queries are addressed for a clear
         path to success.
@@ -64,12 +54,10 @@ function OptionTwo() {
 }
 function OptionThree() {
   return (
-    <div className="flex 6 h-64  flex-col ">
-      <div className="text-4xl max-md:[32px] text-black font-[700]">
-        premium learning,
-      </div>
-      <div className="text-4xl text-blue-500 mb-5 font-[700]">guidance</div>
-      <div className="text-xl text-black max-md:[14px] font-[400] ">
+    <div className="option ">
+      <div className="option-head1">premium learning,</div>
+      <div className="option-head2">guidance</div>
+      <div className="option-info ">
         gain access to top-notch learning resources. our study materials are
         meticulously curated by experts to provide comprehensive coverage of all
         topics.
@@ -79,12 +67,10 @@ function OptionThree() {
 }
 function OptionFour() {
   return (
-    <div className="flex  h-64 flex-col ">
-      <div className="text-4xl  max-md:[32px] text-black font-[700]">
-        structured success
-      </div>
-      <div className="text-4xl text-blue-500 mb-5 font-[700]"> plan</div>
-      <div className="text-xl text-black max-md:[14px] font-[400] ">
+    <div className="option ">
+      <div className="option-head1">structured success</div>
+      <div className="option-head2 "> plan</div>
+      <div className="option-info ">
         follow a structured study plan designed for assured success in jee neet
         academics. our test series and question bank are crafted to boost exam
         readiness.
@@ -113,13 +99,13 @@ const SwitchTabs = ({ data, onTabChange }) => {
   }, [data]);
 
   return (
-    <div className=" max-xl:hidden bg-white text-black relative">
+    <div className=" bg-white text-black relative">
       <div className="h-full mt-1 whitespace-nowrap  flex items-center">
         {data.map((tab, index) => (
           <span
             key={index}
             ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full w-full   fle-grow px-4  text-center text-base cursor-pointer 
+            className={`h-full w-full px-4  text-center text-base cursor-pointer 
             ${selectedTab === index ? "text-black" : ""}`}
             onClick={() => activeTab(tab, index)}
           >
@@ -255,7 +241,7 @@ function ThirdSection() {
   };
   const windowWidth = useWindowWidth();
   const isMobileView =
-    typeof windowWidth !== "undefined" && windowWidth <= 1280;
+    typeof windowWidth !== "undefined" && windowWidth <= 1023;
   console.log(windowWidth, "jvmjv", isMobileView);
   const borderPosition = {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
@@ -266,55 +252,51 @@ function ThirdSection() {
     dispatch(showOverlayMode(!showOverlay));
   };
   return (
-    <div className="items-center container no-scrollbar h-min py-16 bg-white">
-      <div className="md:w-[95%]   max-md:w-full mx-auto flex flex-col">
-        <div className="flex max-md:overflow-x-auto no-scrollbar  justify-evenly mb-10  w-full h-max relative">
-          <SwitchTabs data={options} onTabChange={onTabChange} />
-          {isMobileView && (
-            <div className=" overflow-x-auto ">
-              <SwitchTabs1 data={options} onTabChange={onTabChange} />
-            </div>
-          )}
-        </div>
-      </div>
-      <div
-        className="flex md:-20 gap-6 w-[95%]  max-md:flex-col max-md:w-full  
-       justify-between  items-center rowww"
-      >
-        <Image
-          src="/homepage/thirdSection/thirdSection.webp"
-          height={svgWidth}
-          width={svgWidth}
-          alt="thirdSection"
-          className="my-imag max-md:w-screen  md:w-1/2"
-        />
-        <div
-          className=" flex md:w-1/2 min-h-full  md:items-start items-center
-         max-md:mt-8 max-md:ml-[20px] mx-auto flex-col"
-        >
-          <div className="optionContaier  max-md:h-[200px]">
-            {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
-              (Component, index) => (
-                <div
-                  key={index}
-                  style={{
-                    display: selectedOption === index ? "flex" : "none",
-                  }}
-                >
-                  <Component />
-                </div>
-              )
-            )}
+    <div>
+      <div className=" sT   no-scrollbar   relative">
+        {isMobileView && (
+          <div className=" mx-auto overflow-x-auto ">
+            <SwitchTabs1 data={options} onTabChange={onTabChange} />
           </div>
-          <div className=" w-full slof max-md:mt-10 flex justify-start max-md:justify-center items-center">
+        )}
+        {!isMobileView && (
+          <div>
+            <SwitchTabs data={options} onTabChange={onTabChange} />
+          </div>
+        )}
+      </div>
+      <div className=" thirdSection min-h-[118px] container no-scrollbar ">
+        <div className="thirdSection-fc  rowww">
+          <Image
+            src="/homepage/thirdSection/thirdSection.webp"
+            height={svgWidth}
+            width={svgWidth}
+            alt="thirdSection"
+            className=" max-md:w-screen  md:w-1/2"
+          />
+          <div className=" thirdsection-content justify-start  ">
+            <div className="  max-md:h-max">
+              {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
+                (Component, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      display: selectedOption === index ? "flex" : "none",
+                    }}
+                  >
+                    <Component />
+                  </div>
+                )
+              )}
+            </div>
+            {/* <div className="  slof  "> */}
             <button
               onClick={startLearning}
-              className="text-white font-[600] h-10 hover:space-x-2 w-60 max-md:w-80 hover:bg-blue-600 mt-8 bg-[#007BFF] rounded-xl"
+              className="slof-b  hover:space-x-2  hover:bg-blue-600 "
             >
-              <div>
-                start learning for free <span>&#8599;</span>
-              </div>
+              start learning for free <span>&#8599;</span>
             </button>
+            {/* </div> */}
           </div>
         </div>
       </div>
