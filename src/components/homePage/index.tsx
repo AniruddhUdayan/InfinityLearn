@@ -12,7 +12,8 @@ import SeventhSection from "./seventhSection/seventhSection.jsx";
 import Download from "@/components/examPage/Download/index.js";
 import analytics from "../../utils/analytics.jsx";
 import LoginPopup from "../LoginPopup";
-
+import NinthSection from "./ninthSection/NinthSection";
+import EigthSection from "./eightSection/eigthSection.jsx";
 import SelectGradePopup from "../common/SelectGradePopup.jsx";
 import BookSessionPopup from "../bookSessionPopup";
 import PackageSubscription from "../PackageSubscription/index.jsx";
@@ -32,6 +33,8 @@ const HomePage = () => {
       <SixthSection />
       {/* <Download /> */}
       <SeventhSection />
+      <EigthSection />
+      <NinthSection />
       <Footer />
       <LoginPopup />
       <SelectGradePopup />

@@ -8,7 +8,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import subItem from "../utils/infoHeader";
 import Link from "next/link";
-
+import "./header/header.css";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({

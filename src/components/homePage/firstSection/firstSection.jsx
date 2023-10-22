@@ -50,7 +50,7 @@ function WordSlider() {
 function Stats() {
   return (
     <div
-      className="flex mt-10 stats  max-lg:w-full mb-6 max-lg:mx-10
+      className="flex mt-10 stats py-3  max-lg:w-full mb-6 max-lg:mx-10
      max-lg:h-24 justify-evenly text-[#007BFF] p- 
       text-center  font-bold text-base gap-3 mx-auto stats
      flex-row items-center h-20 bg-white px-4 rounded-2xl"
@@ -59,7 +59,7 @@ function Stats() {
         <div className="text-center font-[400] text-[12px] ">learners</div>
         <div className="font-[600] text-[18px] text-center">50k+</div>
       </div>
-      <div className="border-r-2 border-[#007BFF] opacity-20 h-full" />
+      <div className="border-r-2 border-[#007BFF] opacity-20 h-full " />
       <div className=" items-center flex text-center flex-col border-black">
         <div className="text-center font-[400] text-[12px]  ">cities</div>
         <div className="font-[600] text-[18px]  text-center">60k+</div>
