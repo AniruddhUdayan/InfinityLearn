@@ -105,107 +105,13 @@ const reviews = [
   },
 ];
 
-function Card({ data, onMouseEnter, onMouseLeave }) {
-  const check = data.video;
-
-  if (check) {
-    return (
-      <div
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        className="flex  max-w-[392px] max-md:h-[371px] hover:cursor-pointer h-[365px] 
-      max-md:py-5  my-6 shadow-md items-center  justify-evenly 
-        flex-col px-2
-      flex-shrink-0   rounded-2xl  bg-white text-[#080E14]"
-      >
-        <div class="image-container">
-          <Image
-            src={data.image}
-            alt="Video Background"
-            class="background-image"
-            width={365}
-            height={161}
-            className=""
-          />
-          <img
-            src="/reviews/video.svg"
-            alt="Play Button Logo"
-            class="play-button"
-          />
-        </div>
-        <div className="  max-md:px-1  max-md:text-[12px] text-[#52565B] max-md:mt-5 mt-4 max-md:text-base max-md:w-full  text-start">
-          {data.review}
-        </div>
-        <div className=" w-full flex justify-end">
-          <Image
-            src="/reviews/invertedCommas2.svg"
-            height={52}
-            width={40}
-            alt="inverted commas "
-            className=" "
-          />
-        </div>
-
-        <div
-          className=" flex  justify-around  max-md:gap-3 w-full
-          max-md:justify-start  max-md:flex-col 
-          "
-        >
-          <div className="flex z-50  max-md:gap-1  flex-col flex-grow">
-            <div className=" font-bold">{data.name}</div>
-            <div className="  font-medium opacity-50">{data.place}</div>
-          </div>
-          <div className="   text-[#FF7A00]">{data.batch}</div>
-        </div>
-      </div>
-    ); // or you can return some default component or <></> for nothing.
-  }
-
-  return (
-    <div
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      className="flex mb-12 max-h-[365px]  hover:cursor-pointer   max-w-[392px] 
-      max-md:h-[371px]  justify-evenly   max-md:w-[316px]
-      shadow-md  flex-col max-md:gap-10 px-5 max-md:px-4 
-    flex-shrink-0 py-8 my-4 rounded-2xl  bg-white text-[#080E14] "
-    >
-      <div className="flex justify-evenly  items-center gap- gap-5 px-7 max-md:px-2 ">
-        <Image
-          src={data.image}
-          // className=" rounded-full"
-          height={120}
-          width={120}
-          className=" w-auto h-auto "
-          fit="contain"
-          alt="cards svg"
-        />
-        <div className="flex z-10  flex-col flex-grow">
-          <div className=" font-bold mb-3">{data.name}</div>
-          <div className="  font-medium opacity-50">{data.place}</div>
-          <div className="  text-[#FF7A00]">{data.batch}</div>
-        </div>
-      </div>
-      <Image
-        src="/reviews/invertedcommas.svg"
-        height={52}
-        width={40}
-        alt="inverted commas"
-        className=" w-[15%]"
-      />
-      <div className=" max-md:text-[12px] text-[#52565B]  text-start">
-        {data.review}
-      </div>
-    </div>
-  );
-}
 function NewLevelShower({ currentIndex }) {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
-    setIsLargeScreen(window.innerWidth > 1024);
+    setIsLargeScreen(window.innerWidth > 480);
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth > 1024);
+      setIsLargeScreen(window.innerWidth >= 480);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -217,12 +123,12 @@ function NewLevelShower({ currentIndex }) {
   const filledWidth = (currentIndex + 1) * partWidth;
 
   return (
-    <div className="max-md:w-64 max-lg:px-0 max-xl:">
+    <div className=" max-lg:px-0 max-xl:">
       <div className="flex items-center">
         <div className="w-4 h-4 mr-4 font-semibold text-white">01</div>
         <div
           className={`${
-            isLargeScreen ? "w-[110px]" : "w-[95px]"
+            isLargeScreen ? "w-[200px]" : "w-[95px]"
           } h-0.5 mt-2 bg-white`}
         ></div>
         <div className="w-4 h-4 ml-4 font-semibold text-white">05</div>
@@ -254,7 +160,7 @@ function ReviewsSmall() {
       <Carousel
         controls={false}
         className=" carous"
-        interval={2000}
+        interval={2000000}
         onSlide={handleSlide}
       >
         {reviews.map((review, index) => (
@@ -272,69 +178,45 @@ function ReviewsSmall() {
   );
 }
 
-function Reviews() {
+function Reviews(props) {
+  const [cN, setCN] = useState(props.cN);
+  const [pN, setPN] = useState(props.pN);
+  const [sN, setSN] = useState(props.sN);
+  // console.log(sN);
   const [isHovering, setIsHovering] = useState(false);
-  const [lineWidth, setLineWidth] = useState(" w-4 ");
-  const [cN, setCN] = useState(3);
-  const [pN, setPN] = useState(2);
-  const [sN, setSN] = useState(10);
+  const cardRef = useRef(null);
 
-  const updateWidth = () => {
-    setLineWidth(window.innerWidth <= 768 ? 35 : 48);
-    setCN(window.innerWidth <= 768 ? 1 : 3);
-    setPN(window.innerWidth <= 768 ? 1 : 2);
-    if (window.innerWidth <= 768) {
-      setSN(100);
-    } else if (window.innerWidth <= 1024) {
-      setSN(35);
-    } else {
-      setSN(25);
-    }
-  };
-  useEffect(() => {
-    // Update width on mount
-    updateWidth();
-
-    // Add resize event listener
-    window.addEventListener("resize", updateWidth);
-
-    // Cleanup: remove event listener on unmount
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
   const [scrollPos, setScrollPos] = useState(0);
-  const [lineLength, setLineLength] = useState(9);
+
   useEffect(() => {
-    const maxScroll = reviews.length - cN;
+    const maxScroll = reviews.length - Math.ceil(cN);
     const interval = setInterval(() => {
       if (!isHovering) {
         if (scrollPos >= maxScroll) {
           setScrollPos(0);
-          setLineLength(" w-4 ");
         } else {
           setScrollPos((prev) => prev + pN);
-          setLineLength(` w-48  max-md:w-28 `);
         }
       }
-      return () => clearInterval(interval);
-    }, 2000);
+    }, 2300);
 
     return () => clearInterval(interval);
   }, [scrollPos, isHovering]);
-  // console.log(isHovering);
 
   return (
-    <div className=" Reviews">
-      <div className=" nlss max-xl:px-10">
+    <div className="Reviews">
+      <div className="nlss max-xl:px-10">
         <NewLevelShower currentIndex={scrollPos} />
       </div>
-      <div className=" rev">
-        <div className="carouss no-scrollbar overflow-x-auto ">
+      <div className="rev">
+        <div className="carouss no-scrollbar overflow-x-auto">
           <div
-            className="carouss-item "
+            className="carouss-item md:mx-[112px]"
             style={{ transform: `translateX(-${scrollPos * sN}%)` }}
           >
             {reviews.map((review, index) => (
               <Card
+                ref={index === 0 ? cardRef : null}
                 key={index}
                 data={review}
                 onMouseEnter={() => setIsHovering(true)}
@@ -347,13 +229,165 @@ function Reviews() {
     </div>
   );
 }
+const Card = React.forwardRef(({ data, onMouseEnter, onMouseLeave }, ref) => {
+  const check = data.video;
+  const [svgWidth, setSvgWidth] = useState(365);
 
+  const updateWidth = () => {
+    setSvgWidth(window.innerWidth <= 480 ? 292 : 365);
+  };
+  useEffect(() => {
+    // Update width on mount
+    updateWidth();
+
+    // Add resize event listener
+    window.addEventListener("resize", updateWidth);
+
+    // Cleanup: remove event listener on unmount
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  if (check) {
+    return (
+      <div
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        className="cardVideo  shadow-md  "
+      >
+        <div className="image-container">
+          <Image
+            src={data.image}
+            alt="Video Background"
+            className="background-image"
+            width={svgWidth}
+            height={161}
+            // className=""
+          />
+          <Image
+            src="/reviews/video.svg"
+            alt="Play Button Logo"
+            className="play-button"
+            width={40}
+            height={40}
+          />
+        </div>
+        <div className=" cardVideo-review  ">{data.review}</div>
+        <div className=" w-full flex justify-end">
+          <Image
+            src="/reviews/invertedCommas2.svg"
+            height={52}
+            width={40}
+            alt="inverted commas "
+            className=" "
+          />
+        </div>
+
+        <div
+          className=" flex  justify-around  max-md:gap-3 w-full
+          max-md:justify-start  max-md:flex-col 
+          "
+        >
+          <div className="flex z-50  max-md:gap-1  flex-col flex-grow">
+            <div className=" cardVideo-name">{data.name}</div>
+            <div className="  cardVideo-place">{data.place}</div>
+          </div>
+          <div className="   cardVideo-course">{data.batch}</div>
+        </div>
+      </div>
+    ); // or you can return some default component or <></> for nothing.
+  }
+
+  return (
+    <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className="cardNormal shadow-md "
+    >
+      <div className="flex justify-evenly cardNormal-head  items-center  px-7 max-md:px-2 ">
+        <Image
+          src={data.image}
+          // className=" rounded-full"
+          height={120}
+          width={120}
+          className=" w-auto h-auto "
+          fit="contain"
+          alt="cards svg"
+        />
+        <div className="flex z-10  flex-col flex-grow">
+          <div className=" cardNormal-name mb-2">{data.name}</div>
+          <div className=" cardNormal-place mb-[24px]">{data.place}</div>
+          <div className=" whitespace-nowrap  cardNormal-course">
+            {data.batch}
+          </div>
+        </div>
+      </div>
+      <Image
+        src="/reviews/invertedcommas.svg"
+        height={52}
+        width={40}
+        alt="inverted commas"
+        className=" w-[15%]"
+      />
+      <div className=" cardNormal-review ">{data.review}</div>
+    </div>
+  );
+});
 function FifthSection() {
   const [svgWidth, setSvgWidth] = useState(592);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [cN, setCN] = useState(2);
+  const [pN, setPN] = useState(4);
+  const [sN, setSN] = useState(20);
+  const [isHovering, setIsHovering] = useState(false);
+  const cardRef = useRef(null);
+
+  const [scrollPos, setScrollPos] = useState(0);
+
+  useEffect(() => {
+    const maxScroll = reviews.length - Math.ceil(cN / 2);
+    const interval = setInterval(() => {
+      if (!isHovering) {
+        if (scrollPos >= maxScroll) {
+          setScrollPos(0);
+        } else {
+          setScrollPos((prev) => prev + pN);
+        }
+      }
+    }, 2300);
+
+    return () => clearInterval(interval);
+  }, [scrollPos, isHovering]);
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 1024 ? 400 : 592);
+    console.log("jhv");
+    const width = window.innerWidth;
+
+    if (width >= 481 && width <= 576) {
+      setCN(1);
+      setSN(60);
+      setPN(1);
+    } else if (width >= 577 && width <= 767) {
+      setCN(2);
+      setSN(50);
+      setPN(1);
+      // ... (similar logic as above)
+    } else if (width >= 768 && width <= 991) {
+      console.log("kj");
+      setCN(2);
+      setSN(70);
+      setPN(1);
+    } else if (width >= 992 && width <= 1199) {
+      // ... (similar logic as above)
+      console.log("tfj");
+      setCN(3);
+      setSN(40);
+      setPN(2);
+      console.log("kjrenfre");
+    } else if (width >= 1200 && width <= 1400) {
+      // ... (similar logic as above)
+    }
   };
+  // console.log(sN);
   useEffect(() => {
     // Update width on mount
     updateWidth();
@@ -375,9 +409,11 @@ function FifthSection() {
             inspiring
             <span className=" sm:hidden ml-2">stories of</span>
           </div>
-          <div className="text-white max-sm:hidden fshc">stories of our </div>
+          <div className="text-white whitespace-nowrap max-sm:hidden fshc">
+            stories of our{" "}
+          </div>
           <div className=" fshc  text-[#FCDE5A]">
-            <span className=" image-tomp mr-2">our</span>toppers{" "}
+            <span className=" sm:hidden image-tomp mr-2">our</span>toppers{" "}
           </div>
         </div>
         <Image
@@ -389,9 +425,31 @@ function FifthSection() {
           onClick={() => setShowOverlay(true)}
         />
       </div>
-      <Reviews />
+      {/* {useEffect(() => { */}
+      <div className="Reviews">
+        <div className="nlss max-xl:px-10">
+          <NewLevelShower currentIndex={scrollPos} />
+        </div>
+        <div className="rev">
+          <div className="carouss no-scrollbar overflow-x-auto">
+            <div
+              className="carouss-item md:mx-[112px]"
+              style={{ transform: `translateX(-${scrollPos * sN}%)` }}
+            >
+              {reviews.map((review, index) => (
+                <Card
+                  ref={index === 0 ? cardRef : null}
+                  key={index}
+                  data={review}
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => setIsHovering(false)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
       <ReviewsSmall />
-
       {showOverlay ? (
         <VideoOverlay onClose={() => setShowOverlay(false)} />
       ) : null}

@@ -1,5 +1,9 @@
 @media (max-width: 320px) {
-    /* smallerS{
+  /* smallerS{
       f
     } */
-  }
+}
+
+ul {
+  padding-left: 0 !important;
+}

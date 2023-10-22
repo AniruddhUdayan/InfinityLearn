@@ -14,6 +14,116 @@
     top: 1rem;
   }
 }
+/* .card4 { */
+.cardVideo {
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  flex-direction: column;
+  padding-left: 0.5rem /* 8px */;
+  padding-right: 0.5rem /* 8px */;
+
+  background-color: white;
+  color: #080e14;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 392px;
+  height: 365px;
+  /* margin-top: 1.5rem ;
+  margin-bottom: 1.5rem ; */
+  .cardVideo-name {
+    color: #080e14;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+  .cardVideo-place {
+    color: #080e14;
+    font-size: 13px;
+    font-family: Poppins;
+    font-weight: 500;
+    text-transform: lowercase;
+    line-height: 18px;
+    word-wrap: break-word;
+  }
+  .cardVideo-course {
+    color: #ff7a00;
+    font-size: 13px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 18px;
+    word-wrap: break-word;
+  }
+  .cardVideo-review {
+    color: #52565b;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 500;
+    text-transform: lowercase;
+    line-height: 24px;
+    word-wrap: break-word;
+    text-align: start;
+  }
+}
+.cardNormal {
+  display: flex;
+  background-color: white;
+  color: #080e14;
+  margin-bottom: 3rem;
+  max-width: 392px;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-left: 1.25rem /* 20px */;
+  padding-right: 1.25rem;
+  height: 365px;
+  border-radius: 1rem;
+  /* margin-top: 1.5rem;
+  margin-bottom: 1.5rem; */
+  flex-shrink: 0;
+  .cardNormal-review {
+    color: #52565b;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 500;
+    text-transform: lowercase;
+    line-height: 27px;
+    word-wrap: break-word;
+  }
+  .cardNormal-name {
+    color: #080e14;
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: 700;
+    line-height: 33px;
+    word-wrap: break-word;
+  }
+  .cardNormal-place {
+    color: #080e14;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 500;
+    text-transform: lowercase;
+    line-height: 27px;
+    word-wrap: break-word;
+  }
+  .cardNormal-course {
+    color: #ff7a00;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 27px;
+    word-wrap: break-word;
+  }
+}
+/* } */
+.cardVideo:hover {
+  cursor: pointer;
+}
+.cardNormal:hover {
+  cursor: pointer;
+}
 .image-container {
   position: relative;
   width: 365px;
@@ -63,6 +173,9 @@
       }
     }
   }
+}
+.cardNormal-head {
+  gap: 20px;
 }
 
 .fifthSection {
@@ -133,6 +246,12 @@
   .fifthSection {
     height: 371px;
   }
+  .image-container {
+    width: 292px;
+  }
+  .cardNormal-head {
+    gap: 10px;
+  }
   .fifthSection {
     .fsh {
       padding-bottom: 4rem;
@@ -149,6 +268,69 @@
   }
   .image-tomp {
     display: none;
+  }
+
+  .cardVideo {
+    height: 371px;
+    width: 316px;
+
+    padding-bottom: 1.25rem;
+    .cardVideo-review {
+      color: #52565b;
+      font-size: 12px;
+      font-family: Poppins;
+      font-weight: 500;
+      text-transform: lowercase;
+      line-height: 18px;
+      word-wrap: break-word;
+      margin-top: 2px;
+      padding-left: 0.95rem /* 12px */;
+      padding-right: 0.95rem;
+    }
+  }
+  .cardVideo-name,
+  .cardNormal-name {
+    color: #080e14;
+    font-size: 14px !important;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 20px !important;
+    word-wrap: break-word;
+  }
+  .cardVideo-place,
+  .cardNormal-place {
+    color: #080e14;
+    font-size: 14px !important;
+    font-family: Poppins;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 14px !important;
+    word-wrap: break-word;
+  }
+  .cardVideo-course,
+  .cardNormal-course {
+    color: #ff7a00;
+    font-size: 14px !important;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 14px !important;
+    word-wrap: break-word;
+  }
+  .cardNormal {
+    height: 371px;
+    width: 316px;
+
+    padding-left: 1rem /* 16px */;
+    padding-right: 1rem;
+    padding-bottom: 55px;
+    padding-top: 33px;
+    .cardNormal-review {
+      font-size: 14px;
+      font-family: Poppins;
+      font-weight: 500;
+      text-transform: lowercase;
+      line-height: 21px;
+    }
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 576px) {
@@ -201,7 +383,7 @@
   }
 
   .fifthSection {
-    height: 557px;
+    height: 540px;
     .fsh {
       padding-bottom: 4rem;
 

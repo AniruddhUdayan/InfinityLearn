@@ -233,7 +233,7 @@ function ThirdSection() {
   const [endpoint, setEndpoint] = useState("day");
   const onTabChange = (tab, index) => {
     setSelectedOption(index);
-    console.log(index);
+    // console.log(index);
     setEndpoint(tab === "Day" ? "day" : "week");
   };
   const handleClick = (index) => {
@@ -242,7 +242,7 @@ function ThirdSection() {
   const windowWidth = useWindowWidth();
   const isMobileView =
     typeof windowWidth !== "undefined" && windowWidth <= 1023;
-  console.log(windowWidth, "jvmjv", isMobileView);
+  // console.log(windowWidth, "jvmjv", isMobileView);
   const borderPosition = {
     transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
   };

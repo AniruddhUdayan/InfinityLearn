@@ -263,6 +263,11 @@ input.focus-no-outline:focus {
     /* height: 32px; */
   }
 }
+@media (min-width: 399px) {
+  .imageRes {
+    width: 100vw !important;
+  }
+}
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .firstSection {
@@ -277,7 +282,7 @@ input.focus-no-outline:focus {
     margin-left: 20px;
   }
   .imageRes {
-    width: auto !important;
+    width: auto;
   }
   .head-text,
   .head-text-modified {

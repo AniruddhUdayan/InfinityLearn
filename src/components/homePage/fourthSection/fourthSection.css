@@ -17,13 +17,15 @@
 .card {
   flex-shrink: 0;
   border-radius: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-left: 1rem /* 16px */;
   padding-right: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.25);
+  border-radius: 12px;
 
   justify-content: flex-start;
   text-align: start;
@@ -68,10 +70,22 @@
     /* color: #080e14; */
   }
 }
+.courses2 {
+  display: none;
+}
+.courses {
+  display: block;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .focus-text-content {
     margin-bottom: 1rem;
     font-size: 32px !important;
+  }
+  .courses2 {
+    display: block;
+  }
+  .courses {
+    display: none;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 576px) {
@@ -79,13 +93,25 @@
     margin-bottom: 1rem;
     font-size: 32px !important;
   }
+  .courses-d {
+    width: 100vw !important;
+  }
 }
 @media only screen and (min-width: 577px) and (max-width: 767px) {
+  .focus-text-content {
+    font-size: 44px !important;
+  }
+  .courses-d {
+    width: 100vw !important;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .focus-text-content {
     margin-bottom: 1rem;
     font-size: 52px !important;
+  }
+  .courses {
+    display: block;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -115,8 +141,8 @@
   .card {
     width: 335px;
     height: 382px;
-    margin-left: 1.25rem /* 20px */;
-    margin-right: 1.25rem /* 20px */;
+    margin-left: 8px;
+    margin-right: 8px;
   }
   .fourthSection {
     border-top-width: 4px;

@@ -1,0 +1,49 @@
+.ninthSection {
+  width: 100%;
+  height: 100%;
+  background: #f1f2f6;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10;
+}
+
+.ns-h1 {
+  width: 100%;
+  text-align: center;
+  color: #080e14;
+  font-size: 48px;
+  font-family: Poppins;
+  font-weight: 700;
+  text-transform: lowercase;
+  line-height: 60px;
+  word-wrap: break-word;
+}
+
+.faq-box {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  opacity: 0.8;
+  background: white;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.faq-ques {
+  color: #080e14;
+  font-size: 24px;
+  font-family: Poppins;
+  font-weight: 600;
+  text-transform: lowercase;
+  word-wrap: break-word;
+}
+
+.faq-ans {
+  color: #6b6e72;
+  font-size: 18px;
+  font-family: Poppins;
+  font-weight: 500;
+  text-transform: lowercase;
+  line-height: 27px;
+  word-wrap: break-word;
+}

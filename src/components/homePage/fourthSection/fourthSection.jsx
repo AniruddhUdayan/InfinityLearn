@@ -31,7 +31,7 @@ function Trial() {
   }
 
   return (
-    <div className=" sm:hidden   items-center">
+    <div className=" courses2    items-center">
       <Carousel
         controls={false}
         className=" items-center  mxauto w-fit max-w-[380px] top-4"
@@ -212,87 +212,42 @@ function Card(props) {
 
 function Courses() {
   const [scrollPos, setScrollPos] = useState(0);
-  const [activeDash, setActiveDash] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef(null); // ref to measure the width of a card
+  const [activeDash, setDashCard] = useState(0);
   useEffect(() => {
-    if (cardRef.current) {
-      // Adjust initial scroll position to keep the first card fully visible
-      setScrollPos(cardRef.current.offsetWidth);
-    }
-  }, [cardRef]);
-  function animateCards() {
-    let cardsToScroll;
-    switch (activeDash) {
-      case 0:
-        cardsToScroll = 1; // scroll one card
-        break;
-      case 1:
-        cardsToScroll = 2; // scroll three cards in total
-        break;
-      case 2:
-        cardsToScroll = 4; // scroll all the cards
-        break;
-      default:
-        cardsToScroll = 0; // reset
-        break;
-    }
-
-    let totalScrollWidth = 0;
-    if (cardRef.current) {
-      totalScrollWidth = cardsToScroll * cardRef.current.offsetWidth;
-    }
-
-    if (activeDash >= 3) {
-      setScrollPos(0);
-      setActiveDash(0);
-    } else {
-      setScrollPos(totalScrollWidth);
-      setActiveDash((prev) => prev + 1);
-    }
-  }
-
-  function handleHover(eventType) {
-    if (eventType === "enter") {
-      setIsHovered(true);
-    } else if (eventType === "leave") {
-      setIsHovered(false);
-      animateCards();
-    }
-  }
-
-  useEffect(() => {
-    if (isHovered) return;
-
-    const interval = setInterval(animateCards, 1500);
+    const maxScroll = courses.length - 2; // total cards minus visible cards
+    const interval = setInterval(() => {
+      if (scrollPos >= maxScroll) {
+        setScrollPos(0);
+        setDashCard(0);
+      } else {
+        setScrollPos((prev) => prev + 2);
+        setDashCard((activeDash + 1) % 5);
+      }
+    }, 1500);
 
     return () => clearInterval(interval);
-  }, [scrollPos, activeDash, isHovered]);
+  }, [scrollPos, activeDash]);
 
   return (
-    <div className="flex max-md:hidden flex-col justify-center w-full items-center h-full ">
-      <div className="overflow-x-auto h-auto  relative">
+    <div className="flex max-sm:hidden flex-col justify-center w-full items-center h-ull bg-[#D4E9FF]">
+      <div className="overflow-hidden h-auto relative max-xl:w-11/12   w6">
         <div
-          onMouseEnter={() => handleHover("enter")}
-          onMouseLeave={() => handleHover("leave")}
-          className="flex transition-transform  duration-1000"
-          style={{ transform: `translateX(-${scrollPos}px)` }}
+          className="flex transition-transform  duration-1000 "
+          style={{ transform: `translateX(-${scrollPos * 15}%)` }} // Adjust based on card width and margin
         >
           {courses.map((course) => (
-            <div className="flex-shrink-0" key={course.id} ref={cardRef}>
-              <Card key={course.id} data={course} />
-            </div>
+            <Card key={course.id} data={course} />
           ))}
         </div>
       </div>
-      <div className="flex justify-center mt-10">
+      <div className=" flex justify-center mt-10">
         {Array.from({ length: 4 }, (_, index) => (
           <div
             key={index}
-            className={`dash h-1 rounded-full mx-2 ${
+            className={`dash h-1 rounded-full mx-2 b ${
               index === activeDash
-                ? "active w-16 bg-blue-500"
-                : "bg-blue-300 w-10"
+                ? "active w-16 bg-blue-500 "
+                : " bg-blue-300 w-10"
             }`}
           ></div>
         ))}
@@ -304,9 +259,38 @@ function Courses() {
 function FourthSection() {
   const [svgWidth, setSvgWidth] = useState(90);
   const [svgSvgHeight, setSvgHeight] = useState(90);
+  const [scrollPos, setScrollPos] = useState(0);
+  const [activeDash, setDashCard] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const [sps, setsps] = useState(30);
+  const [cls, setcls] = useState(2);
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 1024 ? 60 : 90);
-    setSvgHeight(window.innerWidth <= 1024 ? 60 : 90);
+    // setSvgWidth(window.innerWidth <= 1024 ? 90 : 90);
+    // setSvgHeight(window.innerWidth <= 1024 ? 90 : 90);
+    const width = window.innerWidth;
+
+    if (width >= 481 && width <= 576) {
+      setcls(2);
+      setsps(50);
+    } else if (width >= 577 && width <= 767) {
+      setcls(2);
+      setsps(50);
+      // ... (similar logic as above)
+    } else if (width >= 768 && width <= 991) {
+      setcls(2);
+      setsps(55);
+      // console.log("kj");
+    } else if (width >= 992 && width <= 1199) {
+      // ... (similar logic as above)\
+      setcls(2);
+      setsps(50);
+
+      console.log("kjrenfre");
+    } else if (width >= 1200 && width <= 1400) {
+      // ... (similar logic as above)
+    }
+
     if (window.innerWidth <= 425) {
       setSvgWidth(40);
       setSvgHeight(40);
@@ -322,6 +306,23 @@ function FourthSection() {
     // Cleanup: remove event listener on unmount
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
+  useEffect(() => {
+    const maxScroll = courses.length - cls; // total cards minus visible cards
+    const interval = setInterval(() => {
+      if (!isHovered) {
+        if (scrollPos >= maxScroll) {
+          setScrollPos(0);
+          setDashCard(0);
+        } else {
+          setScrollPos((prev) => prev + 2);
+          setDashCard((activeDash + 1) % 5);
+        }
+      }
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [scrollPos, activeDash, isHovered]);
+
   const [activeCard, setActiveCard] = useState(0);
   const [dashIndex, setDashIndex] = useState(0);
 
@@ -362,7 +363,37 @@ function FourthSection() {
           </div>
         </div>
 
-        <Courses />
+        <div className="flex courses  flex-col justify-center w-full items-center h-ull bg-[#D4E9FF]">
+          <div className="overflow-x-auto courses-d h-auto relative py-2   w6">
+            <div
+              className="flex transition-transform  duration-1000 "
+              style={{ transform: `translateX(-${scrollPos * sps}%)` }} // Adjust based on card width and margin
+            >
+              {courses.map((course) => (
+                <div
+                  className=" flex-shrink-0"
+                  key={course.id}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <Card key={course.id} data={course} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className=" flex justify-center mt-10">
+            {Array.from({ length: 4 }, (_, index) => (
+              <div
+                key={index}
+                className={`dash h-1 rounded-full mx-2 b ${
+                  index === activeDash
+                    ? "active w-16 bg-blue-500 "
+                    : " bg-blue-300 w-10"
+                }`}
+              ></div>
+            ))}
+          </div>
+        </div>
         <Trial />
       </div>
     </div>
