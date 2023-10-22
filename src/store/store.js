@@ -16,4 +16,7 @@ export const store = configureStore({
     bookSessionPopup: bookSessionPopup,
     bookSessionData: bookSessionData
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck:false
+  })
 });

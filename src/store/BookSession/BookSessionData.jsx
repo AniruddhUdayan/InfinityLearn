@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const bookSessionData = createSlice({
-  name: "Book New User",
+  name: "Book Session Data",
   initialState: {
     phoneNumber: "",
-    selectedDate: "",
+    selectedDate: new Date(),
     selectedTime: "",
     relations:[],
     language:"",

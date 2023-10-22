@@ -51,8 +51,9 @@
     height: 75px;
     color: #000000;
     text-align: center;
-    margin: 10px;
+    margin-right: 10px;
     text-align: center;
+    text-transform: lowercase;
 }
 .date_selection_btn.active{
     border: 1px solid #06AA2F;
@@ -154,6 +155,7 @@
     font-weight: 500;
     font-size: 15px;
     color: #000000;
+    text-transform: lowercase;
 }
 .sscb_text {
     text-align: center;
