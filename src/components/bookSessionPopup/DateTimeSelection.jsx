@@ -9,62 +9,66 @@ import Row from 'react-bootstrap/Row';
 import { setComponentToShow } from '../../store/BookSession/BookSessionPopup';
 import ProgressTabs from './ProgressTabs';
 import analytics from '../../utils/analytics';
-const slots = [
-    {
-        date: 'thu 3 Aug',
-        daymonth:'3 Aug',
-        day:'thu',
-        timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
-    },
-    {
-        date: 'fir 4 Aug',
-        daymonth:'4 Aug',
-        day:'fri',
-        timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
-    },
-    {
-        date: 'sat 5 Aug',
-        daymonth:'5 Aug',
-        day:'sat',
-        timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
-    },
-    {
-        date: 'sun 6 Aug',
-        daymonth:'6 Aug',
-        day:'Aug',
-        timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
-    },
-    {
-        date: 'mon 7 Aug',
-        daymonth:'7 Aug',
-        day:'mon',
-        timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
-    },
-    {
-        date: 'tus 8 Aug',
-        daymonth:'8 Aug',
-        day:'tus',
-        timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
-    },
-    {
-        date: 'web 10 Aug',
-        daymonth:'10 Aug',
-        day:'web',
-        timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
-    }
-]
-
+// const slots = [
+//     {
+//         date: 'thu 3 Aug',
+//         daymonth:'3 Aug',
+//         day:'thu',
+//         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
+//     },
+//     {
+//         date: 'fir 4 Aug',
+//         daymonth:'4 Aug',
+//         day:'fri',
+//         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
+//     },
+//     {
+//         date: 'sat 5 Aug',
+//         daymonth:'5 Aug',
+//         day:'sat',
+//         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
+//     },
+//     {
+//         date: 'sun 6 Aug',
+//         daymonth:'6 Aug',
+//         day:'Aug',
+//         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
+//     },
+//     {
+//         date: 'mon 7 Aug',
+//         daymonth:'7 Aug',
+//         day:'mon',
+//         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
+//     },
+//     {
+//         date: 'tus 8 Aug',
+//         daymonth:'8 Aug',
+//         day:'tus',
+//         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
+//     },
+//     {
+//         date: 'web 10 Aug',
+//         daymonth:'10 Aug',
+//         day:'web',
+//         timeslots: ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
+//     }
+// ]
+const timeSlots = ['12 pm', '1 pm', '2 pm', '3 pm', '4 pm']
 const DateTimeSelection = () => {
-    const [selectedDate, setDate] = useState("");
+    const [selectedDate, setDate] = useState(null);
     const [selectedTime, setTime] = useState("");
-    const [timeSlots, setTimeSlots] = useState([]);
+    const [startDate, setStartDate] = useState(new Date());
     const dispatch = useDispatch();
     const userDetails = JSON.parse(localStorage.getItem('user_details_from_server'));
     const userGrade =  userDetails?.grade?.name?.replace(/[^0-9]/g, '');
     const userExam = userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase();
+    const nextSevenDays = Array.from({ length: 7 }, (_, index) => {
+        const date = new Date(startDate);
+        date.setDate(startDate.getDate() + index);
+        return date;
+      });
     const handleDate = (date)=>{
         setDate(date);
-        setTimeSlots(date?.timeslots);
         setTime("");
     }
 
@@ -73,7 +77,7 @@ const DateTimeSelection = () => {
     } 
 
     const handleContinue = ()=>{
-        dispatch(setSelectedDate(selectedDate?.date));
+        dispatch(setSelectedDate(new Date(selectedDate)));
         dispatch(setSelectedTime(selectedTime));
         dispatch(setComponentToShow("Relation"));
         analytics.track('book_session_details_entered_1',{
@@ -84,7 +88,7 @@ const DateTimeSelection = () => {
             phone: userDetails?.phone,
             first_name: userDetails?.firstName,
             last_name:userDetails?.lastName,
-            couselling_date: selectedDate?.date
+            couselling_date: selectedDate?.toLocaleDateString('en-GB', { weekday: 'long' ,day: 'numeric', month: 'long' })
         })
     }
     return (
@@ -111,11 +115,11 @@ const DateTimeSelection = () => {
                                 <Col xs={12} md={12}>
                                     <label className="session_label">select date</label>
                                     <div className="date_selection_box">
-                                        {slots.map((item, index) => (
+                                        {nextSevenDays.map((date, index) => (
                                             // <button onClick={()=>handleDate(item)} key={index} className={`date_selection_btn ${selectedDate == item ? 'active': ''}`}>{item?.date}</button>
-                                            <div onClick={()=>handleDate(item)} key={index} className={`date_selection_btn ${selectedDate == item ? 'active': ''}`}>
-                                                <p className="date_day">{item?.day}</p>
-                                                <p className="day_month">{item?.daymonth}</p>
+                                            <div onClick={()=>handleDate(date)} key={index} className={`date_selection_btn ${selectedDate?.toLocaleDateString('en-GB', { day: 'numeric'}) === date?.toLocaleDateString('en-GB', { day: 'numeric'}) ? 'active': ''}`}>
+                                                <p className="date_day">{date.toLocaleDateString('en-GB', { weekday: 'short' })}</p>
+                                                <p className="day_month">{date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -123,7 +127,7 @@ const DateTimeSelection = () => {
                             </Row>
                             <Row className="mt-4">
                                 <Col xs={12} md={12}>
-                                 { timeSlots.length > 0 && <label className="session_label">select time</label>}
+                                 {<label className="session_label">select time</label>}
                                     <div className="time_selection_box">
                                         {timeSlots?.map((time, index) => (
                                             <button onClick={()=>handleTime(time)} key={index} className={`time_selection_btn ${selectedTime == time ? 'active': ''}`}>{time}</button>

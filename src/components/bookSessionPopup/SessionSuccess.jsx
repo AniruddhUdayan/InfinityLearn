@@ -55,7 +55,7 @@ const sendLSQ = async ()=>{
     mx_Primary_Target_Exam : userDetails?.exams?.[0]?.name?.replace(/[^a-z]/ig, '').toUpperCase(),
     mx_Custom_6 : "website",
     mx_Parent_Or_Student: bookSessionData?.relations?.join(','),
-    mx_Date_and_Time: `${bookSessionData?.selectedDate}, ${bookSessionData?.selectedTime}`
+    mx_Date_and_Time: `${bookSessionData?.selectedDate?.toLocaleDateString('en-GB', { weekday: 'long' ,day: 'numeric', month: 'long' })}, ${bookSessionData?.selectedTime}`
   }
   let Payload = {
     "ActivityDateTime": moment().utc().format("YYYY-MM-DD HH:mm:ss"),
@@ -111,7 +111,7 @@ const sendLSQ = async ()=>{
                         <ul className='session_success_card_list'>
                             <li>
                                 <img className='sscIcon' src='/bookSession/dateIcon.svg' alt='dateicon'/>
-                                <span className='sscText'>{bookSessionData?.selectedDate} </span>
+                                <span className='sscText'>{bookSessionData?.selectedDate?.toLocaleDateString('en-GB', { weekday: 'long' , month: 'long', day: 'numeric' })} </span>
                             </li>
                             <li>
                                 <img className='sscIcon' src='/bookSession/timeIcon.svg' alt='timeicon'/>
