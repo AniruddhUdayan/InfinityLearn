@@ -18,11 +18,13 @@ import analytics from "../../utils/analytics";
 import { setComponentToShow } from "../../store/BookSession/BookSessionPopup";
 import { setIsStudentProfileCompleted } from "../../store/BookSession/BookSessionNewUser";
 import ProgressTabs from "./ProgressTabs";
+import {getQueryParams} from '../../utils/getQueryParams';
 const OtpVerification = () => {
   const [otp, setOtp] = useState(Array(4).fill(""));
   const [timer, setTimer] = useState(30);
   const [policyAgreement, setPolicyAgreement] = useState(true);
   const [whatsappConsent, setWhatsappConsent] = useState(true);
+  const [queryParams, setQueryParams] = useState({});
   const phoneNumber = useSelector((state) => state.bookSessionData.phoneNumber);
   const selectedGrade = useSelector((state) => state.bookSessionNewUser.class);
   const selectedExams = useSelector((state) => state.bookSessionNewUser.course);
@@ -31,7 +33,11 @@ const OtpVerification = () => {
   );
   const dispatch = useDispatch();
   const otpRefs = useRef([]);
-
+  useEffect(() => {
+    const params = getQueryParams();
+    console.log(params);
+    setQueryParams(params);
+  }, []);
   useEffect(() => {
     if (timer > 0) {
       const id = setTimeout(() => setTimer(timer - 1), 1000);
@@ -131,6 +137,17 @@ const OtpVerification = () => {
       localStorage.getItem("user_details_from_server")
     );
     let Fields = {
+      mx_Custom_1: window.location.href || undefined,
+      mx_Custom_2: queryParams?.utm_source || undefined,
+      mx_Custom_3: queryParams?.utm_campaign || undefined,
+      mx_Custom_4: queryParams?.utm_medium || undefined,
+      mx_Custom_5: queryParams?.utm_content || undefined,
+      mx_Custom_6: queryParams?.utm_id || undefined,
+      mx_Custom_7: queryParams?.utm_term || undefined,
+      mx_Custom_8: queryParams?.page || undefined,
+      mx_Custom_10: 'Website',
+      mx_GCLID: queryParams?.GCLID || undefined,
+      mx_Actual_source_URL: window.location.href,
       mx_Grade: Number(userDetails?.grade?.name?.replace(/[^0-9]/g, "")),
       mx_Exam: userDetails?.exams?.[0]?.name
         ?.replace(/[^a-z]/gi, "")
@@ -138,7 +155,6 @@ const OtpVerification = () => {
       mx_Primary_Target_Exam: userDetails?.exams?.[0]?.name
         ?.replace(/[^a-z]/gi, "")
         .toUpperCase(),
-      mx_Custom_6: "website",
     };
     let Payload = {
       ActivityDateTime: moment().utc().format("YYYY-MM-DD HH:mm:ss"),
