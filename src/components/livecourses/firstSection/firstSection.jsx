@@ -110,13 +110,11 @@ function FirstSection() {
             </div>
           </div>
         </div>
-        <div className=" flex justify-evenly   max-md:bg-blue-300 max-md:bg-opacity-50 gap-14 max-md:gap-3 my-4 max-md:border-0  border-2 border-yellow-300 rounded-2xl p-4">
+        <div className=" price ">
           <div className=" flex flex-col">
-            <div className=" text-sm lowercase font-medium ">{`Starting at `}</div>
+            <div className=" text-sm lowercase font-medium ">{`Monthly EMI starts at ₹ 3,500`}</div>
             <div className=" flex items-center max-md:text-black gap-3 text-yellow-300">
-              <d className="  font-bold text-4xl    ">₹ 1,660</d>
-
-              <div className="  lowercase font-medium ">/month</div>
+              <d className="  font-bold text-4xl    ">₹ 60,000</d>
             </div>
             <div className=" flex items-center max-md:w-max gap-3">
               <div className="   text-lg [text-decoration:line-through] lowercase font-medium text-crimson">

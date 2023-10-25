@@ -100,13 +100,13 @@ const SwitchTabs = ({ data, onTabChange }) => {
 
   return (
     <div className=" bg-white text-black relative">
-      <div className="h-full mt-1 whitespace-nowrap  flex items-center">
+      <div className="h-full mt-1 whitespace-nowrap gap-[20px]  flex items-center">
         {data.map((tab, index) => (
           <span
             key={index}
             ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full w-full px-4  text-center text-base cursor-pointer 
-            ${selectedTab === index ? "text-black" : ""}`}
+            className={`h-full w-full px-3  text-center text-base cursor-pointer 
+            ${selectedTab === index ? "text-[#007BFF]" : ""}`}
             onClick={() => activeTab(tab, index)}
           >
             {tab}
@@ -274,8 +274,8 @@ function ThirdSection() {
             alt="thirdSection"
             className=" max-md:w-screen  md:w-1/2"
           />
-          <div className=" thirdsection-content justify-start  ">
-            <div className="  max-md:h-max">
+          <div className=" thirdsection-content items-center ">
+            <div className=" text-start  max-md:h-max">
               {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
                 (Component, index) => (
                   <div

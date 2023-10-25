@@ -12,7 +12,7 @@ import SeventhSection from "./seventhSection/seventhSection.jsx";
 import Download from "@/components/examPage/Download/index.js";
 import analytics from "../../utils/analytics.jsx";
 import LoginPopup from "../LoginPopup";
-import NinthSection from "./ninthSection/NinthSection";
+import NinthSection from "./ninthSection/NinthSection.jsx";
 import EigthSection from "./eightSection/eigthSection.jsx";
 import SelectGradePopup from "../common/SelectGradePopup.jsx";
 import BookSessionPopup from "../bookSessionPopup";

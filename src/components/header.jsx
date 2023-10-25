@@ -58,7 +58,7 @@ function SubItemCard(props) {
   const backgroundColor = isSelected ? "#F1F2F6" : "transparent";
   return (
     <div
-      className={`flex items-center cursor-pointer justify-between w-96 h-20 p-1 text-black rounded-lg z-50 ${
+      className={`flex items-center cursor-pointer justify-between w-[340px] h-20 p-1 text-black rounded-lg z-50 ${
         isSelected ? "bg-[#F1F2F6]" : ""
       } hover:bg-[#D4E9FF]`}
       onClick={handleClick}
@@ -75,6 +75,7 @@ function SubItemCard(props) {
               height={40}
               width={40}
               alt="SubItemCard image"
+              className=" h-[100%]"
             />
           )}
           <div className="flex-grow flex flex-col justify-center items-start ml-3 px-2 pr-9">
@@ -175,7 +176,7 @@ function ResHeader({
                   {foundItem?.subItems.map((subItem, subIndex) => (
                     <li
                       key={subIndex}
-                      className="px-4  py-2 hover:cursor-pointer  "
+                      className="px-[12px]  py-2 hover:cursor-pointer  "
                       onClick={showHeader2}
                       // onClick={() => toggleSubMenuItems(index, subItem.id)}
                       // onMouseEnter={() => hoverHandler2(index)}
@@ -392,7 +393,7 @@ function Header() {
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
-                    className={`flex px-[17px] items-center group hover:cursor-pointer whitespace-nowrap 
+                    className={`flex  px-[17px] items-center group hover:cursor-pointer whitespace-nowrap 
                      hover:border-white hover:border-[1px] text-[16px] border-solid  hover:rounded-3xl p-1
                      transform hover:scale-105 transition-transform duration-300`}
                     onClick={() => toggleSubMenu(index)}
@@ -403,14 +404,14 @@ function Header() {
                   </li>
                   {index === activeItem && foundItem && (
                     <ul
-                      className="absolute w-fit z-20  left-0 mt-2 bg-white  text-white border-white border-2 rounded-lg p-0"
+                      className="absolute w-fit z-20  left-0 mt-3 bg-white  text-white border-white border-2 rounded-lg p-0"
                       onMouseLeave={() => hoverHandler1(null)}
                       //onMouseEnter={() => hoverHandler2(index)}
                     >
                       {foundItem?.subItems.map((subItem, subIndex) => (
                         <li
                           key={subIndex}
-                          className="px-4 py-2 "
+                          className="px-[12px] py-3 "
                           // onClick={() => toggleSubMenuItems(index, subItem.id)}
                           //onMouseEnter={() => hoverHandler2(index)}
                         >
@@ -486,7 +487,7 @@ function Header() {
           </div>
           <Link href="https://student.infinitylearn.com/signin?page=signin">
             <button
-              className="rounded-xl w-auto whitespace-nowrap  max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
+              className="rounded-[20px] w-auto whitespace-nowrap  max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
               style={{ height: 32 }}
             >
               <div className="text-blue-500 sm:bg-white max-2xl:px-4 items-center max-sm:text-[#007BFF] font-semibold max-md:px-3 rounded-[20px] px-[20px]">
