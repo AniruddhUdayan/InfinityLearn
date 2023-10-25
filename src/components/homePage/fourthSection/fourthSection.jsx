@@ -215,17 +215,6 @@ function Card(props) {
           className="  border-blue-200"
           alt="cards svg"
         />
-        {/* <div className="relative bottom-4 left-6">
-          {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
-            <Image
-              src="./courses/std.svg"
-              height={29}
-              width={142}
-              className=" w-[40%] h-auto" // Ensures the image maintains its aspect ratio
-              alt="courses.svg"
-            />
-          )}
-        </div> */}
       </div>
       <div className=" relative flex w-full   flex-col">
         <div
