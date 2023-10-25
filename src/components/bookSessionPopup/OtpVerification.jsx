@@ -229,7 +229,7 @@ const OtpVerification = () => {
       <Container>
         <Row>
           <Col xs={12} md={6}>
-            <img
+            <Image
               src="/login/mobVer/mobVer2.webp"
               alt="mob-ver-otp"
               className="side_image max-md:hidden"

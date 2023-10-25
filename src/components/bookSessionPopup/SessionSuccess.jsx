@@ -75,7 +75,7 @@ const sendLSQ = async ()=>{
              <Container>
           <Row>
             <Col xs={12} md={6}>
-            <img
+            <Image
           src="/bookSession/relation.webp"
           alt="mob-ver-1"
           className="side_image max-md:hidden"
@@ -110,15 +110,15 @@ const sendLSQ = async ()=>{
                     <div className='session_success_card'>
                         <ul className='session_success_card_list'>
                             <li>
-                                <img className='sscIcon' src='/bookSession/dateIcon.svg' alt='dateicon'/>
+                                <Image className='sscIcon' src='/bookSession/dateIcon.svg' alt='dateicon'/>
                                 <span className='sscText'>{bookSessionData?.selectedDate?.toLocaleDateString('en-GB', { weekday: 'long' , month: 'long', day: 'numeric' })} </span>
                             </li>
                             <li>
-                                <img className='sscIcon' src='/bookSession/timeIcon.svg' alt='timeicon'/>
+                                <Image className='sscIcon' src='/bookSession/timeIcon.svg' alt='timeicon'/>
                                 <span className='sscText'>{bookSessionData?.selectedTime}</span>
                             </li>
                             <li>
-                                <img className='sscIcon' src='/bookSession/classIcon.svg' alt='classicon'/>
+                                <Image className='sscIcon' src='/bookSession/classIcon.svg' alt='classicon'/>
                                 <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                             </li>
                         </ul>

@@ -148,7 +148,7 @@ const SelectExam = () => {
                 <Row>
                     <Col xs={12} md={6}>
                     {/* <Image src="/login/mobVer/SuccessImage.webp" className="side_image max-md:hidden" alt="" /> */}
-                        <img
+                        <Image
                             src="/login/mobVer/SuccessImage.webp"
                             alt="mob-ver-1"
                             className="side_image max-md:hidden"

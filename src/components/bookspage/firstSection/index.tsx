@@ -21,8 +21,8 @@ const poppins600 = Poppins({
   weight: "600",
 });
 const imagePaths = [
-  "/images/book.webp",
-  "/images/bio.webp",
+  "/images/book4.svg",
+  "/images/book3.svg",
   // Add more image paths as needed
 ];
 
@@ -59,9 +59,9 @@ const FirstSection = ({ params }) => {
 
     setTimeout(() => {
       if (imagePath === "/images/book.webp") {
-        setImagePath("/images/bio.webp");
+        setImagePath("/images/book3.svg");
       } else {
-        setImagePath("/images/book.webp");
+        setImagePath("/images/book4.svg");
       }
 
       setIsAnimating(false);
@@ -93,19 +93,15 @@ const FirstSection = ({ params }) => {
 
   return (
     <>
-      <div className="h-full bg-[#FFF]  pb-[61px] flex justify-center ">
+      <div className="books-first-sec-container">
         <div className="sm:flex sm:flex-col sm:mx-[112px] max-sm:w-auto lg:flex-row sm:gap-[40px]  sm:pt-[28px] ">
           <div className="flex flex-col gap-[20px] max-sm:bg-[#E6F2FF] max-sm:min-h-[446px]">
             <div className="flex h-full flex-col ">
               <div className="">
                 <div className="flex flex-col sm:flex-row gap-[55px] justify-center w-full  sm:h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
-                  <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
+                  <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative ">
                     <div
-                      className={`h-[32px] w-[32px] bg-white rounded-[8px] transform ${
-                        animationDirection === "left"
-                          ? "translate-x-[50px]"
-                          : "translate-x-0"
-                      } transition-transform`}
+                      className={`h-[32px] w-[32px] bg-white rounded-[8px] `}
                       onClick={toggleImage}
                     >
                       <Image
@@ -126,22 +122,37 @@ const FirstSection = ({ params }) => {
                       height={442}
                     />
                   </div>
-                  <div className="sm:hidden relative  flex flex-col justify-center items-center top-14 mt-[32px] rounded-[20px]  bg-[#E6F2FF] bg-opacity-0 py-[16px] mx-[20px]">
+                  <div className="sm:hidden relative left-5  flex flex-row justify-center items-center top-14 mt-[32px] rounded-[20px]  bg-[#E6F2FF] bg-opacity-0 py-[16px] mx-[20px]">
                     <Image
                       src={imagePath}
                       alt="Your Logo"
                       width={250}
                       height={250}
                     />
+                    <div className="books-arrow-container">
+                      {" "}
+                      <div className="books-back-arrow">
+                        <Image
+                          src="/images/backArrow.png"
+                          alt="Your Logo"
+                          width={16}
+                          height={11}
+                        />
+                      </div>
+                      <div className="books-right-arrow">
+                        <Image
+                          src="/images/rightArrow.png"
+                          alt="Your Logo"
+                          width={24}
+                          height={24}
+                        />
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative right-6">
+                  <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative ">
                     <div
-                      className={`h-[32px] w-[32px] bg-white rounded-[8px] transform rotate-180 ${
-                        animationDirection === "right"
-                          ? "translate-x-[50px]"
-                          : "translate-x-0"
-                      } transition-transform`}
+                      className={`h-[32px] w-[32px] bg-white rounded-[8px] transform rotate-180 `}
                       onClick={toggleImage}
                     >
                       <Image
@@ -157,17 +168,17 @@ const FirstSection = ({ params }) => {
                       01
                     </div>
                     <div className="flex flex-row w-[93.5px] border-gray-400 h-[4px] rounded-[4px] bg-gray-400">
-                      {imagePath === "/images/book.webp" ? (
+                      {imagePath === "/images/book4.svg" ? (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8] max-sm:bg-[#007BFF]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
                       )}
-                      {imagePath === "/images/bio.webp" ? (
+                      {imagePath === "/images/book3.svg" ? (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8] max-sm:bg-[#007BFF]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
                       )}
-                      {imagePath === "/images/bio2.svg" ? (
+                      {imagePath === "/images/book.svg" ? (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8] max-sm:bg-[#007BFF]"></div>
                       ) : (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] "></div>
@@ -227,9 +238,9 @@ const FirstSection = ({ params }) => {
               </div>
             </div>
           </div>
-          <div className="sm:mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-[684px] sm:min-w-[410px] w-auto overflow-scroll custom-scrollbar">
+          <div className="sm:mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-screen sm:min-w-[410px] w-auto overflow-scroll custom-scrollbar">
             <div
-              className={`${poppins700.className} w-auto text-[#080E14] sm:text-[48px] text-[20px] font-bold leading-60 mx-[20px]`}
+              className={`${poppins700.className} w-auto text-[#080E14] sm:text-[48px] text-[32px] font-bold leading-60 mx-[20px]`}
             >
               <div> IL books for</div>
               <div className="sm:h-[72px] h-[36px] overflow-hidden w-auto relative">
@@ -265,15 +276,15 @@ const FirstSection = ({ params }) => {
                 </div>
               </div>
               <div className="flex flex-row">
-                <div className="w-[48px] h-[48px] flex justify-center items-center">
+                <div className="flex h-[58px] justify-center items-center">
                   <Image
                     src="/images/phone2.png"
                     alt="Your Logo"
-                    width={48}
-                    height={48}
+                    width={58}
+                    height={58}
                   />
                 </div>
-                <div className="flex w-full px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#9C9FA1] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
+                <div className="flex max-sm:h-[48px] w-full px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#9C9FA1] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
                   <div className="flex flex-row gap-2 ">
                     <div
                       className={`${poppins600.className} text-[#080E14] text-[16px] font-[600]`}
@@ -351,7 +362,7 @@ const FirstSection = ({ params }) => {
               </div>
             </div>
             <div className="sm:ml-3 flex flex-row max-sm:flex-col max-sm:justify-center items-start max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
-              <div className="flex w-[295px] h-[76px]  sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] sm:gap-[10px] transform hover:scale-105 transition-transform duration-300 ">
+              <div className="flex w-full max-sm:mx-[20px] h-[86px]  sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] sm:gap-[10px] transform hover:scale-105 transition-transform duration-300 ">
                 <div>
                   {" "}
                   <div className="relative right-[21.5px]">
@@ -393,7 +404,7 @@ const FirstSection = ({ params }) => {
                   </div>
                 </div>
               </div>
-              <div className="relative w-[295px] h-[76px]   flex justify-between max-sm:h-auto sm:w-[188px] sm:h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="relative w-full max-sm:mx-[20px] h-[86px]    flex justify-between max-sm:h-auto sm:w-[188px] sm:h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -423,7 +434,7 @@ const FirstSection = ({ params }) => {
                   </div>
                 </div>
               </div>
-              <div className="relative w-[295px] h-[64px]  flex  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="max-sm:hidden relative w-[295px] h-[64px]  flex  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -504,7 +515,7 @@ const FirstSection = ({ params }) => {
                 </div>
               </div>
             </div>
-            <div className="sm:w-[688px] ">
+            <div className="sm:w-[688px] max-sm:hidden">
               <Review />
             </div>
           </div>
@@ -595,16 +606,22 @@ const FirstSection = ({ params }) => {
           </div>
         </div>
       </div>
-      <div className=" bg-[#00364E] flex flex-col justify-center items-center sm:py-[80px] py-[32px] gap-[40px]">
-        <div
-          className={`${poppins700.className} text-[#FFF] sm:text-[48px] text-[30px] font-[700] px-[20px]`}
-        >
-          boost your revision with{" "}
-          <span className="text-[#FCDE5A]">
+      <div className="sm:hidden">
+        <Review />
+      </div>
+      <div className="sm:h-[472px] bg-[#00364E] flex flex-col justify-center items-center sm:py-[80px] py-[32px] gap-[40px]">
+        <div className="flex flex-row w-[880px] flex-wrap justify-center">
+          {" "}
+          <span
+            className={`${poppins700.className}  text-[#FFF] sm:text-[48px] text-[30px] font-[700] `}
+          >
+            boost your revision with{" "}
+          </span>
+          <span className="text-[#FCDE5A]  sm:text-[48px] text-[30px] font-[700] ">
             IL test series for {params.course[0]} !
           </span>
         </div>
-        <div className="flex sm:flex-row flex-col max-sm:gap-[32px] justify-evenly w-full max-sm:px-[20px]">
+        <div className="sm:w-[806px] flex sm:flex-row flex-col max-sm:gap-[32px] justify-evenly w-full max-sm:px-[20px]">
           <div className="max-sm:hidden flex-col flex gap-[16px]">
             <div className="flex gap-[16px]">
               <Image

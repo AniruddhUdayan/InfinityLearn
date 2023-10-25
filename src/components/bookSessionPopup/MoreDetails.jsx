@@ -49,7 +49,7 @@ const MoreDetails = () => {
           <Container>
               <Row>
                   <Col xs={12} md={6}>
-                      <img
+                      <Image
                           src="/login/mobVer/SuccessImage.webp"
                           alt="mob-ver-1"
                           className=" max-md:hidden"

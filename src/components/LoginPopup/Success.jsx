@@ -16,7 +16,7 @@ const Success = () => {
              <Container>
           <Row>
             <Col xs={12} md={6}>
-            <img
+            <Image
           src="/login/mobVer/SuccessImage.webp"
           alt="mob-ver-1"
           className="side_image max-md:hidden"
