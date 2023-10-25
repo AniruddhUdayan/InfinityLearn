@@ -120,7 +120,11 @@ const LandingExam = ({ classFor, examFor }) => {
 			</div>
 
 			<div className={styles.landingExamPadding}>
-				<div className={styles.landingExamHead}>power up your <span className={styles.landingExamYellow}>{examFor?.toUpperCase() ?? 'JEE'} PREP</span> with Infinity Learn</div>
+				<div className={styles.landingExamHead}>
+					{parseInt(classFor) <= 10 ? 'The foundation that gives you an advantage over others to crack ' : 'The preparation that helped thousands to crack '}
+					{examFor?.toUpperCase() === 'JEE' ? 'IIT-JEE' : examFor.toUpperCase()}
+					{parseInt(classFor) <= 10 ? <>. <span className={styles.landingExamYellow}>Start early, Start right!</span></> : <>. Now, <span className={styles.landingExamYellow}>it's your turn</span></>}
+				</div>
 				<div className={styles.landingExamDesc}><span className={styles.landingExamDescHigh}>{examFor?.toUpperCase() ?? 'JEE'}</span> is the most competitive entrance examination in India. Offering the best online class experience, our targeted batch covers all essential subjects.</div>
 				<div className={styles.landingExamGrid}>
 					<div className={styles.landingExamPoints}>

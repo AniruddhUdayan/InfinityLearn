@@ -25,8 +25,8 @@ const Scholarship = () => {
 					</div>
 				</div>
 				<div className={styles.schText}>
-					<div className={styles.schTitle}>get up to <span className={styles.schHigh}>50% scholarship</span></div>
-					<div className={styles.schDesc}>over <span className={styles.schHigh2}>500+</span> students awarded scholarships worth of <span className='sch-high-2'>₹50L</span></div>
+					<div className={styles.schTitle}>get up to <span className={styles.schHigh}>100% scholarship</span></div>
+					<div className={styles.schDesc}>over <span className={styles.schHigh2}>500+</span> students awarded scholarships worth of <span className={styles.schHigh2}>₹1000Cr</span></div>
 					<div className={styles.schBtn2Wrapper}>
 						<Button variant='contained' disableElevation color='primary' sx={{ borderRadius: '0.5rem', paddingX: '4rem'}}>
 							apply to scholarships

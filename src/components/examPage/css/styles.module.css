@@ -313,7 +313,12 @@
     font-weight: 700; 
     color: #080E14;    
 }
-.coursesLive {
+.coursesHeadDesc {
+    color: #52565B;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.coursesLiveDesc {
     margin-bottom: 1rem; 
 }
 .coursesRecorded {

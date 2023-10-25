@@ -103,7 +103,8 @@ const Courses = () => {
             </Tabs>
 
             <div className={styles.coursesMain2}>
-                <div className={`${styles.coursesHead2} ${styles.coursesLive}`}>live courses</div>
+                <div className={styles.coursesHead2}>live courses</div>
+                <div className={`${styles.coursesHeadDesc} ${styles.coursesLiveDesc}`}>Get Access to the best online classes for JEE Preparation</div>
                 <div className={styles.lgOnly}><LiveCourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} /></div>
                 <div className={styles.lgNot}><CourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} live={true} views={'1.3k'} /></div>
             </div>
@@ -119,6 +120,7 @@ const Courses = () => {
                         </Button>
                     </div>
                 </div>
+                <div className={styles.coursesHeadDesc}>Experience the most engaging lectures anytime, anywhere</div>
                 <div className={styles.coursesCourses} ref={recordedRef}>
                     {recordedCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={recordedEleRef} />)}
                 </div>
@@ -135,6 +137,7 @@ const Courses = () => {
                         </Button>
                     </div>
                 </div>
+                <div className={styles.coursesHeadDesc}>Crash Courses that cover complete IIT-JEE Syllabus</div>
                 <div className={styles.coursesCourses} ref={crashRef}>
                     {crashCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={crashEleRef} />)}
                 </div>
