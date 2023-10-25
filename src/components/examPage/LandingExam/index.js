@@ -91,6 +91,13 @@ const LandingExam = ({ classFor, examFor }) => {
 					class {classFor ?? 12}+ | {examFor?.toUpperCase() ?? 'JEE'}
 				</Button>
 			</div>
+			<Button variant="contained" color="white" className="lg-not"  sx={{
+				justifyContent: 'space-between',
+				zIndex: '-10',
+				margin: '0.5rem 1rem'
+			}}>
+				class {classFor ?? 12}+ | {examFor?.toUpperCase() ?? 'JEE'}
+			</Button>
 			<div ref={carousel} className="landing-exam-carousel no-scrollbar">
 				{banners.map((banner, index) => (
 					<LandingCard key={index} pic={banner.pic} rank={banner.rank} name={banner.name} batch={banner.batch} ref2={carouselEle} />

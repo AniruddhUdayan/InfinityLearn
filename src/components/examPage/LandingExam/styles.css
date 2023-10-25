@@ -6,8 +6,11 @@
 }
 
 .landing-exam-class {
-    margin-left: 1rem;
-    margin-right: 1rem; 
+    padding: 0.5rem 1rem;
+    position: fixed;
+    width: 100%;
+    background-color: #007BFF;
+    z-index: 9999;
 }
 
 .landing-exam-carousel {
@@ -212,7 +215,7 @@
         display: block;
     }
     .lg-not {
-        display: none;
+        display: none!important;
     }
     .landing-exam-buttons {
         padding-left: 5rem;
