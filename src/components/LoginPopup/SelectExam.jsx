@@ -159,7 +159,7 @@ const SelectExam = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                    <img src="/login/mobVer/SuccessImage.webp" className="side_image max-md:hidden" alt="" />
+                    <Image src="/login/mobVer/SuccessImage.webp" className="side_image max-md:hidden" alt="" />
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="right_box">

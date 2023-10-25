@@ -88,13 +88,13 @@ const Review = () => {
 
   return (
     <div className="bg-[#FFF] sm:bg-white flex flex-col-reverse gap-[42px] justify-start pt-[21px] h-full pb-[50px] max-w-[688px]  flex-wrap-reverse ">
-      <div className="flex flex-col w-auto sm:mx-[22px] max-sm:max-w-[375px]">
+      <div className="flex mr-2 flex-col w-auto sm:mx-[22px] max-sm:max-w-[375px]">
         <div
           className={`${poppins700.className} w-full flex justify-start text-[#080E14] text-[32px] font-bold py-[20px]`}
         >
           reviews
         </div>
-        <div className="flex flex-col w-auto h-auto border-[1px] border-solid border-[#CECFD0] rounded-[12px] bg-white">
+        <div className="flex mr-3 flex-col w-auto h-auto border-[1px] border-solid border-[#CECFD0] rounded-[12px] bg-white">
           <div className="p-[30px] flex flex-row">
             <div className="flex-col justify-center w-auto">
               <div
@@ -440,7 +440,7 @@ const Review = () => {
         </div>
         <div
           ref={containerRef}
-          className="sm:hidden max-w-[350px] min-h-[120px] flex flex-row w-auto h-auto gap-3 overflow-hidden items-center"
+          className="sm:hidden max-w-[380px] min-h-[120px] flex flex-row w-auto h-auto gap-3 overflow-hidden items-center"
           style={{ whiteSpace: "nowrap" }}
         >
           {items.map((item, index) => (

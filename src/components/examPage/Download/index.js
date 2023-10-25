@@ -9,12 +9,15 @@ import { Button, Input, InputBase } from "@mui/material";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
-import { setPhoneNumber,} from "../../../store/BookSession/BookSessionData";
-import {setIsExitingUser,} from "../../../store/mobVeriSlice";
+import { setPhoneNumber } from "../../../store/BookSession/BookSessionData";
+import { setIsExitingUser } from "../../../store/mobVeriSlice";
 import { verifyPhone, sendOtp } from "../../../services/userServics";
 import analytics from "../../../utils/analytics";
-import {setIsPopupShow,setComponentToShow} from "../../../store/BookSession/BookSessionPopup";
-import './download.css'
+import {
+  setIsPopupShow,
+  setComponentToShow,
+} from "../../../store/BookSession/BookSessionPopup";
+import "./download.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,7 +41,7 @@ const Download = () => {
   const isPopupShow = useSelector(
     (state) => state.bookSessionPopup.isPopupShow
   );
-  
+
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
@@ -107,9 +110,7 @@ const Download = () => {
               width={40}
               height={40}
             />
-            <div className="download-checklist-text">
-              live classes
-            </div>
+            <div className="download-checklist-text">live classes</div>
           </div>
           <div className="sm:hidden flex gap-2 mb-[20px]">
             <Image
@@ -118,9 +119,7 @@ const Download = () => {
               width={25}
               height={25}
             />
-            <div className="download-checklist-text">
-              live classes
-            </div>
+            <div className="download-checklist-text">live classes</div>
           </div>
           <div className="max-sm:hidden flex gap-2">
             <Image
@@ -129,9 +128,7 @@ const Download = () => {
               width={40}
               height={40}
             />
-            <div className="download-checklist-text">
-              progress tracking
-            </div>
+            <div className="download-checklist-text">progress tracking</div>
           </div>
           <div className="sm:hidden flex gap-2 mb-[20px]">
             <Image
@@ -140,9 +137,7 @@ const Download = () => {
               width={25}
               height={25}
             />
-            <div className="download-checklist-text">
-              progress tracking
-            </div>
+            <div className="download-checklist-text">progress tracking</div>
           </div>
           <div className="max-sm:hidden flex gap-2">
             <Image
@@ -178,13 +173,16 @@ const Download = () => {
             </div>
           </div>
         </div>
-        <Image
-          src={phone}
-          alt="phone"
-          width={400}
-          height={0}
-          className="lg:-mb-[2px] max-sm:hidden aspect-[2/3]"
-        />
+        <div className="relative top-[37px]">
+          {" "}
+          <Image
+            src={phone}
+            alt="phone"
+            width={434}
+            height={665}
+            className="lg:-mb-[2px] max-sm:hidden aspect-[2/3]"
+          />
+        </div>
         <div className="flex justify-center">
           <Image
             src="/images/appver.webp"
@@ -217,39 +215,42 @@ const Download = () => {
         </div>
       </div>
       <div className="download-overlay">
-        <div className="download-overlay-box ">
-          <div className="download-demo-session-title">
-            book a <span className="text-[#FCDE5A]">demo session</span>
-          </div>
-          <div className="lg:text-lg">
-            {
-              "access to India's best teachers with a record of producing top rankers year on year."
-            }
-          </div>
-        </div>
-        <div className="download-demo-session-input-box">
-          <div className="download-demo-session-input-subbox">
-            <div
-              className={`${poppins.className} download-demo-session-input`}
-            >
-              <span className="text-[#080E14] sm:mr-[6px]">+91 </span>
-              <input
-                className="outline-none w-[181px] text-[#080E14]"
-                type="text"
-                placeholder="enter your mobile number"
-                value={query}
-                onChange={handleInputChange}
-              />
+        <div className="flex flex-row justify-between sm:w-[1040px]">
+          {" "}
+          <div className="download-overlay-box ">
+            <div className="download-demo-session-title">
+              book a <span className="text-[#FCDE5A]">demo session</span>
             </div>
-            <button
-              onClick={handleToggleOverlay}
-              className="download-book-button"
-            >
-              book now
-            </button>
+            <div className="lg:text-lg w-[495px]">
+              {
+                "access to India's best teachers with a record of producing top rankers year on year."
+              }
+            </div>
           </div>
-          <div className="download-otp-info">
-            we will send an otp for verification
+          <div className="download-demo-session-input-box">
+            <div className="download-demo-session-input-subbox">
+              <div
+                className={`${poppins.className} download-demo-session-input`}
+              >
+                <span className="text-[#080E14] sm:mr-[6px]">+91 </span>
+                <input
+                  className="outline-none w-[181px] text-[#080E14]"
+                  type="text"
+                  placeholder="enter your mobile number"
+                  value={query}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <button
+                onClick={handleToggleOverlay}
+                className="download-book-button"
+              >
+                book now
+              </button>
+            </div>
+            <div className="download-otp-info">
+              we will send an otp for verification
+            </div>
           </div>
         </div>
       </div>

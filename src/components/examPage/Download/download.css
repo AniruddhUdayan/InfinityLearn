@@ -9,6 +9,7 @@
   color: #080e14;
   padding-left: 16px;
   padding-right: 16px;
+  
 }
 .download-box {
   display: flex;
@@ -57,6 +58,7 @@
 }
 .download-overlay-box {
   width: 100%;
+  padding-left: 20px;
 }
 .download-demo-session-title {
   font-weight: bold;
@@ -89,6 +91,7 @@
   align-items: center;
   font-size: 13px;
   font: 500;
+  gap: 4px;
 }
 .download-book-button {
     background: #007BFF;
@@ -98,6 +101,9 @@
     font-size: 14px;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+  }
+  .download-otp-info {
+    display: none;
   }
 @media (min-width: 640px) {
   .download-demo-session-input {
@@ -120,10 +126,12 @@
     flex-direction: row;
     padding-left: 64px;
     padding-right: 64px;
+    height: 739px;
+    align-items: center;
   }
   .download-box {
     gap: 32px;
-    width: 50%;
+    width: 600px;
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -135,8 +143,9 @@
   }
   .download-overlay {
     flex-direction: row;
-    gap: 64px;
+    /* gap: 64px; */
     padding: 5rem;
+    /* width: 1040px; */
   }
   .download-overlay-box {
     width: 41.6%;
@@ -146,6 +155,9 @@
   }
   .download-demo-session-input-box {
     width: 58.33%;
+  }
+  .download-otp-info {
+    display: block;
   }
 }
 

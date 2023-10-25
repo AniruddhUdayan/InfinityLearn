@@ -74,7 +74,7 @@ const SelectGrade = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <img
+                        <Image
                             src="/login/newUser/newUser2.webp"
                             height={400}
                             width={600}
