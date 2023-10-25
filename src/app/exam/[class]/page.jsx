@@ -1,41 +1,11 @@
 "use client";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import LandingExam from '@/components/examPage/LandingExam'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import Download from '@/components/examPage/Download'
-import School from '@/components/examPage/School'
-import Promise from '@/components/examPage/Promise'
-import Rankers from '@/components/examPage/Rankers'
-import Courses from '@/components/examPage/Courses'
-import Study from '@/components/examPage/Study'
-import Revise from '@/components/examPage/Revise'
-import Masterclasses from '@/components/examPage/Masterclasses';
-import Scholarship from '@/components/examPage/Scholarship'
-import Books from '@/components/examPage/Books'
-import Faculty from '@/components/examPage/Faculty'
-import './../styles.css'
+import ExamPage from '@/components/examPage'
 
-const ExamPage = () => {
+const Exam = ({ params }) => {
     return (
-        <div className='poppins'>
-            <Header />
-            <LandingExam />
-            <Promise />
-            <Courses />
-            <Books />
-            <Scholarship />
-            <Faculty />
-            <Masterclasses />
-            <Revise />
-            <Study />
-            <Rankers />
-            <School />
-            <Download />
-            <Footer /> 
-        </div>
+        <ExamPage params={params} />
     )
 }
 
-export default ExamPage;
+export default Exam

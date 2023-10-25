@@ -6,7 +6,7 @@ const steps = ["Package Details", "Contact Details", "Shipping Address"];
 
 const ProgressIndicator = ({ currentIndex = 0 }) => {
   return (
-    <Container className="mt-4">
+    <Container className="">
       <div className="d-flex justify-content-between">
         {steps.map((step, index) => (
           <div

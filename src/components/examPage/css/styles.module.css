@@ -1,0 +1,1885 @@
+.landingExamMain {
+    width: 100%; 
+    color: #EFEFEF;
+    background: #007BFF;
+    margin-top: 5.3rem;
+}
+
+.landingExamClass {
+    padding: 0.5rem 1rem;
+    position: fixed;
+    width: 100%;
+    background-color: #007BFF;
+    z-index: 9999;
+}
+
+.landingExamCarousel {
+    display: flex; 
+    overflow-x: scroll; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+    padding-bottom: 1rem; 
+    gap: 1rem; 
+    scroll-snap-type: x var(--tw-scroll-snap-strictness); 
+}
+
+.landingExamCarouselIndexContainer {
+    display: flex; 
+    justify-content: center; 
+}
+
+.landingExamCarouselIndex {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem; 
+    border-radius: 9999px; 
+    height: 0.25rem; 
+}
+.landingExamCarouselIndex.active {
+    width: 2.5rem; 
+    background-color: #ffffff;
+}
+.landingExamCarouselIndex.inactive {
+    width: 1.5rem; 
+    background: #76B8FF;
+}
+.landingExamPadding {
+    padding-top: 0;
+    padding-bottom: 0; 
+}
+.landingExamHead {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+    color: #ffffff;     
+}
+.landingExamYellow {
+    color: #FCDE5A;
+}
+.landingExamDesc{
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    color: #D7D7D7;
+}
+.landingExamDescHigh {
+    font-weight: 700; 
+    color: #ffffff; 
+}
+.landingExamGrid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 1rem; 
+    align-items: center; 
+}
+.landingExamPoints {
+    display: flex; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    flex-direction: column; 
+    order: 9999; 
+    font-weight: 600; 
+    background-color: #ffffff; 
+    color: #080E14;    
+}
+.landingExamPoint {
+    display: flex; 
+    margin-top: 1rem; 
+    gap: 0.75rem; 
+    align-items: center;     
+}
+.landingExamButtons {
+    display: flex; 
+    padding-left: 2rem;
+    padding-right: 2rem; 
+    margin-top: 1.5rem; 
+    flex-direction: column; 
+    gap: 1rem;     
+}
+.landingExamStart{
+    display: flex; 
+    order: 9999; 
+    gap: 0.5rem; 
+    align-items: center; 
+}
+.landingExamBookFree {
+    display: flex; 
+    gap: 0.5rem; 
+    align-items: center;
+}
+.landingExamDetails {
+    display: flex; 
+    padding-top: 1rem; 
+    margin-bottom: 1rem; 
+    gap: 0.5rem; 
+    justify-content: center; 
+    font-weight: 600; 
+    background-color: #ffffff; 
+    cursor: pointer; 
+    color: #007BFF;
+}
+.landingExamCardMain {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 2rem; 
+    border-radius: 1rem; 
+    border-width: 1px; 
+    color: #ffffff; 
+    min-width: 25rem;
+    scroll-snap-align: center; 
+    border-color: #FCDE5A;
+    border-width: 4px;
+}
+.landingExamCardDetails {
+    display: flex; 
+    padding: 1rem; 
+    flex-direction: column; 
+    gap: 0.25rem; 
+    justify-content: flex-end; 
+}
+.landingExamCardName {
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+}
+.landingExamCardButton {
+    display: flex; 
+    gap: 0.5rem; 
+    align-items: center; 
+}
+.landingExamCardImage {
+    display: flex;
+    justify-content: center;
+}
+
+.booksMain {
+    padding: 0; 
+    padding-top: 0;
+    padding-bottom: 0; 
+    padding-bottom: 0; 
+    background-color: #ffffff; 
+}
+.booksHead {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-top: 2rem; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    text-align: center; 
+    color: #080E14;
+    background: #D4E9FF;
+}
+.blue {
+    color: #007BFF;
+}
+.booksFlex {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+.booksBook {
+    padding-left: 3rem;
+    padding-right: 3rem; 
+    background: #D4E9FF;
+}
+.lgOnly {
+    display: none;
+}
+.booksBtns {
+    display: none; 
+    margin-top: 1rem; 
+    gap: 1rem; 
+    justify-content: center; 
+}
+.wAuto {
+    width: auto;
+}
+.booksTextMain {
+    display: flex; 
+    padding: 1rem; 
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+    justify-content: space-evenly; 
+    border-radius: 1.5rem; 
+    background: #FEF8DE80;
+}
+.booksTextTitle {
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700; 
+}
+.booksNo1 {
+    font-size: 1rem;
+    line-height: 1.5rem; 
+    font-weight: 400; 
+    color: #6B6E72;
+}
+.booksNo2 {
+    display: none; 
+    font-size: 1.25rem;
+    line-height: 1.75rem; 
+    color: #6B6E72;
+}
+.booksPriceText {
+    display: flex; 
+    gap: 0.25rem; 
+    align-items: flex-end; 
+}
+.booksPriceText1 {
+    font-size: 1.25rem;
+    line-height: 1.75rem; 
+    font-weight: 700; 
+    color: #007BFF;
+}
+.booksPriceText2{
+    font-size: 1rem;
+    line-height: 1.5rem; 
+    font-weight: 700; 
+    color: #322C12;
+}
+.booksPriceText3 {
+    font-weight: 600; 
+    text-decoration: line-through; 
+    color: #52565B;
+}
+.booksSpecial {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    font-weight: 700; 
+    color: #FF7A00;
+}
+.booksSpecialMore {
+    font-weight: 400; 
+    color: #52565B;
+}
+.booksPts {
+    display: flex; 
+    margin-top: 1rem;
+    margin-bottom: 1rem; 
+    margin-bottom: 2.5rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+    color: #52565B;
+}
+.booksPt {
+    display: flex; 
+    gap: 0.5rem; 
+}
+.booksBtn {
+    width: 100%; 
+}
+.rotate180 {
+    rotate: 180deg;
+}
+
+.coursesMain{
+    overflow: hidden; 
+    padding: 1rem; 
+    background: #F1F2F6;
+}
+.coursesHead {
+    margin-top: 2rem; 
+    margin-bottom: 2.5rem; 
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.blue {
+    color: #007BFF;
+}
+.coursesTabs {
+    display: flex; 
+    margin-bottom: 2.5rem; 
+    justify-content: flex-start; 
+}
+.coursesMain2 {
+    margin-bottom: 1.5rem; 
+}
+.coursesHead2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+    color: #080E14;    
+}
+.coursesHeadDesc {
+    color: #52565B;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.coursesLiveDesc {
+    margin-bottom: 1rem; 
+}
+.coursesRecorded {
+    display: flex; 
+    margin-top: 1.5rem; 
+    justify-content: space-between;
+}
+.coursesBtns {
+    display: none; 
+    gap: 0.5rem; 
+}
+.coursesCourses {
+    display: flex; 
+    overflow-x: auto; 
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    gap: 1rem; 
+    scroll-snap-type: x var(--tw-scroll-snap-strictness); 
+}
+.coursesBtnWrapper {
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+    text-align: center; 
+}
+.coursesBtn {
+    display: flex; 
+    gap: 0.5rem; 
+    width: 100%; 
+}
+.ccMain {
+    padding: 0.5rem;
+    display: flex; 
+    flex-direction: column; 
+    border-radius: 1rem; 
+    min-width: 100%; 
+    background-color: #ffffff; 
+    scroll-snap-align: center; 
+    box-shadow: 0px 4px 15px 0px #007BFF40;
+}
+.relative {
+    position: relative;
+}
+.ccImg {
+    width: 100%; 
+    aspect-ratio: 4/3;
+}
+.ccImgRec {
+    display: flex; 
+    position: absolute; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    align-items: center; 
+    color: #ffffff; 
+    top: 0.5rem;
+}
+.ccImgMain {
+    display: flex; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+    width: 66.666667%; 
+    height: 100%; 
+    padding-left: 1rem;
+}
+.ccImgText {
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+    flex-grow: 1;
+}
+.ccImgTextTitle{
+    margin-top: 2rem; 
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+}
+.ccImgViewsDiv {
+    display: flex; 
+    align-items: center; 
+}
+.ccImgView2 {
+    margin-left: -0.8rem;
+}
+.ccImgViews {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+    margin-left: 0.5rem;
+}
+.ccClass {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    align-self: flex-start; 
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    font-weight: 600; 
+    background-color: #ffffff; 
+    color: #FF6B00;
+    margin-top: auto;
+}
+.ccTitle {
+    margin-bottom: 0.5rem; 
+    margin-top: 1.5rem; 
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700; 
+}
+.ccDesc {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #52565B;
+}
+.ccHl {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem; 
+    width: 100%; 
+    height: 1px;
+    background: #99CAFF;
+}
+.ccFooter {
+    display: flex; 
+    margin-bottom: 0.75rem; 
+    gap: 1rem; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.ccStarting {
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    color: #52565B;
+}
+.black {
+    color: #00254C;
+}
+.ccMore {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #007BFF;
+}
+.cc90 {
+    display: inline-block; 
+    --transform-rotate: 90deg; 
+    margin-left: 0.5rem;
+}
+.ccP1 {
+    display: flex; 
+    margin-top: 0.5rem; 
+    margin-bottom: 1rem; 
+    gap: 0.5rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #52565B;    
+}
+.ccP2 {
+    display: flex; 
+    gap: 0.5rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+}
+.clcMain {
+    display: flex; 
+    padding: 1rem; 
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
+    border-radius: 1rem; 
+    background-color: #ffffff; 
+    box-shadow: 0px 4px 15px 0px #007BFF40;
+}
+.clcRel {
+    position: relative; 
+    width: 45%;
+}
+.clcImg {
+    width: 100%; 
+    aspect-ratio: 5/3;
+}
+.clcRec {
+    display: flex; 
+    position: absolute; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    align-items: center; 
+    color: #ffffff; 
+    top: 0.5rem;    
+}
+.clcImgMain {
+    display: flex; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+    align-items: flex-start; 
+    width: 66.666667%; 
+    height: 100%; 
+    padding-left: 2.5rem;
+}
+.clcImgTitle {
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+}
+.clcImgClass{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    border-radius: 0.375rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    background-color: #ffffff; 
+    color: #FF6B00;
+}
+.clcDetsMain {
+    display: flex; 
+    padding: 1.5rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+    width: 55%;
+}
+.clcTitle {
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.clcDesc {
+    color: #6B6E72;
+}
+.clcStarting {
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    color: #52565B;
+}
+.clcPm {
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    color: #00254C;    
+}
+.clcPoints {
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+}
+.clcPoint {
+    display: flex; 
+    gap: 0.5rem; 
+}
+
+.facultyWrapper {
+    padding: 1rem; 
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; 
+    width: 100%; 
+    background: #F3F3F3;
+}
+.facultyTop {
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.facultyBtns {
+    display: none; 
+    gap: 0.5rem; 
+}
+.facultyProgress {
+    display: flex; 
+    margin-top: 0.5rem; 
+    gap: 0.5rem; 
+    align-items: center; 
+}
+.facultyProgressActual {
+    width: 50%;
+}
+.facultyCards {
+    display: flex; 
+    overflow-x: scroll; 
+    margin-top: 1.5rem; 
+    gap: 1rem; 
+    justify-content: flex-start; 
+    width: 100%; 
+    scroll-snap-type: x var(--tw-scroll-snap-strictness); 
+}
+.facultyExplore {
+    margin-top: 1rem; 
+    text-align: center; 
+    color: #007BFF;
+}
+.fcWrapper {
+    display: flex; 
+    margin-top: 1rem;
+    margin-bottom: 1rem; 
+    justify-content: center; 
+    min-width: 100%; 
+    scroll-snap-align: center; 
+}
+.fcMain {
+    display: flex; 
+    padding: 0.5rem; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+    align-items: center; 
+    border-radius: 0.75rem; 
+    width: fit-content; 
+    background-color: #ffffff; 
+    box-shadow: 0px 4px 20px 0px #0060A933;
+}
+.fcImg {
+    aspect-ratio: 6/5;
+}
+.fcName {
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    font-weight: 700; 
+    color: #000000; 
+}
+.fcHeadline {
+    color: #52565B;
+}
+.fcFlex {
+    display: flex; 
+    margin-bottom: 0.5rem; 
+    gap: 0.5rem; 
+}
+.fcPt1 {
+    padding: 0.5rem; 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    border-radius: 0.5rem; 
+    border-width: 1px; 
+    background: #FFE4CC;
+    color: #FF7A00;
+    border-color: #FF7A00;
+}
+.fcPt2 {
+    padding: 0.5rem; 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    border-radius: 0.5rem; 
+    border-width: 1px; 
+    background: #D6F4DE;
+    color: #169C38;
+    border-color: #169C38;
+}
+
+.mcMain {
+    padding: 1rem; 
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+    background-color: #ffffff; 
+}
+.mcHead {
+    display: none; 
+    padding-left: 14rem;
+    padding-right: 14rem; 
+    margin-bottom: 2.5rem; 
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+    text-align: center; 
+    color: #080E14;
+}
+.mcHeadM {
+    margin-bottom: 1.5rem; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 800; 
+    color: #080E14;
+}
+.mcPts {
+    display: grid; 
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 1rem; 
+}
+.mcPt {
+    display: flex; 
+    gap: 1rem; 
+    align-items: center; 
+    text-align: center; 
+    color: #52565B;
+}
+.mcPtBorder {
+    border-color: #99CAFF;
+    border-width: 0px 1px 0px 0px;
+}
+.mcPtImg {
+    width: 1.5rem;
+}
+.mcLive {
+    display: flex; 
+    overflow-x: auto; 
+    padding: 1rem; 
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem; 
+    gap: 1rem; 
+    align-items: stretch; 
+    margin-left: -1rem;
+}
+.mcLive1 {
+    display: flex; 
+    align-items: stretch; 
+}
+.mcSubhead {
+    margin-top: 1rem; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.mcVideos {
+    display: none; 
+}
+.mcTabsWrapper {
+    display: flex; 
+    gap: 1rem; 
+    justify-content: space-between; 
+}
+.mcBtnsWrapper {
+    display: none; 
+    gap: 0.5rem; 
+    align-self: center; 
+}
+.mcCards {
+    display: flex; 
+    overflow-x: auto; 
+    padding: 1rem; 
+    gap: 1rem; 
+    margin-left: -1rem;
+}
+.mcMostViewed {
+    display: flex; 
+    margin-bottom: 1rem; 
+    margin-top: 3rem; 
+    justify-content: space-between; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.mcBtnWrapper {
+    display: none; 
+    margin-top: 2rem; 
+    text-align: center; 
+}
+.mcBtn {
+    width: 100%;
+}
+.mccMain {
+    display: grid;
+    padding: 0.75rem; 
+    gap: 1rem; 
+    border-radius: 0.75rem; 
+    box-shadow: 0px 4px 15px 0px #007BFF40;
+    min-width: 22rem;
+}
+.mccMainFull {
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    width: 100%; 
+}
+.mccMainNotfull {
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    width: auto; 
+}
+.wFull {
+    width: 100%;
+}
+.mccPlay {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 2rem;
+    transform: translate(-50%, -50%);
+}
+.mccLiveWrapper {
+    display: flex; 
+    position: absolute; 
+    top: 0.5rem; 
+    right: 0.5rem; 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    gap: 0.5rem; 
+    align-items: center; 
+    border-radius: 0.375rem; 
+    background: #FF0001;
+}
+.mccLiveText {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #ffffff; 
+}
+.mccImg {
+    display: flex; 
+    position: absolute; 
+    left: 0; 
+    top: 0.5rem; 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    padding-left: 0.5rem;
+    padding-right: 1rem; 
+    gap: 0.5rem; 
+    align-items: center; 
+}
+.mccText {
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.75rem; 
+    align-items: flex-start; 
+}
+.mccSub {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    border-radius: 0.375rem; 
+    border-width: 1px; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #FF6B00;
+    background: #FFE4CC;
+    border-color: #FF7A00;
+}
+.mccTitle {
+    font-size: 1.25rem;
+    line-height: 1.75rem; 
+    font-weight: 700; 
+}
+.mccDesc {
+    display: none; 
+    font-size: 1.25rem;
+    line-height: 1.75rem; 
+    color: #52565B;
+}
+.mccStarted {
+    color: #007BFF;
+}
+.mccTime {
+    color: #52565B;
+}
+.mccHl {
+    margin-bottom: 0.5rem; 
+    width: 100%; 
+    height: 1px;
+    background: #6DC6E1;
+}
+.mccBy {
+    display: flex; 
+    gap: 0.5rem; 
+    align-items: center; 
+}
+.mccBold {
+    font-weight: bold;
+}
+
+.promiseWrapper {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; 
+    background-color: #ffffff; 
+}
+.promiseMain {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem; 
+    border-radius: 0.75rem; 
+    background: #D4E9FF;    
+}
+.promiseHead {
+    margin-bottom: 2.5rem; 
+    font-size: 1.875rem;
+    line-height: 2.25rem; 
+    font-weight: 700; 
+    text-align: center; 
+    color: #080E14;    
+}
+.promiseBlue {
+    color: #007BFF;
+}
+.promiseGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    font-weight: 700; 
+}
+.promiseItem {
+    display: flex; 
+    padding: 1.5rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+    align-items: center; 
+    text-align: center; 
+}
+.promiseBorder1 {
+    border-color: #99CAFF;
+    border-width: 0px 1px 1px 0px;
+}
+.promiseBorder2 {
+    border-color: #99CAFF;
+    border-width: 0px 0px 1px 0px;
+}
+.promiseBorder3 {
+    border-color: #99CAFF;
+    border-width: 0px 1px 0px 0px;
+}
+
+.resultWrapper {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem; 
+}
+.resultMain {
+    position: relative; 
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem; 
+    margin-bottom: 2.5rem; 
+    color: #ffffff; 
+    background: #00364E;
+}
+.resultStar {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+}
+.resultHead {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    margin-bottom: 2rem; 
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+}
+.yellow {
+    color: #FCDE5A;
+}
+.resultPts {
+    display: flex; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+}
+.resultPt {
+    display: flex; 
+    gap: 0.5rem; 
+    align-items: center;
+}
+.resultDiv {
+    display: flex; 
+    overflow-y: auto; 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+    margin-top: 2.5rem; 
+    gap: 2rem; 
+    scroll-snap-type: x var(--tw-scroll-snap-strictness); 
+}
+.resultIndexDiv {
+    display: flex; 
+    justify-content: center; 
+}
+.resultIndex {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem; 
+    border-radius: 9999px; 
+    height: 0.25rem; 
+}
+.resultIndex.active {
+    width: 2.5rem; 
+    background-color: #ffffff; 
+}
+.resultIndex.inactive {
+    width: 1.5rem; 
+    background: #76B8FF;
+}
+.idealMain {
+    display: flex; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    flex-direction: column; 
+    gap: 1.5rem; 
+    align-items: flex-start; 
+}
+.idealLeft {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 100%; 
+}
+.idealHead {
+    margin-bottom: 1rem; 
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+}
+.idealSelect {
+    margin-bottom: 1rem;
+}
+.idealBtn1Wrapper {
+    display: none; 
+    margin-top: 1rem; 
+    text-align: center; 
+}
+.idealBtn1 {
+    align-self: center; 
+    margin-top: auto;
+}
+.idealChips {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1.25rem; 
+    justify-content: flex-start; 
+    width: 100%; 
+}
+.idealBtn2Wrapper {
+    align-self: stretch; 
+}
+.idealBtn2Arrow {
+    margin-left: 0.5rem;
+}
+.rcMain {
+    position: relative; 
+    scroll-snap-align: center;     
+}
+.rcAirWrapper {
+    display: flex; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 10; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-bottom: 2.5rem; 
+    gap: 0.5rem; 
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem; 
+    font-weight: 700; 
+    color: #000000; 
+}
+.rcActual {
+    display: flex; 
+    position: relative; 
+    z-index: 20; 
+    padding: 0.5rem; 
+    margin-bottom: 1rem; 
+    margin-top: 2.5rem; 
+    gap: 1rem; 
+    border-radius: 0.75rem; 
+    background-color: #ffffff; 
+    width: 20rem;
+    box-shadow: 0px 4px 20px 0px #0083E833;
+    min-width: 20rem;
+}
+.rcImg {
+    aspect-ratio: 1 / 1; 
+    width: 90px;
+}
+.rcText {
+    display: flex; 
+    padding: 1rem; 
+    flex-direction: column; 
+}
+.rcName {
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.rcLocWrapper {
+    display: flex;
+}
+.rcLoc {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: #6B6E72;    
+}
+.rcCourse {
+    color: #FF7A00;
+    margin-top: auto;
+}
+
+.reviseMain {
+    position: relative; 
+    padding: 1rem; 
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+    color: #ffffff; 
+    background: #00364E;
+}
+.reviseStar {
+    display: none; 
+    position: absolute; 
+    top: 0; 
+    left: 10rem; 
+}
+.reviseHead {
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+}
+.reviseGrid {
+    display: grid ;
+    margin-top: 2rem; 
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+}
+.reviseList {
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+}
+.revisePt {
+    display: flex; 
+    gap: 0.5rem; 
+}
+.reviseRight {
+    display: flex; 
+    margin-top: 1.5rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center; 
+}
+.reviseR1 {
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem;
+}
+.reviseAvatar1 {
+    width: 3rem;
+}
+.reviseAvatarRest {
+    width: 3rem;
+    margin-left: -1.5rem;
+}
+.reviseAvatarText {
+    display: flex; 
+    flex-direction: column; 
+    gap: 0; 
+}
+.reviseBold {
+    font-weight: bold;
+}
+.reviseBtnWrapper {
+    margin-top: 1rem; 
+}
+.reviseBtn {
+    width: 100%;
+}
+.reviseBtnImg {
+    margin-left: 0.5rem;
+}
+
+.schWrapper {
+    background: #F1F2F6;
+}
+.schMain {
+    display: grid;
+    overflow: hidden; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-top: 2rem; 
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    background: #00364E;
+    color: #CECFD0;
+}
+.schImg {
+    display: flex; 
+    position: relative; 
+    padding: 0.5rem; 
+    padding-bottom: 0; 
+    flex-direction: column; 
+    order: 9999; 
+    justify-content: flex-end; 
+    align-items: center; 
+}
+.schCap {
+    z-index: 10; 
+    margin-bottom: -2rem; 
+    width: 5rem;
+}
+.schGirl {
+    position: static; 
+    z-index: 10; 
+    width: 355px;
+    aspect-ratio: 13/10;
+}
+.schBtn1Wrapper {
+    z-index: 10; 
+    margin-bottom: 1.5rem; 
+    align-self: stretch; 
+}
+.schLvl1 {
+    display: flex; 
+    position: absolute; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    height: 100%; 
+}
+.schLvl2 {
+    overflow: hidden; 
+    height: 15rem;
+    margin-left: -30%;
+}
+.schLvl3 {
+    aspect-ratio: 1 / 1; 
+    border-radius: 9999px; 
+    background: #004463;
+    width: 25rem;
+}
+.schText {
+    display: flex; 
+    padding: 0; 
+    flex-direction: column; 
+    gap: 1rem; 
+}
+.schTitle {
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+}
+.schHigh {
+    color: #FCDE5A;
+}
+.schHigh2 {
+    font-weight: 700; 
+    color: #ffffff; 
+}
+.schBtn2Wrapper {
+    display: none; 
+    margin-top: 0.5rem; 
+}
+
+.schoolMain {
+    display: grid;
+    padding: 1rem; 
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 2.5rem; 
+    justify-content: center; 
+    width: 100%; 
+    background: #D4E9FF;
+    color: #080E14;
+}
+.schoolHeadM {
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+}
+.schoolImgDiv {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.schoolImg {
+    aspect-ratio: 1/1;
+}
+.schoolRight {
+    display: flex; 
+    flex-direction: column; 
+    gap: 2.5rem; 
+}
+.schoolHead {
+    display: none; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+}
+.schoolPts {
+    display: flex; 
+    display: none; 
+    flex-direction: column; 
+    gap: 1rem; 
+}
+.schoolPt {
+    display: flex; 
+    gap: 0.5rem; 
+}
+.schoolBtnWrapper {
+    align-self: stretch; 
+}
+.schoolBtnArrow {
+    margin-left: 0.5rem;
+}
+
+.studyMain {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+    width: 100%; 
+    background-color: #ffffff; 
+}
+.studyHead {
+    margin-bottom: 2rem; 
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+    color: #080E14;
+}
+.studyGrid {
+    display: grid;
+    padding-left: 0;
+    padding-right: 0; 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 1rem; 
+}
+.studyCard {
+    padding: 2rem; 
+    border-radius: 1rem; 
+    font-size: 1.25rem;
+    line-height: 1.75rem; 
+    font-weight: 700; 
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; 
+    transition-duration: 300ms; 
+    cursor: pointer; 
+    background: #D4E9FF;
+}
+.studyCard:hover {
+    background: #C4E0FF;
+    box-shadow: 0px 4px 15px 0px #007BFF40;
+}
+.studyCardImg {
+    margin-bottom: 1rem; 
+    width: 3.5rem;
+}
+.studyViewAll {
+    display: flex; 
+    margin-top: 2rem; 
+    justify-content: center; 
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    font-weight: 600; 
+    text-align: center; 
+    cursor: pointer; 
+    color: #007BFF;
+}
+
+.poppins {
+    font-weight: 400;
+}
+
+.noScrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.noScrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+
+@media (min-width: 768px) { 
+    .landingExamMain {
+        margin-top: 0;
+    }
+    .mdNot {
+        display: none;
+    }
+    .landingExamClass {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) { 
+
+    .landingExamCarouselIndex {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;         
+    }
+    .landingExamCarouselIndex.active {
+        width: 4rem; 
+    }
+    .landingExamCarouselIndex.inactive {
+        width: 2.5rem; 
+    }
+    .landingExamPadding {
+        padding-top: 2rem;
+        padding-bottom: 2rem;         
+    }
+    .landingExamHead {
+        padding-left: 9rem;
+        padding-right: 9rem; 
+        font-size: 4.5rem;
+        line-height: 1;         
+    }
+    .landingExamDesc {
+        padding-left: 9rem;
+        padding-right: 9rem;
+    }
+    .landingExamDescHigh {
+        font-weight: 400; 
+        color: #FCDE5A;
+    }
+    .landingExamGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+    .landingExamPoints {
+        padding-left: 9rem;
+        padding-right: 9rem; 
+        order: 0; 
+        background-color: transparent; 
+        color: #efefef;        
+    }
+    .landingExamButtons {
+        padding-left: 5rem;
+        padding-right: 5rem; 
+        margin-top: 0;         
+    }
+    .landingExamStart {
+        order: 0;
+    }
+    .landingExamDetails{
+        margin-bottom: 0; 
+        color: #ffffff; 
+        background-color: transparent; 
+    }
+    .landingExamCardDetails {
+        padding: 3rem; 
+        gap: 1rem; 
+    }
+    .landingExamCardMain {
+        min-width: 50rem;
+    }
+    .landingExamCardName {
+        font-size: 2.25rem;
+        line-height: 2.5rem; 
+    }
+
+    .booksMain {
+        padding: 2.5rem; 
+        padding-top: 5rem;
+        padding-bottom: 5rem; 
+        padding-bottom: 20rem;
+    }
+    .booksHead {
+        padding: 0; 
+        font-size: 3rem;
+        line-height: 1; 
+        background-color: #ffffff; 
+    }
+    .booksFlex {
+        margin-top: 5rem; 
+        flex-direction: row; 
+        gap: 5rem; 
+    }
+    .booksBook {
+        background-color: #ffffff; 
+    }
+    .lgOnly {
+        display: block;
+    }
+    .lgNot {
+        display: none;
+    }
+    .booksBtns {
+        display: flex; 
+    }
+    .booksTextMain {
+        padding: 1.5rem; 
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem; 
+        background: #F0F3FF;
+    }
+    .booksTextTitle {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+    .booksNo1 {
+        display: none;
+    }
+    .booksNo2 {
+        display: block;
+    }
+    .booksPriceText1 {
+        font-size: 1.875rem;
+        line-height: 2.25rem; 
+    }
+    .booksPriceText2 {
+        font-size: 1.125rem;
+        line-height: 1.75rem; 
+    }
+    .booksPts {
+        margin-bottom: 1rem; 
+    }
+    .booksPt {
+        font-size: 1.125rem;
+        line-height: 1.75rem; 
+    }
+    .booksBtn {
+        width: auto; 
+    }
+
+    .coursesMain {
+        padding: 2.5rem; 
+    }
+    .coursesHead {
+        margin-top: 0; 
+        text-align: center; 
+    }
+    .coursesBtns {
+        display: flex; 
+    }
+    .coursesCourses {
+        overflow: hidden; 
+        scroll-snap-type: none; 
+    }
+    .coursesBtn {
+        width: auto; 
+    }
+    .ccMain {
+        padding: 1rem; 
+        min-width: calc(33% - 0.25rem);
+    }
+    .ccImgText {
+        gap: 2rem; 
+    }
+
+    .facultyWrapper{
+        padding: 2.5rem; 
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    .facultyTop {
+        font-size: 3rem;
+        line-height: 1; 
+    }
+    .facultyBtns {
+        display: flex; 
+    }
+    .facultyProgress {
+        display: none; 
+    }
+    .facultyCards {
+        margin-top: 2.5rem; 
+        scroll-snap-type: none; 
+    }
+    .facultyExplore {
+        margin-top: 2.5rem;
+    }
+    .fcWrapper {
+        min-width: calc(33% - 0.25rem);
+    }
+
+    .mcMain {
+        padding: 2.5rem; 
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem; 
+    }
+    .mcHead {
+        display: block; 
+    }
+    .mcHeadM {
+        display: none; 
+    }
+    .mcPts {
+        padding-left: 12rem;
+        padding-right: 12rem; 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+        gap: 0; 
+    }
+    .mcPt {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem; 
+        flex-direction: column; 
+    }
+    .mcPtImg {
+        width: 2rem;
+    }
+    .mcLive {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    }
+    .mcLive1 {
+        display: block; 
+        grid-column: span 3 / span 3; 
+    }
+    .mcVideos {
+        display: inline; 
+    }
+    .mcBtnsWrapper {
+        display: flex;
+    }
+    .mcCards {
+        overflow: hidden; 
+    }
+    .mcBtnWrapper {
+        display: block;
+    }
+    .mcBtn {
+        width: auto;
+    }
+    .mccMain {
+        padding: 1rem; 
+        min-width: calc(33% - 0.25rem);
+    }
+    .mccMainFull {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+    .mccLiveWrapper {
+        top: 1rem; 
+        right: 1rem; 
+    }
+    .mccImg {
+        top: 1rem; 
+    }
+    .mccTitleFull {
+        font-size: 2.25rem;
+        line-height: 2.5rem; 
+    }
+    .mccDesc {
+        display: block; 
+    }
+    .mccStartedFull {
+        font-size: 1.25rem;
+        line-height: 1.75rem; 
+    }
+    .mccByFull {
+        font-size: 1.125rem;
+        line-height: 1.75rem; 
+    }
+
+    .promiseWrapper {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem; 
+        padding-left: 14rem;
+        padding-right: 14rem; 
+    }
+    .promiseGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    }
+    .promiseBorder1 {
+        border-width: 0px 1px 0px 0px;
+    }
+    .promiseBorder2 {
+        border-width: 0px 1px 0px 0px;
+    }
+
+    .resultWrapper {
+        padding-left: 9rem;
+        padding-right: 9rem; 
+    }
+    .resultMain {
+        border-radius: 1rem; 
+    }
+    .resultStar {
+        left: 10rem;
+    }
+    .resultHead {
+        text-align: center; 
+    }
+    .resultPts {
+        flex-direction: row; 
+        gap: 2.5rem; 
+    }
+    .resultDiv {
+        padding-left: 5rem;
+        padding-right: 5rem; 
+    }
+    .resultIndex {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem; 
+        border-radius: 9999px; 
+        height: 0.25rem; 
+    }
+    .resultIndex.active {
+        width: 4rem; 
+    }
+    .resultIndex.inactive {
+        width: 2.5rem; 
+    }
+    .idealMain {
+        padding-left: 0;
+        padding-right: 0; 
+        flex-direction: row; 
+    }
+    .idealLeft {
+        width: 40%;
+    }
+    .idealBtn1Wrapper {
+        display: block; 
+    }
+    .idealChips {
+        width: 60%;
+    }
+    .idealBtn2Wrapper {
+        display: none; 
+    }
+    .rcImg {
+        width: 120px;
+    }
+
+    .reviseMain {
+        padding: 2.5rem; 
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem; 
+    }
+    .reviseStar {
+        display: block; 
+    }
+    .reviseHead {
+        padding-left: 9rem;
+        padding-right: 9rem; 
+        margin-top: 2rem; 
+        font-size: 3rem;
+        line-height: 1; 
+        text-align: center; 
+    }
+    .reviseGrid {
+        padding-left: 12rem;
+        padding-right: 12rem; 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+    .reviseRight {
+        margin-top: 0; 
+    }
+    .revise-AvatarText {
+        gap: 0.5rem; 
+    }
+    .reviseBtnWrapper {
+        margin-top: 0; 
+    }
+    .reviseBtn {
+        width: auto;
+    }
+    .revisePtText {
+        font-size: 1.125rem;
+        line-height: 1.75rem; 
+    }
+
+    .schWrapper {
+        margin-bottom: -6rem; 
+    }
+    .schMain {
+        overflow: visible; 
+        padding-left: 2.5rem;
+        padding-right: 2.5rem; 
+        padding-top: 0; 
+        margin-left: 5rem;
+        margin-right: 5rem; 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        border-radius: 1rem; 
+        transform: translateY(-50%);
+    }
+    .schImg {
+        padding: 1rem; 
+        padding-bottom: 0; 
+        order: 0; 
+    }
+    .schCap {
+        display: none; 
+        width: 7.5rem;
+    }
+    .schGirl {
+        position: absolute; 
+        width: 600px;
+    }
+    .schBtn1Wrapper {
+        display: none; 
+    }
+    .schLvl1 {
+        display: none; 
+    }
+    .schLvl2{
+        margin-left: 0;
+    }
+    .schLvl3 {
+        width: 40rem;
+    }
+    .schText {
+        padding: 2.5rem; 
+        gap: 2rem; 
+    }
+    .schTitle{
+        font-size: 3rem;
+        line-height: 1; 
+    }
+    .schDesc {
+        font-size: 1.25rem;
+        line-height: 1.75rem; 
+    }
+    .schBtn2Wrapper {
+        display: block; 
+    }
+
+    .schoolMain {
+        padding: 4rem; 
+        padding-top: 4rem;
+        padding-bottom: 4rem; 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+    .schoolHeadM {
+        display: none; 
+        font-size: 3rem;
+        line-height: 1; 
+    }
+    .schoolImgDiv {
+        justify-content: flex-end; 
+    }
+    .schoolHead {
+        display: block; 
+        font-size: 3rem;
+        line-height: 1; 
+    }
+    .schoolPts {
+        display: flex; 
+    }
+    .schoolPtText {
+        font-size: 1.125rem;
+        line-height: 1.75rem; 
+    }
+    .schoolBtnWrapper {
+        align-self: flex-start;
+    }
+
+    .studyMain {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem; 
+        padding-left: 2.5rem;
+        padding-right: 2.5rem; 
+    }
+    .studyHead {
+        text-align: center; 
+    }
+    .studyGrid {
+        padding-left: 14rem;
+        padding-right: 14rem; 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    }
+    .studyCard {
+        font-size: 1.5rem;
+        line-height: 2rem; 
+    }
+    .studyCardImg {
+        margin-bottom: 2rem; 
+        width: 5rem;
+    }
+}

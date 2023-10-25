@@ -9,8 +9,7 @@ import starBig from './../../../../public/images/star-big.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 import { Button, Chip } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
-import './styles.css'
-
+import styles from './../css/styles.module.css'
 const Rankers = () => {
     const [selectedTags, setSelectedTags] = useState([ 'visual learner', 'theoretical', 'physical books needed', 'daily classes', 'synced with school' ])
     const allTags = ['visual learner', 'maximum revision', 'mcq solver', 'solo learner', 'theoretical', 'need a schedule', 'learning should be fun', 'group study', 'physical books needed', 'serious student', 'faculty interaction', 'daily classes', 'boards + competitive', 'synced with school', 'weekend classes', 'other']
@@ -65,55 +64,55 @@ const Rankers = () => {
 
     return (
         <>
-            <div className="result-wrapper">
-                <div className="result-main">
-                    <Image src={starBig} alt="star" width={100} height={0} className="result-star" />
-                    <div className="result-head">top <span className="text-[#FCDE5A]">rankers</span></div>
-                    <div className="result-pts">
-                        <div className="result-pt">
+            <div className={styles.resultWrapper}>
+                <div className={styles.resultMain}>
+                    <Image src={starBig} alt="star" width={100} height={0} className={styles.resultStar} />
+                    <div className={styles.resultHead}>top <span className={styles.yellow}>rankers</span></div>
+                    <div className={styles.resultPts}>
+                        <div className={styles.resultPt}>
                             <Image src={star} alt="star" width={20} />
                             31 Infinity Learners in top 100
                         </div>
-                        <div className="result-pt">
+                        <div className={styles.resultPt}>
                             <Image src={star} alt="star" width={20} />
                             234 Infinity Learners in top 1000
                         </div>
                     </div>
-                    <div className='result-div no-scrollbar' ref={carousel}>
+                    <div className={`${styles.resultDiv} ${styles.noScrollbar}`} ref={carousel}>
                         {results?.map((result, i) => <ResultCard key={`result-${i}`} result={result} ref2={carouselEle} />)}
                     </div>
-                    <div className="result-index-div">
+                    <div className={styles.resultIndexDiv}>
                         {Array.from({ length: results.length }, (_, index) => (
                         <div
                             key={index}
-                            className={`result-index ${
+                            className={`${styles.resultIndex} ${
                             index === activeIndex
-                                ? "active"
-                                : "inactive"
+                                ? styles.active
+                                : styles.inactive
                             }`}
                         ></div>
                         ))}
                     </div>
                 </div>
-                <div className='ideal-main'>
-                    <div className='ideal-left'>
-                        <div className='ideal-head'>help us find the <span className='blue'>ideal course</span> for you</div>
-                        <div className='ideal-select'>select at least <strong>5 preferences</strong></div>
-                        <div className='ideal-btn-1-wrapper'>
-                            <Button variant='contained' color='primary' sx={{ borderRadius: '0.5rem', paddingX: '4rem'}} className='ideal-btn-1'>
+                <div className={styles.idealMain}>
+                    <div className={styles.idealLeft}>
+                        <div className={styles.idealHead}>help us find the <span className={styles.blue}>ideal course</span> for you</div>
+                        <div className={styles.idealSelect}>select at least <strong>5 preferences</strong></div>
+                        <div className={styles.idealBtn1Wrapper}>
+                            <Button variant='contained' color='primary' sx={{ borderRadius: '0.5rem', paddingX: '4rem'}} className={styles.idealBtn1}>
                                 view 5 courses
                             </Button>
                         </div>
                     </div>
-                    <div className='ideal-chips'>
+                    <div className={styles.idealChips}>
                         {allTags.map((tag, i) => 
                             <Chip key={`tag-${i}`} label={tag} variant={selectedTags.includes(tag) ? 'contained' : 'outlined'} color={selectedTags.includes(tag) ? 'yellow' : 'black'} onClick={() => selectedTags.includes(tag) ? setSelectedTags(selectedTags.filter(t => t !== tag)) : setSelectedTags([...selectedTags, tag])} sx={{ fontWeight: selectedTags.includes(tag) ? '600' : '400' }} />
                         )}
                     </div>
-                    <div className='ideal-btn-2-wrapper'>
-                        <Button variant='contained' fullWidth color='primary' sx={{ borderRadius: '0.5rem', fontWeight: '600' }} className=''>
+                    <div className={styles.idealBtn2Wrapper}>
+                        <Button variant='contained' fullWidth color='primary' sx={{ borderRadius: '0.5rem', fontWeight: '600' }}>
                             view 5 courses
-                            <Image src={arrow} alt='arrow' width={15} height={0} className='ideal-btn-2-arrow' />
+                            <Image src={arrow} alt='arrow' width={15} height={0} className={styles.idealBtn2Arrow} />
                         </Button>
                     </div>
                 </div>

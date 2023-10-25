@@ -8,7 +8,9 @@ import greenGirl from './../../../../public/images/rc-green-girl.webp'
 import expand from './../../../../public/images/expand_more.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 import Image from "next/image"
-import './styles.css'
+import { setComponentToShow, setIsPopupShow } from "@/store/BookSession/BookSessionPopup";
+import { useDispatch, useSelector } from "react-redux";
+import styles from './../css/styles.module.css'
 
 const Courses = () => {
     const [tabValue, setTabValue] = useState(0)
@@ -16,6 +18,9 @@ const Courses = () => {
     const crashRef = useRef(null)
     const recordedEleRef = useRef(null)
     const crashEleRef = useRef(null)
+	const isPopupShow = useSelector((state) => state.bookSessionPopup.isPopupShow);	
+
+    const dispatch = useDispatch();
 
     const recordedCourses = [
         {title: 'complete recordings', img: greenGirl, classes: 'IITJEE CLASS 11', views: '1.2k', desc: 'Full Course Coverage, Revision and Test Series', price: '1,660'},
@@ -50,6 +55,12 @@ const Courses = () => {
         crashRef.current.scrollTo({left: -crashRef.current.scrollWidth, behavior: 'smooth'})
     }
 
+	const bookSessionPopup = async () => {
+		console.log("book session");
+		dispatch(setComponentToShow("SendOtp"));
+		dispatch(setIsPopupShow(!isPopupShow));
+	}
+
     useEffect(() => {
         const temp = ( parent, child ) => {
             if (window.innerWidth >= 1024) return
@@ -82,56 +93,59 @@ const Courses = () => {
     }, [])
 
     return (
-        <div className="courses-main">
-            <div className="courses-head">courses recommended by <span className="blue">toppers</span></div>
-            <Tabs variant="scrollable" value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className="courses-tabs" themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'center' } }}>
-                <Tab label="all" className="" themeColor='yellow' />
-                <Tab label="live courses" className="" themeColor='yellow' />
-                <Tab label="recorded" className="" themeColor='yellow' />
-                <Tab label="crash courses" className="" themeColor='yellow' />
+        <div className={styles.coursesMain}>
+            <div className={styles.coursesHead}>courses recommended by <span className={styles.blue}>toppers</span></div>
+            <Tabs variant="scrollable" value={tabValue} onChange={(e, newValue) => setTabValue(newValue)} className={styles.coursesTabs} themeColor='yellow' sx={{ '& .MuiTabs-flexContainer' : { justifyContent: 'center' } }}>
+                <Tab label="all" themeColor='yellow' />
+                <Tab label="live courses" themeColor='yellow' />
+                <Tab label="recorded" themeColor='yellow' />
+                <Tab label="crash courses" themeColor='yellow' />
             </Tabs>
 
-            <div className="courses-main-2">
-                <div className="courses-head-2 courses-live">live courses</div>
-                <div className="lg-only"><LiveCourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} /></div>
-                <div className="lg-not"><CourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} live={true} views={'1.3k'} /></div>
+            <div className={styles.coursesMain2}>
+                <div className={styles.coursesHead2}>live courses</div>
+                <div className={`${styles.coursesHeadDesc} ${styles.coursesLiveDesc}`}>Get Access to the best online classes for JEE Preparation</div>
+                <div className={styles.lgOnly}><LiveCourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} /></div>
+                <div className={styles.lgNot}><CourseCard title={'IITJEE rankers course'} desc={'Full Course Coverage, Revision and Test Series'} classes={'CLASS 11, 12 & 12+'} img={liveCourse} price={'1,660'} point1={'1000+ hrs of Live Classes'} point2={'3000+ hrs of recorded content'} isRecommended={true} live={true} views={'1.3k'} /></div>
             </div>
             <div>
-                <div className="courses-head-2 courses-recorded">
+                <div className={`${styles.coursesHead2} ${styles.coursesRecorded}`}>
                     recorded courses
-                    <div className="courses-btns">
-                        <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollRecordedRight} >
-                            <Image src={expand} alt="expand" width={10} className="rotate-180" />
+                    <div className={styles.coursesBtns}>
+                        <Button variant="contained" color="lightBlue" disableElevation className={styles.wAuto} sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollRecordedRight} >
+                            <Image src={expand} alt="expand" width={10} className={styles.rotate180} />
                         </Button>
-                        <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollRecordedLeft} >
+                        <Button variant="contained" color="lightBlue" disableElevation className={styles.wAuto} sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollRecordedLeft} >
                             <Image src={expand} alt="expand" width={10} />
                         </Button>
                     </div>
                 </div>
-                <div className="courses-courses" ref={recordedRef}>
+                <div className={styles.coursesHeadDesc}>Experience the most engaging lectures anytime, anywhere</div>
+                <div className={styles.coursesCourses} ref={recordedRef}>
                     {recordedCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={recordedEleRef} />)}
                 </div>
             </div>
             <div>
-                <div className="text-3xl font-bold text-[#080E14] flex justify-between mt-6">
+                <div className={`${styles.coursesHead2} ${styles.coursesRecorded}`}>
                     crash courses
-                    <div className="courses-btns">
-                        <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollCrashRight} >
-                            <Image src={expand} alt="expand" width={10} className="rotate-180" />
+                    <div className={styles.coursesBtns}>
+                        <Button variant="contained" color="lightBlue" disableElevation className={styles.wAuto} sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollCrashRight} >
+                            <Image src={expand} alt="expand" width={10} className={styles.rotate180} />
                         </Button>
-                        <Button variant="contained" color="lightBlue" disableElevation className="w-auto" sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollCrashLeft} >
+                        <Button variant="contained" color="lightBlue" disableElevation className={styles.wAuto} sx={{ borderRadius: '0.5rem', minWidth: 0 }} onClick={scrollCrashLeft} >
                             <Image src={expand} alt="expand" width={10} />
                         </Button>
                     </div>
                 </div>
-                <div className="courses-courses" ref={crashRef}>
+                <div className={styles.coursesHeadDesc}>Crash Courses that cover complete IIT-JEE Syllabus</div>
+                <div className={styles.coursesCourses} ref={crashRef}>
                     {crashCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={crashEleRef} />)}
                 </div>
             </div>
-            <div className="courses-btn-wrapper">
-                <Button variant="contained" className="courses-btn " sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
+            <div className={styles.coursesBtnWrapper}>
+                <Button onClick={bookSessionPopup} variant="contained" className={styles.coursesBtn} sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
                     book free counselling session
-                    <Image src={arrow} alt="arrow" width={15} className="" />
+                    <Image src={arrow} alt="arrow" width={15}  />
                 </Button>
             </div>
         </div>

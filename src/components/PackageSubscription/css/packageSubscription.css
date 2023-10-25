@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;500;700&display=swap");
+
 .subscription_popup.modal .modal-lg {
   width: 1000px !important;
   max-width: 1100px !important;
@@ -344,4 +346,146 @@ line-height: 150%; /* 15px */
 text-transform: lowercase;
 /* width: 48px; */
 
+}
+.dur-main {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+.dur-head-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.75rem 0.5rem;
+}
+.dur-head-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dc {
+  background-color: #fff;
+  box-shadow: 0px 0px 20px 0px #9AA0D34D;
+  border-radius: 1rem;
+  border-width: 2px;
+  border-color: #fff;
+  padding: 1rem;
+  cursor: pointer;
+}
+.dc.selected {
+  border-color: #007bff;
+}
+.dc-recc {
+  transform: translateX(calc(-1rem - 15px));
+}
+.dc-main {
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+.dc-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dc-time {
+  font-size: 2.25rem;
+  line-height: 2rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+  background-color: #00364E;
+  color: #fff;
+  padding: 0px 2rem 0rem 2rem;
+}
+.dc-years{
+  font-size: 1rem;
+  font-weight: 400;
+}
+.dc-save {
+  font-size: 0.75rem;
+  background-color: #FCDE5A;
+  color: #000;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  transform: translateY(-50%);
+}
+.dc-ppm {
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 2rem;
+  color: #007BFF;
+  text-align: right;
+}
+.dc-ppm-span {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #666666;
+}
+.dc-emi {
+  font-size: 0.75rem;
+  color: #666666;
+  font-weight: 500;
+  text-align: right;
+}
+.dc-emi-span {
+  font-weight: 700;
+}
+.dc-total {
+  margin-top: 0.5rem;
+}
+.dc-total-span {
+  font-weight: 700;
+}
+.dc-total-before {
+  color: #666666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.dur-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+.ac-main {
+  background-color: #D4E9FF;
+  border-radius: 1rem;
+}
+.ac-hl {
+  height: 1px;
+  width: 100%;
+  background-color: #99CAFF;
+}
+.ac-top {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+.ac-title {
+  font-weight: 600;
+}
+.ac-price {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.ac-bot {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ac-pt {
+  display: flex;
+  gap: 1rem;
 }
