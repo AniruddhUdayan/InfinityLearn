@@ -139,7 +139,7 @@ const Download = () => {
             />
             <div className="download-checklist-text">progress tracking</div>
           </div>
-          <div className="max-sm:hidden flex gap-2">
+          <div className="max-sm:hidden flex  gap-2">
             <Image
               src="/images/checklist1.png"
               alt="check"

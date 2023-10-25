@@ -136,7 +136,7 @@
     padding-right: 40px;
   }
   .download-title {
-    font-size: 48px;
+    font-size: 64px;
   }
   .download-hidden-checklist {
     display: block;
@@ -145,6 +145,7 @@
     flex-direction: row;
     /* gap: 64px; */
     padding: 5rem;
+    height: 354px;
     /* width: 1040px; */
   }
   .download-overlay-box {
@@ -152,6 +153,8 @@
   }
   .download-demo-session-title {
     font-size: 3rem;
+    /* height: 120px; */
+    line-height: 60px;
   }
   .download-demo-session-input-box {
     width: 58.33%;

@@ -398,11 +398,11 @@ const Review = () => {
             </div>
           </div>
           <hr></hr>
-          <div
+          {/* <div
             className={`${poppins.className}  p-[30px] flex justify-center items-center text-[#007BFF] underline cursor-pointer`}
           >
             show all 369 reviews
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="flex flex-col w-auto mx-[13px]">
