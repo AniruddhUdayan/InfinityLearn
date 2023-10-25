@@ -29,7 +29,7 @@
 
   justify-content: flex-start;
   text-align: start;
-  padding-top: 1.75rem /* 28px */;
+  padding-top: 22px /* 28px */;
   padding-bottom: 1.75rem /* 28px */;
   .cdc {
     text-align: start;
@@ -41,6 +41,17 @@
   .cpc {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+}
+.seeMoreSection {
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 16px;
+  .seeMoreSection-text {
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
     align-items: center;
   }
 }
@@ -77,9 +88,15 @@
   display: block;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+  .fourthSection {
+    padding-top: 0 !important;
+  }
   .focus-text-content {
     margin-bottom: 1rem;
     font-size: 32px !important;
+  }
+  .fous-text-ch {
+    margin-bottom: 0 !important;
   }
   .courses2 {
     display: block;
@@ -150,7 +167,6 @@
 
   .cdc {
     width: 100%;
-    margin-left: 1rem;
   }
   .cpc {
     margin-top: 0px;

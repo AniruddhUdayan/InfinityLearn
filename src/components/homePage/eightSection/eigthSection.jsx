@@ -3,7 +3,7 @@ import "./eigthSection.css";
 function EigthSection() {
   return (
     <div className=" poppins eigthSection">
-      <div className=" text-center">
+      <div className=" e-res">
         <span className=" eh-1">Class 12 </span>
         <span className="eh-2">IIT-JEE Online Courses</span>
       </div>

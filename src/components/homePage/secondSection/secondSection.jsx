@@ -11,8 +11,6 @@ import {
   setGrades,
 } from "../../../store/HomePage/examGradeSelection";
 import { useDispatch, useSelector } from "react-redux";
-import { Container } from "react-bootstrap";
-// import React, { useState, useRef, useEffect } from "react";
 
 export const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -36,8 +34,8 @@ export const SwitchTabs = ({ data, onTabChange }) => {
   return (
     <div>
       <div
-        className="rounded-2xl bg-gray-200 text-[#080E14]"
-        style={{ height: 34 }}
+        className="rounded-[20px] bg-gray-200 text-[#080E14]"
+        // style={{ height: 34 }}
       >
         <div className="h-full mt-1 gap-12  max-md:gap-3 flex items-center relative">
           {data.map((tab, index) => (
@@ -45,14 +43,14 @@ export const SwitchTabs = ({ data, onTabChange }) => {
               key={index}
               ref={(el) => (tabsRefs.current[index] = el)}
               className={`max-md:py-3 h-[40px] font-[600] max-md:text-[14px] 
-               p w-[100px] max-md:w-auto  max-md:px-4
-              max-md:w[87px] switchtabs max-md:h-[37px] py-[10px] 
-              text-sm text-center cursor-pointer whitespace-nowrap
+                w-[95px] max-md:w-auto  max-md:px-4
+               switchtabs max-md:h-[37px] py-[10px] 
+               text-center cursor-pointer whitespace-nowrap
               ${
                 selectedTab === index
-                  ? "bg-yellow-300 text-[#080E14] z-20"
-                  : "bg-white text-[#080E14]"
-              } rounded-2xl mt-2 justify-center items-center`}
+                  ? " bg-yellow-300  text-[#080E14] z-20"
+                  : " text-[#080E14] bg-white "
+              } rounded-[20px] mt-2 justify-center text-[16px] items-center`}
               onClick={() => activeTab(tab, index)}
             >
               {tab}
@@ -106,7 +104,7 @@ function Card0(props) {
   const [svgWidth, setSvgWidth] = useState(100);
   const dispatch = useDispatch();
   const updateWidth = () => {
-    setSvgWidth(window.innerWidth <= 768 ? 36 : 100);
+    setSvgWidth(window.innerWidth < 768 ? 36 : 100);
   };
 
   useEffect(() => {
@@ -146,7 +144,7 @@ function Card0(props) {
         <div
           className={`" ${
             isHovered ? "text-white" : ""
-          } text-[#6B6E72] font-[500] lg:text-[18px] text-sm lg:mb-5 max-md:text-opacity-50 max-md:mb-3 sm:mb-2 "`}
+          } text-[#6B6E72] font-[500] lg:text-[18px] text-sm lg:mb-5  max-md:mb-3 sm:mb-2 "`}
         >
           {props.data.subItemAbout}
         </div>
@@ -445,7 +443,7 @@ function SecondSection() {
     //   </Container>
     // </div>
     <div className="items-center h-full poppins  bg-[#E5E7EB]">
-      <div className="max-w-[1000px] max-2xl:px-4 max-md:px-3   max-lg: max-md:w-[100%] mx-auto">
+      <div className="max-w-[1010px] max-2xl:px-4 max-md:px-3   max-lg: max-md:w-[100%] mx-[auto]">
         <div className="flex stat justify-evenly  p-6 text-center max-md:hidden font-bold text-4xl gap-4 relative bottom-[4.5rem] mx-auto flex-row items-center h-36 bg-yellow-300 px-4 rounded-2xl">
           <div className="text-[black] flex flex-col border-black">
             <div className="text-center font-normal text-2xl text-[#080E14]">
@@ -461,7 +459,7 @@ function SecondSection() {
             <div className="font-[600] text-[36px]">60k+</div>
           </div>
           <div className="border-r-2 border-[#080E14] opacity-20 h-full" />
-          <div className="text-black  items-center text-center flex flex-col">
+          <div className="text-black   text-start flex flex-col">
             <div className="text-center font-normal text-2xl text-[#080E14] flex-grow">
               Classes Conducted
             </div>
@@ -470,21 +468,15 @@ function SecondSection() {
         </div>
 
         <h1
-          className=" max-md:hidden text-[#080E14] max-2xl:text-center mx-auto max-md:mx-3
+          className="ss-head max-md:hidden max-md:mx-3
           max-md:py-10 md:mb-6 max-md:w-full 
-        max-md:text-start max-md:justify-start tracking-wide max-md:tracking-normal
-        text-5xl max-md:text-[32px] res1 font-extrabold "
+        max-md:text-start max-md:justify-start max-md:tracking-normal max-md:text-[32px] res1  "
         >
           select your learning
           <span className=" text-blue-500 "> goal </span>
           grade-wise
         </h1>
-        <h1
-          className="md:hidden flex flex-col  max-2xl:text-center mx-auto max-md:mx-3
-          max-md:py-10 md:mb-6 max-md:w-full 
-        max-md:text-start max-md:justify-start tracking-wide max-md:tracking-normal
-        text-5xl max-md:text-[28px] font-extrabold "
-        >
+        <h1 className="ss-head1   ">
           <div className=" whitespace-nowrap text-[#080E14]">
             select your learning
           </div>

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import "./ninthSection.css";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
@@ -38,20 +39,27 @@ function FaqBox(props) {
   };
 
   return (
-    <div className="faq-box  p-10">
-      <div className="flex flex-col">
-        <div className="flex">
-          <div className="faq-ques z-10">{props.data.id}.</div>
-          <div className="faq-ques z-10">{props.data.ques}</div>
+    <div className="faq-box ">
+      <div className="flex items-center  w-[100%]">
+        <div className=" flex flex-col w-[90%]  ">
+          <div className=" flex">
+            <div className="faq-ques mr-1 z-10">{props.data.id}.</div>
+            <div className="faq-ques z-10">{props.data.ques}</div>
+          </div>
+          {showAns ? (
+            <div className="faq-ans  z-10 ">{props.data.ans}</div>
+          ) : null}
         </div>
-        {showAns ? <div className="faq-ans z-10 ">{props.data.ans}</div> : null}
-      </div>
-      <div className=" left-full  hover:cursor-pointer " onClick={toggleAnswer}>
-        {showAns ? (
-          <RiArrowDropUpLine size={30} />
-        ) : (
-          <RiArrowDropDownLine size={30} />
-        )}
+        <div
+          className=" w-[10%]  arrow top-4    hover:cursor-pointer "
+          onClick={toggleAnswer}
+        >
+          {showAns ? (
+            <RiArrowDropUpLine size={30} />
+          ) : (
+            <RiArrowDropDownLine size={30} />
+          )}
+        </div>
       </div>
     </div>
   );
@@ -59,8 +67,8 @@ function FaqBox(props) {
 
 function NinthSection() {
   return (
-    <div className="ninthSection gap-[20px] px-[112px] ">
-      <div className="ns-h1">FAQ’s</div>
+    <div className="ninthSection   ">
+      <div className="ns-h1">{`FAQ’s`}</div>
 
       {faq.map((item, index) => (
         <FaqBox key={index} data={item} />

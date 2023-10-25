@@ -184,7 +184,7 @@ const DateSelector = ({ onFromChange, onToDate }) => {
   );
 };
 
-function ThirdSection() {
+function ThirdSection1() {
   // const [selectedDates, setSelectedDates] = useState({
   //   fromDate: null,
   //   toDate: null,

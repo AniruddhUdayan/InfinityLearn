@@ -20,8 +20,8 @@
   flex-shrink: 0;
   border-radius: 1rem;
   flex-direction: column;
-  padding-left: 0.5rem /* 8px */;
-  padding-right: 0.5rem /* 8px */;
+  padding-left: 12px /* 8px */;
+  padding-right: 12px /* 8px */;
 
   background-color: white;
   color: #080e14;
@@ -34,7 +34,7 @@
   .cardVideo-name {
     color: #080e14;
     font-size: 16px;
-    font-family: Poppins;
+
     font-weight: 600;
     line-height: 24px;
     word-wrap: break-word;
@@ -42,7 +42,7 @@
   .cardVideo-place {
     color: #080e14;
     font-size: 13px;
-    font-family: Poppins;
+
     font-weight: 500;
     text-transform: lowercase;
     line-height: 18px;
@@ -51,7 +51,7 @@
   .cardVideo-course {
     color: #ff7a00;
     font-size: 13px;
-    font-family: Poppins;
+
     font-weight: 500;
     line-height: 18px;
     word-wrap: break-word;
@@ -59,7 +59,7 @@
   .cardVideo-review {
     color: #52565b;
     font-size: 16px;
-    font-family: Poppins;
+
     font-weight: 500;
     text-transform: lowercase;
     line-height: 24px;
@@ -85,7 +85,7 @@
   .cardNormal-review {
     color: #52565b;
     font-size: 18px;
-    font-family: Poppins;
+
     font-weight: 500;
     text-transform: lowercase;
     line-height: 27px;
@@ -94,7 +94,7 @@
   .cardNormal-name {
     color: #080e14;
     font-size: 22px;
-    font-family: Poppins;
+
     font-weight: 700;
     line-height: 33px;
     word-wrap: break-word;
@@ -102,7 +102,7 @@
   .cardNormal-place {
     color: #080e14;
     font-size: 18px;
-    font-family: Poppins;
+
     font-weight: 500;
     text-transform: lowercase;
     line-height: 27px;
@@ -111,7 +111,7 @@
   .cardNormal-course {
     color: #ff7a00;
     font-size: 18px;
-    font-family: Poppins;
+
     font-weight: 500;
     line-height: 27px;
     word-wrap: break-word;
@@ -152,8 +152,8 @@
   .nlss {
     background-color: #00364e;
     width: 100%;
-    padding-left: 9rem;
-    padding-right: 9rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
   .rev {
     display: flex;
@@ -243,6 +243,9 @@
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) {
+  .nls {
+    margin-bottom: 40px;
+  }
   .fifthSection {
     height: 371px;
   }
@@ -273,17 +276,18 @@
   .cardVideo {
     height: 371px;
     width: 316px;
+    justify-content: space-evenly;
 
     padding-bottom: 1.25rem;
     .cardVideo-review {
       color: #52565b;
       font-size: 12px;
-      font-family: Poppins;
+
       font-weight: 500;
       text-transform: lowercase;
       line-height: 18px;
       word-wrap: break-word;
-      margin-top: 2px;
+      /* margin-top: 2px; */
       padding-left: 0.95rem /* 12px */;
       padding-right: 0.95rem;
     }
@@ -291,42 +295,44 @@
   .cardVideo-name,
   .cardNormal-name {
     color: #080e14;
-    font-size: 14px !important;
-    font-family: Poppins;
+    font-size: 16px !important;
+
     font-weight: 600;
-    line-height: 20px !important;
+    line-height: 24px !important;
     word-wrap: break-word;
   }
   .cardVideo-place,
   .cardNormal-place {
     color: #080e14;
-    font-size: 14px !important;
-    font-family: Poppins;
+    font-size: 13px !important;
+
     font-weight: 500;
     text-transform: capitalize;
-    line-height: 14px !important;
+    line-height: 18px !important;
     word-wrap: break-word;
+    margin-bottom: 20px;
   }
   .cardVideo-course,
   .cardNormal-course {
     color: #ff7a00;
-    font-size: 14px !important;
-    font-family: Poppins;
+    font-size: 13px !important;
+
     font-weight: 500;
-    line-height: 14px !important;
+    line-height: 18px !important;
     word-wrap: break-word;
   }
   .cardNormal {
     height: 371px;
     width: 316px;
+    justify-content: space-evenly;
 
     padding-left: 1rem /* 16px */;
     padding-right: 1rem;
-    padding-bottom: 55px;
-    padding-top: 33px;
+    /* padding-bottom: 55px;
+    padding-top: 33px; */
     .cardNormal-review {
       font-size: 14px;
-      font-family: Poppins;
+
       font-weight: 500;
       text-transform: lowercase;
       line-height: 21px;
@@ -354,6 +360,9 @@
       white-space: nowrap;
     }
   }
+  .nlss {
+    padding: auto 2rem;
+  }
 }
 @media only screen and (min-width: 577px) and (max-width: 767px) {
   .fifthSection {
@@ -374,6 +383,9 @@
 
     line-height: 42px !important;
   }
+  .nlss {
+    padding: auto 2rem !important;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .fshc {
@@ -383,7 +395,7 @@
   }
 
   .fifthSection {
-    height: 540px;
+    height: 560px;
     .fsh {
       padding-bottom: 4rem;
 
@@ -396,6 +408,9 @@
 
       white-space: nowrap;
     }
+  }
+  .nlss {
+    padding: auto 2rem !important;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -420,8 +435,14 @@
       white-space: nowrap;
     }
   }
+  .nlss {
+    padding: auto 2rem !important;
+  }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .nlss {
+    padding: auto 2rem !important;
+  }
 }
 @media (max-width: 768px) {
   .nlss {
@@ -452,5 +473,23 @@
   }
   .carouss {
     overflow-x: auto;
+  }
+}
+@media (max-width: 340px) {
+  .RS {
+    width: 320px;
+  }
+  .carous {
+    width: 316px !important;
+  }
+  .fsh {
+    padding-left: 0.5rem !important;
+  }
+  .fshc {
+    font-size: 24px !important;
+  }
+  .carouss {
+  }
+  .carousal-inner {
   }
 }
