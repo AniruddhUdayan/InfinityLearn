@@ -100,7 +100,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
 
   return (
     <div className=" bg-white text-black relative">
-      <div className="h-full mt-1 whitespace-nowrap gap-[20px]  flex items-center">
+      <div className="h-full mt-1 whitespace-nowrap   flex items-center">
         {data.map((tab, index) => (
           <span
             key={index}
@@ -113,7 +113,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
           </span>
         ))}
         <span
-          className="border-b-2 bg-black border-blue-500 absolute bottom-0 transition-all duration-500"
+          className="border-b-2 bg-black border-[#007BFF] absolute bottom-0 transition-all duration-500"
           style={{ left, width: widths[selectedTab] }}
         ></span>
       </div>
