@@ -92,7 +92,9 @@
   width: 100%;
   align-items: center;
   border-radius: 2rem;
-  .card3-sec {
+  
+}
+.card3-sec {
     display: flex;
     flex-direction: column;
   }
@@ -100,7 +102,6 @@
     font-weight: 600;
     font-size: 1.5rem;
   }
-}
 .card3:hover {
   cursor: pointer;
   color: white;
@@ -124,11 +125,12 @@
   width: 318px;
   border-radius: 20px;
 
-  .card2-sec {
+ 
+}
+ .card2-sec {
     display: flex;
     flex-direction: column;
   }
-}
 .card2:hover {
   cursor: pointer;
   background-color: #007bff;
@@ -180,7 +182,9 @@
   height: auto; /* h-max in Tailwind */
   padding-bottom: 5rem; /* pb-20 in Tailwind */
   justify-content: flex-start;
-  .class11to12-items {
+ 
+}
+ .class11to12-items {
     display: flex;
     gap: 20px; /* gap-[20px] in Tailwind */
     width: auto;
@@ -192,7 +196,6 @@
     margin-bottom: 1.5rem; /* mb-6 in Tailwind */
     font-weight: 600; /* font-semibold in Tailwind */
   }
-}
 .ss-head {
   color: #080e14;
   text-align: center;
@@ -214,7 +217,9 @@
     height: auto; /* h-max in Tailwind */
     padding-bottom: 5rem; /* pb-20 in Tailwind */
     justify-content: flex-start;
-    .class11to12-items {
+    
+  }
+  .class11to12-items {
       padding-left: 0.25rem; /* max-md:px-1 in Tailwind */
       padding-right: 0.25rem;
       gap: 12px; /* max-md:gap-[12px] in Tailwind */
@@ -225,16 +230,16 @@
       font-size: 1.875rem; /* max-md:text-3xl in Tailwind */
       margin-left: 1rem; /* max-md:ml-4 in Tailwind */
     }
-  }
 
   .card3 {
     border-radius: 1rem;
     flex-direction: column;
     padding: 1.5rem 0.5rem;
-    .card3-text {
+   
+  }
+   .card3-text {
       font-size: 1.125rem;
     }
-  }
   .card1 {
     flex-direction: column;
     gap: 0.5rem;
