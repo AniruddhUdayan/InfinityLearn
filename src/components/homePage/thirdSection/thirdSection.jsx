@@ -99,21 +99,21 @@ const SwitchTabs = ({ data, onTabChange }) => {
   }, [data]);
 
   return (
-    <div className=" bg-white text-black relative">
-      <div className="h-full mt-1 whitespace-nowrap  flex items-center">
+    <div className=" bg-white mt-[61px] text-black relative">
+      <div className="h-full mt-1 whitespace-nowrap  gap-[10px] flex items-center">
         {data.map((tab, index) => (
           <span
             key={index}
             ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full w-full px-4  text-center text-base cursor-pointer 
-            ${selectedTab === index ? "text-black" : ""}`}
+            className={`h-full w-full px-3  text-[16px]  text-center text-base cursor-pointer 
+            ${selectedTab === index ? "text-[#007BFF]" : ""}`}
             onClick={() => activeTab(tab, index)}
           >
             {tab}
           </span>
         ))}
         <span
-          className="border-b-2 bg-black border-blue-500 absolute bottom-0 transition-all duration-500"
+          className="border-b-2 bg-black border-[#007BFF] absolute bottom-0 transition-all duration-500"
           style={{ left, width: widths[selectedTab] }}
         ></span>
       </div>
@@ -274,8 +274,8 @@ function ThirdSection() {
             alt="thirdSection"
             className=" max-md:w-screen  md:w-1/2"
           />
-          <div className=" thirdsection-content justify-start  ">
-            <div className="  max-md:h-max">
+          <div className=" thirdsection-content items-center ">
+            <div className=" text-start  max-md:h-max">
               {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
                 (Component, index) => (
                   <div
@@ -294,7 +294,7 @@ function ThirdSection() {
               onClick={startLearning}
               className="slof-b  hover:space-x-2  hover:bg-blue-600 "
             >
-              start learning for free <span>&#8599;</span>
+              start learning for free <span className=" ml-[8px]">&#8599;</span>
             </button>
             {/* </div> */}
           </div>

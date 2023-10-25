@@ -53,7 +53,7 @@ function Stats() {
       className="flex mt-10 stats py-3  max-lg:w-full mb-6 max-lg:mx-10
      max-lg:h-24 justify-evenly text-[#007BFF] p- 
       text-center  font-bold text-base gap-3 mx-auto stats
-     flex-row items-center h-20 bg-white px-4 rounded-2xl"
+     flex-row items-center h-20 bg-white px-4 rounded-[20px]"
     >
       <div className="stats-div1  ">
         <div className="text-center font-[400] text-[12px] ">learners</div>
@@ -65,11 +65,11 @@ function Stats() {
         <div className="font-[600] text-[18px]  text-center">60k+</div>
       </div>
       <div className="border-r-2 border-[#007BFF] opacity-20 h-full" />
-      <div className="  items-center text-center flex flex-col">
+      <div className="  text-start flex flex-col">
         <div className="text-center font-[400] text-[12px]  flex    flex-grow">
           <div className=" mr-1">classes</div> conducted
         </div>
-        <div className="font-[600] text-[18px]  text-center">9200+</div>
+        <div className="font-[600] text-[18px]  text-start">9200+</div>
       </div>
     </div>
   );
@@ -153,7 +153,7 @@ function FirstSection() {
             />
           </Col>
           <Col className=" inputSec">
-            <Col className="flex flex-col treew md:mt-16 mt-[32px] max-md:w-[335px]  gap-2 justify-center">
+            <Col className="flex inputSec1 flex-col treew md:mt-16 mt-[32px] max-md:w-[335px]  gap-2 justify-center">
               <div className="mb-1 items-stretch flex">
                 <div className="iSDCode">+91</div>
                 <input

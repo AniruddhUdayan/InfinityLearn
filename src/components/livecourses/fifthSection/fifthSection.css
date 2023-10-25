@@ -1,0 +1,181 @@
+.p-item {
+  align-items: center;
+  overflow: hidden; /* This will ensure images outside of this container are not visible */
+}
+.i-c {
+  justify-self: center;
+  position: relative;
+  /* display: flex; */
+  width: 436px;
+  height: 580px;
+
+  perspective: 1000px;
+}
+.carous {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 380px;
+  top: 1rem;
+}
+.i-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center bottom;
+  transform: rotate(0deg) translateY(0px);
+  transition: transform 0.5s ease-in-out;
+}
+
+.rotate-forward {
+  transform: rotate(40deg) translateY(-580px);
+}
+
+.rotate-backward {
+  transform: rotate(-90deg) translateY(-580px);
+}
+
+.fifth-heading {
+  font-size: 48px;
+
+  font-weight: 700;
+  line-height: 60px;
+  word-wrap: break-word;
+}
+.fifth-subject {
+  font-size: 32px;
+
+  font-weight: 600;
+  line-height: 48px;
+  word-wrap: break-word;
+}
+.fifth-nob {
+  color: #6b6e72;
+  font-size: 20px;
+
+  font-weight: 400;
+  line-height: 30px;
+  word-wrap: break-word;
+}
+.book-features {
+  color: #52565b;
+  font-size: 18px;
+
+  font-weight: 500;
+  text-transform: lowercase;
+  line-height: 27px;
+  word-wrap: break-word;
+}
+.nav-button {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.animatedbhead {
+  color: #080e14;
+  --tw-bg-opacity: 0.3;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60px;
+  word-wrap: break-word;
+  text-align: center;
+  margin-top: 54px;
+  margin-bottom: 0.25rem;
+}
+.animatedbSub {
+  color: #080e14;
+  font-size: 20px;
+  text-align: center;
+
+  font-weight: 600;
+  word-wrap: break-word;
+  margin-bottom: 49px;
+}
+.animatedbuttonItems {
+  display: flex;
+  margin-bottom: 3rem;
+  gap: 40px;
+  justify-content: center;
+}
+.animatedbutton {
+  align-items: center;
+  /* --tw-bg-opacity: 0.3; */
+  gap: 1.75rem;
+  padding: 1.75rem;
+  justify-content: space-between;
+  display: flex;
+  border-radius: 20px;
+}
+.animatedbutton:hover {
+  border-width: 2px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .animatedbutton {
+    /* max-width: 335px; */
+    width: 100%;
+    height: 77px;
+    justify-content: baseline;
+  }
+
+  .i-c-content {
+    padding-left: 60px;
+    padding-right: 61px;
+    padding-top: 10px;
+    padding-bottom: 38px;
+    height: min-content;
+  }
+  .i-c {
+    display: flex;
+    /* width: screen;
+    height: fit-content; */
+    width: 100%;
+    /* height: 100%; */
+    justify-content: center;
+    /* height: max-content; */
+
+    max-height: 336px;
+  }
+  .i-item {
+    position: absolute;
+    /* height: fit-content; */
+    /* width: fit-content !important; */
+  }
+  .animatedbhead {
+    color: #080e14;
+    font-size: 32px;
+
+    font-weight: 700;
+    text-transform: lowercase;
+    line-height: 48px;
+    word-wrap: break-word;
+  }
+  .animatedbuttonItems {
+    flex-direction: column;
+    /* margin-left: auto;
+    margin-right: auto; */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .animatedbSub {
+    font-size: 14px;
+  }
+  .i-item {
+    /* width: min-content; */
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+}
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+}

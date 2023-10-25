@@ -1,13 +1,15 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { IoIosArrowDown } from "react-icons/io";
-import Lottie, { useLottie } from "lottie-react";
-import { Carousel, ProgressBar, CarouselItem } from "react-bootstrap";
-// import LottieAnimation from "./fireAnimation.jsx";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { useLottie } from "lottie-react";
+import { Carousel, CarouselItem } from "react-bootstrap";
 import animationData from "../fireanimation.json";
 import "./fourthSection.css";
-// import "./letssee.css";
+import { BsClockHistory, BsCameraVideo } from "react-icons/bs";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { LuGraduationCap } from "react-icons/lu";
+
 function Trial() {
   const [isAutoScroll, setIsAutoScroll] = useState(true);
 
@@ -70,62 +72,95 @@ function Trial() {
     </div>
   );
 }
+
 const courses = [
   {
     id: 3,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image1.webp",
+    svg: "/courses/image1.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   {
     id: 4,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image1.webp",
+    svg: "/courses/image1.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   {
     id: 5,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image2.webp",
+    svg: "/courses/image2.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   {
     id: 6,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.webp",
+    svg: "/courses/image3.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   {
     id: 7,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.webp",
+    svg: "/courses/image3.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   {
     id: 8,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.webp",
+    svg: "/courses/image3.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   {
     id: 9,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.webp",
+    svg: "/courses/image3.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   {
     id: 10,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
     price: "starting at 1660/month",
-    svg: "/courses/image3.webp",
+    svg: "/courses/image3.png",
+    duration: "1-2 years",
+    noofhours: "1000+ hrs of live classes",
+    noofvideos: "5000+ videos | 3000hrsof content",
+    nooftest: "24 biweekly test",
   },
   // {
   //   id: 11,
@@ -144,10 +179,13 @@ const courses = [
 ];
 
 function Card(props) {
+  const [showMore, setShowMore] = useState(false);
   const [svgWidth, setSvgWidth] = useState(368);
+  const [decreasedHeight, setDecreasedHeight] = useState(165);
 
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 311 : 368);
+    setDecreasedHeight(window.innerWidth <= 768 ? 100 : 165);
   };
   useEffect(() => {
     // Update width on mount
@@ -168,16 +206,20 @@ function Card(props) {
           : "bg-white"
       }   hover:cursor-pointer cc  `}
     >
-      <div className="">
+      <div
+        style={{ height: showMore ? `${decreasedHeight}px` : "auto" }}
+        // className={` rounded-2xl ${
+        //   showMore ? " h-[{decreasedHeight}px]  " : ""
+        // } `}
+      >
         <Image
           src={props.data?.svg}
-          height={238}
+          height={138}
           width={svgWidth}
           // Ensures the image maintains its aspect ratio
-          className="border-2   border-blue-200"
+          className="  border-blue-200"
           alt="cards svg"
         />
-
         <div className="relative bottom-4 left-6">
           {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
             <Image
@@ -190,20 +232,73 @@ function Card(props) {
           )}
         </div>
       </div>
-      <div className=" cdc ">
-        <div className="  font-bold text-lg">{props.data.name}</div>
-        <div className="  w-full max-md:text-sm  mb-2 ">
-          {props.data?.about}
+      <div className=" relative flex w-full   flex-col">
+        <div
+          className={`" ${
+            showMore ? "  relative " : " hidden "
+          } top-[6px] rounded-t-none   bg-transparent w-full rounded-2xl "`}
+        >
+          <div className="relative   left-6">
+            {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
+              <Image
+                src="./courses/std.svg"
+                height={29}
+                width={142}
+                className=" w-[40%] h-auto" // Ensures the image maintains its aspect ratio
+                alt="courses.svg"
+              />
+            )}
+          </div>
         </div>
-      </div>
-      <div className="cpc flex max-md:space-x-11 space-x-20">
-        {" "}
-        <div className="text-[#080E14] ccp font-[500] mb-2">
-          {props.data?.price}
-        </div>
-        <div className=" flex text-[#007BFF]">
-          <div className=" text-xs  text-center  cursor-pointer">See More </div>
-          <IoIosArrowDown />
+        <div className=" pt-2 bg-white">
+          <div className=" cdc ">
+            <div className="  font-bold text-lg">{props.data.name}</div>
+            <div className="  w-full max-md:text-sm  mb-2 ">
+              {props.data?.about}
+            </div>
+          </div>
+
+          <div className="cpc flex max-md:space-x-11 space-x-20">
+            {" "}
+            <div className="text-[#080E14] ccp font-[500] ">
+              {props.data?.price}
+            </div>
+            <div
+              className=" flex hover:cursor-pointer text-[#007BFF]"
+              onClick={() => setShowMore(!showMore)}
+            >
+              <div className=" text-xs  text-center  cursor-pointer">
+                {showMore == false ? (
+                  <div> {"see more"}</div>
+                ) : (
+                  <div> {"see less"}</div>
+                )}
+              </div>
+              {showMore == false ? <IoIosArrowDown /> : <IoIosArrowDown />}
+            </div>
+          </div>
+
+          <div
+            className={`${showMore ? " flex " : " hidden "} seeMoreSection `}
+          >
+            <div className=" seeMoreSection-text">
+              <BsClockHistory size={15} />
+              {props.data.duration}
+            </div>
+            <div className="seeMoreSection-text">
+              <LuGraduationCap size={15} />
+              {props.data.noofhours}
+            </div>
+            <div className=" seeMoreSection-text">
+              <BsCameraVideo size={15} />
+
+              {props.data.noofvideos}
+            </div>
+            <div className="seeMoreSection-text">
+              <HiOutlineDocumentText size={15} />
+              {props.data.nooftest}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -266,8 +361,6 @@ function FourthSection() {
   const [sps, setsps] = useState(30);
   const [cls, setcls] = useState(2);
   const updateWidth = () => {
-    // setSvgWidth(window.innerWidth <= 1024 ? 90 : 90);
-    // setSvgHeight(window.innerWidth <= 1024 ? 90 : 90);
     const width = window.innerWidth;
 
     if (width >= 481 && width <= 576) {
@@ -318,7 +411,7 @@ function FourthSection() {
           setDashCard((activeDash + 1) % 5);
         }
       }
-    }, 1500);
+    }, 1800000);
 
     return () => clearInterval(interval);
   }, [scrollPos, activeDash, isHovered]);
@@ -364,7 +457,7 @@ function FourthSection() {
         </div>
 
         <div className="flex courses  flex-col justify-center w-full items-center h-ull bg-[#D4E9FF]">
-          <div className="overflow-x-auto courses-d h-auto relative py-2   w6">
+          <div className="overflow-y-auto courses-d h-auto relative py-2   w6">
             <div
               className="flex transition-transform  duration-1000 "
               style={{ transform: `translateX(-${scrollPos * sps}%)` }} // Adjust based on card width and margin

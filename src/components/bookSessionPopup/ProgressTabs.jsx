@@ -20,7 +20,7 @@ function ProgressTabs() {
             <Col xs={12} md={12} className="session_progress">
               <div className="steps_bar steps_mob_d_done">
                 <div className="step one complete active">
-                  1<div className="step_desc">student details</div>
+                  1<div className="step_desc">student <br/> details</div>
                 </div>
                 <div className="step_sep"></div>
                 <div
@@ -28,7 +28,7 @@ function ProgressTabs() {
                     isStudentProfileCompleted ? "complete active" : ""
                   }`}
                 >
-                  2<div className="step_desc">book session</div>
+                  2<div className="step_desc">book<br/> session</div>
                 </div>
                 <div className="step_sep"></div>
                 <div
@@ -36,7 +36,7 @@ function ProgressTabs() {
                     isPersonalizeStarted ? "complete active" : ""
                   }`}
                 >
-                  3<div className="step_desc">personalized session</div>
+                  3<div className="step_desc">personalized<br/> session</div>
                 </div>
               </div>
               <div className="mob_steps_flex">
@@ -61,7 +61,7 @@ function ProgressTabs() {
             <Col xs={12} md={12} className="session_progress">
               <div className="steps_bar steps_mob_d_done">
                 <div className="step one complete active">
-                  1<div className="step_desc">book session</div>
+                  1<div className="step_desc">book<br/> session</div>
                 </div>
                 <div className="step_sep"></div>
                 <div
@@ -69,7 +69,7 @@ function ProgressTabs() {
                     isPersonalizeStarted ? "complete active" : ""
                   }`}
                 >
-                  2<div className="step_desc">personalized session</div>
+                  2<div className="step_desc">personalized<br/> session</div>
                 </div>
               </div>
               <div className="mob_steps_flex">

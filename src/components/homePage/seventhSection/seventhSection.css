@@ -1,10 +1,164 @@
-@media (max-width: 320px) {
-    .text-c1 {
-      font-size: 24px;
-    }
-    .inpp {
-      padding-left: 0;
-      width: 300px;
-    }
+.download-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f1f2f6;
+  padding-top: 8px;
+  padding-bottom: 0;
+  gap: 8px;
+  color: #080e14;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.download-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.download-title {
+  font-weight: bold;
+  font-size: 36px;
+  /* line-height: 2.5rem; */
+  color: #007bff;
+  margin-bottom: 16px;
+}
+.download-checklist {
+  display: flex;
+  gap: 8px;
+}
+.download-checklist-text {
+  color: #6b6e72;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+}
+.download-hidden-checklist {
+  display: none;
+}
+.download-head-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.download-app-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+.download-overlay {
+  background: #00364e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px 0;
+  color: #ffffff;
+  gap: 32px;
+  width: 100%;
+}
+.download-overlay-box {
+  width: 100%;
+}
+.download-demo-session-title {
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1rem;
+}
+.download-demo-session-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  max-width: 437px;
+}
+.download-demo-session-input-subbox {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+.download-demo-session-input {
+  height: 48px;
+  width: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #ffffff;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font: 500;
+}
+.download-book-button {
+  background: #007bff;
+  color: white;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-size: 14px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+@media (min-width: 640px) {
+  .download-demo-session-input {
+    height: 56px;
+    padding-left: 28px;
+    padding-right: 28px;
+    font-size: 16px;
+    gap: 4px;
   }
-  
+  .download-book-button {
+    font-size: 16px;
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+}
+@media (min-width: 1024px) {
+  /* Styles to apply when the viewport width is 768px or wider */
+  .download-container {
+    padding-top: 16px;
+    flex-direction: row;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+  .download-box {
+    gap: 32px;
+    width: 50%;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .download-title {
+    font-size: 48px;
+  }
+  .download-hidden-checklist {
+    display: block;
+  }
+  .download-overlay {
+    flex-direction: row;
+    gap: 64px;
+    padding: 5rem;
+  }
+  .download-overlay-box {
+    width: 41.6%;
+  }
+  .download-demo-session-title {
+    font-size: 3rem;
+  }
+  .download-demo-session-input-box {
+    width: 58.33%;
+  }
+}
+
+@media (max-width: 640px) {
+  .download-overlay {
+    padding: 4px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .download-demo-session-input-box {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}

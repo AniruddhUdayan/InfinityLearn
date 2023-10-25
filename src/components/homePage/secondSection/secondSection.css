@@ -72,7 +72,7 @@
     overflow-y: hidden;
     width: max-content;
   }
-  .res1 {
+  .ss-head {
     white-space: nowrap;
   }
   .switchtabs {
@@ -193,6 +193,20 @@
     font-weight: 600; /* font-semibold in Tailwind */
   }
 }
+.ss-head {
+  color: #080e14;
+  text-align: center;
+  letter-spacing: 0.025em;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-size: 48px;
+
+  font-weight: 700;
+  text-transform: lowercase;
+  line-height: 60px;
+  word-wrap: break-word;
+}
 @media (max-width: 768px) {
   .class11to12 {
     display: flex;
@@ -212,15 +226,7 @@
       margin-left: 1rem; /* max-md:ml-4 in Tailwind */
     }
   }
-  .card0 {
-    flex-shrink: 0;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    width: 161px;
-    height: 209px;
-  }
+
   .card3 {
     border-radius: 1rem;
     flex-direction: column;
@@ -239,13 +245,41 @@
     padding: 2.5rem 0.25rem;
   }
 }
-
+.ss-head1 {
+  display: none;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .text_ls {
     display: none;
   }
   .text_xs {
     display: block;
+  }
+  .ss-head {
+    display: none;
+  }
+  .ss-head1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    text-align: start;
+
+    padding-top: 32px /* 40px */;
+    padding-bottom: 32px;
+    justify-content: flex-start;
+
+    font-weight: 700;
+    line-height: 38px;
+    display: block;
+  }
+  .card0 {
+    flex-shrink: 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    width: 161px;
+    height: 209px;
   }
   .switchT {
     padding-left: 1rem; /* 4 units * 0.25rem */
@@ -273,10 +307,24 @@
   .card2 {
     padding: 2.5rem 0.25rem;
   }
+  .card0 {
+    flex-shrink: 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    width: 161px;
+    height: 209px;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+}
+@media (max-width: 340px) {
+  .ss-head1 {
+    font-size: 28px;
+  }
 }

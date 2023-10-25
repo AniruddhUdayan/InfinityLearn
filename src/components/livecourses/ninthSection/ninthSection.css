@@ -1,0 +1,112 @@
+.ninthSection {
+  width: 100%;
+  height: 100%;
+  background: #f1f2f6;
+  display: flex;
+  flex-direction: column;
+  padding-left: 112px;
+  padding-right: 112px;
+  padding-top: 32px;
+  gap: 20px;
+  padding-bottom: 82px;
+
+  padding: 0 10;
+}
+
+.arrow {
+  bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+
+  /* position: relative; */
+}
+
+.ns-h1 {
+  width: 100%;
+  text-align: center;
+  color: #080e14;
+  font-size: 48px;
+
+  font-weight: 700;
+  text-transform: lowercase;
+  line-height: 60px;
+  word-wrap: break-word;
+}
+
+.faq-box {
+  width: 100%;
+
+  height: 100%;
+  opacity: 0.8;
+  background: white;
+  border-radius: 20px;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 34px;
+  padding-right: 34px;
+  height: 122px;
+}
+
+.faq-ques {
+  color: #080e14;
+  font-size: 24px;
+
+  font-weight: 600;
+  text-transform: lowercase;
+  word-wrap: break-word;
+}
+
+.faq-ans {
+  color: #6b6e72;
+  font-size: 18px;
+  margin-left: 1.75rem;
+
+  font-weight: 500;
+  text-transform: lowercase;
+  line-height: 27px;
+  word-wrap: break-word;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .ninthSection {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 48px;
+    padding-top: 35px;
+  }
+  .faq-ques {
+    font-size: 14px;
+
+    font-weight: 700;
+    line-height: 19.11px;
+  }
+  .faq-box {
+    max-height: 81px;
+    padding-top: 16px;
+    padding-bottom: 17px;
+    padding-left: 13px;
+    padding-right: 0;
+  }
+  .faq-ans {
+    color: #6b6e72;
+    font-size: 12px;
+    margin-left: 18px;
+
+    font-weight: 500;
+    text-transform: lowercase;
+    line-height: 20px;
+  }
+  .arrow {
+    bottom: 0;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+}
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+}

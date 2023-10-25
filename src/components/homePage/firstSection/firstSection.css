@@ -81,7 +81,12 @@
 
   .inputSec .otp {
     font-size: 14px; /* Adjust based on your design */
-    margin-top: 5px;
+    color: white;
+    font-size: 12px;
+
+    font-weight: 400;
+    line-height: 18px;
+    word-wrap: break-word;
   }
 }
 
@@ -282,7 +287,9 @@ input.focus-no-outline:focus {
     margin-left: 20px;
   }
   .imageRes {
-    width: auto;
+    /* width: auto; */
+    display: block;
+    width: 100%;
   }
   .head-text,
   .head-text-modified {
@@ -545,5 +552,15 @@ input.focus-no-outline:focus {
 
     line-height: 50px;
     word-wrap: break-word;
+  }
+}
+@media (max-width: 340px) {
+  .head-text,
+  .head-text-modified {
+    font-size: 40px !important;
+    padding-left: 40px !important;
+  }
+  .inputSec1 {
+    max-width: 316px;
   }
 }
