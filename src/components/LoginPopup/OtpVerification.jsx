@@ -247,12 +247,12 @@ const OtpVerification = () => {
       <Container>
         <Row>
           <Col xs={12} md={6}>
-            <Image
+            <img
               src="/login/mobVer/mobVer2.webp"
               height={600}
               width={500}
               alt="mob-ver-otp"
-              className=" max-md:hidden"
+              className="side_image max-md:hidden"
             />
           </Col>
           <Col xs={12} md={6}>

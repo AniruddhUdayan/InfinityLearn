@@ -43,12 +43,12 @@ const Language = () => {
                         <img
                             src="/login/mobVer/mobVer2.webp"
                             alt="mob-ver-1"
-                            className=" max-md:hidden"
+                            className="side_image max-md:hidden"
                         />
                     </Col>
                     <Col xs={12} md={6}>
-                    <ProgressTabs />
                         <div className="right_box">
+                    <ProgressTabs />
                             <Row>
                                 <Col md={12}>
                                     <h2 className="session_heading">Do you have any language preferences?</h2>

@@ -103,8 +103,8 @@ const DateTimeSelection = () => {
                         />
                     </Col>
                     <Col xs={12} md={6}>
-                    <ProgressTabs />
                         <div className="right_box">
+                    <ProgressTabs />
                             <Row>
                                 <Col md={12}>
                                     <h2 className="session_heading">When would you like to speak to the counsellor?</h2>
