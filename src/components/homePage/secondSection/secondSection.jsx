@@ -1,6 +1,6 @@
 "use client";
 import "./secondSection.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 const std = [" 11 to 12 +", "9 to 10", " 4 to 8 ", " 1 to 3 "];
@@ -17,10 +17,21 @@ export const SwitchTabs = ({ data, onTabChange }) => {
   const [left, setLeft] = useState(0);
   const [tabWidth, setTabWidth] = useState(0);
   const tabsRefs = useRef([]);
+  // useEffect(() => {
+  //   setTabWidth(tabsRefs.current[selectedTab].offsetWidth);
+  //   setLeft(tabsRefs.current[selectedTab].offsetLeft);
+  // }, []);
+  // useLayoutEffect(() => {
+  //   if (tabsRefs.current[0]) {
+  //     setTabWidth(tabsRefs.current[0].offsetWidth);
+  //     setLeft(tabsRefs.current[0].offsetLeft);
+  //   }
+  // }, [tabsRefs]);
 
   useEffect(() => {
     // On component mount or when data changes, update the width and position
     if (tabsRefs.current[selectedTab]) {
+      console.log(typeof tabsRefs.current[selectedTab].offsetWidth, "nikal");
       setTabWidth(tabsRefs.current[selectedTab].offsetWidth);
       setLeft(tabsRefs.current[selectedTab].offsetLeft);
     }

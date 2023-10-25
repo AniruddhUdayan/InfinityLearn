@@ -10,7 +10,7 @@ import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
 import { setPhoneNumber } from "../../../store/BookSession/BookSessionData";
-import {setIsNewUser} from '../../../store/BookSession/BookSessionNewUser';
+import { setIsNewUser } from "../../../store/BookSession/BookSessionNewUser";
 import { setIsExitingUser } from "../../../store/mobVeriSlice";
 import { verifyPhone, sendOtp } from "../../../services/userServics";
 import analytics from "../../../utils/analytics";
@@ -100,7 +100,7 @@ const SeventhSection = () => {
   return (
     <>
       <div className="download-overlay">
-        <div className="w-full lg:w-5/12 ">
+        <div className="w-full  ">
           <div
             className="font-bold whitespace-nowrap text-c1  
           text-4xl lg:text-5xl mb-1 leading-[2.5rem]
@@ -113,7 +113,7 @@ const SeventhSection = () => {
             <span className="text-[#FCDE5A] sm:hidden">academic</span>{" "}
             counsellor
           </div>
-          <div className="lg:text-lg">
+          <div className="lg:text-lg max-w-[495px]">
             {
               "access to India's best teachers with a record of producing top rankers year on year."
             }

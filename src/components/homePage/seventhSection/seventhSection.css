@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 70px 0;
+  padding: 78px 116px;
   color: #ffffff;
   gap: 32px;
   width: 100%;
@@ -116,10 +116,10 @@
 @media (min-width: 1024px) {
   /* Styles to apply when the viewport width is 768px or wider */
   .download-container {
-    padding-top: 16px;
+    /* padding-top: 16px; */
     flex-direction: row;
-    padding-left: 64px;
-    padding-right: 64px;
+    /* padding-left: 64px;
+    padding-right: 64px; */
   }
   .download-box {
     gap: 32px;
@@ -136,7 +136,7 @@
   .download-overlay {
     flex-direction: row;
     gap: 64px;
-    padding: 5rem;
+    /* padding: 5rem; */
   }
   .download-overlay-box {
     width: 41.6%;

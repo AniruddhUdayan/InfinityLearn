@@ -27,18 +27,19 @@
   height: min-content;
   background-color: white;
   /* ding-top pad: 4rem 64px; */
-  padding-bottom: 4rem /* 64px */;
+  padding-bottom: 167px /* 64px */;
   .thirdsection-content {
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    margin-top: 90px;
+    margin-top: 86px;
+    padding-left: 96px;
     /* align-items: center; */
     flex-direction: column;
   }
   .thirdSection-fc {
     display: flex;
-    gap: 1.5rem;
+    /* gap: 96px; */
     width: 95%;
     justify-content: space-between;
     /* align-items: center; */
@@ -225,7 +226,7 @@ video {
   position: relative;
   background-color: white;
   padding-top: 10px;
-  gap: 10px;
+  gap: 32px;
   align-items: center;
   color: #080e14;
   font-size: 16px;
@@ -235,7 +236,7 @@ video {
 }
 
 .tabItem {
-  padding: 5px 15px;
+  padding: 5px 12px;
   cursor: pointer;
   transition: color 0.3s ease;
 }

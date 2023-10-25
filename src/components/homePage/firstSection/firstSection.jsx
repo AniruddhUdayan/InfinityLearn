@@ -178,7 +178,7 @@ function FirstSection() {
       <Row>
         <div className="imageNonRes w-full">
           <Image
-            src="/homepage/firstSection/firstSection.svg"
+            src="/homepage/firstSection/firstSection1.png"
             width={490}
             height={606}
             alt="firstSection"

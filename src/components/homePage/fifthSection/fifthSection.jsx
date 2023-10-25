@@ -403,7 +403,7 @@ function FifthSection() {
     <div className=" fifthSection">
       <div
         className=" bg-[#00364E]  flex max-md:pt-10  justify-evenly max-md:ml-3
-       max-md:justify-start text-start items-start pt-20 max-xl: "
+       max-md:justify-start text-start items-start   "
       >
         <div className=" fsh ">
           <div className=" text-white fshc ">
@@ -419,7 +419,7 @@ function FifthSection() {
         </div>
         <Image
           src="/homepage/fifthSection/topper.webp"
-          className="image-tomp hover:cursor-pointer max-xl:mr-5 aspect-[3/2]"
+          className="image-tomp hover:cursor-pointer mt-20 max-xl:mr-5 aspect-[3/2]"
           height={400}
           width={600}
           alt="topper.svg"
