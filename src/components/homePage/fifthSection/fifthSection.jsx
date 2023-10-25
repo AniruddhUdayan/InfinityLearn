@@ -229,111 +229,110 @@ function Reviews(props) {
     </div>
   );
 }
-export const Card = React.forwardRef(
-  ({ data, onMouseEnter, onMouseLeave }, ref) => {
-    const check = data.video;
-    const [svgWidth, setSvgWidth] = useState(365);
+export const Card = ({ data, onMouseEnter, onMouseLeave }) => {
+  const check = data.video;
+  const [svgWidth, setSvgWidth] = useState(365);
 
-    const updateWidth = () => {
-      setSvgWidth(window.innerWidth <= 480 ? 292 : 365);
-    };
-    useEffect(() => {
-      // Update width on mount
-      updateWidth();
+  const updateWidth = () => {
+    setSvgWidth(window.innerWidth <= 480 ? 292 : 365);
+  };
+  useEffect(() => {
+    // Update width on mount
+    updateWidth();
 
-      // Add resize event listener
-      window.addEventListener("resize", updateWidth);
+    // Add resize event listener
+    window.addEventListener("resize", updateWidth);
 
-      // Cleanup: remove event listener on unmount
-      return () => window.removeEventListener("resize", updateWidth);
-    }, []);
+    // Cleanup: remove event listener on unmount
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
-    if (check) {
-      return (
-        <div
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          className="cardVideo  shadow-md  "
-        >
-          <div className="image-container">
-            <Image
-              src={data.image}
-              alt="Video Background"
-              className="background-image"
-              width={svgWidth}
-              height={161}
-              // className=""
-            />
-            <Image
-              src="/reviews/video.svg"
-              alt="Play Button Logo"
-              className="play-button"
-              width={40}
-              height={40}
-            />
-          </div>
-          <div className=" z-10 cardVideo-review  ">{data.review}</div>
-          <div className=" w-full relative bottom-11 flex justify-end">
-            <Image
-              src="/reviews/invertedCommas2.svg"
-              height={41}
-              width={52}
-              alt="inverted commas "
-              className=" "
-            />
-          </div>
-
-          <div
-            className=" flex  justify-around  w-full
-          max-md:justify-start  max-md:flex-col 
-          "
-          >
-            <div className="flex z-50  flex-col flex-grow">
-              <div className=" cardVideo-name">{data.name}</div>
-              <div className="  cardVideo-place">{data.place}</div>
-            </div>
-            <div className="   cardVideo-course">{data.batch}</div>
-          </div>
-        </div>
-      ); // or you can return some default component or <></> for nothing.
-    }
-
+  if (check) {
     return (
       <div
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className="cardNormal shadow-md "
+        className="cardVideo  shadow-md  "
       >
-        <div className="flex justify-evenly cardNormal-head  items-center  px-7 max-md:px-2 ">
+        <div className="image-container">
           <Image
             src={data.image}
-            // className=" rounded-full"
-            height={120}
-            width={120}
-            className=" w-auto h-auto "
-            fit="contain"
-            alt="cards svg"
+            alt="Video Background"
+            className="background-image"
+            width={svgWidth}
+            height={161}
+            // className=""
           />
-          <div className="flex z-10  flex-col flex-grow">
-            <div className=" cardNormal-name mb-2">{data.name}</div>
-            <div className=" cardNormal-place mb-[24px]">{data.place}</div>
-            <div className=" whitespace-nowrap  cardNormal-course">
-              {data.batch}
-            </div>
+          <Image
+            src="/reviews/video.svg"
+            alt="Play Button Logo"
+            className="play-button"
+            width={40}
+            height={40}
+          />
+        </div>
+        <div className=" z-10 cardVideo-review  ">{data.review}</div>
+        <div className=" w-full relative bottom-11 flex justify-end">
+          <Image
+            src="/reviews/invertedCommas2.svg"
+            height={41}
+            width={52}
+            alt="inverted commas "
+            className=" "
+          />
+        </div>
+
+        <div
+          className=" flex  justify-around  w-full
+          max-md:justify-start  max-md:flex-col 
+          "
+        >
+          <div className="flex z-50  flex-col flex-grow">
+            <div className=" cardVideo-name">{data.name}</div>
+            <div className="  cardVideo-place">{data.place}</div>
+          </div>
+          <div className="   cardVideo-course">{data.batch}</div>
+        </div>
+      </div>
+    ); // or you can return some default component or <></> for nothing.
+  }
+
+  return (
+    <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className="cardNormal shadow-md "
+    >
+      <div className="flex justify-evenly cardNormal-head  items-center  px-7 max-md:px-2 ">
+        <Image
+          src={data.image}
+          // className=" rounded-full"
+          height={120}
+          width={120}
+          className=" w-auto h-auto "
+          fit="contain"
+          alt="cards svg"
+        />
+        <div className="flex z-10  flex-col flex-grow">
+          <div className=" cardNormal-name mb-2">{data.name}</div>
+          <div className=" cardNormal-place mb-[24px]">{data.place}</div>
+          <div className=" whitespace-nowrap  cardNormal-course">
+            {data.batch}
           </div>
         </div>
-        <Image
-          src="/reviews/invertedcommas.svg"
-          height={52}
-          width={40}
-          alt="inverted commas"
-          className=" w-[15%]"
-        />
-        <div className=" cardNormal-review ">{data.review}</div>
       </div>
-    );
-  }
-);
+      <Image
+        src="/reviews/invertedcommas.svg"
+        height={52}
+        width={40}
+        alt="inverted commas"
+        className=" w-[15%]"
+      />
+      <div className=" cardNormal-review ">{data.review}</div>
+    </div>
+  );
+};
+
 function FifthSection() {
   const [svgWidth, setSvgWidth] = useState(592);
   const [showOverlay, setShowOverlay] = useState(false);
@@ -439,13 +438,15 @@ function FifthSection() {
               style={{ transform: `translateX(-${scrollPos * sN}%)` }}
             >
               {reviews.map((review, index) => (
-                <Card
-                  ref={index === 0 ? cardRef : null}
-                  key={index}
-                  data={review}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                />
+                <div ref={cardRef} className=" flex-shrink-0">
+                  <Card
+                    // ref={index === 0 ? cardRef : null}
+                    key={index}
+                    data={review}
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                  />
+                </div>
               ))}
             </div>
           </div>
