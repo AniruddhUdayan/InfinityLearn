@@ -4,7 +4,9 @@
     align-items: center;
   }
 }
-
+.thirdSection1 {
+  padding-top: 78px;
+}
 .slof-b {
   height: 2.5rem;
   font-weight: 600;
@@ -49,7 +51,6 @@
   width: 100%;
   height: max-content;
   margin-bottom: 2.5rem;
-  padding-top: 32px;
 }
 .option {
   display: flex;
@@ -218,4 +219,35 @@ video {
     font-size: 18px;
     line-height: 1.75rem;
   }
+}
+.tabsContainer {
+  display: flex;
+  position: relative;
+  background-color: white;
+  padding-top: 10px;
+  gap: 10px;
+  align-items: center;
+  color: #080e14;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: lowercase;
+  line-height: 24px;
+}
+
+.tabItem {
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.tabItem.active {
+  color: #007bff;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: left 0.3s ease, width 0.3s ease;
 }
