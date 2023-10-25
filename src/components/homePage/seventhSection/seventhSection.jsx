@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { useDispatch, useSelector } from "react-redux";
 import { setPhoneNumber } from "../../../store/BookSession/BookSessionData";
+import {setIsNewUser} from '../../../store/BookSession/BookSessionNewUser';
 import { setIsExitingUser } from "../../../store/mobVeriSlice";
 import { verifyPhone, sendOtp } from "../../../services/userServics";
 import analytics from "../../../utils/analytics";
@@ -67,6 +68,7 @@ const SeventhSection = () => {
         if (userData?.existingUser) {
           sentOtp();
         } else {
+          dispatch(setIsNewUser(true));
           dispatch(setComponentToShow("EnterName"));
           dispatch(setIsPopupShow(!isPopupShow));
         }

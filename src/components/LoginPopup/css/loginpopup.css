@@ -4,6 +4,10 @@
 }
 .login_popup.modal .modal-header {
     border: none !important;
+    padding: 15px 0px 0px 15px;
+}
+.login_popup.modal .login_body {
+    padding: 0px 15px 15px 15px;
 }
 /* .login_body{
     max-height: 450px;
@@ -17,6 +21,10 @@
   .login_popup.modal .modal-header .btn-close {
     opacity: 1 !important;
     background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat !important;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
 }
 .side_image{
     width: 100%;
