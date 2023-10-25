@@ -147,21 +147,3 @@ const SeventhSection = () => {
 };
 
 export default SeventhSection;
-{
-  /* 
-  <div className="w-full lg:w-5/12 ">
-  <div className="font-bold whitespace-nowrap text-c1  text-4xl lg:text-5xl mb-1 leading-[2.5rem] lg:leading-[3.6rem]">
-    speak to our{" "}
-    <span className="text-[#FCDE5A] max-sm:hidden">academic</span>
-  </div>
-  <div className="text-[#FCDE5A]   text-c1  whitespace-nowrap font-bold text-4xl lg:text-5xl mb-4 leading-[2.5rem] lg:leading-[3.6rem]">
-    <span className="text-[#FCDE5A] sm:hidden">academic</span> counsellor
-  </div>
-  <div className="lg:text-lg">
-    {
-      "access to India's best teachers with a record of producing top rankers year on year."
-    }
-  </div>
-</div>; 
-*/
-}
