@@ -4,7 +4,6 @@ import yellow from "./../../../../public/images/yellow-guy.webp"
 import check from './../../../../public/images/check-icon.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 import { Button } from "@mui/material"
-import './styles.css'
 
 const School = ({ classFor, examFor }) => {
 	return (

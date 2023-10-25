@@ -17,7 +17,6 @@ import Books from '@/components/examPage/Books'
 import Faculty from '@/components/examPage/Faculty'
 import PackageSubscription from '@/components/PackageSubscription'
 import LoginPopup from '@/components/LoginPopup'
-import './styles.css'
 import BookSessionPopup from "../bookSessionPopup";
 import Bookdemo from "../BookDemo/BookDemo";
 

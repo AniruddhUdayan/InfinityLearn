@@ -17,7 +17,6 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { setComponentToShow } from "./../../../store/modalToShow";
 import { showOverlayMode } from "./../../../store/mobVeriSlice";
-import './styles.css'
 import { setIsPopupShow } from "@/store/BookSession/BookSessionPopup";
 
 const LandingExam = ({ classFor, examFor }) => {

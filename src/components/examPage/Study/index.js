@@ -6,7 +6,6 @@ import solved from './../../../../public/images/solved.svg'
 import popular from './../../../../public/images/popular.svg'
 import formulas from './../../../../public/images/formulas.svg'
 import arrow from './../../../../public/images/arrow-r-blue.svg'
-import './styles.css'
 import Image from 'next/image'
 
 const Study = () => {

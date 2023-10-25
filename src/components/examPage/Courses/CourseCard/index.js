@@ -5,14 +5,15 @@ import Image from "next/image"
 import flag from './../../../../../public/images/green-flag.svg'
 import views1 from './../../../../../public/images/views-1.webp'
 import expand from './../../../../../public/images/expand_more.svg'
+import styles from './../../css/styles.module.css'
 
 const CourseCard = ({ title, img, classes, views, desc, price, live, point1, point2, isRecommended, ref2 }) => {
     return (
-        <div className="cc-main" ref={ref2}>
-            <div className="relative">
-                <Image src={img} alt="course" className="cc-img" />
+        <div className={styles.ccMain} ref={ref2}>
+            <div className={styles.relative}>
+                <Image src={img} alt="course" className={styles.ccImg} />
                 {isRecommended &&
-                    <div className="cc-img-rec" style={{
+                    <div className={styles.ccImgRec} style={{
                         backgroundImage: `url(${flag.src})`,
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'contain',
@@ -22,31 +23,31 @@ const CourseCard = ({ title, img, classes, views, desc, price, live, point1, poi
                     </div>
                 }
 
-                <div className="cc-img-main">
-                    <div className='cc-img-text'>
-                        <div className="cc-img-text-title">{title}</div>
-                        <div className="cc-img-views-div">
+                <div className={styles.ccImgMain}>
+                    <div className={styles.ccImgText}>
+                        <div className={styles.ccImgTextTitle}>{title}</div>
+                        <div className={styles.ccImgViewsDiv}>
                             <Image src={views1} alt="classes" width={30} />
-                            <Image src={views1} alt="classes" width={30} className="cc-img-view-2" />
-                            <div className="cc-img-views">{views}</div>
+                            <Image src={views1} alt="classes" width={30} className={styles.ccImgView2} />
+                            <div className={styles.ccImgViews}>{views}</div>
                         </div>
                     </div>
-                    <div className="cc-class">{classes}</div>
+                    <div className={styles.ccClass}>{classes}</div>
                 </div>
             </div>
-            <div className="cc-title">{title}</div>
-            <div className="cc-desc">{desc}</div>
-            <div className="cc-hl"></div>
-            <div className="cc-footer">
-                <div className="cc-starting">starting at <span className="black">₹{price}/month</span></div>
-                {!live && <div className="cc-more">see more <Image src={expand} width={7} alt={'expand'} className='cc-90' /></div>}
+            <div className={styles.ccTitle}>{title}</div>
+            <div className={styles.ccDesc}>{desc}</div>
+            <div className={styles.ccHl}></div>
+            <div className={styles.ccFooter}>
+                <div className={styles.ccStarting}>starting at <span className={styles.black}>₹{price}/month</span></div>
+                {!live && <div className={styles.ccMore}>see more <Image src={expand} width={7} alt={'expand'} className={styles.cc90} /></div>}
             </div>
             {live && <>
-                <div className="cc-p1">
+                <div className={styles.ccP1}>
                     <Image src={classesImg} alt="classes" width={20} />
                     {point1}
                 </div>
-                <div className="cc-p2">
+                <div className={styles.ccP2}>
                     <Image src={recordings} alt="recordings" width={25} />
                     {point2}
                 </div>

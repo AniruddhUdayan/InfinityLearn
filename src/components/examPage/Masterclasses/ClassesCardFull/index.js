@@ -5,40 +5,41 @@ import flag from './../../../../../public/images/blue-flag.svg'
 import live from './../../../../../public/images/live-icon.svg'
 import watchingIcon from './../../../../../public/images/watching-icon.svg'
 import watchers from './../../../../../public/images/watchers.svg'
+import styles from './../../css/styles.module.css'
 
 const ClassesCardFull = ({ img, sub, title, desc, started, by, byImg, isLive, watching, time, fullwidth, ref2 }) => {
     return (
-        <div className={`mcc-main ` + (fullwidth ? 'mcc-main-full' : 'mcc-main-notfull')} ref={ref2}>            
-            <div className={`relative`}>
-                <Image src={img} alt="main" className="w-full" />
+        <div className={`${styles.mccMain} ` + (fullwidth ? styles.mccMainFull : styles.mccMainNotfull)} ref={ref2}>
+            <div className={styles.relative}>
+                <Image src={img} alt="main" className={styles.wFull} />
                 {isLive && (
-                    <Image src={play} alt="play" className="mcc-play" />
+                    <Image src={play} alt="play" className={styles.mccPlay} />
                 )}
                 {isLive && (
-                    <div className="mcc-live-wrapper">
+                    <div className={styles.mccLiveWrapper}>
                         <Image src={live} alt="live" />
-                        <div className="mcc-live-text">Live</div>
+                        <div className={styles.mccLiveText}>Live</div>
                     </div>                
                 )}
-                <div className="mcc-img" style={{
+                <div className={styles.mccImg} style={{
                     backgroundImage: `url(${flag.src})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'right',
                     backgroundSize: 'fit'
                 }}>
                     <Image src={isLive ? watchingIcon : watchers} alt="watching" />
-                    <div className="mcc-live-text">{watching}{isLive && ' watching now'}</div>
+                    <div className={styles.mccLiveText}>{watching}{isLive && ' watching now'}</div>
                 </div>
             </div>
-            <div className="mcc-text">
-                <div className="mcc-sub">{sub}</div>
-                <div className={"mcc-title " + (fullwidth ? " mcc-title-full" : "")}>{title}</div>
-                {fullwidth && <div className="mcc-desc">{desc}</div>}
-                <div className={"mcc-started " + (fullwidth ? 'mcc-started-full' : '')}>{started}{time && <span className="mcc-time">, {time}</span>}</div>
-                <div className="mcc-hl"></div>
-                <div className={"mcc-by " + (fullwidth ? 'mcc-by-full' : '')}>
-                    <Image src={byImg} alt="teacher" width={40} height={40} className="" />
-                    by <span className="mcc-bold">{by}</span>
+            <div className={styles.mccText}>
+                <div className={styles.mccSub}>{sub}</div>
+                <div className={`${styles.mccTitle} ` + (fullwidth ? styles.mccTitleFull : "")}>{title}</div>
+                {fullwidth && <div className={styles.mccDesc}>{desc}</div>}
+                <div className={`${styles.mccStarted} ` + (fullwidth ? styles.mccStartedFull : '')}>{started}{time && <span className="mcc-time">, {time}</span>}</div>
+                <div className={styles.mccHl}></div>
+                <div className={`${styles.mccBy} ` + (fullwidth ? styles.mccByFull : '')}>
+                    <Image src={byImg} alt="teacher" width={40} height={40} />
+                    by <span className={styles.mccBold}>{by}</span>
                 </div>
             </div>
         </div>
