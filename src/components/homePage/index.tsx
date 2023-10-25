@@ -9,14 +9,14 @@ import FourthSection from "./fourthSection/fourthSection.jsx";
 import FifthSection from "./fifthSection/fifthSection.jsx";
 import SixthSection from "./sixthSection/sixthSection.jsx";
 import SeventhSection from "./seventhSection/seventhSection.jsx";
-import Download from "@/components/examPage/Download/index.js";
+// import Download from "@/components/examPage/Download/index.js";
 import analytics from "../../utils/analytics.jsx";
 import LoginPopup from "../LoginPopup";
 import NinthSection from "./ninthSection/ninthSection.jsx";
 import EigthSection from "./eightSection/eigthSection.jsx";
 import SelectGradePopup from "../common/SelectGradePopup.jsx";
 import BookSessionPopup from "../bookSessionPopup";
-import PackageSubscription from "../PackageSubscription/index.jsx";
+// import PackageSubscription from "../PackageSubscription/index.jsx";
 const HomePage = () => {
   useEffect(() => {
     analytics.page();

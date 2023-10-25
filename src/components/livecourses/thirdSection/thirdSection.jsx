@@ -38,7 +38,7 @@ function OptionZero() {
       <div className=" option-head2">learning!</div>
       <ul className=" ">
         {arr[0].content.map((item, index) => (
-          <li className="flex mb-[21px] gap-[16px]">
+          <li key={index} className="flex mb-[21px] gap-[16px]">
             <Image src="/../tick.svg" height={25} width={25} alt="third" />
             <div>{item}</div>
           </li>

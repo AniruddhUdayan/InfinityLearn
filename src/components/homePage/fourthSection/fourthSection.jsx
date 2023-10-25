@@ -406,7 +406,7 @@ function FourthSection() {
           setDashCard((activeDash + 1) % 5);
         }
       }
-    }, 1800000);
+    }, 1800);
 
     return () => clearInterval(interval);
   }, [scrollPos, activeDash, isHovered]);
