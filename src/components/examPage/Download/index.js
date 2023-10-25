@@ -14,6 +14,7 @@ import {setIsExitingUser,} from "../../../store/mobVeriSlice";
 import { verifyPhone, sendOtp } from "../../../services/userServics";
 import analytics from "../../../utils/analytics";
 import {setIsPopupShow,setComponentToShow} from "../../../store/BookSession/BookSessionPopup";
+import './download.css'
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -93,9 +94,9 @@ const Download = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col lg:flex-row justify-center bg-[#F1F2F6] pt-8 lg:pt-16 px-4 lg:px-16 pb-0 gap-8 text-[#080E14]">
-        <div className="flex flex-col gap-2 lg:gap-8 w-full lg:w-6/12 px-0 lg:px-10">
-          <div className="font-bold text-4xl lg:text-5xl text-[#007BFF] mb-4 leading-[2.5rem] lg:leading-[3.6rem]">
+      <div className="download-container">
+        <div className="download-box">
+          <div className="download-title">
             best study material,{" "}
             <span className="text-[#080E14]">now at your finger tips!</span>
           </div>
@@ -106,7 +107,7 @@ const Download = () => {
               width={40}
               height={40}
             />
-            <div className="text-[#6B6E72] text-lg flex items-center">
+            <div className="download-checklist-text">
               live classes
             </div>
           </div>
@@ -117,7 +118,7 @@ const Download = () => {
               width={25}
               height={25}
             />
-            <div className="text-[#6B6E72] text-lg flex items-center">
+            <div className="download-checklist-text">
               live classes
             </div>
           </div>
@@ -128,7 +129,7 @@ const Download = () => {
               width={40}
               height={40}
             />
-            <div className="text-[#6B6E72] text-lg flex items-center">
+            <div className="download-checklist-text">
               progress tracking
             </div>
           </div>
@@ -139,7 +140,7 @@ const Download = () => {
               width={25}
               height={25}
             />
-            <div className="text-[#6B6E72] text-lg flex items-center">
+            <div className="download-checklist-text">
               progress tracking
             </div>
           </div>
@@ -150,7 +151,7 @@ const Download = () => {
               width={40}
               height={40}
             />
-            <div className="text-[#6B6E72] text-lg flex items-center">
+            <div className="download-checklist-text">
               diverse question banks
             </div>
           </div>
@@ -161,13 +162,13 @@ const Download = () => {
               width={25}
               height={25}
             />
-            <div className="text-[#6B6E72] text-lg flex items-center">
+            <div className="download-checklist-text">
               diverse question banks
             </div>
           </div>
-          <div className="hidden lg:block">
-            <div className="text-xl font-bold">download the app</div>
-            <div className="flex gap-4 mt-2">
+          <div className="download-hidden-checklist">
+            <div className="download-head-text">download the app</div>
+            <div className="download-app-links">
               <Link href="https://apps.apple.com/sg/app/infinity-learn/id1642492194">
                 <Image src={apple} alt="apple" width={150} height={0} />
               </Link>
@@ -215,9 +216,9 @@ const Download = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#00364E] flex flex-col lg:flex-row gap-8 lg:gap-16 justify-center w-full max-sm:p-4 max-sm:py-8 py-[70px] lg:p-20 text-[#FFFFFF]">
-        <div className="w-full lg:w-5/12 ">
-          <div className="font-bold text-4xl lg:text-5xl mb-4 leading-[2.5rem] lg:leading-[3.6rem]">
+      <div className="download-overlay">
+        <div className="download-overlay-box ">
+          <div className="download-demo-session-title">
             book a <span className="text-[#FCDE5A]">demo session</span>
           </div>
           <div className="lg:text-lg">
@@ -226,10 +227,10 @@ const Download = () => {
             }
           </div>
         </div>
-        <div className="flex flex-col gap-2 justify-center max-sm:px-[12px] max-sm:py-[14px] w-auto lg:w-7/12 max-w-[437px]">
-          <div className="flex flex-row w-auto">
+        <div className="download-demo-session-input-box">
+          <div className="download-demo-session-input-subbox">
             <div
-              className={`${poppins.className} sm:h-[56px] h-[48px] w-auto px-[12px] sm:w-auto bg-white rounded-tl-[12px] rounded-bl-[12px] flex justify-center items-center  sm:px-[28px] text-[13px] sm:text-[16px] font-[500] gap-0  sm:gap-1`}
+              className={`${poppins.className} download-demo-session-input`}
             >
               <span className="text-[#080E14] sm:mr-[6px]">+91 </span>
               <input
@@ -242,12 +243,12 @@ const Download = () => {
             </div>
             <button
               onClick={handleToggleOverlay}
-              className="bg-[#007BFF]   text-white px-[24px] text-[14px] sm:text-[16px] sm:px-[28px] rounded-tr-[12px] rounded-br-[12px]"
+              className="download-book-button"
             >
               book now
             </button>
           </div>
-          <div className="hidden lg:block">
+          <div className="download-otp-info">
             we will send an otp for verification
           </div>
         </div>
