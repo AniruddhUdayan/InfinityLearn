@@ -82,7 +82,7 @@ const courses = [
     svg: "/courses/Image1.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   {
@@ -93,7 +93,7 @@ const courses = [
     svg: "/courses/Image1.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   {
@@ -104,7 +104,7 @@ const courses = [
     svg: "/courses/Image2.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   {
@@ -115,7 +115,7 @@ const courses = [
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   {
@@ -126,7 +126,7 @@ const courses = [
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   {
@@ -137,7 +137,7 @@ const courses = [
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   {
@@ -148,7 +148,7 @@ const courses = [
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   {
@@ -159,7 +159,7 @@ const courses = [
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
-    noofvideos: "5000+ videos | 3000hrsof content",
+    noofvideos: "5000+ videos | 3000hrs of content",
     nooftest: "24 biweekly test",
   },
   // {
@@ -181,11 +181,11 @@ const courses = [
 function Card(props) {
   const [showMore, setShowMore] = useState(false);
   const [svgWidth, setSvgWidth] = useState(368);
-  const [decreasedHeight, setDecreasedHeight] = useState(165);
+  const [decreasedHeight, setDecreasedHeight] = useState(295);
 
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 311 : 368);
-    setDecreasedHeight(window.innerWidth <= 768 ? 100 : 165);
+    setDecreasedHeight(window.innerWidth <= 768 ? 100 : 125);
   };
   useEffect(() => {
     // Update width on mount
@@ -204,7 +204,7 @@ function Card(props) {
         props.data.id == 1 || props.data.id == 0 || props.data.id == 2
           ? " w-96 bg-blue-200 h-0  "
           : "bg-white"
-      }   hover:cursor-pointer cc  `}
+      }   hover:cursor-pointer cc max-h-[434px]  `}
     >
       <div style={{ height: showMore ? `${decreasedHeight}px` : "auto" }}>
         <Image
@@ -266,20 +266,20 @@ function Card(props) {
             className={`${showMore ? " flex " : " hidden "} seeMoreSection `}
           >
             <div className=" seeMoreSection-text">
-              <BsClockHistory size={15} />
+              <BsClockHistory size={20} />
               {props.data.duration}
             </div>
             <div className="seeMoreSection-text">
-              <LuGraduationCap size={15} />
+              <LuGraduationCap size={20} />
               {props.data.noofhours}
             </div>
             <div className=" seeMoreSection-text">
-              <BsCameraVideo size={15} />
+              <BsCameraVideo size={20} />
 
               {props.data.noofvideos}
             </div>
             <div className="seeMoreSection-text">
-              <HiOutlineDocumentText size={15} />
+              <HiOutlineDocumentText size={20} />
               {props.data.nooftest}
             </div>
           </div>
@@ -395,7 +395,7 @@ function FourthSection() {
           setDashCard((activeDash + 1) % 5);
         }
       }
-    }, 1800);
+    }, 18000000);
 
     return () => clearInterval(interval);
   }, [scrollPos, activeDash, isHovered]);
@@ -458,7 +458,7 @@ function FourthSection() {
               ))}
             </div>
           </div>
-          <div className=" flex justify-center mt-10">
+          <div className=" flex justify-center mt-[53px]">
             {Array.from({ length: 4 }, (_, index) => (
               <div
                 key={index}

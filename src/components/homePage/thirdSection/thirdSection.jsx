@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Image from "next/image";
 import { Nav } from "react-bootstrap";
 import "./thirdSection.css";
@@ -86,14 +86,24 @@ const SwitchTabs = ({ data, onTabChange }) => {
     width: "0px",
   });
 
-  const activeTab = (tab, index, event) => {
-    const target = event.target;
-    setUnderlineStyles({
-      left: `${target.offsetLeft}px`,
-      width: `${target.offsetWidth}px`,
-    });
+  const tabsRefs = useRef([]);
+
+  useLayoutEffect(() => {
+    if (tabsRefs.current[0]) {
+      setUnderlineStyles({
+        left: "0px",
+        width: `${tabsRefs.current[0].offsetWidth}px`,
+      });
+    }
+  }, []);
+
+  const activeTab = (tab, index, e) => {
     setSelectedTab(index);
-    onTabChange(tab, index);
+    setUnderlineStyles({
+      left: `${e.currentTarget.offsetLeft}px`,
+      width: `${e.currentTarget.offsetWidth}px`,
+    });
+    onTabChange && onTabChange(tab, index);
   };
 
   return (
@@ -101,6 +111,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
       {data.map((tab, index) => (
         <span
           key={index}
+          ref={(el) => (tabsRefs.current[index] = el)}
           className={`tabItem ${selectedTab === index ? "active" : ""}`}
           onClick={(e) => activeTab(tab, index, e)}
         >
@@ -205,7 +216,7 @@ function ThirdSection() {
 
     return windowWidth;
   };
-  const [svgWidth, setSvgWidth] = useState(592);
+  const [svgWidth, setSvgWidth] = useState(524);
   const updateWidth = () => {
     setSvgWidth(window.innerWidth <= 768 ? 315 : 592);
   };
@@ -251,7 +262,7 @@ function ThirdSection() {
           </div>
         )}
       </div>
-      <div className=" thirdSection min-h-[118px] container no-scrollbar ">
+      <div className=" thirdSection min-h-[118px] px-[162px] no-scrollbar ">
         <div className="thirdSection-fc  rowww">
           <Image
             src="/thirdSection1.png"

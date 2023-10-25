@@ -47,43 +47,37 @@ function SixthSection() {
   };
 
   return (
-    <div className=" flex sixthsection flex-col max-md:pt-28 pt-[74px] justify-center">
+    <div className=" flex sixthsection  flex-col max-md:pt-28 pt-[74px] justify-center">
       <div className=" w-full flex h-min justify-center items-center ">
         <button
           onClick={startLearning}
-          className="text-white mt-6 items-center h-[52px] max-md:mt-8  
+          className="text-white mt-[74px] items-center h-[52px] max-md:mt-8  
           hover:space-x-2 w-80 max-md:w-[340px] lff hover:bg-blue-600 
-           bg-[#007BFF] rounded-2xl"
+           bg-[#007BFF] rounded-2xl flex text-[16px] font-[600] justify-center gap-2"
         >
-          <div className=" flex justify-center gap-2">
-            <div className=" text-[16px] font-[600]">
-              start learning for free{" "}
-            </div>
-            <div>
-              <GoArrowUpRight size={24} />
-            </div>
-          </div>
+          start learning for free
+          <GoArrowUpRight size={24} />
         </button>
       </div>
 
-      <div className=" h-min bg-gray-200 max-md:mt-[32px] mt-[80px] ">
-        <div className=" max-w-screen-xl mx-auto md:px-4 flex max-md:flex-col  justify-between relative">
-          <div className=" flex flex-col max-md:justify-end text-ss font-[700] text-[64px] max-xl:text-[54px] max-md:text-[32px]  mt-20  ">
+      <div className=" h-min bg-gray-200 px-[112px] max-sm:px-0 max-md:mt-[32px] mt-[80px] ">
+        <div className=" max-w-screen-xl  flex max-md:flex-col  justify-between relative">
+          <div className=" flex flex-col max-md:justify-end text-ss font-[700] text-[64px] max-xl:text-[54px] max-md:text-[32px]  mt-[90px]  ">
             <div className=" text-c   max-md:px-5 whitespace-nowrap      text-[#007BFF]">
               best study
               <span className="text-[#007BFF] ml-2 md:hidden  mb-4 ">
                 material,{" "}
               </span>
             </div>
-            <div className="text-[#007BFF]  max-md:px-5   max-md:hidden   ">
+            <div className="text-[#007BFF] text-c  max-md:px-5   max-md:hidden   ">
               material,{" "}
               <span className="text-[#080E14] font-[700] ">now at</span>
             </div>
-            <div className=" text-[#080E14] max-md:px-5  text-c whitespace-nowrap   md:mb-10 max-md:mb-1 ">
+            <div className=" text-[#080E14] text-c max-md:px-5  text-c whitespace-nowrap   md:mb-10 max-md:mb-1 ">
               <span className="  md:hidden text-black  ">now at</span> your
               finger <span className=" max-md:hidden">tips!</span>
             </div>
-            <div className=" text-[#080E14] max-md:px-5 text-c whitespace-nowrap md:hidden   md:mb-10 max-md:mb-6">
+            <div className=" text-[#080E14]  max-md:px-5 text-c whitespace-nowrap md:hidden   md:mb-10 max-md:mb-6">
               tips!
             </div>
             <div className="flex max-md:px-5 text-c max-xl:flex-col flex-wrap">

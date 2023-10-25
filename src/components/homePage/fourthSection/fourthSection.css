@@ -51,14 +51,19 @@
 }
 .seeMoreSection-text {
   display: flex;
-  gap: 5px;
-  font-size: 12px;
+  gap: 8px;
+
   align-items: center;
+  font-size: 14px;
+
+  font-weight: 400;
+  text-transform: lowercase;
+  line-height: 21px;
 }
 .fourthSection {
   width: 100%;
-  padding-top: 2.5rem /* 40px */;
-  padding-bottom: 2.5rem /* 40px */;
+  padding-top: 2.75rem;
+  padding-bottom: 75px;
   overflow: hidden;
   justify-content: center;
   margin-left: auto;
