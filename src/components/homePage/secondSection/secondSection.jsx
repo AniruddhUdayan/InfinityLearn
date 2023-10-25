@@ -135,24 +135,24 @@ function Card0(props) {
       <Image src={svg} width={svgWidth} height={svgWidth} alt="secondSec.svg" />
       <div className="  flex flex-col">
         <h1
-          className={`" ${
+          className={` ${
             isHovered ? "text-white" : ""
-          } text-[24px] text-[#080E14] max-md:text-xl font-[600] mt-4  sm:mt-2 sm:text-[18px] "`}
+          } text-[24px] text-[#080E14] max-md:text-xl font-[600] mt-4  sm:mt-2 sm:text-[18px] `}
         >
           {props.data.name}
         </h1>
         <div
-          className={`" ${
+          className={` ${
             isHovered ? "text-white" : ""
-          } text-[#6B6E72] font-[500] lg:text-[18px] text-sm lg:mb-5  max-md:mb-3 sm:mb-2 "`}
+          } text-[#6B6E72] font-[500] lg:text-[18px] text-sm lg:mb-5  max-md:mb-3 sm:mb-2 `}
         >
           {props.data.subItemAbout}
         </div>
       </div>
       <div
-        className={`" text-[#007BFF] ${
+        className={` text-[#007BFF] ${
           isHovered ? "text-white" : ""
-        } max-2xl:font-semibold max-md:w-full max-md:text-sm text-lg  "`}
+        } max-2xl:font-semibold max-md:w-full max-md:text-sm text-lg  `}
       >
         {props.data.examTime}
       </div>
@@ -187,7 +187,7 @@ const Card2 = ({ svg1, svg2, altText, title, subtitle }) => {
     >
       <Image src={src} width={svgWidth} height={svgWidth} alt={altText} />
       <div className="card-text text-2xl font-semibold">{title}</div>
-      <div className={`" opacity-50"`}>{subtitle}</div>
+      <div className={` opacity-50 `}>{subtitle}</div>
     </div>
   );
 };
