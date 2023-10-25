@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "react-bootstrap/Modal";
 import Container from "react-bootstrap/Container";
@@ -12,11 +12,13 @@ import OtpCheck from "./OtpCheck";
 import NewUserDetails from "./NewUserDetails";
 import ShippingAddress from "./ShippingAddress";
 import "./css/packageSubscription.css";
-function PackageSubscription() {
+function PackageSubscription( show ) {
+  const currentPage = useState("duration");
+  const visible = useState(show)
   return (
     <>
       <Modal
-        show={false}
+        show={true}
         size="lg"
         centered
         className="subscription_popup"
@@ -31,11 +33,11 @@ function PackageSubscription() {
               </Col>
               <Col xs={12} md={6} className="custom-width-col">
                 <ActiveTabs />
-                {/*  <SelectDuration />
-                    <MobileVerification />
-                    <OtpCheck /> */}
+                <SelectDuration />
+                {/* <MobileVerification /> */}
+                {/* <OtpCheck /> */}
                 {/* <NewUserDetails /> */}
-                <ShippingAddress />
+                {/* <ShippingAddress /> */}
               </Col>
             </Row>
           </Container>
