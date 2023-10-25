@@ -206,12 +206,7 @@ function Card(props) {
           : "bg-white"
       }   hover:cursor-pointer cc  `}
     >
-      <div
-        style={{ height: showMore ? `${decreasedHeight}px` : "auto" }}
-        // className={` rounded-2xl ${
-        //   showMore ? " h-[{decreasedHeight}px]  " : ""
-        // } `}
-      >
+      <div style={{ height: showMore ? `${decreasedHeight}px` : "auto" }}>
         <Image
           src={props.data?.svg}
           height={138}
@@ -220,7 +215,7 @@ function Card(props) {
           className="  border-blue-200"
           alt="cards svg"
         />
-        <div className="relative bottom-4 left-6">
+        {/* <div className="relative bottom-4 left-6">
           {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
             <Image
               src="./courses/std.svg"
@@ -230,7 +225,7 @@ function Card(props) {
               alt="courses.svg"
             />
           )}
-        </div>
+        </div> */}
       </div>
       <div className=" relative flex w-full   flex-col">
         <div
@@ -252,15 +247,15 @@ function Card(props) {
         </div>
         <div className=" pt-2 bg-white">
           <div className=" cdc ">
-            <div className="  font-bold text-lg">{props.data.name}</div>
-            <div className="  w-full max-md:text-sm  mb-2 ">
+            <div className="  font-bold text-[20px]">{props.data.name}</div>
+            <div className="  w-full max-md:text-sm text-[14px]  mb-2 ">
               {props.data?.about}
             </div>
           </div>
 
           <div className="cpc flex max-md:space-x-11 space-x-20">
             {" "}
-            <div className="text-[#080E14] ccp font-[500] ">
+            <div className="text-[#080E14]  ccp font-[500] ">
               {props.data?.price}
             </div>
             <div

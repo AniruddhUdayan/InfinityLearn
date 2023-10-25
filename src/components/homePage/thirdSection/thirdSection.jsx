@@ -81,42 +81,33 @@ function OptionFour() {
 
 const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [left, setLeft] = useState(0);
-  const [widths, setWidths] = useState([]);
-  const tabsRef = useRef([]);
-  const activeTab = (tab, index) => {
-    setLeft(calculateLeftPosition(index));
+  const [underlineStyles, setUnderlineStyles] = useState({
+    left: "0px",
+    width: "0px",
+  });
+
+  const activeTab = (tab, index, event) => {
+    const target = event.target;
+    setUnderlineStyles({
+      left: `${target.offsetLeft}px`,
+      width: `${target.offsetWidth}px`,
+    });
     setSelectedTab(index);
     onTabChange(tab, index);
   };
 
-  const calculateLeftPosition = (index) => {
-    return widths.slice(0, index).reduce((acc, w) => acc + w, 0);
-  };
-
-  useEffect(() => {
-    setWidths(tabsRef.current.map((tab) => tab.offsetWidth));
-  }, [data]);
-
   return (
-    <div className=" bg-white mt-[61px] text-black relative">
-      <div className="h-full mt-1 whitespace-nowrap  gap-[10px] flex items-center">
-        {data.map((tab, index) => (
-          <span
-            key={index}
-            ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full w-full px-3  text-[16px]  text-center text-base cursor-pointer 
-            ${selectedTab === index ? "text-[#007BFF]" : ""}`}
-            onClick={() => activeTab(tab, index)}
-          >
-            {tab}
-          </span>
-        ))}
+    <div className="tabsContainer">
+      {data.map((tab, index) => (
         <span
-          className="border-b-2 bg-black border-[#007BFF] absolute bottom-0 transition-all duration-500"
-          style={{ left, width: widths[selectedTab] }}
-        ></span>
-      </div>
+          key={index}
+          className={`tabItem ${selectedTab === index ? "active" : ""}`}
+          onClick={(e) => activeTab(tab, index, e)}
+        >
+          {tab}
+        </span>
+      ))}
+      <div className="underline" style={underlineStyles}></div>
     </div>
   );
 };
@@ -236,23 +227,18 @@ function ThirdSection() {
     // console.log(index);
     setEndpoint(tab === "Day" ? "day" : "week");
   };
-  const handleClick = (index) => {
-    setSelectedOption(index);
-  };
+
   const windowWidth = useWindowWidth();
   const isMobileView =
     typeof windowWidth !== "undefined" && windowWidth <= 1023;
   // console.log(windowWidth, "jvmjv", isMobileView);
-  const borderPosition = {
-    transform: `translateX(-${(100 / options.length) * selectedOption}%)`,
-  };
 
   const startLearning = async () => {
     dispatch(setComponentToShow("SendOtp"));
     dispatch(showOverlayMode(!showOverlay));
   };
   return (
-    <div>
+    <div className=" thirdSection1">
       <div className=" sT   no-scrollbar   relative">
         {isMobileView && (
           <div className=" mx-auto overflow-x-auto ">
@@ -268,7 +254,7 @@ function ThirdSection() {
       <div className=" thirdSection min-h-[118px] container no-scrollbar ">
         <div className="thirdSection-fc  rowww">
           <Image
-            src="/homepage/thirdSection/thirdSection.webp"
+            src="/thirdSection1.png"
             height={svgWidth}
             width={svgWidth}
             alt="thirdSection"
