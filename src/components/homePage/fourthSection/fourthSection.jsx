@@ -37,7 +37,7 @@ function Trial() {
       <Carousel
         controls={false}
         className=" items-center  mxauto w-fit max-w-[380px] top-4"
-        interval={isAutoScroll ? 2000000 : null}
+        interval={isAutoScroll ? 2000 : null}
         onSlide={handleSlide}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
