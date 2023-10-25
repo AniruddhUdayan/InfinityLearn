@@ -1,5 +1,5 @@
 .login_popup.modal .modal-lg  {
-    width: 1000px !important;
+    width: 1100px !important;
     max-width: 1100px !important;
 }
 .login_popup.modal .modal-header {
@@ -31,8 +31,9 @@
     height: 100%;
 }
 .right_box {
-    margin-left: 50px;
-    margin-right: 50px;
+    /* margin-left: 50px;
+    margin-right: 50px; */
+    margin: 90px;
 }
 .right_box .row{
     margin-left: 0px;
@@ -50,7 +51,7 @@
 .otp_heading {
     margin-top: 50px;
     margin-bottom: 50px;
-    font-size: 26px;
+    font-size: 24px;
     line-height: 36px;
     font-weight: 900;
     text-transform: lowercase;

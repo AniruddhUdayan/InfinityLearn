@@ -52,7 +52,7 @@ const MoreDetails = () => {
                       <Image
                           src="/login/mobVer/SuccessImage.webp"
                           alt="mob-ver-1"
-                          className=" max-md:hidden"
+                          className="side_image max-md:hidden"
                       />
                   </Col>
                   <Col xs={12} md={6}>
