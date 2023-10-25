@@ -7,6 +7,7 @@ import popular from './../../../../public/images/popular.svg'
 import formulas from './../../../../public/images/formulas.svg'
 import arrow from './../../../../public/images/arrow-r-blue.svg'
 import Image from 'next/image'
+import styles from './../css/styles.module.css'
 
 const Study = () => {
     const items = [
@@ -18,19 +19,19 @@ const Study = () => {
         { img: formulas, title: 'formulas', alt: 'formulas' },
     ]
     return (
-        <div className="study-main">
-            <div className='study-head'>free <span className='blue'>study material</span></div>
-            <div className='study-grid'>
+        <div className={styles.studyMain}>
+            <div className={styles.studyHead}>free <span className={styles.blue}>study material</span></div>
+            <div className={styles.studyGrid}>
                 {items.map((item, index) => (
-                    <div key={index} className='study-card'>
-                        <Image src={item?.img} alt={item?.alt} className='study-card-img' />
+                    <div key={index} className={styles.studyCard}>
+                        <Image src={item?.img} alt={item?.alt} className={styles.studyCardImg} />
                         {item?.title}
                     </div>
                 ))}
             </div>
-            <div className='study-view-all'>
+            <div className={styles.studyViewAll}>
                 view all study material
-                <Image src={arrow} alt='arrow' width={15} height={0} className='' />
+                <Image src={arrow} alt='arrow' width={15} height={0} />
             </div>
         </div>
     )

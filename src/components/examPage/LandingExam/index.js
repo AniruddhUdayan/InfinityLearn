@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setComponentToShow } from "./../../../store/modalToShow";
 import { showOverlayMode } from "./../../../store/mobVeriSlice";
 import { setIsPopupShow } from "@/store/BookSession/BookSessionPopup";
+import styles from './../css/styles.module.css'
 
 const LandingExam = ({ classFor, examFor }) => {
 	const [activeIndex, setActiveIndex] = useState(0)
@@ -82,69 +83,72 @@ const LandingExam = ({ classFor, examFor }) => {
 	}, [activeIndex])
 	
 	return (
-		<div className="landing-exam-main">
-			<div className="landing-exam-class">
+		<div className={styles.landingExamMain}>
+			<div className={styles.landingExamClass}>
 				<Button variant="contained" color="white" fullWidth sx={{
 					justifyContent: 'space-between',
 				}}>
 					class {classFor ?? 12}+ | {examFor?.toUpperCase() ?? 'JEE'}
 				</Button>
 			</div>
-			<Button variant="contained" color="white" className="lg-not"  sx={{
-				justifyContent: 'space-between',
-				zIndex: '-10',
-				margin: '0.5rem 1rem'
-			}}>
-				class {classFor ?? 12}+ | {examFor?.toUpperCase() ?? 'JEE'}
-			</Button>
-			<div ref={carousel} className="landing-exam-carousel no-scrollbar">
+			<div className={styles.mdNot}>
+				<Button variant="contained" color="white" sx={{
+					justifyContent: 'space-between',
+					zIndex: '-10',
+					margin: '0.5rem 1rem'
+				}}>
+					class {classFor ?? 12}+ | {examFor?.toUpperCase() ?? 'JEE'}
+				</Button>
+			</div>
+			
+			<div ref={carousel} className={`${styles.landingExamCarousel} ${styles.noScrollbar}`}>
 				{banners.map((banner, index) => (
 					<LandingCard key={index} pic={banner.pic} rank={banner.rank} name={banner.name} batch={banner.batch} ref2={carouselEle} />
 				))}
 			</div>
-			<div className="landing-exam-carousel-index-container">
+			<div className={styles.landingExamCarouselIndexContainer}>
 				{Array.from({ length: banners.length }, (_, index) => (
 				<div
 					key={index}
-					className={`landing-exam-carousel-index ${
+					className={`${styles.landingExamCarouselIndex} ${
 					index === activeIndex
-						? " active"
-						: " inactive"
+						? styles.active
+						: styles.inactive
 					}`}
 				></div>
 				))}
 			</div>
 
-			<div className=" landing-exam-padding">
-				<div className="landing-exam-head">power up your <span className="landing-exam-yellow">{examFor?.toUpperCase() ?? 'JEE'} PREP</span> with Infinity Learn</div>
-				<div className="landing-exam-desc"><span className="landing-exam-desc-high">{examFor?.toUpperCase() ?? 'JEE'}</span> is the most competitive entrance examination in India. Offering the best online class experience, our targeted batch covers all essential subjects.</div>
-				<div className="landing-exam-grid">
-					<div className="landing-exam-points">
-						<div className='landing-exam-point'>
-							<Image src={pcb} alt='pcb' width={32} height={0} className='lg-only' />
-							<Image src={pcbB} alt='pcb' width={32} height={0} className='lg-not' />
+			<div className={styles.landingExamPadding}>
+				<div className={styles.landingExamHead}>power up your <span className={styles.landingExamYellow}>{examFor?.toUpperCase() ?? 'JEE'} PREP</span> with Infinity Learn</div>
+				<div className={styles.landingExamDesc}><span className={styles.landingExamDescHigh}>{examFor?.toUpperCase() ?? 'JEE'}</span> is the most competitive entrance examination in India. Offering the best online class experience, our targeted batch covers all essential subjects.</div>
+				<div className={styles.landingExamGrid}>
+					<div className={styles.landingExamPoints}>
+						<div className={styles.landingExamPoint}>
+							<Image src={pcb} alt='pcb' width={32} height={0} className={styles.lgOnly} />
+							<Image src={pcbB} alt='pcb' width={32} height={0} className={styles.lgNot} />
 							<span>Biology, Physics, Chemistry</span>
 						</div>
-						<div className='landing-exam-point'>
-							<Image src={date} alt='date' width={32} height={0} className='lg-only' />
-							<Image src={dateB} alt='date' width={32} height={0} className='lg-not' />
+						<div className={styles.landingExamPoint}>
+							<Image src={date} alt='date' width={32} height={0} className={styles.lgOnly} />
+							<Image src={dateB} alt='date' width={32} height={0} className={styles.lgNot} />
 							<span>date of {examFor?.toUpperCase() ?? 'JEE'} 2024 to be announced</span>
 						</div>
-						<div className='landing-exam-point'>
-							<Image src={people} alt='date' width={32} height={0} className='lg-only' />
-							<Image src={peopleB} alt='date' width={32} height={0} className='lg-not' />
+						<div className={styles.landingExamPoint}>
+							<Image src={people} alt='date' width={32} height={0} className={styles.lgOnly} />
+							<Image src={peopleB} alt='date' width={32} height={0} className={styles.lgNot} />
 							<span>18 lakh + {examFor?.toUpperCase() ?? 'JEE'} applicants | 1.1 lakh seats</span>
 						</div>
 					</div>
-					<div className="landing-exam-buttons">
-						<Button onClick={startLearning} variant='outlined' className="landing-exam-start" disableElevation color='yellow' fullWidth sx={{
+					<div className={styles.landingExamButtons}>
+						<Button onClick={startLearning} variant='outlined' className={styles.landingExamStart} disableElevation color='yellow' fullWidth sx={{
 							borderRadius: '0.5rem',
 							fontWeight: '600'
 						}}>
 							start learning for free 
 							<Image src={arrowTRY} alt='arrow' width={15} height={0} />
 						</Button>
-						<Button onClick={bookSessionPopup} variant='contained' className="landing-exam-book-free"  disableElevation color='yellow' fullWidth sx={{
+						<Button onClick={bookSessionPopup} variant='contained' className={styles.landingExamBookFree}  disableElevation color='yellow' fullWidth sx={{
 							borderRadius: '0.5rem',
 							fontWeight: '600'
 						}}>
@@ -153,10 +157,10 @@ const LandingExam = ({ classFor, examFor }) => {
 						</Button>
 					</div>
 				</div>
-				<div className="landing-exam-details">
+				<div className={styles.landingExamDetails}>
 					{examFor?.toUpperCase() === 'NEET' ? 'JEE' : 'NEET'} details
-					<Image src={arrowR} alt='arrow' width={12} height={0} className="lg-only" />
-					<Image src={arrowRB} alt='arrow' width={12} height={0} className="lg-not" />
+					<Image src={arrowR} alt='arrow' width={12} height={0} className={styles.lgOnly} />
+					<Image src={arrowRB} alt='arrow' width={12} height={0} className={styles.lgNot} />
 				</div>
 			</div>
 		</div>
