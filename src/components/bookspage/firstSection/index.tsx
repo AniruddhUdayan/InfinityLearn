@@ -151,10 +151,19 @@ const FirstSection = ({ params }) => {
                   </div>
 
                   <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative ">
+                  <div className="books-back-arrow2">
+                        <Image
+                          src="/images/backArrow.png"
+                          alt="Your Logo"
+                          width={16}
+                          height={11}
+                        />
+                      </div>
                     <div
-                      className={`h-[32px] w-[32px] bg-white rounded-[8px] transform rotate-180 `}
+                      className={`h-[32px] w-[32px] relative bottom-5 bg-white rounded-[8px] transform rotate-180 `}
                       onClick={toggleImage}
                     >
+                      
                       <Image
                         src="/images/left.png"
                         alt="Your Logo"
