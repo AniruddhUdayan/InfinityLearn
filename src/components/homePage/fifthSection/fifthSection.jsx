@@ -438,7 +438,7 @@ function FifthSection() {
               style={{ transform: `translateX(-${scrollPos * sN}%)` }}
             >
               {reviews.map((review, index) => (
-                <div ref={cardRef} className=" flex-shrink-0">
+                <div key={index} ref={cardRef} className=" flex-shrink-0">
                   <Card
                     // ref={index === 0 ? cardRef : null}
                     key={index}

@@ -31,31 +31,30 @@
   text-align: start;
   padding-top: 22px /* 28px */;
   padding-bottom: 1.75rem /* 28px */;
-  .cdc {
-    text-align: start;
-    color: #080e14;
-    justify-content: flex-start;
-    flex-grow: 1;
-    border-bottom-width: 2px;
-  }
-  .cpc {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+}
+.cdc {
+  text-align: start;
+  color: #080e14;
+  justify-content: flex-start;
+  flex-grow: 1;
+  border-bottom-width: 2px;
+}
+.cpc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .seeMoreSection {
   flex-direction: column;
   gap: 7px;
   margin-top: 16px;
-  .seeMoreSection-text {
-    display: flex;
-    gap: 5px;
-    font-size: 12px;
-    align-items: center;
-  }
 }
-
+.seeMoreSection-text {
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+  align-items: center;
+}
 .fourthSection {
   width: 100%;
   padding-top: 2.5rem /* 40px */;
@@ -68,18 +67,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .fous-text-ch {
-    display: flex;
-    white-space: nowrap;
-    align-items: center;
-    margin-bottom: 2.5rem;
-  }
-  .focus-text-content {
-    margin-top: 2rem;
-    font-size: 64px;
-    font-weight: 700;
-    /* color: #080e14; */
-  }
+}
+.fous-text-ch {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+.focus-text-content {
+  margin-top: 2rem;
+  font-size: 64px;
+  font-weight: 700;
+  /* color: #080e14; */
 }
 .courses2 {
   display: none;
