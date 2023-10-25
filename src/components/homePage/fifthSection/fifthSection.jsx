@@ -160,7 +160,7 @@ export function ReviewsSmall() {
       <Carousel
         controls={false}
         className=" carous"
-        interval={2000000}
+        interval={2000}
         onSlide={handleSlide}
       >
         {reviews.map((review, index) => (
