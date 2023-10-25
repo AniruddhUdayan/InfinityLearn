@@ -8,10 +8,14 @@ import ClassesCardFull from './ClassesCardFull'
 import { Button, Tab, Tabs } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
 import './styles.css'
+import { setComponentToShow, setIsPopupShow } from "@/store/BookSession/BookSessionPopup";
+import { useDispatch, useSelector } from "react-redux";
 
 const Masterclasses = () => {
     const [tabValue, setTabValue] = useState(0)
+	const isPopupShow = useSelector((state) => state.bookSessionPopup.isPopupShow);	
 
+    const dispatch = useDispatch()
     const subjectWise = {
         physics: [
             { img: main, sub: 'Physics', title: 'organic chemistry reaction study', desc: 'Two line detailed description about the course [...]', started: 'Started 1 hour ago', by: 'Ranjan M', byImg: mainTeacher, isLive: true, watching: '14.3k' },
@@ -88,6 +92,13 @@ const Masterclasses = () => {
         mostViewedRef.current.scrollTo({left: -mostViewedRef.current.scrollWidth, behavior: 'smooth'})
     }
 
+
+	const bookSessionPopup = async () => {
+		console.log("book session");
+		dispatch(setComponentToShow("SendOtp"));
+		dispatch(setIsPopupShow(!isPopupShow));
+	}
+	
     useEffect(() => {
         const temp = ( parent, child ) => {
             if (window.innerWidth >= 1024) return
@@ -205,7 +216,7 @@ const Masterclasses = () => {
                 ))}
             </div>
             <div className="mc-btn-wrapper">
-                <Button variant="contained" className="mc-btn" sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
+                <Button onClick={bookSessionPopup} variant="contained" className="mc-btn" sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
                     book free counselling session
                 </Button>
             </div>

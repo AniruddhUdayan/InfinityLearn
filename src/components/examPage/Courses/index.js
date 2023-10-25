@@ -9,6 +9,8 @@ import expand from './../../../../public/images/expand_more.svg'
 import arrow from './../../../../public/images/arrow-tr-white.svg'
 import Image from "next/image"
 import './styles.css'
+import { setComponentToShow, setIsPopupShow } from "@/store/BookSession/BookSessionPopup";
+import { useDispatch, useSelector } from "react-redux";
 
 const Courses = () => {
     const [tabValue, setTabValue] = useState(0)
@@ -16,6 +18,9 @@ const Courses = () => {
     const crashRef = useRef(null)
     const recordedEleRef = useRef(null)
     const crashEleRef = useRef(null)
+	const isPopupShow = useSelector((state) => state.bookSessionPopup.isPopupShow);	
+
+    const dispatch = useDispatch();
 
     const recordedCourses = [
         {title: 'complete recordings', img: greenGirl, classes: 'IITJEE CLASS 11', views: '1.2k', desc: 'Full Course Coverage, Revision and Test Series', price: '1,660'},
@@ -49,6 +54,12 @@ const Courses = () => {
     const scrollCrashRight = () => {
         crashRef.current.scrollTo({left: -crashRef.current.scrollWidth, behavior: 'smooth'})
     }
+
+	const bookSessionPopup = async () => {
+		console.log("book session");
+		dispatch(setComponentToShow("SendOtp"));
+		dispatch(setIsPopupShow(!isPopupShow));
+	}
 
     useEffect(() => {
         const temp = ( parent, child ) => {
@@ -129,7 +140,7 @@ const Courses = () => {
                 </div>
             </div>
             <div className="courses-btn-wrapper">
-                <Button variant="contained" className="courses-btn " sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
+                <Button onClick={bookSessionPopup} variant="contained" className="courses-btn " sx={{ borderRadius: '0.5rem', paddingX: '4rem', fontWeight: '600' }}>
                     book free counselling session
                     <Image src={arrow} alt="arrow" width={15} className="" />
                 </Button>

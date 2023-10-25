@@ -18,6 +18,8 @@ import Faculty from '@/components/examPage/Faculty'
 import PackageSubscription from '@/components/PackageSubscription'
 import LoginPopup from '@/components/LoginPopup'
 import './styles.css'
+import BookSessionPopup from "../bookSessionPopup";
+import Bookdemo from "../BookDemo/BookDemo";
 
 const ExamPage = ({ params }) => {
     return (
@@ -25,6 +27,7 @@ const ExamPage = ({ params }) => {
             <Header />
             {/* <PackageSubscription /> */}
             <LoginPopup />
+            <BookSessionPopup />
             <LandingExam classFor={params.class} examFor={params.exam} />
             <Promise classFor={params.class} examFor={params.exam} />
             <Courses classFor={params.class} examFor={params.exam} />
@@ -37,6 +40,7 @@ const ExamPage = ({ params }) => {
             <Rankers classFor={params.class} examFor={params.exam} />
             <School classFor={params.class} examFor={params.exam} />
             <Download classFor={params.class} examFor={params.exam} />
+            {/* <Bookdemo /> */}
             <Footer />
         </div>
     )

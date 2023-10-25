@@ -18,12 +18,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { setComponentToShow } from "./../../../store/modalToShow";
 import { showOverlayMode } from "./../../../store/mobVeriSlice";
 import './styles.css'
+import { setIsPopupShow } from "@/store/BookSession/BookSessionPopup";
 
 const LandingExam = ({ classFor, examFor }) => {
 	const [activeIndex, setActiveIndex] = useState(0)
 	const carousel = useRef(null)
 	const carouselEle = useRef(null)
 	const showOverlay = useSelector((state) => state.mobileVerification.showOverlay);
+	const isPopupShow = useSelector((state) => state.bookSessionPopup.isPopupShow);	
 	const dispatch = useDispatch();
 	
 	const banners = [
@@ -39,6 +41,12 @@ const LandingExam = ({ classFor, examFor }) => {
 		dispatch(setComponentToShow("SendOtp"));
 		dispatch(showOverlayMode(!showOverlay));
 	};
+
+	const bookSessionPopup = async () => {
+		console.log("book session");
+		dispatch(setComponentToShow("SendOtp"));
+		dispatch(setIsPopupShow(!isPopupShow));
+	}
 	
   
 	useEffect(() => {
@@ -130,7 +138,7 @@ const LandingExam = ({ classFor, examFor }) => {
 							start learning for free 
 							<Image src={arrowTRY} alt='arrow' width={15} height={0} />
 						</Button>
-						<Button variant='contained' className="landing-exam-book-free"  disableElevation color='yellow' fullWidth sx={{
+						<Button onClick={bookSessionPopup} variant='contained' className="landing-exam-book-free"  disableElevation color='yellow' fullWidth sx={{
 							borderRadius: '0.5rem',
 							fontWeight: '600'
 						}}>
