@@ -99,13 +99,13 @@ const SwitchTabs = ({ data, onTabChange }) => {
   }, [data]);
 
   return (
-    <div className=" bg-white text-black relative">
-      <div className="h-full mt-1 whitespace-nowrap   flex items-center">
+    <div className=" bg-white mt-[61px] text-black relative">
+      <div className="h-full mt-1 whitespace-nowrap  gap-[10px] flex items-center">
         {data.map((tab, index) => (
           <span
             key={index}
             ref={(el) => (tabsRef.current[index] = el)}
-            className={`h-full w-full px-3  text-center text-base cursor-pointer 
+            className={`h-full w-full px-3  text-[16px]  text-center text-base cursor-pointer 
             ${selectedTab === index ? "text-[#007BFF]" : ""}`}
             onClick={() => activeTab(tab, index)}
           >
@@ -294,7 +294,7 @@ function ThirdSection() {
               onClick={startLearning}
               className="slof-b  hover:space-x-2  hover:bg-blue-600 "
             >
-              start learning for free <span>&#8599;</span>
+              start learning for free <span className=" ml-[8px]">&#8599;</span>
             </button>
             {/* </div> */}
           </div>
