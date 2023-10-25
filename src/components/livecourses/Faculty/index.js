@@ -101,7 +101,7 @@ const Faculty = ({ classFor, examFor }) => {
   //   </span>
   // </div>;
   return (
-    <div className="bg-[#F3F3F3] flex flex-col max-md:px9 items-center py-8 p-4 lg:p-10  lg:py-10 w-full">
+    <div className="bg-[#F3F3F3] px-[112px] flex flex-col max-md:px9 items-center py-8 p-4 lg:p-10  lg:py-10 w-full">
       <div className=" text-[#080e14] fourthSectionHeading  ">
         Learn from the <span className="text-[#007BFF]">Best Faculty</span>
       </div>
