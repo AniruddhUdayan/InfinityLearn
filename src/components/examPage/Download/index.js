@@ -176,7 +176,7 @@ const Download = () => {
         <div className="relative top-[37px]">
           {" "}
           <Image
-            src={phone}
+            src="/images/mob.svg"
             alt="phone"
             width={434}
             height={665}
@@ -185,7 +185,7 @@ const Download = () => {
         </div>
         <div className="flex justify-center">
           <Image
-            src="/images/appver.webp"
+            src="/images/mob.svg"
             alt="phone"
             width={313}
             height={470}
@@ -215,15 +215,15 @@ const Download = () => {
         </div>
       </div>
       <div className="download-overlay">
-        <div className="flex flex-row justify-between sm:w-[1040px]">
+        <div className="flex flex-wrap flex-row justify-between sm:w-[1040px]">
           {" "}
           <div className="download-overlay-box ">
             <div className="download-demo-session-title">
               book a <span className="text-[#FCDE5A]">demo session</span>
             </div>
-            <div className="lg:text-lg w-[495px]">
+            <div className="lg:text-lg sm:w-[495px]">
               {
-                "access to India's best teachers with a record of producing top rankers year on year."
+                "a short sentence about how an academic counsellor would help the student."
               }
             </div>
           </div>

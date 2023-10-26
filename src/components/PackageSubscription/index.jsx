@@ -18,7 +18,7 @@ function PackageSubscription( show ) {
   return (
     <>
       <Modal
-        show={true}
+        show={false}
         size="lg"
         centered
         className="subscription_popup"

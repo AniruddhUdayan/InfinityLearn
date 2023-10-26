@@ -87,10 +87,10 @@ const Review = () => {
   }, [scrollDirection]);
 
   return (
-    <div className="bg-[#FFF] sm:bg-white flex flex-col-reverse gap-[42px] justify-start pt-[21px] h-full pb-[50px] max-w-[688px]  flex-wrap-reverse ">
-      <div className="flex mr-2 flex-col w-auto sm:mx-[22px] max-sm:max-w-[375px]">
+    <div className="bg-[#FFF] max-sm:w-[335px] sm:bg-white flex flex-col-reverse gap-[42px]  pt-[21px] h-full pb-[50px] sm:max-w-[688px]  justify-center items-center">
+      <div className=" flex sm:mr-2 flex-col w-auto sm:mx-[22px] max-sm:max-w-[335px] max-sm:w-auto">
         <div
-          className={`${poppins700.className} w-full flex justify-start text-[#080E14] text-[32px] font-bold py-[20px]`}
+          className={`${poppins700.className} w-auto  flex justify-start text-[#080E14] text-[32px] font-bold py-[20px]`}
         >
           reviews
         </div>
@@ -204,7 +204,7 @@ const Review = () => {
                 </div>
               </div>
               <div
-                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-[295px]`}
+                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-auto`}
               >
                 Best study material for NEET Foundation course. I have studied
                 from Infinity Learn as well as Byjus material and the level of
@@ -249,7 +249,7 @@ const Review = () => {
                 </div>
               </div>
               <div
-                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-[295px]`}
+                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-auto`}
               >
                 Best study material for NEET Foundation course. I have studied
                 from Infinity Learn as well as Byjus material and the level of
@@ -294,7 +294,7 @@ const Review = () => {
                 </div>
               </div>
               <div
-                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-[295px]`}
+                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-auto`}
               >
                 Best study material for NEET Foundation course. I have studied
                 from Infinity Learn as well as Byjus material and the level of
@@ -337,7 +337,7 @@ const Review = () => {
                 </div>
               </div>
               <div
-                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-[295px]`}
+                className={`${poppins400.className} text-[#52565B] sm:text-[14px] text-[12px] font-[400] lowercase sm:w-[524px] w-auto`}
               >
                 Best study material for NEET Foundation course. I have studied
                 from Infinity Learn as well as Byjus material and the level of
@@ -397,15 +397,17 @@ const Review = () => {
               </div>
             </div>
           </div>
-          <hr></hr>
+          <div className="p-[30px]">
+            <a href="/" className="flex justify-center items-center ">show all 369 reviews</a>
+          </div>
           {/* <div
-            className={`${poppins.className}  p-[30px] flex justify-center items-center text-[#007BFF] underline cursor-pointer`}
+            className={`${poppins.className}  p-[30px] flex justify-center items-center text-[#007BFF] underline cursor-pointer `}
           >
             show all 369 reviews
           </div> */}
         </div>
       </div>
-      <div className="flex flex-col w-auto mx-[13px]">
+      <div className="flex flex-col max-sm:w-[335px] mx-[13px]">
         <div
           className={`${poppins700.className} w-full flex justify-start text-[#080E14] text-[32px] font-[700] py-[20px]`}
         >

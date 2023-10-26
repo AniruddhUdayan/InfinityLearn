@@ -94,14 +94,14 @@ const FirstSection = ({ params }) => {
   return (
     <>
       <div className="books-first-sec-container">
-        <div className="sm:flex sm:flex-col sm:mx-[112px] max-sm:w-auto lg:flex-row sm:gap-[40px]  sm:pt-[28px] ">
-          <div className="flex flex-col gap-[20px] max-sm:bg-[#E6F2FF] max-sm:min-h-[446px]">
+        <div className="books-first-sec-container2 ">
+          <div className="books-first-sec-box1">
             <div className="flex h-full flex-col ">
-              <div className="">
-                <div className="flex flex-col sm:flex-row gap-[55px] justify-center w-full  sm:h-[510px] sm:bg-[#D4E9FF] sm:rounded-[20px] z-0 mb-[20px]">
-                  <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative ">
+              <div>
+                <div className="books-first-sec-books">
+                  <div className="books-first-sec-left-arrow-box ">
                     <div
-                      className={`h-[32px] w-[32px] bg-white rounded-[8px] `}
+                      className={`books-first-sec-left-arrow `}
                       onClick={toggleImage}
                     >
                       <Image
@@ -112,9 +112,7 @@ const FirstSection = ({ params }) => {
                       />
                     </div>
                   </div>
-                  <div
-                    className={`max-sm:hidden h-auto flex justify-center items-center  sm:left-2 sm:top-0  overflow-hidden`}
-                  >
+                  <div className={`books-first-sec-image-box`}>
                     <Image
                       src={imagePath}
                       alt="Your Logo"
@@ -122,13 +120,15 @@ const FirstSection = ({ params }) => {
                       height={442}
                     />
                   </div>
-                  <div className="sm:hidden relative left-5  flex flex-row justify-center items-center top-14 mt-[32px] rounded-[20px]  bg-[#E6F2FF] bg-opacity-0 py-[16px] mx-[20px]">
-                    <Image
-                      src={imagePath}
-                      alt="Your Logo"
-                      width={250}
-                      height={250}
-                    />
+                  <div className="books-first-sec-image-box-mob">
+                    <div className="relative top-10 left-4">
+                      <Image
+                        src={imagePath}
+                        alt="Your Logo"
+                        width={250}
+                        height={250}
+                      />
+                    </div>
                     <div className="books-arrow-container">
                       {" "}
                       <div className="books-back-arrow">
@@ -151,19 +151,18 @@ const FirstSection = ({ params }) => {
                   </div>
 
                   <div className="hidden sm:h-auto sm:flex sm:flex-col sm:justify-center relative ">
-                  <div className="books-back-arrow2">
-                        <Image
-                          src="/images/backArrow.png"
-                          alt="Your Logo"
-                          width={16}
-                          height={11}
-                        />
-                      </div>
+                    <div className="books-back-arrow2">
+                      <Image
+                        src="/images/backArrow.png"
+                        alt="Your Logo"
+                        width={16}
+                        height={11}
+                      />
+                    </div>
                     <div
-                      className={`h-[32px] w-[32px] relative bottom-5 bg-white rounded-[8px] transform rotate-180 `}
+                      className={`books-first-sec-left-arrow relative bottom-5  transform rotate-180 `}
                       onClick={toggleImage}
                     >
-                      
                       <Image
                         src="/images/left.png"
                         alt="Your Logo"
@@ -172,11 +171,9 @@ const FirstSection = ({ params }) => {
                       />
                     </div>
                   </div>
-                  <div className="sm:hidden flex  justify-center gap-[14px] items-center">
-                    <div className="text-[#FFF] max-sm:text-[#000] text-[12px] font-semibold">
-                      01
-                    </div>
-                    <div className="flex flex-row w-[93.5px] border-gray-400 h-[4px] rounded-[4px] bg-gray-400">
+                  <div className="books-first-sec-mob-bar">
+                    <div className="books-first-sec-mob-bar-text">01</div>
+                    <div className="books-first-sec-mob-bar-base bg-gray-400">
                       {imagePath === "/images/book4.svg" ? (
                         <div className="flex flex-row w-[33.5px] border-gray-400 h-[4px] rounded-[4px] bg-[#E6E7E8] max-sm:bg-[#007BFF]"></div>
                       ) : (
@@ -199,9 +196,9 @@ const FirstSection = ({ params }) => {
                   </div>
                 </div>
               </div>
-              <div className="hidden sm:w-[588px] sm:h-[60px] sm:rounded-[12px] sm:bg-gradient-to-r from-[#00364E] to-[#2B636B] sm:flex sm:justify-center sm:items-center sm:text-[#FFF] sm:text-[16px] sm:font-normal sm:flex-row gap-[20px]">
+              <div className="books-first-sec-whats-box sm:bg-gradient-to-r from-[#00364E] to-[#2B636B] ">
                 <div>{`what's in it for you?`}</div>
-                <div className="flex justify-center items-center  rounded-[12px] bg-[#007BFF] text-[12px] font-[500] px-[8px] py-[4px] gap-1">
+                <div className="books-first-sec-see-now">
                   <Image
                     src="/images/play.png"
                     alt="Your Logo"
@@ -212,11 +209,11 @@ const FirstSection = ({ params }) => {
                 </div>
               </div>
               <div className="w-full">
-                <div className="hidden w-full sm:flex sm:flex-row sm:gap-3 sm:mt-[30px]">
-                  <div className="flex w-full px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#9C9FA1] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
+                <div className="books-first-sec-button-box">
+                  <div className="books-first-sec-download-btn transform hover:scale-105 transition-transform duration-300">
                     <div className="flex flex-row gap-2 ">
                       <div
-                        className={`${poppins600.className} text-[#080E14] text-[16px] font-[600]`}
+                        className={`${poppins600.className} books-first-sec-download-btn-text`}
                       >
                         download sample
                       </div>
@@ -228,10 +225,10 @@ const FirstSection = ({ params }) => {
                       />
                     </div>
                   </div>
-                  <div className="flex w-full px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#007BFF] transform hover:scale-105 transition-transform duration-300">
+                  <div className="books-first-sec-buy-now-btn transform hover:scale-105 transition-transform duration-300">
                     <div className="flex flex-row gap-2">
                       <div
-                        className={`${poppins600.className} text-[#FFF] text-[16px] font-[600]`}
+                        className={`${poppins600.className} books-first-sec-buy-now-btn-text`}
                       >
                         buy now
                       </div>
@@ -247,29 +244,29 @@ const FirstSection = ({ params }) => {
               </div>
             </div>
           </div>
-          <div className="sm:mx-[20px] max-sm:mt-[70px] sm:flex sm:flex-col sm:max-h-screen sm:min-w-[410px] w-auto overflow-scroll custom-scrollbar">
+          <div className="books-first-sec-box2 sm:overflow-scroll custom-scrollbar">
             <div
-              className={`${poppins700.className} w-auto text-[#080E14] sm:text-[48px] text-[32px] font-bold leading-60 mx-[20px]`}
+              className={`${poppins700.className} books-first-sec-box2-head`}
             >
               <div> IL books for</div>
-              <div className="sm:h-[72px] h-[36px] overflow-hidden w-auto relative">
+              <div className="sm:h-[72px] h-[36px] overflow-hidden sm:w-[500px] relative">
                 <span
                   className={`text-[#007BFF]  inline-block transition-transform transform duration-[1000ms] ${
                     isSlideDown ? "translate-y-0" : "-translate-y-full"
                   }`}
                   style={{ position: "absolute", top: 0, left: 0 }}
                 >
-                  {params.course[0]} FOUNDATION
+                  {params.course[0]} FOUNDATION -
                 </span>
               </div>
               <span className={`${poppins400.className} sm:text-[32px]`}>
                 {" "}
-                - class {params.course[1]} , {params.course[2]} &{" "}
+                class {params.course[1]} , {params.course[2]} &{" "}
                 {params.course[3]}
               </span>
             </div>
-            <div className="sm:hidden flex flex-col gap-3 py-[20px] px-[12px]">
-              <div className="flex w-full px-[62px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] bg-[#007BFF] transform hover:scale-105 transition-transform duration-300">
+            <div className="books-first-sec-box2-btns">
+              <div className="books-first-sec-box2-book-now transform hover:scale-105 transition-transform duration-300">
                 <div className="flex flex-row gap-2">
                   <div
                     className={`${poppins600.className} text-[#FFF] text-[16px] font-[600]`}
@@ -284,8 +281,8 @@ const FirstSection = ({ params }) => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row">
-                <div className="flex h-[58px] justify-center items-center">
+              <div className="flex flex-row w-[80%]">
+                <div className="flex h-auto justify-center items-center">
                   <Image
                     src="/images/phone2.png"
                     alt="Your Logo"
@@ -293,7 +290,7 @@ const FirstSection = ({ params }) => {
                     height={58}
                   />
                 </div>
-                <div className="flex max-sm:h-[48px] w-full px-[32px] py-[12px] justify-center items-center gap-[10px] rounded-[12px] border-[1px] border-solid border-[#9C9FA1] hover:bg-[#007BFF]-100 transform hover:scale-105 transition-transform duration-300">
+                <div className="books-first-sec-box2-download border-[1px] border-solid border-[#9C9FA1] transform hover:scale-105 transition-transform duration-300">
                   <div className="flex flex-row gap-2 ">
                     <div
                       className={`${poppins600.className} text-[#080E14] text-[16px] font-[600]`}
@@ -310,16 +307,16 @@ const FirstSection = ({ params }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row mt-[8px] gap-2 w-auto flex-wrap mx-[20px]">
+            <div className="books-first-sec-box2-ratings">
               <div
-                className={`${poppins600.className} text-[14px] sm:text-[18px] text-[#080E14] font-[600]`}
+                className={`${poppins600.className} books-first-sec-box2-ratings`}
               >
                 4.5
               </div>
               <div className="flex flex-row gap-4">
                 {" "}
                 <div className="flex flex-row gap-1">
-                  <div className="h-full w-full flex items-center">
+                  <div className="books-first-sec-box2-star">
                     <Image
                       src="/images/star.png"
                       alt="Your Logo"
@@ -327,7 +324,7 @@ const FirstSection = ({ params }) => {
                       height={14}
                     />
                   </div>
-                  <div className="h-full w-full flex items-center">
+                  <div className="books-first-sec-box2-star">
                     <Image
                       src="/images/star.png"
                       alt="Your Logo"
@@ -335,7 +332,7 @@ const FirstSection = ({ params }) => {
                       height={14}
                     />
                   </div>
-                  <div className="h-full w-full flex items-center">
+                  <div className="books-first-sec-box2-star">
                     <Image
                       src="/images/star.png"
                       alt="Your Logo"
@@ -343,7 +340,7 @@ const FirstSection = ({ params }) => {
                       height={14}
                     />
                   </div>
-                  <div className="h-full w-full flex items-center">
+                  <div className="books-first-sec-box2-star">
                     <Image
                       src="/images/star.png"
                       alt="Your Logo"
@@ -351,7 +348,7 @@ const FirstSection = ({ params }) => {
                       height={14}
                     />
                   </div>
-                  <div className="h-full w-full flex items-center">
+                  <div className="books-first-sec-box2-star">
                     <Image
                       src="/images/star_half.png"
                       alt="Your Logo"
@@ -364,14 +361,14 @@ const FirstSection = ({ params }) => {
                   <div className="h-auto border-l border-gray-300 "></div>
                 </div>
                 <div
-                  className={`${poppins.className} text-[#080E14] text-[12px] sm:text-[14px] font-[500]`}
+                  className={`${poppins.className} books-first-sec-box2-ratings-text`}
                 >
                   171 Reviews
                 </div>
               </div>
             </div>
-            <div className="sm:ml-3 flex flex-row max-sm:flex-col max-sm:justify-center items-start max-sm:gap-[22px] flex-wrap mt-[25.5px] w-auto gap-3">
-              <div className="flex w-full max-sm:mx-[20px] h-[86px]  sm:w-[188px]  sm:h-[134px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] sm:gap-[10px] transform hover:scale-105 transition-transform duration-300 ">
+            <div className="books-first-sec-package">
+              <div className="books-first-sec-package-box1 transform hover:scale-105 transition-transform duration-300 ">
                 <div>
                   {" "}
                   <div className="relative right-[21.5px]">
@@ -384,7 +381,7 @@ const FirstSection = ({ params }) => {
                     />
                   </div>
                   <div
-                    className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
+                    className={`${poppins600.className} books-first-sec-package-class-text`}
                   >
                     class 8, 9 & 10
                   </div>
@@ -413,7 +410,7 @@ const FirstSection = ({ params }) => {
                   </div>
                 </div>
               </div>
-              <div className="relative w-full max-sm:mx-[20px] h-[86px]    flex justify-between max-sm:h-auto sm:w-[188px] sm:h-[118px] sm:flex-col sm:items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF]  transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="books-first-sec-package-box2 transform hover:scale-105 transition-transform duration-300">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -443,7 +440,7 @@ const FirstSection = ({ params }) => {
                   </div>
                 </div>
               </div>
-              <div className="max-sm:hidden relative w-[295px] h-[64px]  flex  md:h-[118px] sm:w-[188px] sm:h-[118px] sm:flex-col justify-between items-start py-2 px-[14px] rounded-[12px] bg-[#FFF] border-[2px] border-solid hover:border-[#007BFF] gap-[10px] transform hover:scale-105 transition-transform duration-300 top-[14px]">
+              <div className="books-first-sec-package-box3 transform hover:scale-105 transition-transform duration-300 top-[14px]">
                 <div
                   className={`${poppins600.className} text-[#080E14] text-[14px] font-[600]`}
                 >
@@ -464,26 +461,20 @@ const FirstSection = ({ params }) => {
                 </div>
               </div>
             </div>
-            <div className="hidden sm:mt-[20px] sm:flex-wrap sm:max-w-[588px] sm:flex sm:flex-row sm:w-auto sm:justify-center sm:items-center sm:gap-[6px] sm:rounded-[12px] sm:bg-[#F1F2F6] sm:px-[12px]">
-              <div
-                className={`${poppins.className} py-[8px] px-[16px] text-[#080E14] text-[14px] font-[500]`}
-              >
+            <div className="books-first-sec-list">
+              <div className={`${poppins.className} books-first-sec-list-text`}>
                 Biology 24 Books
               </div>
-              <div className="w-[8px] h-[8px] rounded-[50px] bg-[#007BFF]"></div>
-              <div
-                className={`${poppins.className} py-[8px] px-[16px] text-[#080E14] text-[14px] font-[500]`}
-              >
+              <div className="books-first-sec-blue-circle"></div>
+              <div className={`${poppins.className} books-first-sec-list-text`}>
                 Physics 12 Books
               </div>
-              <div className="w-[8px] h-[8px] rounded-[50px] bg-[#007BFF]"></div>
-              <div
-                className={`${poppins.className} py-[8px] px-[16px] text-[#080E14] text-[14px] font-[500]`}
-              >
+              <div className="books-first-sec-blue-circle"></div>
+              <div className={`${poppins.className} books-first-sec-list-text`}>
                 Chemistry 12 Books
               </div>
             </div>
-            <div className="hidden sm:flex sm:flex-row sm:gap-[20px] sm:flex-wrap sm:mt-[32px]">
+            <div className="books-first-sec-checklist-box">
               <div className="flex flex-row gap-3">
                 <Image
                   src="/images/checklist.png"
@@ -492,7 +483,7 @@ const FirstSection = ({ params }) => {
                   height={24}
                 />
                 <div
-                  className={` ${poppins400.className} text-[#52565B] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#52565B] text-[14px]`}
                 >
                   based on latest neet pattern
                 </div>
@@ -505,7 +496,7 @@ const FirstSection = ({ params }) => {
                   height={24}
                 />
                 <div
-                  className={` ${poppins400.className} text-[#52565B] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#52565B] text-[14px]`}
                 >
                   concise theory + practice questions
                 </div>
@@ -518,7 +509,7 @@ const FirstSection = ({ params }) => {
                   height={24}
                 />
                 <div
-                  className={` ${poppins400.className} text-[#52565B] text-[14px] font-normal`}
+                  className={` ${poppins400.className} text-[#52565B] text-[14px]`}
                 >
                   topic-wise Detailed MCQs for revision
                 </div>
@@ -530,16 +521,35 @@ const FirstSection = ({ params }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#F1F2F6] h-auto py-[32px] px-[20px sm:hidden flex flex-col items-center gap-[36px]">
-        <Image
-          src="/images/books3.webp"
-          alt="Your Logo"
-          width={335}
-          height={231}
-        />
-        <div className="flex flex-col gap-3">
+      <div className="books-first-sec-container3">
+        <div className="books-first-sec-books-name-box">
+          <Image
+            src="/images/books3.webp"
+            alt="Your Logo"
+            width={335}
+            height={231}
+          />
+          <div className="books-first-sec-books-names">
+            <div className={`${poppins.className} books-first-sec-books-name`}>
+              Biology 24 books
+            </div>
+            <div className=" flex flex-row">
+              <div className="h-[42px] border-l border-[#99CAFF] "></div>
+            </div>
+            <div className={`${poppins.className} books-first-sec-books-name`}>
+              Physics 24 books
+            </div>
+            <div className=" flex flex-row">
+              <div className="h-[42px] border-l border-[#99CAFF] "></div>
+            </div>
+            <div className={`${poppins.className} books-first-sec-books-name`}>
+              Chemistry 24 books
+            </div>
+          </div>
+        </div>
+        <div className="books-first-sec-books-checklist1">
           {" "}
-          <div className="flex flex-row gap-3">
+          <div className="books-first-sec-books-checklist2">
             <Image
               src="/images/checklist.png"
               alt="Your Logo"
@@ -552,9 +562,9 @@ const FirstSection = ({ params }) => {
               based on latest neet pattern
             </div>
           </div>
-          <div className="flex flex-row gap-3">
+          <div className="books-first-sec-books-checklist2">
             <Image
-              src="/images/checklist.png"
+              src="/images/checklist1.png"
               alt="Your Logo"
               width={18}
               height={18}
@@ -565,7 +575,7 @@ const FirstSection = ({ params }) => {
               concise theory + practice questions
             </div>
           </div>
-          <div className="flex flex-row gap-3">
+          <div className="books-first-sec-books-checklist2">
             <Image
               src="/images/checklist.png"
               alt="Your Logo"
@@ -579,14 +589,14 @@ const FirstSection = ({ params }) => {
             </div>
           </div>
         </div>
-        <div className="h-[124px] w-[335px] bg-gradient-to-r from-[#00364E] to-[#2B636B] rounded-[20px] px-[16px] py-[20px] flex flex-row">
-          <div className="flex flex-col gap-3">
+        <div className=" bg-gradient-to-r from-[#00364E] to-[#2B636B] books-first-sec-books-whats-in-box">
+          <div className="books-first-sec-books-checklist1">
             <div
-              className={`${poppins600.className} text-[20px] font-semibold text-[white]`}
+              className={`${poppins600.className} books-first-sec-books-whats-in-box-text`}
             >{`what’s in it for you?`}</div>
             <div className="flex flex-row gap-3">
               {" "}
-              <button className="flex justify-center items-center gap-1 px-[8px] py-[4px] bg-[#007BFF] w-auto rounded-[12px]">
+              <button className="books-first-sec-books-whats-see">
                 <Image
                   src="/images/play.png"
                   alt="Your Logo"
@@ -605,33 +615,46 @@ const FirstSection = ({ params }) => {
               />
             </div>
           </div>
-          <div className="relative bottom-[45px]">
+          <div className="relative h-auto w-auto bottom-[45px]">
             <Image
-              src="/images/teacher.webp"
+              src="/images/teacher.png"
               alt="Your Logo"
-              width={130}
+              width={140}
               height={160}
             />
           </div>
         </div>
       </div>
-      <div className="sm:hidden">
+      <div className="sm:hidden flex justify-center">
         <Review />
       </div>
-      <div className="sm:h-[472px] bg-[#00364E] flex flex-col justify-center items-center sm:py-[80px] py-[32px] gap-[40px]">
-        <div className="flex flex-row w-[880px] flex-wrap justify-center">
-          {" "}
-          <span
-            className={`${poppins700.className}  text-[#FFF] sm:text-[48px] text-[30px] font-[700] `}
-          >
-            boost your revision with{" "}
-          </span>
-          <span className="text-[#FCDE5A]  sm:text-[48px] text-[30px] font-[700] ">
-            IL test series for {params.course[0]} !
-          </span>
+      <div className="books-first-sec-test-series">
+        <div
+          className={`${poppins700.className} books-first-sec-test-series-text-box text-[#FFF] sm:text-[48px] text-[30px] flex flex-col `}
+        >
+          <div className=" flex justify-center ">
+            boost your revision{" "}
+            <span className="text-[#FCDE5A] ml-4">{` with IL test`}</span>{" "}
+          </div>
+          <div className="flex justify-center text-[#FCDE5A]">
+            {" "}
+            series for {params.course[0]} !
+          </div>
         </div>
-        <div className="sm:w-[806px] flex sm:flex-row flex-col max-sm:gap-[32px] justify-evenly w-full max-sm:px-[20px]">
-          <div className="max-sm:hidden flex-col flex gap-[16px]">
+        <div
+          className={`${poppins700.className} books-first-sec-test-series-text-box-mob`}
+        >
+          <div className="flex flex-col text-[#FFF] sm:text-[48px] text-[30px] ">
+            <div>boost your Revision</div>
+            <div>
+              {" "}
+              with <span className="text-[#FCDE5A]">IL Test Series for</span>
+            </div>
+            <div className="text-[#FCDE5A]">{params.course[0]} !</div>
+          </div>
+        </div>
+        <div className="books-first-sec-test-series-content-box">
+          <div className="books-first-sec-test-series-checklist">
             <div className="flex gap-[16px]">
               <Image
                 src="/images/checklist1.png"
@@ -687,9 +710,9 @@ const FirstSection = ({ params }) => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-2 bg-[#007BFF] rounded-[12px] py-[12px] sm:px-[64px] px-[34px] transform hover:scale-105 transition-transform duration-300">
+            <div className="books-first-sec-test-series-btn transform hover:scale-105 transition-transform duration-300">
               <div
-                className={`${poppins600.className} text-[16px] text-[#FFF] font-[600]`}
+                className={`${poppins600.className} books-first-sec-test-series-btn-text`}
               >
                 explore test series
               </div>
