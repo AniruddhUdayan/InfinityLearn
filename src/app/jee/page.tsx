@@ -11,9 +11,9 @@ export const metadata:Metadata = {
     siteName:"Infinity Learn",
   }
 };
-const JeePage = () => {
+const JeePage = ({params}) => {
     return (
-      <ExamPage />
+      <ExamPage params={params}/>
     )
 }
 
