@@ -24,7 +24,7 @@ const ExamPage = ({ params }) => {
     return (
         <div className='poppins'>
             <Header />
-            {/* <PackageSubscription /> */}
+            <PackageSubscription />
             <LoginPopup />
             <BookSessionPopup />
             <LandingExam classFor={params.class} examFor={params.exam} />

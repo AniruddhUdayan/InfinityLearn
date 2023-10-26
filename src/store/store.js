@@ -6,6 +6,8 @@ import examGradeSelection from './HomePage/examGradeSelection';
 import bookSessionNewUser from './BookSession/BookSessionNewUser';
 import bookSessionPopup from './BookSession/BookSessionPopup';
 import bookSessionData from './BookSession/BookSessionData';
+import packageSubscriptionPopup from './PackageSubscription/PackageSubscriptionPopup'
+import packageSubscriptionData from './PackageSubscription/PackageSubscriptionData'
 export const store = configureStore({
   reducer: {
     mobileVerification: mobVeriSlice,
@@ -14,7 +16,9 @@ export const store = configureStore({
     examGradeSelection: examGradeSelection,
     bookSessionNewUser: bookSessionNewUser,
     bookSessionPopup: bookSessionPopup,
-    bookSessionData: bookSessionData
+    bookSessionData: bookSessionData,
+    packageSubscriptionPopup: packageSubscriptionPopup,
+    packageSubscriptionData: packageSubscriptionData,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck:false

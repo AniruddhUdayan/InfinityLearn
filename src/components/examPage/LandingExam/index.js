@@ -27,6 +27,8 @@ const LandingExam = ({ classFor, examFor }) => {
 	const showOverlay = useSelector((state) => state.mobileVerification.showOverlay);
 	const isPopupShow = useSelector((state) => state.bookSessionPopup.isPopupShow);	
 	const dispatch = useDispatch();
+
+	const [carouselPaused, setCarouselPaused] = useState(false)
 	
 	const banners = [
 		{ pic : orange, rank : '1', name : 'Anamika Rai', batch : (examFor?.toUpperCase() ?? 'JEE')+' 2024' },
@@ -48,39 +50,50 @@ const LandingExam = ({ classFor, examFor }) => {
 		dispatch(setIsPopupShow(!isPopupShow));
 	}
 	
-  
 	useEffect(() => {
 		const interval = setInterval(() => {
-			if (activeIndex === banners.length - 1) {
-				setActiveIndex(0)
-				carousel.current.scrollTo({
-					left: 0,
-					behavior: "smooth",
-				})
-			} else if (activeIndex == 0) {
-				setActiveIndex(activeIndex + 1)
-				if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
+			if (!carouselPaused){
+				if (activeIndex === banners.length - 1) {
+					setActiveIndex(0)
 					carousel.current.scrollTo({
-						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+						left: 0,
 						behavior: "smooth",
-					})	
+					})
+				} else if (activeIndex == 0) {
+					setActiveIndex(activeIndex + 1)
+					if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
+						carousel.current.scrollTo({
+							left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+							behavior: "smooth",
+						})	
+					} else {
+						carousel.current.scrollTo({
+							left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+							behavior: "smooth",
+						})
+					}
+	
 				} else {
+					setActiveIndex(activeIndex + 1)
 					carousel.current.scrollTo({
 						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
 						behavior: "smooth",
 					})
-				}
-
-			} else {
-				setActiveIndex(activeIndex + 1)
-				carousel.current.scrollTo({
-					left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
-					behavior: "smooth",
-				})
+				}	
 			}
 		}, 3000)
 		return () => clearInterval(interval)
-	}, [activeIndex])
+	}, [activeIndex, carouselPaused])
+
+	const onMouseEnter = () => {
+		console.log("paused");
+		setCarouselPaused(true)
+	}
+
+	const onMouseLeave = () => {
+		console.log("un paused");
+		setCarouselPaused(false)
+	}
 	
 	return (
 		<div className={styles.landingExamMain}>
@@ -101,7 +114,7 @@ const LandingExam = ({ classFor, examFor }) => {
 				</Button>
 			</div>
 			
-			<div ref={carousel} className={`${styles.landingExamCarousel} ${styles.noScrollbar}`}>
+			<div ref={carousel} className={`${styles.landingExamCarousel} ${styles.noScrollbar}`} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 				{banners.map((banner, index) => (
 					<LandingCard key={index} pic={banner.pic} rank={banner.rank} name={banner.name} batch={banner.batch} ref2={carouselEle} />
 				))}

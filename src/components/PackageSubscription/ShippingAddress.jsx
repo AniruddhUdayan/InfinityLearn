@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Row, Col, Form, Button, FormLabel } from "react-bootstrap";
 import { GoArrowUpRight } from "react-icons/go";
 import "./css/packageSubscription.css";
+import { useDispatch } from "react-redux";
+import { setShippingAddress } from "@/store/PackageSubscription/PackageSubscriptionData";
+import { setComponentToShow, setIsPopupShow } from "@/store/PackageSubscription/PackageSubscriptionPopup";
 const statesOfIndia = [
   "Andhra Pradesh",
   "Arunachal Pradesh",
@@ -52,6 +55,8 @@ const ShippingAddress = () => {
     state: "",
   });
 
+  const dispatch = useDispatch()
+
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [id]: value }));
@@ -61,14 +66,17 @@ const ShippingAddress = () => {
     e.preventDefault();
 
     // 3. Collect the data into an array of objects
-    const collectedData = [];
-    for (const key in formData) {
-      collectedData.push({ [key]: formData[key] });
-    }
+    // const collectedData = [];
+    // for (const key in formData) {
+    //   collectedData.push({ [key]: formData[key] });
+    // }
 
-    console.log(collectedData); // This will log the array of objects to the console
+    // console.log(collectedData); // This will log the array of objects to the console
 
     // ... You can then handle the data as needed ...
+    dispatch(setShippingAddress(formData))
+    dispatch(setComponentToShow(null))
+    dispatch(setIsPopupShow(false))
   };
 
   return (

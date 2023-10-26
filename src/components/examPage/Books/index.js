@@ -5,8 +5,18 @@ import book from './../../../../public/images/book.webp'
 import bookM from './../../../../public/images/book.webp'
 import { Button } from '@mui/material'
 import styles from './../css/styles.module.css'
+import { useDispatch } from 'react-redux'
+import { setIsPopupShow, setComponentToShow } from '@/store/PackageSubscription/PackageSubscriptionPopup'
 
 const Books = ({ classFor, examFor }) => {
+
+    const dispatch = useDispatch()
+
+    const showPackageSubscriptionPopup = () => {
+        dispatch(setIsPopupShow(true))
+        dispatch(setComponentToShow('duration'))
+    }
+
     return (
         <div className={styles.booksMain}>
             <div className={styles.booksHead}><span className={styles.blue}>Comprehensive</span> Sri Chaitanya books for {examFor?.toUpperCase() ?? 'JEE'}</div>
@@ -49,7 +59,7 @@ const Books = ({ classFor, examFor }) => {
                     <Button variant="outlined" color="black" disableElevation sx={{ borderRadius: '0.5rem', fontWeight: '600'}} className={styles.booksBtn}>
                         view sample
                     </Button>
-                    <Button variant="contained" color="primary" disableElevation sx={{ borderRadius: '0.5rem', fontWeight: '600'}} className={styles.booksBtn}>
+                    <Button onClick={showPackageSubscriptionPopup} variant="contained" color="primary" disableElevation sx={{ borderRadius: '0.5rem', fontWeight: '600'}} className={styles.booksBtn}>
                         purchase
                     </Button>
                 </div>
