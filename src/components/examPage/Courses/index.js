@@ -69,6 +69,7 @@ const Courses = () => {
 	}
 
     useEffect(() => {
+        if (window.innerWidth > 1024) return
         const interval1 = setInterval(() => {
             if (!pausedRecorded) {
                 if (recordedRef.current.scrollLeft + 1 >= recordedRef.current.scrollWidth - recordedRef.current.offsetWidth) {

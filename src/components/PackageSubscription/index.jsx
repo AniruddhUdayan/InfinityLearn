@@ -54,7 +54,7 @@ function PackageSubscription( show ) {
               <Col xs={12} md={6}>
                 <PackageSummary />
               </Col>
-              <Col xs={12} md={6} className="custom-width-col">
+              <Col xs={12} md={6} className="custom-width-col d-flex flex-col">
                 <div style={{ width: '100%'}}>
                   <ActiveTabs currentIndex={currentPage === "duration" ? 0 : currentPage === "contactDetails" ? 1 : currentPage === "shippingAddress" ? 2 : 0} />
                 </div>
