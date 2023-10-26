@@ -40,7 +40,7 @@ const Language = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/login/mobVer/mobVer2.webp"
                             alt="mob-ver-1"
                             className="side_image max-md:hidden"

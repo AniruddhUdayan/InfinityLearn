@@ -25,6 +25,7 @@
     right: 15px;
     top: 15px;
     cursor: pointer;
+    padding: 0px;
 }
 .side_image{
     width: 100%;
@@ -306,6 +307,7 @@
     cursor: pointer;
     margin-right: 5px;
     margin-left: 5px;
+    color: #007BFF;
 }
 .styled-checkbox {
     position: absolute;

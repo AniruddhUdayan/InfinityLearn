@@ -57,7 +57,7 @@ sendLSQ();
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/login/mobVer/SuccessImage.webp"
                             alt="mob-ver-1"
                             className="side_image max-md:hidden"
@@ -91,19 +91,19 @@ sendLSQ();
                                 <div className='session_success_card'>
                                     <ul className='session_success_card_list'>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/dateIcon.svg' alt='dateicon' />
+                                            <img className='sscIcon' src='/bookSession/dateIcon.svg' alt='dateicon' />
                                             <span className='sscText'>{bookSessionData?.selectedDate?.toLocaleDateString('en-GB', { weekday: 'long' ,day: 'numeric', month: 'long' })} </span>
                                         </li>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/timeIcon.svg' alt='timeicon' />
+                                            <img className='sscIcon' src='/bookSession/timeIcon.svg' alt='timeicon' />
                                             <span className='sscText'>{bookSessionData?.selectedTime}</span>
                                         </li>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/classIcon.svg' alt='classicon' />
+                                            <img className='sscIcon' src='/bookSession/classIcon.svg' alt='classicon' />
                                             <span className='sscText'>class {userGrade} - {userExam} Preparation </span>
                                         </li>
                                         <li>
-                                            <Image className='sscIcon' src='/bookSession/languageIcon.svg' alt='classicon' />
+                                            <img className='sscIcon' src='/bookSession/languageIcon.svg' alt='classicon' />
                                             <span className='sscText'>{bookSessionData?.language} </span>
                                         </li>
                                     </ul>

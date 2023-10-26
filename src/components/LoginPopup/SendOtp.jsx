@@ -103,7 +103,7 @@ const SendOtp = () => {
        <Container>
           <Row>
             <Col xs={12} md={6}>            
-            <Image
+            <img
           src="/login/mobVer/mobVer1.webp"
           objectFit=""
           alt="mob-ver-1"

@@ -249,8 +249,6 @@ const OtpVerification = () => {
           <Col xs={12} md={6}>
             <img
               src="/login/mobVer/mobVer2.webp"
-              height={600}
-              width={500}
               alt="mob-ver-otp"
               className="side_image max-md:hidden"
             />
