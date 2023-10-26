@@ -250,6 +250,10 @@
     border: 1px solid #9C9FA1;
     padding: 12px 10px 24px 16px;
 }
+textarea:focus{
+    border: 1px solid #007BFF !important;
+    outline: none;
+}
 .skip_button {
     width: 100%;
     color: #000000;
@@ -312,9 +316,10 @@
     border: 1px solid #007BFF;
 }
 .session_progress .step_sep {
-    height: 2px;
+    /* height: 2px; */
     width: 162px;
-    background-color: #007BFF;
+    border-top: 1.5px dashed #007BFF;
+    /* background-color: #007BFF; */
 }
 .step.complete .step_sep {
     background-color: #007BFF;

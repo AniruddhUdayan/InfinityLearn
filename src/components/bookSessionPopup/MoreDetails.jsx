@@ -67,7 +67,7 @@ const MoreDetails = () => {
                           <Row className="mt-4">
                               <Col xs={12} md={12}>
                                   <div className="">
-                                  <textarea value={enteredText} onChange={handleChange} className="more_textarea" name="" id="" cols="30" rows="10"></textarea>
+                                  <textarea value={enteredText} onChange={handleChange} className="more_textarea" name="" id="" cols="35" rows="6" placeholder="e.g I want to focus on getting better at solving advanced MCQs in Physics and Maths."></textarea>
                                   </div>
                               </Col>
                           </Row>
