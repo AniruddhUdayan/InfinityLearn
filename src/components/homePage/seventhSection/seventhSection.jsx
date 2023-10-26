@@ -46,11 +46,18 @@ const SeventhSection = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
-      setQuery(e.target.value);
+    const value = e.target.value;
+    const numericValue = value.replace(/\D/g, '');
+    // if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
+      setQuery(numericValue);
+    // }
+  };
+  const handleKeyPress = (e) => {
+    const charCode = e.charCode;
+    if (charCode < 48 || charCode > 57) {
+      e.preventDefault();
     }
   };
-
   const handleToggleOverlay = async () => {
     if (query.length === 10) {
       dispatch(setPhoneNumber(query));
@@ -128,8 +135,9 @@ const SeventhSection = () => {
                 className="outline-none w-[181px] text-[#080E14]"
                 type="text"
                 placeholder="enter your mobile number"
+                maxLength={10} pattern="[6-9]\\d{9}"
                 value={query}
-                onChange={handleInputChange}
+                onChange={handleInputChange} onKeyUp={handleKeyPress}
               />
             </div>
             <button

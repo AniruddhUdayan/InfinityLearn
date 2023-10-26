@@ -82,8 +82,16 @@ function FirstSection() {
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
-      setQuery(e.target.value);
+    const value = e.target.value;
+    const numericValue = value.replace(/\D/g, '');
+    // if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
+      setQuery(numericValue);
+    // }
+  };
+  const handleKeyPress = (e) => {
+    const charCode = e.charCode;
+    if (charCode < 48 || charCode > 57) {
+      e.preventDefault();
     }
   };
 
@@ -160,8 +168,9 @@ function FirstSection() {
                   className="focus-no-outline Input "
                   type="text"
                   placeholder="enter your mobile number"
+                  maxLength={10} pattern="[6-9]\\d{9}"
                   value={query}
-                  onChange={handleInputChange}
+                  onChange={handleInputChange} onKeyUp={handleKeyPress}
                 />
                 <button onClick={handleToggleOverlay} className="jFF">
                   join for free
