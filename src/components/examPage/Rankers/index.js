@@ -17,6 +17,8 @@ const Rankers = () => {
     const carouselEle = useRef(null)
     const [activeIndex, setActiveIndex] = useState(0)
 
+    const [carouselPaused, setCarouselPaused] = useState(false)
+
     const results = [
         { image: rs1, name: 'Brijesh', city: 'Kochi, Kerala', air: 21, score: 700, color: '#FBDD5A' },
         { image: rs2, name: 'Brijesh', city: 'Kochi, Kerala', air: 256, score: 671, color: '#FBDD5A' },
@@ -31,36 +33,41 @@ const Rankers = () => {
 
     useEffect(() => {
 		const interval = setInterval(() => {
-			if (activeIndex === results.length - 1) {
-				setActiveIndex(0)
-				carousel.current.scrollTo({
-					left: 0,
-					behavior: "smooth",
-				})
-			} else if (activeIndex == 0) {
-				setActiveIndex(activeIndex + 1)
-				if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
-					carousel.current.scrollTo({
-						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
-						behavior: "smooth",
-					})	
-				} else {
-					carousel.current.scrollTo({
-						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
-						behavior: "smooth",
-					})
-				}
-
-			} else {
-				setActiveIndex(activeIndex + 1)
-				carousel.current.scrollTo({
-					left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
-					behavior: "smooth",
-				})
-			}
+            if (!carouselPaused){
+                if (activeIndex === results.length - 1) {
+                    setActiveIndex(0)
+                    carousel.current.scrollTo({
+                        left: 0,
+                        behavior: "smooth",
+                    })
+                } else if (activeIndex == 0) {
+                    setActiveIndex(activeIndex + 1)
+                    if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
+                        carousel.current.scrollTo({
+                            left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+                            behavior: "smooth",
+                        })	
+                    } else {
+                        carousel.current.scrollTo({
+                            left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+                            behavior: "smooth",
+                        })
+                    }
+    
+                } else {
+                    setActiveIndex(activeIndex + 1)
+                    carousel.current.scrollTo({
+                        left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+                        behavior: "smooth",
+                    })
+                }    
+            }
 		}, 3000)
 		return () => clearInterval(interval)
-	}, [activeIndex])
+	}, [activeIndex, carouselPaused])
+
+    const pauseCarousel = () => { setCarouselPaused(true) }
+    const resumeCarousel = () => { setCarouselPaused(false) }
 
     return (
         <>
@@ -78,7 +85,7 @@ const Rankers = () => {
                             234 Infinity Learners in top 1000
                         </div>
                     </div>
-                    <div className={`${styles.resultDiv} ${styles.noScrollbar}`} ref={carousel}>
+                    <div className={`${styles.resultDiv} ${styles.noScrollbar}`} ref={carousel} onMouseEnter={pauseCarousel} onMouseLeave={resumeCarousel}>
                         {results?.map((result, i) => <ResultCard key={`result-${i}`} result={result} ref2={carouselEle} />)}
                     </div>
                     <div className={styles.resultIndexDiv}>

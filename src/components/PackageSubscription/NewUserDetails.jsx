@@ -2,11 +2,16 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { Row, Col, Form, Button, FormLabel } from "react-bootstrap";
 import { GoArrowUpRight } from "react-icons/go";
+import { useDispatch } from "react-redux";
+import { setComponentToShow } from "@/store/PackageSubscription/PackageSubscriptionPopup";
+
 const NewUserDetails = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumberError, setPhoneNumberError] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -155,6 +160,7 @@ const NewUserDetails = () => {
               type="submit"
               className="bg-primary rounded text-white"
               style={{ width: "168px", height: "48px" }}
+              onClick={() => dispatch(setComponentToShow("shippingAddress"))}
             >
               <div className="flex justify-center items-center">
                 <div>Proceed</div>

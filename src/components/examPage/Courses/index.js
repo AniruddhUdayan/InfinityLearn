@@ -20,6 +20,9 @@ const Courses = () => {
     const crashEleRef = useRef(null)
 	const isPopupShow = useSelector((state) => state.bookSessionPopup.isPopupShow);	
 
+    const [pausedRecorded, setPausedRecorded] = useState(false)
+    const [pausedCrash, setPausedCrash] = useState(false)
+
     const dispatch = useDispatch();
 
     const recordedCourses = [
@@ -54,6 +57,10 @@ const Courses = () => {
     const scrollCrashRight = () => {
         crashRef.current.scrollTo({left: -crashRef.current.scrollWidth, behavior: 'smooth'})
     }
+    const pauseRecordedCarousel = () => { setPausedRecorded(true) }
+    const playRecordedCarousel = () => { setPausedRecorded(false) }
+    const pauseCrashCarousel = () => { setPausedCrash(true) }
+    const playCrashCarousel = () => { setPausedCrash(false) }
 
 	const bookSessionPopup = async () => {
 		console.log("book session");
@@ -62,35 +69,62 @@ const Courses = () => {
 	}
 
     useEffect(() => {
-        const temp = ( parent, child ) => {
-            if (window.innerWidth >= 1024) return
-            const interval = setInterval(() => {
-                if (parent.current.scrollLeft + 1 >= parent.current.scrollWidth - parent.current.offsetWidth) {
-                    parent.current.scrollTo({left: 0, behavior: 'smooth'})
-                } else if (parent.current.scrollLeft == 0) {
-                    if (child.current.offsetWidth < parent.current.offsetWidth / 2){
-                        parent.current.scrollTo({
-                            left: parent.current.scrollLeft + child.current.offsetWidth/2,
+        const interval1 = setInterval(() => {
+            if (!pausedRecorded) {
+                if (recordedRef.current.scrollLeft + 1 >= recordedRef.current.scrollWidth - recordedRef.current.offsetWidth) {
+                    recordedRef.current.scrollTo({left: 0, behavior: 'smooth'})
+                } else if (recordedRef.current.scrollLeft == 0) {
+                    if (recordedEleRef.current.offsetWidth < recordedRef.current.offsetWidth / 2){
+                        recordedRef.current.scrollTo({
+                            left: recordedRef.current.scrollLeft + recordedEleRef.current.offsetWidth/2,
                             behavior: "smooth",
                         })	
                     } else {
-                        parent.current.scrollTo({
-                            left: parent.current.scrollLeft + child.current.offsetWidth,
+                        recordedRef.current.scrollTo({
+                            left: recordedRef.current.scrollLeft + recordedEleRef.current.offsetWidth,
                             behavior: "smooth",
                         })
                     }
                 } else {
-                    parent.current.scrollTo({
-                        left: parent.current.scrollLeft + child.current.offsetWidth,
+                    recordedRef.current.scrollTo({
+                        left: recordedRef.current.scrollLeft + recordedEleRef.current.offsetWidth,
                         behavior: "smooth",
                     })
-                }
-            }, 3000)
-            return () => clearInterval(interval)    
+                }        
+            }
+        }, 3000)
+
+        const interval2 = setInterval(() => {
+            if (!pausedCrash) {
+                if (crashRef.current.scrollLeft + 1 >= crashRef.current.scrollWidth - crashRef.current.offsetWidth) {
+                    crashRef.current.scrollTo({left: 0, behavior: 'smooth'})
+                } else if (crashRef.current.scrollLeft == 0) {
+                    if (crashEleRef.current.offsetWidth < crashRef.current.offsetWidth / 2){
+                        crashRef.current.scrollTo({
+                            left: crashRef.current.scrollLeft + crashEleRef.current.offsetWidth/2,
+                            behavior: "smooth",
+                        })	
+                    } else {
+                        crashRef.current.scrollTo({
+                            left: crashRef.current.scrollLeft + crashEleRef.current.offsetWidth,
+                            behavior: "smooth",
+                        })
+                    }
+                } else {
+                    crashRef.current.scrollTo({
+                        left: crashRef.current.scrollLeft + crashEleRef.current.offsetWidth,
+                        behavior: "smooth",
+                    })
+                }        
+            }
+        }, 3000)
+
+        return () => {
+            clearInterval(interval1)
+            clearInterval(interval2)
         }
-        temp(recordedRef, recordedEleRef)
-        temp(crashRef, crashEleRef)
-    }, [])
+
+    }, [pausedRecorded, pausedCrash])
 
     return (
         <div className={styles.coursesMain}>
@@ -121,7 +155,7 @@ const Courses = () => {
                     </div>
                 </div>
                 <div className={styles.coursesHeadDesc}>Experience the most engaging lectures anytime, anywhere</div>
-                <div className={styles.coursesCourses} ref={recordedRef}>
+                <div className={styles.coursesCourses} ref={recordedRef} onMouseEnter={pauseRecordedCarousel} onMouseLeave={playRecordedCarousel} >
                     {recordedCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={recordedEleRef} />)}
                 </div>
             </div>
@@ -138,7 +172,7 @@ const Courses = () => {
                     </div>
                 </div>
                 <div className={styles.coursesHeadDesc}>Crash Courses that cover complete IIT-JEE Syllabus</div>
-                <div className={styles.coursesCourses} ref={crashRef}>
+                <div className={styles.coursesCourses} ref={crashRef} onMouseEnter={pauseCrashCarousel} onMouseLeave={playCrashCarousel} >
                     {crashCourses.map((course, index) => <CourseCard key={index} title={course.title} img={course.img} classes={course.classes} views={course.views} desc={course.desc} price={course.price} ref2={crashEleRef} />)}
                 </div>
             </div>

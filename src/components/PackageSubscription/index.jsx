@@ -12,19 +12,42 @@ import OtpCheck from "./OtpCheck";
 import NewUserDetails from "./NewUserDetails";
 import ShippingAddress from "./ShippingAddress";
 import "./css/packageSubscription.css";
+import { setComponentToShow, setIsPopupShow } from "@/store/PackageSubscription/PackageSubscriptionPopup";
+
+
 function PackageSubscription( show ) {
-  const currentPage = useState("duration");
-  const visible = useState(show)
+  const currentPage = useSelector((state) => state.packageSubscriptionPopup.componentName)
+  const visible = useSelector((state) => state.packageSubscriptionPopup.isPopupShow)
+
+  const dispatch = useDispatch();
+  const closePopup = () => {
+    dispatch(setIsPopupShow(false));
+    dispatch(setComponentToShow(null));
+  }
+
+  const renderComponent = () => {
+    switch (currentPage) {
+      case "duration":
+        return <SelectDuration />
+      case "contactDetails":
+        return <NewUserDetails />;
+      case "shippingAddress":
+        return <ShippingAddress />;
+      default:
+        return <SelectDuration />;
+    }
+  }
+
   return (
     <>
       <Modal
-        show={false}
+        show={visible}
         size="lg"
         centered
         className="subscription_popup"
         aria-labelledby="example-modal-sizes-title-lg"
       >
-        <Modal.Header closeButton></Modal.Header>
+        <Modal.Header closeButton onClick={closePopup}></Modal.Header>
         <Modal.Body className="subscription_body">
           <Container>
             <Row>
@@ -32,12 +55,10 @@ function PackageSubscription( show ) {
                 <PackageSummary />
               </Col>
               <Col xs={12} md={6} className="custom-width-col">
-                <ActiveTabs />
-                <SelectDuration />
-                {/* <MobileVerification /> */}
-                {/* <OtpCheck /> */}
-                {/* <NewUserDetails /> */}
-                {/* <ShippingAddress /> */}
+                <div style={{ width: '100%'}}>
+                  <ActiveTabs currentIndex={currentPage === "duration" ? 0 : currentPage === "contactDetails" ? 1 : currentPage === "shippingAddress" ? 2 : 0} />
+                </div>
+                {renderComponent()}
               </Col>
             </Row>
           </Container>

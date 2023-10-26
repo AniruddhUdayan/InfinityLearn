@@ -133,6 +133,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  justify-content: center;
 }
 
 .circle {
@@ -150,7 +151,7 @@
   position: absolute;
   top: 50%; /* Centered vertically */
   transform: translateY(-50%); /* Centered vertically */
-  left: 25%;
+  left: 63%;
   flex-grow: 1;
   height: 3px; /* Increased from 1px */
   width: calc(100% - 36px); /* Adjusted to match new circle size */
@@ -187,7 +188,7 @@
 .label {
   flex: 2;
 
-  text-align: start;
+  text-align: center;
 }
 
 /* Css for package summary page */

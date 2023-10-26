@@ -5,6 +5,9 @@ import minus from './../../../public/images/minus.svg'
 import plus from './../../../public/images/plus.svg'
 import Image from "next/image";
 import check from './../../../public/images/check-icon.svg'
+import { Button } from "@mui/material";
+import { setComponentToShow } from "@/store/PackageSubscription/PackageSubscriptionPopup";
+import { useDispatch } from "react-redux";
 
 const DurationCard = ({ duration, price, emi, total, totalBefore, isRecommended, save, selected, onClick }) => {
   return (
@@ -66,9 +69,11 @@ const AddOnCard = ({ title, price, selected, points, onClick }) => {
 }
 
 const SelectDuration = () => {
-  const [durationExpanded, setDurationExpanded] = useState(false)
+  const [durationExpanded, setDurationExpanded] = useState(true)
   const [addOnsExpanded, setAddOnsExpanded] = useState(false)
   const [selectedDuration, setSelectedDuration] = useState(1)
+
+  const dispatch = useDispatch()
 
   return (
     <Container>
@@ -104,6 +109,17 @@ const SelectDuration = () => {
             />
           </div>
         }
+        <div>
+          <Button variant="contained" fullWidth sx={{
+            borderRadius: '0.5rem',
+            margin: '1rem 0',
+          }}
+          disabled={!selectedDuration}
+          onClick={() => dispatch(setComponentToShow('contactDetails'))}
+          >
+            enroll for {selectedDuration?.duration} years
+          </Button>
+        </div>
       </div>
     </Container>
   )

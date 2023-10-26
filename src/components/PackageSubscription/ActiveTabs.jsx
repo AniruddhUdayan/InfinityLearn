@@ -24,7 +24,7 @@ const ProgressIndicator = ({ currentIndex = 0 }) => {
           </div>
         ))}
       </div>
-      <div className="flex w-max justify-content-between mt-2  labels">
+      <div className="flex w-100 justify-content-between mt-2 labels">
         {steps.map((step, index) => (
           <div key={index} className=" label">
             {step}
@@ -35,10 +35,10 @@ const ProgressIndicator = ({ currentIndex = 0 }) => {
   );
 };
 
-const ActiveTabs = () => {
+const ActiveTabs = ({ currentIndex = 0 }) => {
   return (
     <div className="container">
-      <ProgressIndicator currentIndex={1} />
+      <ProgressIndicator currentIndex={currentIndex} />
     </div>
   );
 };

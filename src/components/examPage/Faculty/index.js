@@ -13,6 +13,8 @@ const Faculty = ({ classFor, examFor }) => {
 	const carousel = useRef(null)
 	const carouselEle = useRef(null)
 
+	const [carouselPaused, setCarouselPaused] = useState(false)
+
 	const faculties = [
 		{name: 'Prerana AR', image: faculty1, headline: '10+ Years Teaching | NIT Nagpur', subject: 'Maths', usp: 'Taught 64 NEET Toppers'},
 		{name: 'Prerana AR', image: faculty2, headline: '10+ Years Teaching | NIT Nagpur', subject: 'Maths', usp: 'Taught 64 NEET Toppers'},
@@ -25,35 +27,37 @@ const Faculty = ({ classFor, examFor }) => {
 	useEffect(() => {
 		if (window.innerWidth >= 1024) return
 		const interval = setInterval(() => {
-			if (progress === faculties.length - 1) {
-				setProgress(0)
-				carousel.current.scrollTo({
-					left: 0,
-					behavior: "smooth",
-				})
-			} else if (progress === 0) {
-				setProgress(progress + 1)
-				if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
+			if (!carouselPaused){
+				if (progress === faculties.length - 1) {
+					setProgress(0)
 					carousel.current.scrollTo({
-						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+						left: 0,
 						behavior: "smooth",
-					})	
+					})
+				} else if (progress === 0) {
+					setProgress(progress + 1)
+					if (carouselEle.current.offsetWidth < carousel.current.offsetWidth / 2){
+						carousel.current.scrollTo({
+							left: carousel.current.scrollLeft + carouselEle.current.offsetWidth/2,
+							behavior: "smooth",
+						})	
+					} else {
+						carousel.current.scrollTo({
+							left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
+							behavior: "smooth",
+						})
+					}
 				} else {
+					setProgress(progress + 1)
 					carousel.current.scrollTo({
 						left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
 						behavior: "smooth",
 					})
 				}
-			} else {
-				setProgress(progress + 1)
-				carousel.current.scrollTo({
-					left: carousel.current.scrollLeft + carouselEle.current.offsetWidth,
-					behavior: "smooth",
-				})
 			}
 		}, 3000)
 		return () => clearInterval(interval)
-	}, [progress])
+	}, [progress, carouselPaused])
 	
 	const scrollFacultiesLeft = () => {
         carousel.current.scrollTo({left: carousel.current.scrollWidth, behavior: 'smooth'})
@@ -62,6 +66,14 @@ const Faculty = ({ classFor, examFor }) => {
     const scrollFacultiesRight = () => {
         carousel.current.scrollTo({left: -carousel.current.scrollWidth, behavior: 'smooth'})
     }
+
+	const pauseCarousel = () => {
+		setCarouselPaused(true)
+	}
+
+	const resumeCarousel = () => {
+		setCarouselPaused(false)
+	}
 
 	return (
 		<div className={styles.facultyWrapper}>
@@ -81,7 +93,7 @@ const Faculty = ({ classFor, examFor }) => {
 				<LinearProgress variant="determinate" value={normalise(progress+1)} className={styles.facultyProgressActual} />
 				<div>{faculties?.length}</div>
 			</div>
-			<div ref={carousel} className={`${styles.facultyCards} ${styles.noScrollbar}`}>
+			<div ref={carousel} className={`${styles.facultyCards} ${styles.noScrollbar}`} onMouseEnter={pauseCarousel} onMouseLeave={resumeCarousel}>
 				{faculties.map((f, i) => (
 					<FacultyCard ref2={carouselEle} key={i} name={f?.name} image={f?.image} headline={f?.headline} subject={f?.subject} usp={f?.usp} />
 				))}
