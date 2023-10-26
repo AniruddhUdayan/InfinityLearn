@@ -31,7 +31,7 @@ function Footer() {
             <div className="md:w-[80%] mt-6 flex flex-col gap-4 text-[16px] font-[500]">
               <div className="flex flex-row gap-4">
                 <FaPhoneAlt className="" />
-                <p>+91 9999999999</p>
+                <p>799 666 8865</p>
               </div>
               <hr></hr>
               <div className="flex flex-row gap-4">

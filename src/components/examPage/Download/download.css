@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   background: #f1f2f6;
-  padding-top: 8px;
+  padding-top: 32px;
   padding-bottom: 0;
   gap: 8px;
   color: #080e14;
@@ -55,6 +55,7 @@
   color: #ffffff;
   gap: 32px;
   width: 100%;
+  height: 354px;
 }
 .download-overlay-box {
   width: 100%;
@@ -169,6 +170,7 @@
     padding: 4px;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    height: 276px;
   }
   .download-demo-session-input-box {
     padding-left: 12px;
