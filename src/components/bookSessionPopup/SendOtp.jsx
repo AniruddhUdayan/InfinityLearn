@@ -104,12 +104,10 @@ const SendOtp = () => {
        <Container>
           <Row>
             <Col xs={12} md={6}>            
-            <Image
+            <img
           src="/login/mobVer/mobVer1.webp"
           alt="mob-ver-1"
           className="side_image max-md:hidden"
-          width={500}
-          height={500}
         />
             </Col>
             <Col xs={12} md={6}>

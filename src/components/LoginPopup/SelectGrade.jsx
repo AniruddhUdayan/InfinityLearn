@@ -74,10 +74,8 @@ const SelectGrade = () => {
             <Container>
                 <Row>
                     <Col xs={12} md={6}>
-                        <Image
+                        <img
                             src="/login/newUser/newUser2.webp"
-                            height={400}
-                            width={600}
                             alt="mob-ver-1"
                             className="side_image max-md:hidden"
                         />
