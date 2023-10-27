@@ -212,7 +212,7 @@ const SixthSection = () => {
         <div className="relative md:mx-auto bottom-7 top-[0px]">
           {" "}
           <Image
-            src="/../homePage/sixthSection/newSixth.png"
+            src="/homePage/sixthSection/newSixth.png"
             alt="phone"
             width={492}
             height={741}
