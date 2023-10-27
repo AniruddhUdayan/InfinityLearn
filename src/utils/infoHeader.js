@@ -18,6 +18,7 @@ const subItem = [
             subItemAbout: "engineering exam preparation",
             listPresent: "false",
             svg: "/header/iit.svg",
+            path: "/exam/11/jee"
           },
           {
             lid: 1,
@@ -25,6 +26,7 @@ const subItem = [
             subItemAbout: "medical exam preparation",
             listPresent: "false",
             svg: "/header/medical.svg",
+            path: "/exam/11/neet"
           },
           {
             lid: 2,
@@ -32,6 +34,7 @@ const subItem = [
             subItemAbout: "common university entrance test",
             listPresent: "false",
             svg: "/header/cuet.svg",
+            path: "/exam/11/cuet"
           },
         ],
       },
@@ -49,6 +52,7 @@ const subItem = [
             subItemAbout: "engineering exam preparation",
             listPresent: "false",
             svg: "./header/iit.svg",
+            path: '/exam/9/jee'
           },
           {
             lid: 1,
@@ -56,31 +60,35 @@ const subItem = [
             subItemAbout: "medical exam preparation",
             listPresent: "false",
             svg: "/header/medical.svg",
+            path: '/exam/9/neet'
           },
           {
             listHeading: true,
             name: "CBSE tutions",
             svg: "null",
-
             subItemAbout: "null",
+            path: '/exam/9/cbse'
           },
           {
             lid: 2,
             name: "English",
             listPresent: "false",
             svg: "/header/science.svg",
+            path: '/exam/9/english'
           },
           {
             lid: 3,
             name: "Science",
             listPresent: "false",
             svg: "/header/science.svg",
+            path: '/exam/9/science'
           },
           {
             lid: 4,
             name: "Maths",
             listPresent: "false",
             svg: "/header/math.svg",
+            path: '/exam/9/maths'
           },
         ],
       },
@@ -98,6 +106,7 @@ const subItem = [
             subItemAbout: "engineering and medical exam preparation",
             listPresent: "false",
             svg: "/header/foundation.svg",
+            path: '/exam/4/foundation'
           },
           {
             listHeading: true,
@@ -111,18 +120,21 @@ const subItem = [
             name: "English",
             listPresent: "false",
             svg: "/header/science.svg",
+            path: '/exam/4/english'
           },
           {
             lid: 3,
             name: "Science",
             listPresent: "false",
             svg: "/header/science.svg",
+            path: '/exam/4/science'
           },
           {
             lid: 4,
             name: "Maths",
             listPresent: "false",
             svg: "/header/math.svg",
+            path: '/exam/4/maths'
           },
           {
             listHeading: true,
@@ -137,6 +149,7 @@ const subItem = [
             listPresent: "false",
             subItemAbout: "unleash your creativity",
             svg: "/header/ypdp.svg",
+            path: '/exam/4/ypdp'
           },
           {
             lid: 6,
@@ -144,6 +157,7 @@ const subItem = [
             listPresent: "false",
             subItemAbout: "boost your anlytical thinking",
             svg: "/header/hots.svg",
+            path: '/exam/4/hots'
           },
         ],
       },
@@ -161,6 +175,7 @@ const subItem = [
             subItemAbout: "english + maths + science + coding",
             listPresent: "false",
             svg: "/header/foundation.svg",
+            path: '/exam/1/foundation'
           },
           {
             listHeading: true,
@@ -175,6 +190,7 @@ const subItem = [
             listPresent: "false",
             subItemAbout: "unleash your creativity",
             svg: "/header/ypdp.svg",
+            path: '/exam/1/ypdp'
           },
           {
             lid: 6,
@@ -182,6 +198,7 @@ const subItem = [
             listPresent: "false",
             subItemAbout: "boost your anlytical thinking",
             svg: "/header/hots.svg",
+            path: '/exam/1/hots'
           },
         ],
       },

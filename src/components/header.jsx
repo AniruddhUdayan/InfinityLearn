@@ -46,6 +46,7 @@ function SubItemCard(props) {
       props.onSubMenuToggle(props.index, props.subIndex);
     }
     if (props.onDoubtClick) {
+      console.log("doubt clicked");
       props.onDoubtClick();
     }
     if (selectedItem === props.index) {
@@ -225,16 +226,21 @@ function ResHeader({
                                   >
                                     <SubItemCard
                                       data={subItem}
-                                      onDoubtClick={() =>
+                                      onDoubtClick={() => {
+                                        if (activeItem === 0) {
+                                          window.location.href = subItem.path;
+                                          return
+                                        }
                                         toggleBooksCardVisibility(listItemIndex)
-                                      }
+                                      }}
+                                      onSubMenuToggle={() => {}}
                                       // bookPresent={subItem.listPresent}
                                     />
                                   </div>
                                   {visibleBooksCards.includes(
                                     listItemIndex
                                   ) && (
-                                    <Link href={subItem.path}>
+                                    <Link href={subItem.path ?? ''}>
                                       {" "}
                                       <BooksCard
                                         data={subItem.books}
@@ -361,10 +367,6 @@ function Header() {
       setVisibleBooksCards((prev) => [...prev, index]);
     }
   };
-  // console.log(activeItem, "activeItem");
-  // console.log(activeSubItem, "activeSubItem");
-  // console.log(foundItem, "foundItem");
-  // console.log(foundSubItem, "foundSubItem");
   return (
     <div>
       <nav
@@ -427,9 +429,6 @@ function Header() {
                             <ul className=" z-20 rounded-lg rounded-tl-none rounded-bl-none absolute w-fit bg-white   border-white border-2 top-[-2px] left-full flex flex-col p-2">
                               {foundSubItem?.map((subItem, listItemIndex) => (
                                 <div
-                                  onClick={() => {
-                                    console.log(subItem.path);
-                                  }}
                                   key={listItemIndex}
                                   className="flex items-center flex-col"
                                 >
@@ -441,16 +440,21 @@ function Header() {
                                   >
                                     <SubItemCard
                                       data={subItem}
-                                      onDoubtClick={() =>
+                                      onDoubtClick={() =>{
+                                        if (activeItem === 0) {
+                                          window.location.href = subItem.path;
+                                          return
+                                        }
                                         toggleBooksCardVisibility(listItemIndex)
-                                      }
+                                      }}
+                                      onSubMenuToggle={() => {}}
                                     />
-                                    my-auto smaller{" "}
+                                    {/* my-auto smaller{" "} */}
                                   </div>
                                   {visibleBooksCards.includes(
                                     listItemIndex
                                   ) && (
-                                    <Link href={subItem.path}>
+                                    <Link href={subItem.path ?? ''}>
                                       {" "}
                                       <BooksCard
                                         data={subItem.books}
