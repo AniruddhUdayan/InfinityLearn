@@ -178,32 +178,30 @@
 }
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
 }
+/* Media query for screen sizes between 320px and 480px */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-  .download-book-button {
-    font-size: 12px; /* Smaller font size */
-    padding-left: 12px; /* Less padding */
-    padding-right: 12px; /* Less padding */
-    width: 100%; /* Full width for smaller screens */
-    box-sizing: border-box; /* Include padding in the width */
+  .download-demo-session-input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
-  .dowHead {
-    white-space: nowrap;
+
+  .download-demo-session-input-subbox {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
   }
 
   .download-demo-session-input {
-    width: calc(100% - 24px); /* Adjust width for input */
-    box-sizing: border-box; /* Include padding in the width */
+    flex: 1; /* Take up available space */
+    min-width: 0; /* Prevent overflow */
   }
 
-  .download-demo-session-input-box,
-  .download-demo-session-input-subbox {
-    /* Stack input and button */
-  }
-
-  .download-demo-session-input-subbox {
-    align-items: stretch; /* Stretch items to fill container */
+  .download-book-button {
+    flex-shrink: 0; /* Prevent shrinking */
   }
 }
+
 @media (max-width: 351px) {
   .dowHead {
     font-size: 2rem;

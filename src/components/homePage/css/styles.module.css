@@ -490,6 +490,10 @@ input::placeholder {
     /* gap: 40px; */
     padding-bottom: 62px;
   }
+  .heroBannerLargeWrapper img {
+    max-width: 100% !important;
+    max-height: auto;
+  }
   .firstSectionHeadTextWrapper {
   }
   .firstSectionHeadText,
