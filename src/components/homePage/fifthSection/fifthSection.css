@@ -124,30 +124,7 @@
 .cardNormal:hover {
   cursor: pointer;
 }
-.image-container {
-  position: relative;
-  width: 365px;
-  height: 161px;
-  overflow: hidden;
-}
 
-/* Background image (video) */
-.image-container .background-image {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Play button logo centered on the background image */
-.image-container .play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 52px;
-  opacity: 0.75;
-}
 .Reviews {
 }
 .nlss {
@@ -246,7 +223,7 @@
   .fifthSection {
     height: 371px;
   }
-  .image-container {
+  .imageContainer {
     width: 292px;
   }
   .cardNormal-head {
@@ -384,14 +361,13 @@
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .fifthSection {
+    height: 560px;
+  }
   .fshc {
     font-size: 36px !important;
 
     line-height: 42px !important;
-  }
-
-  .fifthSection {
-    height: 560px;
   }
   .fsh {
     padding-bottom: 4rem;
@@ -410,14 +386,13 @@
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .fifthSection {
+    height: 700px;
+  }
   .fshc {
     font-size: 48px !important;
 
     line-height: 58px !important;
-  }
-
-  .fifthSection {
-    height: 700px;
   }
   .fsh {
     padding-bottom: 4rem;
@@ -483,9 +458,5 @@
   }
   .fshc {
     font-size: 24px !important;
-  }
-  .carouss {
-  }
-  .carousal-inner {
   }
 }

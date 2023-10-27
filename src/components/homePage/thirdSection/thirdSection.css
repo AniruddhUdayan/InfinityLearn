@@ -128,13 +128,14 @@ video {
   }
   .thirdSection {
     padding-bottom: 32px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .option-head1,
   .option-head2 {
     font-size: 32px;
     line-height: 38px;
+    font-weight: 700;
   }
   .option-info {
     width: auto !important;
@@ -144,6 +145,9 @@ video {
   }
   .thirdsection-content {
     align-items: center !important;
+    padding-left: 0px !important;
+    padding-right: 20px;
+    margin-top: 32px !important;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 576px) {
@@ -251,4 +255,6 @@ video {
   height: 2px;
   background-color: #007bff;
   transition: left 0.3s ease, width 0.3s ease;
+}
+@media screen {
 }

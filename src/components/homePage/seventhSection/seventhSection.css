@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 78px 116px;
+  padding: 70px 0;
   color: #ffffff;
   gap: 32px;
   width: 100%;
@@ -116,10 +116,10 @@
 @media (min-width: 1024px) {
   /* Styles to apply when the viewport width is 768px or wider */
   .download-container {
-    /* padding-top: 16px; */
+    padding-top: 16px;
     flex-direction: row;
-    /* padding-left: 64px;
-    padding-right: 64px; */
+    padding-left: 64px;
+    padding-right: 64px;
   }
   .download-box {
     gap: 32px;
@@ -136,7 +136,7 @@
   .download-overlay {
     flex-direction: row;
     gap: 64px;
-    /* padding: 5rem; */
+    padding: 5rem;
   }
   .download-overlay-box {
     width: 41.6%;
@@ -156,9 +156,56 @@
     padding-bottom: 2rem;
   }
   .download-demo-session-input-box {
-    padding-left: 12px;
-    padding-right: 12px;
+    /* padding-left: 12px;
+    padding-right: 12px; */
     padding-top: 14px;
     padding-bottom: 14px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .download-overlay {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 576px) {
+}
+@media only screen and (min-width: 577px) and (max-width: 767px) {
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .download-book-button {
+    font-size: 12px; /* Smaller font size */
+    padding-left: 12px; /* Less padding */
+    padding-right: 12px; /* Less padding */
+    width: 100%; /* Full width for smaller screens */
+    box-sizing: border-box; /* Include padding in the width */
+  }
+  .dowHead {
+    white-space: nowrap;
+  }
+
+  .download-demo-session-input {
+    width: calc(100% - 24px); /* Adjust width for input */
+    box-sizing: border-box; /* Include padding in the width */
+  }
+
+  .download-demo-session-input-box,
+  .download-demo-session-input-subbox {
+    /* Stack input and button */
+  }
+
+  .download-demo-session-input-subbox {
+    align-items: stretch; /* Stretch items to fill container */
+  }
+}
+@media (max-width: 351px) {
+  .dowHead {
+    font-size: 2rem;
   }
 }

@@ -9,7 +9,7 @@ import "./fourthSection.css";
 import { BsClockHistory, BsCameraVideo } from "react-icons/bs";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { LuGraduationCap } from "react-icons/lu";
-
+import styles from "../css/styles.module.css";
 function Trial() {
   const [isAutoScroll, setIsAutoScroll] = useState(true);
 
@@ -37,7 +37,7 @@ function Trial() {
       <Carousel
         controls={false}
         className=" items-center  mxauto w-fit max-w-[380px] top-4"
-        interval={isAutoScroll ? 2000 : null}
+        interval={isAutoScroll ? 20000000 : null}
         onSlide={handleSlide}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -78,7 +78,7 @@ const courses = [
     id: 3,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image1.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -89,7 +89,7 @@ const courses = [
     id: 4,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image1.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -100,7 +100,7 @@ const courses = [
     id: 5,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image2.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -111,7 +111,7 @@ const courses = [
     id: 6,
     name: "IIT JEE Rankers Course",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -122,7 +122,7 @@ const courses = [
     id: 7,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -133,7 +133,7 @@ const courses = [
     id: 8,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -144,7 +144,7 @@ const courses = [
     id: 9,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -155,7 +155,7 @@ const courses = [
     id: 10,
     name: "High Order Thinking Skills",
     about: "full course coverage revision and test series",
-    price: "starting at 1660/month",
+    price: "₹1660/month",
     svg: "/courses/Image3.png",
     duration: "1-2 years",
     noofhours: "1000+ hrs of live classes",
@@ -199,30 +199,21 @@ function Card(props) {
   }, []);
   // console.log(props.data.id);
   return (
-    <div
-      className={`card  ${
-        props.data.id == 1 || props.data.id == 0 || props.data.id == 2
-          ? " w-96 bg-blue-200 h-0  "
-          : "bg-white"
-      }   hover:cursor-pointer cc max-h-[434px]  `}
-    >
+    <div className={styles.courseCard}>
       <div style={{ height: showMore ? `${decreasedHeight}px` : "auto" }}>
         <Image
           src={props.data?.svg}
           height={138}
           width={svgWidth}
-          // Ensures the image maintains its aspect ratio
           className="  border-blue-200"
           alt="cards svg"
         />
       </div>
-      <div className=" relative flex w-full   flex-col">
+      <div className={styles.courseCardContentWrapper}>
         <div
-          className={`" ${
-            showMore ? "  relative " : " hidden "
-          } top-[6px] rounded-t-none   bg-transparent w-full rounded-2xl "`}
+          className={`" ${showMore ? "  relative " : " hidden "} top-[10px]  `}
         >
-          <div className="relative   left-6">
+          <div className="relative left-6">
             {props.data.id != 0 && props.data.id != 1 && props.data.id != 2 && (
               <Image
                 src="./courses/std.svg"
@@ -234,52 +225,77 @@ function Card(props) {
             )}
           </div>
         </div>
-        <div className=" pt-2 bg-white">
-          <div className=" cdc ">
-            <div className="  font-bold text-[20px]">{props.data.name}</div>
-            <div className="  w-full max-md:text-sm text-[14px]  mb-2 ">
-              {props.data?.about}
-            </div>
+        <div className="bg-white">
+          <div className={styles.cdc}>
+            <div className={styles.courseCardName}>{props.data.name}</div>
+            <div className={styles.courseCardSubName}>{props.data?.about}</div>
           </div>
-
-          <div className="cpc flex max-md:space-x-11 space-x-20">
+          {/* #080E14 media  #00254C  semi*/}
+          <div className={styles.cpc}>
             {" "}
-            <div className="text-[#080E14]  ccp font-[500] ">
-              {props.data?.price}
+            <div className=" flex gap-1 ">
+              <div className={` ${styles.ccp} font-[500]`}>starting from</div>
+              <div className={` ${styles.ccp} font-[600] text-[#00254C]`}>
+                {props.data?.price}
+              </div>
             </div>
             <div
-              className=" flex hover:cursor-pointer text-[#007BFF]"
+              className=" flex items-center hover:cursor-pointer "
               onClick={() => setShowMore(!showMore)}
             >
-              <div className=" text-xs  text-center  cursor-pointer">
+              <div className={styles.ccsm}>
                 {showMore == false ? (
                   <div> {"see more"}</div>
                 ) : (
                   <div> {"see less"}</div>
                 )}
               </div>
-              {showMore == false ? <IoIosArrowDown /> : <IoIosArrowDown />}
+              {showMore == false ? (
+                <IoIosArrowDown color="#007bff" />
+              ) : (
+                <IoIosArrowDown color="#007bff" />
+              )}
             </div>
           </div>
 
           <div
             className={`${showMore ? " flex " : " hidden "} seeMoreSection `}
           >
-            <div className=" seeMoreSection-text">
-              <BsClockHistory size={20} />
+            <div className={styles.seeMoreSectionText}>
+              <Image
+                src="/../courses/pace.svg"
+                height={20}
+                width={20}
+                alt="logos"
+              />
               {props.data.duration}
             </div>
-            <div className="seeMoreSection-text">
-              <LuGraduationCap size={20} />
+            <div className={styles.seeMoreSectionText}>
+              <Image
+                src="/../courses/school.svg"
+                height={20}
+                width={20}
+                alt="logos"
+              />
               {props.data.noofhours}
             </div>
-            <div className=" seeMoreSection-text">
-              <BsCameraVideo size={20} />
+            <div className={styles.seeMoreSectionText}>
+              <Image
+                src="/../courses/vr.svg"
+                height={20}
+                width={20}
+                alt="logos"
+              />
 
               {props.data.noofvideos}
             </div>
-            <div className="seeMoreSection-text">
-              <HiOutlineDocumentText size={20} />
+            <div className={styles.seeMoreSectionText}>
+              <Image
+                src="/../courses/text_snippet.svg"
+                height={20}
+                width={20}
+                alt="logos"
+              />
               {props.data.nooftest}
             </div>
           </div>
@@ -395,7 +411,7 @@ function FourthSection() {
           setDashCard((activeDash + 1) % 5);
         }
       }
-    }, 18000000);
+    }, 1800);
 
     return () => clearInterval(interval);
   }, [scrollPos, activeDash, isHovered]);
@@ -417,8 +433,8 @@ function FourthSection() {
     animationData: animationData,
     loop: true,
     style: {
-      width: svgWidth,
-      height: svgSvgHeight,
+      width: 70,
+      height: 70,
     },
   };
 
@@ -428,22 +444,26 @@ function FourthSection() {
 
   return (
     <div>
-      <div className="fourthSection ">
-        <div className=" fous-text-ch ">
-          {View}
+      <div className={styles.fourthSection}>
+        <div className={styles.fourthSectionHeading}>
+          <div>{View}</div>
 
-          <div className=" focus-text-content text-[#080e14]  text-head1   ">
+          <div
+            className={` ${styles.fourthSectionHeadingContent} text-[#080e14] "`}
+          >
             new and
-            <span className="focus-text-content ml-2 text-head1 max-md:ml-2  text-[#007BFF]">
+            <span
+              className={` ${styles.fourthSectionHeadingContent} ml-2   text-[#007BFF] `}
+            >
               trending
             </span>
           </div>
         </div>
 
-        <div className="flex courses  flex-col justify-center w-full items-center h-ull bg-[#D4E9FF]">
-          <div className="overflow-y-auto courses-d h-auto relative py-2   w6">
+        <div className={`" ${styles.coursesWrapper} bg-[#D4E9FF] `}>
+          <div className={styles.courses}>
             <div
-              className="flex transition-transform  duration-1000 "
+              className="flex transition-transform mx-[40px] no-scrollbar  duration-1000 "
               style={{ transform: `translateX(-${scrollPos * sps}%)` }} // Adjust based on card width and margin
             >
               {courses.map((course) => (
@@ -458,14 +478,12 @@ function FourthSection() {
               ))}
             </div>
           </div>
-          <div className=" flex justify-center mt-[53px]">
+          <div className={styles.dashContainer}>
             {Array.from({ length: 4 }, (_, index) => (
               <div
                 key={index}
-                className={`dash h-1 rounded-full mx-2 b ${
-                  index === activeDash
-                    ? "active w-16 bg-blue-500 "
-                    : " bg-blue-300 w-10"
+                className={`${styles.dash} ${
+                  index === activeDash ? styles.active : ""
                 }`}
               ></div>
             ))}

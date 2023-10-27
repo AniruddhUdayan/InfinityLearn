@@ -92,16 +92,15 @@
   width: 100%;
   align-items: center;
   border-radius: 2rem;
-  
 }
 .card3-sec {
-    display: flex;
-    flex-direction: column;
-  }
-  .card3-text {
-    font-weight: 600;
-    font-size: 1.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+}
+.card3-text {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
 .card3:hover {
   cursor: pointer;
   color: white;
@@ -124,13 +123,11 @@
   height: 361px;
   width: 318px;
   border-radius: 20px;
-
- 
 }
- .card2-sec {
-    display: flex;
-    flex-direction: column;
-  }
+.card2-sec {
+  display: flex;
+  flex-direction: column;
+}
 .card2:hover {
   cursor: pointer;
   background-color: #007bff;
@@ -182,20 +179,19 @@
   height: auto; /* h-max in Tailwind */
   padding-bottom: 5rem; /* pb-20 in Tailwind */
   justify-content: flex-start;
- 
 }
- .class11to12-items {
-    display: flex;
-    gap: 20px; /* gap-[20px] in Tailwind */
-    width: auto;
-    overflow-x: hidden;
-  }
-  .competitiveExamDiv {
-    font-size: 2rem; /* text-4xl in Tailwind */
-    color: black; /* text-black in Tailwind */
-    margin-bottom: 1.5rem; /* mb-6 in Tailwind */
-    font-weight: 600; /* font-semibold in Tailwind */
-  }
+.class11to12-items {
+  display: flex;
+  gap: 20px; /* gap-[20px] in Tailwind */
+  width: auto;
+  overflow-x: hidden;
+}
+.competitiveExamDiv {
+  font-size: 2rem; /* text-4xl in Tailwind */
+  color: black; /* text-black in Tailwind */
+  margin-bottom: 1.5rem; /* mb-6 in Tailwind */
+  font-weight: 600; /* font-semibold in Tailwind */
+}
 .ss-head {
   color: #080e14;
   text-align: center;
@@ -210,6 +206,17 @@
   line-height: 60px;
   word-wrap: break-word;
 }
+@media (max-width: 766px) {
+  .card0 {
+    flex-shrink: 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    width: 161px;
+    height: 209px;
+  }
+}
 @media (max-width: 768px) {
   .class11to12 {
     display: flex;
@@ -217,29 +224,24 @@
     height: auto; /* h-max in Tailwind */
     padding-bottom: 5rem; /* pb-20 in Tailwind */
     justify-content: flex-start;
-    
   }
   .class11to12-items {
-      padding-left: 0.25rem; /* max-md:px-1 in Tailwind */
-      padding-right: 0.25rem;
-      gap: 12px; /* max-md:gap-[12px] in Tailwind */
-      width: auto; /* max-md:w-auto in Tailwind */
-      overflow-x: auto; /* max-md:overflow-x-auto in Tailwind */
-    }
-    .competitiveExamDiv {
-      font-size: 1.875rem; /* max-md:text-3xl in Tailwind */
-      margin-left: 1rem; /* max-md:ml-4 in Tailwind */
-    }
+    padding-left: 0.25rem; /* max-md:px-1 in Tailwind */
+    padding-right: 0.25rem;
+    gap: 12px; /* max-md:gap-[12px] in Tailwind */
+    width: auto; /* max-md:w-auto in Tailwind */
+    overflow-x: auto; /* max-md:overflow-x-auto in Tailwind */
+  }
+  .competitiveExamDiv {
+    font-size: 1.875rem; /* max-md:text-3xl in Tailwind */
+    margin-left: 1rem; /* max-md:ml-4 in Tailwind */
+  }
 
   .card3 {
     border-radius: 1rem;
     flex-direction: column;
     padding: 1.5rem 0.5rem;
-   
   }
-   .card3-text {
-      font-size: 1.125rem;
-    }
   .card1 {
     flex-direction: column;
     gap: 0.5rem;
@@ -311,15 +313,6 @@
   }
   .card2 {
     padding: 2.5rem 0.25rem;
-  }
-  .card0 {
-    flex-shrink: 0;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    width: 161px;
-    height: 209px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {

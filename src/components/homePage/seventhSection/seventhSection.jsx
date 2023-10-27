@@ -46,18 +46,11 @@ const SeventhSection = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
-    const numericValue = value.replace(/\D/g, '');
-    // if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
-      setQuery(numericValue);
-    // }
-  };
-  const handleKeyPress = (e) => {
-    const charCode = e.charCode;
-    if (charCode < 48 || charCode > 57) {
-      e.preventDefault();
+    if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
+      setQuery(e.target.value);
     }
   };
+
   const handleToggleOverlay = async () => {
     if (query.length === 10) {
       dispatch(setPhoneNumber(query));
@@ -109,14 +102,14 @@ const SeventhSection = () => {
       <div className="download-overlay">
         <div className="w-full  ">
           <div
-            className="font-bold whitespace-nowrap text-c1  
+            className="font-bold dowHead  whitespace-nowrap text-c1  
           text-4xl lg:text-5xl mb-1 leading-[2.5rem]
            lg:leading-[3.6rem]"
           >
             speak to our{" "}
             <span className="text-[#FCDE5A] max-sm:hidden">academic</span>
           </div>
-          <div className="text-[#FCDE5A]   text-c1  whitespace-nowrap font-bold text-4xl lg:text-5xl mb-4 leading-[2.5rem] lg:leading-[3.6rem]">
+          <div className="text-[#FCDE5A]   text-c1 dowHead  font-bold text-4xl lg:text-5xl mb-4 leading-[2.5rem] lg:leading-[3.6rem]">
             <span className="text-[#FCDE5A] sm:hidden">academic</span>{" "}
             counsellor
           </div>
@@ -134,15 +127,14 @@ const SeventhSection = () => {
               <input
                 className="outline-none w-[181px] text-[#080E14]"
                 type="text"
-                placeholder="enter your mobile number"
-                maxLength={10} pattern="[6-9]\\d{9}"
+                placeholder="  enter your mobile number"
                 value={query}
-                onChange={handleInputChange} onKeyUp={handleKeyPress}
+                onChange={handleInputChange}
               />
             </div>
             <button
               onClick={handleToggleOverlay}
-              className="download-book-button"
+              className="download-book-button whitespace-nowrap"
             >
               book now
             </button>

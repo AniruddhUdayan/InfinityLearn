@@ -4,6 +4,7 @@ import Image from "next/image";
 import { IoMdClose } from "react-icons/io";
 import { Carousel, ProgressBar, CarouselItem } from "react-bootstrap";
 import "./fifthSection.css";
+import styles from "../css/styles.module.css";
 function VideoOverlay({ onClose }) {
   return (
     <div
@@ -160,7 +161,7 @@ export function ReviewsSmall() {
       <Carousel
         controls={false}
         className=" carous"
-        interval={2000}
+        interval={2000000}
         onSlide={handleSlide}
       >
         {reviews.map((review, index) => (
@@ -252,27 +253,26 @@ export const Card = ({ data, onMouseEnter, onMouseLeave }) => {
       <div
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className="cardVideo  shadow-md  "
+        className={styles.cardVideo}
       >
-        <div className="image-container">
+        <div className={styles.imageContainer}>
           <Image
             src={data.image}
             alt="Video Background"
-            className="background-image"
+            className={styles.backgroundImage}
             width={svgWidth}
             height={161}
-            // className=""
           />
           <Image
             src="/reviews/video.svg"
             alt="Play Button Logo"
-            className="play-button"
+            className={styles.playButton}
             width={40}
             height={40}
           />
         </div>
-        <div className=" z-10 cardVideo-review  ">{data.review}</div>
-        <div className=" w-full relative bottom-11 flex justify-end">
+        <div className={styles.cardVideoReview}>{data.review}</div>
+        <div className={styles.cardVideoIC}>
           <Image
             src="/reviews/invertedCommas2.svg"
             height={41}
@@ -283,15 +283,15 @@ export const Card = ({ data, onMouseEnter, onMouseLeave }) => {
         </div>
 
         <div
-          className=" flex  justify-around  w-full
+          className={` ${styles.cardVideoInfo}
           max-md:justify-start  max-md:flex-col 
-          "
+          "`}
         >
           <div className="flex z-50  flex-col flex-grow">
-            <div className=" cardVideo-name">{data.name}</div>
-            <div className="  cardVideo-place">{data.place}</div>
+            <div className={styles.cardVideoName}>{data.name}</div>
+            <div className={styles.cardVideoPlace}>{data.place}</div>
           </div>
-          <div className="   cardVideo-course">{data.batch}</div>
+          <div className={styles.cardVideoCourse}>{data.batch}</div>
         </div>
       </div>
     ); // or you can return some default component or <></> for nothing.
@@ -301,9 +301,9 @@ export const Card = ({ data, onMouseEnter, onMouseLeave }) => {
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="cardNormal shadow-md "
+      className={styles.cardNormal}
     >
-      <div className="flex justify-evenly cardNormal-head  items-center  px-7 max-md:px-2 ">
+      <div className={styles.cardNormalImageInfoWrapper}>
         <Image
           src={data.image}
           // className=" rounded-full"
@@ -314,11 +314,11 @@ export const Card = ({ data, onMouseEnter, onMouseLeave }) => {
           alt="cards svg"
         />
         <div className="flex z-10  flex-col flex-grow">
-          <div className=" cardNormal-name mb-2">{data.name}</div>
-          <div className=" cardNormal-place mb-[24px]">{data.place}</div>
-          <div className=" whitespace-nowrap  cardNormal-course">
-            {data.batch}
+          <div className={styles.cardNormalName}>{data.name}</div>
+          <div className={`" ${styles.cardNormalPlace} mb-[24px]"`}>
+            {data.place}
           </div>
+          <div className={styles.cardNormalCourse}>{data.batch}</div>
         </div>
       </div>
       <Image
@@ -328,7 +328,7 @@ export const Card = ({ data, onMouseEnter, onMouseLeave }) => {
         alt="inverted commas"
         className=" w-[15%]"
       />
-      <div className=" cardNormal-review ">{data.review}</div>
+      <div className={styles.cardNormalReview}>{data.review}</div>
     </div>
   );
 };
@@ -400,26 +400,29 @@ function FifthSection() {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
   return (
-    <div className=" fifthSection">
-      <div
-        className=" bg-[#00364E]  flex max-md:pt-10  justify-evenly max-md:ml-3
-       max-md:justify-start text-start items-start   "
-      >
-        <div className=" fsh ">
-          <div className=" text-white fshc ">
+    <div className={styles.fifthSection}>
+      <div className={styles.fifthSectionCont}>
+        <div className={styles.fifthSectionHeading}>
+          <div className={` text-white ${styles.fifthSectionHeadingContent} `}>
             inspiring
             <span className=" sm:hidden ml-2">stories of</span>
           </div>
-          <div className="text-white whitespace-nowrap max-sm:hidden fshc">
+          <div
+            className={` text-white max-sm:hidden ${styles.fifthSectionHeadingContent} `}
+          >
             stories of our{" "}
           </div>
-          <div className=" fshc  text-[#FCDE5A]">
-            <span className=" sm:hidden image-tomp mr-2">our</span>toppers{" "}
+          <div
+            className={` text-[#FCDE5A] ${styles.fifthSectionHeadingContent} `}
+          >
+            <span className={` sm:hidden ${styles.imageTomp} mr-2 `}>our</span>
+            toppers{" "}
           </div>
         </div>
+
         <Image
           src="/homepage/fifthSection/topper.webp"
-          className="image-tomp hover:cursor-pointer mt-20 max-xl:mr-5 aspect-[3/2]"
+          className={`${styles.imageTomp} hover:cursor-pointer mt-20 max-xl:mr-5 aspect-[3/2]`}
           height={400}
           width={600}
           alt="topper.svg"
@@ -427,14 +430,14 @@ function FifthSection() {
         />
       </div>
       {/* {useEffect(() => { */}
-      <div className="Reviews">
-        <div className="nlss ">
+      <div className={styles.reviews}>
+        <div className={styles.nlss}>
           <NewLevelShower currentIndex={scrollPos} />
         </div>
-        <div className="rev">
-          <div className="carouss no-scrollbar overflow-x-auto">
+        <div className={styles.rev}>
+          <div className={`${styles.carouss} no-scrollbar overflow-x-auto"`}>
             <div
-              className="carouss-item md:mx-[112px]"
+              className={` ${styles.caroussItem} md:mx-[112px] `}
               style={{ transform: `translateX(-${scrollPos * sN}%)` }}
             >
               {reviews.map((review, index) => (

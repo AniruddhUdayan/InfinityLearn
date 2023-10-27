@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Input, InputBase } from "@mui/material";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
+import styles from "../css/styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   showOverlayMode,
@@ -39,8 +40,14 @@ function WordSlider() {
   }, []);
 
   return (
-    <div className="slider-container tracking-wide head-text-modified ">
-      <div className={animating ? "word-entering z-0" : " z-0 word-exiting"}>
+    <div className={styles.firstSctionHeadTextModifiedContainer}>
+      <div
+        className={
+          animating
+            ? styles.firstSctionHeadTextModifiedWordEntering
+            : styles.firstSctionHeadTextModifiedWordExiting
+        }
+      >
         {words[currentIndex]}
       </div>
     </div>
@@ -49,24 +56,19 @@ function WordSlider() {
 
 function Stats() {
   return (
-    <div
-      className="flex mt-10 stats py-3  max-lg:w-full mb-6 max-lg:mx-10
-     max-lg:h-24 justify-evenly text-[#007BFF] p- 
-      text-center  font-bold text-base gap-3 mx-auto stats
-     flex-row items-center h-20 bg-white px-4 rounded-[20px]"
-    >
+    <div className={styles.statsMobile}>
       <div className="stats-div1  ">
-        <div className="text-center font-[400] text-[12px] ">learners</div>
-        <div className="font-[600] text-[18px] text-center">50k+</div>
+        <div className="text-left font-[400] text-[12px] ">learners</div>
+        <div className="font-[600] text-[18px] text-left">50k+</div>
       </div>
       <div className="border-r-2 border-[#007BFF] opacity-20 h-full " />
-      <div className=" items-center flex text-center flex-col border-black">
-        <div className="text-center font-[400] text-[12px]  ">cities</div>
-        <div className="font-[600] text-[18px]  text-center">60k+</div>
+      <div className="  flex text-left flex-col">
+        <div className="text-left font-[400] text-[12px]  ">cities</div>
+        <div className="font-[600] text-[18px]  text-left">60k+</div>
       </div>
       <div className="border-r-2 border-[#007BFF] opacity-20 h-full" />
-      <div className="  text-start flex flex-col">
-        <div className="text-center font-[400] text-[12px]  flex    flex-grow">
+      <div className="  text-left flex flex-col">
+        <div className="text-left font-[400] text-[12px]  flex    flex-grow">
           <div className=" mr-1">classes</div> conducted
         </div>
         <div className="font-[600] text-[18px]  text-start">9200+</div>
@@ -79,19 +81,28 @@ function FirstSection() {
   const showOverlay = useSelector(
     (state) => state.mobileVerification.showOverlay
   );
+  const [svgWidth, setSvgWidth] = useState(490);
+  const [svgHeight, setSvgHeight] = useState(606);
+
+  const updateWidth = () => {
+    setSvgWidth(window.innerWidth <= 769 ? 300 : 490);
+    setSvgHeight(window.innerWidth <= 769 ? 250 : 606);
+  };
+  useEffect(() => {
+    // Update width on mount
+    updateWidth();
+
+    // Add resize event listener
+    window.addEventListener("resize", updateWidth);
+
+    // Cleanup: remove event listener on unmount
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
-    const numericValue = value.replace(/\D/g, '');
-    // if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
-      setQuery(numericValue);
-    // }
-  };
-  const handleKeyPress = (e) => {
-    const charCode = e.charCode;
-    if (charCode < 48 || charCode > 57) {
-      e.preventDefault();
+    if (/^\d+$/.test(e.target.value) && e.target.value.length <= 10) {
+      setQuery(e.target.value);
     }
   };
 
@@ -140,60 +151,69 @@ function FirstSection() {
     }
   };
   return (
-    <div className=" w-screen poppins h-screen firstSection  ">
-      <Row>
-        <Col>
-          <Col className="  ">
-            <div className=" items-center head-text max-md:pt-6 pt-9">
-              power up your{" "}
-            </div>
-            <WordSlider />
-            <div className="head-text">journey with </div>
-            <div className="head-text">infinity learn </div>
-          </Col>
-          <Col className=" imageRes ">
-            <Image
-              className="imageRes"
-              src="/../homepage/firstSection/imageRes.webp"
-              width={600}
-              height={350}
-              alt="firstSectionRes"
-            />
-          </Col>
-          <Col className=" inputSec">
-            <Col className="flex inputSec1 flex-col treew md:mt-16 mt-[32px] max-md:w-[335px]  gap-2 justify-center">
-              <div className="mb-1 items-stretch flex">
-                <div className="iSDCode">+91</div>
-                <input
-                  className="focus-no-outline Input "
-                  type="text"
-                  placeholder="enter your mobile number"
-                  maxLength={10} pattern="[6-9]\\d{9}"
-                  value={query}
-                  onChange={handleInputChange} onKeyUp={handleKeyPress}
-                />
-                <button onClick={handleToggleOverlay} className="jFF">
-                  join for free
-                </button>
-              </div>
-              <div className="otp">we will send an otp for verification</div>
-            </Col>
-          </Col>
-          <Col className=" mx-auto px-5 md:hidden">
-            <Stats />
-          </Col>
+    <div className={styles.firstSection}>
+      <Col>
+        <Col className={styles.firstSectionHeadTextWrapper}>
+          <div className={`${styles.firstSectionHeadText} z-20 `}>
+            power up your{" "}
+          </div>
+          <WordSlider />
+          <div className={styles.firstSectionHeadText}>journey with </div>
+          <div className={styles.firstSectionHeadText}>infinity learn </div>
         </Col>
-      </Row>
-      <Row>
-        <div className="imageNonRes w-full">
+        <Col className={styles.heroBannerResponsive}>
+          <Image
+            className={styles.heroBannerResponsive}
+            src="/../homepage/firstSection/imageRes.webp"
+            width={600}
+            height={350}
+            alt="firstSectionRes"
+          />
+        </Col>
+        {/* <div className={` max-sm:hidden md:hidden ${styles.heroBannerTab} `}>
           <Image
             src="/homepage/firstSection/firstSection1.png"
-            width={490}
-            height={606}
+            width={446}
+            height={511}
             alt="firstSection"
           />
-        </div>
-      </Row>
+        </div> */}
+        <Col className={styles.firstSectionInputWrapper}>
+          <Col className={styles.firstSectionInput}>
+            <div className="mb-1 items-stretch flex">
+              <div className={styles.firstSectionInputCountryCode}>+91</div>
+              <input
+                className={styles.firstSectionInputHolder}
+                type="text"
+                placeholder="enter your mobile number"
+                value={query}
+                onChange={handleInputChange}
+              />
+              <button
+                onClick={handleToggleOverlay}
+                className={styles.firstSectionInputJoinForFree}
+              >
+                join for free
+              </button>
+            </div>
+            <div className={styles.firstSectionInputOTP}>
+              we will send an otp for verification
+            </div>
+          </Col>
+        </Col>
+        <Col className={styles.statsWrapper}>
+          <Stats />
+        </Col>
+      </Col>
+
+      <div className={`${styles.heroBannerLargeWrapper} max-md:hidden`}>
+        <Image
+          src="/homepage/firstSection/firstSection1.png"
+          width={490}
+          height={606}
+          alt="firstSection"
+        />
+      </div>
     </div>
   );
 }
