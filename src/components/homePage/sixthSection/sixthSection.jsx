@@ -212,7 +212,7 @@ const SixthSection = () => {
         <div className="relative md:mx-auto bottom-7 top-[0px]">
           {" "}
           <Image
-            src="/homePage/sixthSection/newSixth.png"
+            src="/homepage/sixthSection/newSixth.png"
             alt="phone"
             width={492}
             height={741}
@@ -221,7 +221,7 @@ const SixthSection = () => {
         </div>
         <div className="flex justify-center">
           <Image
-            src="/homePage/sixthSection/newSixth.png"
+            src="/homepage/sixthSection/newSixth.png"
             alt="phone"
             width={313}
             height={470}
