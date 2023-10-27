@@ -25,7 +25,7 @@ function EigthSection() {
           12th (Chemistry, Physics, and Mathematics).
         </div>
       </div>
-      <div className="w-[100%] list-inside">
+      <div className="w-[100%] pl4 pl-6 list-inside">
         <ul className=" list-disc pl-[20px]">
           <li>
             <span className="e-points">

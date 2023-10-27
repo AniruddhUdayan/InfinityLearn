@@ -55,164 +55,10 @@
 
 .stats > div > div:last-child > div {
   margin-right: 1px;
-} */
-.stats {
-}
+*/
 @media only screen and (min-width: 312px) and (max-width: 480px) {
-  .inputSec {
-    padding: 10px; /* Adjust based on your design */
-  }
-
-  .inputSec .Input {
-    font-size: 14px; /* Adjust based on your design */
-    padding: 8px 12px;
-    color: black;
-  }
-
-  .inputSec .iSDCode {
-    font-size: 14px; /* Adjust based on your design */
-    padding: 8px 12px;
-  }
-
-  .inputSec .jFF {
-    font-size: 12px; /* Adjust based on your design */
-    padding: 8px 12px;
-  }
-
-  .inputSec .otp {
-    font-size: 14px; /* Adjust based on your design */
-    color: white;
-    font-size: 12px;
-
-    font-weight: 400;
-    line-height: 18px;
-    word-wrap: break-word;
-  }
 }
 
-input::placeholder {
-  color: #f0f0f0;
-  font-size: 16px;
-}
-input.focus-no-outline:focus {
-  outline: none;
-}
-.imageNonRes {
-  /* padding-bottom: 81px; */
-  padding-top: 31px;
-}
-.row > div {
-  padding-left: 0px /* your desired value here */;
-  padding-right: 0px;
-}
-.container-fluid > div {
-  padding-right: 0px;
-}
-.imageNonRes {
-  margin-top: 30px;
-}
-.firstSection {
-  overflow-x: hidden;
-  padding-left: 114px;
-  padding-right: 114px;
-  /* height: max-content; */
-  gap: 120px;
-  height: auto;
-  padding-bottom: 72px;
-  display: flex;
-
-  font-family: "Poppins", sans-serif;
-  /* justify-content: space-evenly; */
-  width: 100vw;
-  align-items: center;
-  background-color: #007bff;
-  /* padding-right: 10px;
-  padding-left: 10px; */
-}
-.head-text,
-.head-text-modified {
-  letter-spacing: 0.5px;
-  line-height: 85px;
-  padding-left: 5px;
-  font-size: 72px;
-  font-family: "Poppins";
-  font-weight: bolder;
-
-  color: white;
-}
-
-.head-text-modified {
-  /* Override or add additional styles here */
-  /* Just as an example */
-  color: #fcde5a;
-  /* Another example */
-}
-
-.imageRes {
-  display: block;
-  width: 100vw;
-}
-.Input {
-  font-family: Poppins;
-  padding-left: 0.1rem;
-  border-left-width: 0;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: #000000;
-  width: 303px;
-  background: #007bff;
-  border: 1px #cecfd0 solid;
-  border-left-width: 0;
-  height: 56px;
-  font-weight: 400;
-  font-size: 10px;
-  font-family: Poppins;
-  color: white;
-
-  line-height: 24px;
-  word-wrap: break-word;
-}
-.iSDCode {
-  font-family: Poppins;
-  font-weight: bold;
-  display: flex;
-  line-height: 24px;
-  color: white;
-  font-size: 16px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border: 1px #cecfd0 solid;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  justify-content: center;
-  align-items: center;
-  border-right-width: 0;
-  border-top-left-radius: 20px; /* adjust as per requirement */
-  border-bottom-left-radius: 20px;
-}
-.jFF {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  color: #000000;
-  background: #fcde5a;
-  font-size: 14px;
-  font-family: Poppins;
-  font-weight: 600;
-  text-transform: lowercase;
-  line-height: 21px;
-  white-space: nowrap;
-}
-.otp {
-  font-weight: 500; /* font-[500] */
-  font-size: 16px; /* text-[16px] */
-  color: #eeeeee;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 500;
-  text-transform: lowercase;
-  line-height: 24px;
-  word-wrap: break-word;
-}
 @media (max-width: 768px) {
   .head-text,
   .head-text-modified {
@@ -224,29 +70,21 @@ input.focus-no-outline:focus {
     word-wrap: break-word;
   }
 }
-/* @media (min-width: 425px) {
-  .imageRes {
-    display: none;
-  }
-} */
-
+.row > div {
+  padding-left: 0px !important /* your desired value here */;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+row {
+  padding-left: 0px !important /* your desired value here */;
+  padding-right: 0px !important;
+}
 @media (min-width: 768px) {
-  .imageRes {
-    display: none; /* md:hidden likely hides the element on medium screens */
-  }
-
   .Input {
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-size: 16px;
-  }
-  .jFF {
-    width: 8rem;
-  }
-  .otp {
-    font-size: 0.875rem; /* text-sm often translates to 0.875rem, but this can vary */
-    padding-left: 1.5rem; /* px-6 is often 1.5rem, if 1 unit is 0.25rem */
-    padding-right: 1.5rem;
   }
 } /* For the max-md breakpoint (assuming it's 768px for this example): */
 @media (max-width: 320px) {
@@ -268,265 +106,20 @@ input.focus-no-outline:focus {
     /* height: 32px; */
   }
 }
-@media (min-width: 399px) {
-  .imageRes {
-    width: 100vw !important;
-  }
-}
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-  .firstSection {
-    gap: 0;
-    padding: auto;
-  }
-  .inputSec {
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
-    width: auto;
-    margin-left: 20px;
-  }
-  .imageRes {
-    /* width: auto; */
-    display: block;
-    width: 100%;
-  }
-  .head-text,
-  .head-text-modified {
-    font-size: 44px;
-    padding-left: 30px;
-    align-items: center;
-
-    font-size: 44px;
-
-    line-height: 50px;
-    word-wrap: break-word;
-  }
-  .firstSection {
-    padding-top: 64px;
-    padding-bottom: 24px;
-    padding-left: 20px;
-    padding-right: 40px;
-
-    align-items: center;
-    justify-content: center;
-  }
-  .imageNonRes {
-    display: none;
-  }
-  .Input {
-    width: 335px;
-    height: 48px;
-    background-color: white;
-    font-size: 13px;
-    color: black;
-  }
-  input::placeholder {
-    color: #9c9fa1;
-    font-size: 13px;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 19.5px;
-  }
-  .iSDCode {
-    height: 48px;
-    background-color: white;
-    color: black;
-  }
-  .jFF {
-    padding: 12px;
-  }
-  .treww {
-    align-items: center;
-  }
 }
 @media only screen and (min-width: 481px) and (max-width: 576px) {
-  .firstSection {
-    padding-top: 64px;
-    padding-bottom: 24px;
-    padding-left: 10px;
-    padding-right: 20px;
-    gap: 0;
-
-    align-items: center;
-    justify-content: center;
-  }
-  .inputSec {
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-  .imageNonRes {
-    display: none;
-  }
-  .Input {
-    width: 335px;
-    height: 48px;
-    background-color: white;
-    color: black;
-    font-size: 13px;
-  }
-  input::placeholder {
-    color: #9c9fa1;
-    font-size: 13px;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 19.5px;
-  }
-  .iSDCode {
-    height: 48px;
-    background-color: white;
-    color: black;
-  }
-  .jFF {
-    padding: 12px;
-  }
-  .treww {
-    align-items: center;
-  }
 }
 @media only screen and (min-width: 577px) and (max-width: 767px) {
-  .inputSec {
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
-    margin-left: 20px;
-    align-self: center;
-  }
-  .firstSection {
-    padding-top: 64px;
-    padding-bottom: 62px;
-    padding-left: 10px;
-    padding-right: 30px;
-    gap: 20px;
-
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh; /* Assuming min-h-screen means viewport height */
-    flex-direction: flex; /* flex-col means column direction in Tailwind */
-    /* Not sure about the exact meaning of h-fit. It's not standard Tailwind or CSS. 
-       It might be a custom class, so I'm omitting it here. */
-  }
-  .imageRes {
-    display: none;
-  }
-  .head-text,
-  .head-text-modified {
-    padding-right: 20px;
-    padding-left: 20px;
-
-    font-size: 36px;
-
-    line-height: 40px;
-    word-wrap: break-word;
-  }
-  .stats {
-    display: none;
-  }
-  .inputSec {
-    width: auto;
-  }
-  .Input {
-    width: 305px;
-    height: 42px;
-
-    font-size: 13px;
-  }
-  input::placeholder {
-    color: #9c9fa1;
-    font-size: 13px;
-    font-family: Poppins;
-    font-weight: 500;
-
-    line-height: 19.5px;
-  }
-  .iSDCode {
-    height: 42px;
-
-    color: black;
-  }
-  .jFF {
-    height: 42px;
-    padding: 13px;
-  }
-  .treww {
-    align-items: center;
-  }
-  .treww {
-    align-items: center;
-  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .firstSection {
-    padding-left: 10px;
-    padding-right: 15px;
-    gap: 40px;
-    padding-bottom: 62px;
-  }
-  .imageNonRes {
-    padding-right: 20px;
-  }
-  .row > div {
-    padding-right: 20px;
-  }
-  .Input {
-    width: 200px;
-    height: 42px;
-    font-size: 10px;
-  }
-  .inputSec {
-    padding-left: 20px;
-  }
-  .head-text,
-  .head-text-modified {
-    padding-right: 20px;
-    padding-left: 20px;
-
-    font-size: 48px;
-
-    line-height: 60px;
-    word-wrap: break-word;
-  }
   .sliding-container {
     width: max-content;
   }
-  .jFF {
-    width: min-content;
-    padding: 10px;
-  }
-  .treww {
-    padding-left: 10px;
-  }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .firstSection {
-    padding-left: 50px;
-    padding-right: 50px;
-    gap: 30px;
-  }
-  .Input {
-    width: 250px;
-  }
-  .head-text,
-  .head-text-modified {
-    padding-left: 0px;
-  }
-
-  .head-text,
-  .head-text-modified {
-    font-size: 36px;
-    padding-left: 5px;
-    padding-bottom: 2px;
-    font-size: 54px;
-
-    line-height: 62px;
-    word-wrap: break-word;
-  }
-  .imageNonRes {
-    padding-top: 10px;
-  }
 }
 @media (min-width: 1440px) {
   .stat {
@@ -537,30 +130,5 @@ input.focus-no-outline:focus {
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
   .stats {
     width: 1010px;
-  }
-
-  .firstSection {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-  .head-text,
-  .head-text-modified {
-    font-size: 36px;
-    padding-left: 5px;
-    padding-bottom: 2px;
-    font-size: 44px;
-
-    line-height: 50px;
-    word-wrap: break-word;
-  }
-}
-@media (max-width: 340px) {
-  .head-text,
-  .head-text-modified {
-    font-size: 40px !important;
-    padding-left: 40px !important;
-  }
-  .inputSec1 {
-    max-width: 316px;
   }
 }

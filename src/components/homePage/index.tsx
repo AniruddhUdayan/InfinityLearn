@@ -32,9 +32,11 @@ const HomePage = () => {
       {/* <Download /> */}
       <SixthSection />
       {/* <Download /> */}
+
       <SeventhSection />
       <EigthSection />
       <NinthSection />
+
       <Footer />
       <LoginPopup />
       <SelectGradePopup />

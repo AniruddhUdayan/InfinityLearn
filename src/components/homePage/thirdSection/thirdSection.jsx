@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Nav } from "react-bootstrap";
 import "./thirdSection.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "../css/styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { showOverlayMode } from "../../../store/mobVeriSlice";
 import { setComponentToShow } from "../../../store/modalToShow";
@@ -16,63 +17,66 @@ const options = [
 ];
 function OptionZero() {
   return (
-    <div className="option">
-      <div className="option-head1">focused</div>
-      <div className=" option-head2">guidance</div>
-      <div className="option-info">
+    <div className={styles.option}>
+      <div className={styles.optionHead1}>focused</div>
+      <div className={styles.optionHead2}>guidance</div>
+      <div className={styles.optionInfo}>
         Experience tailored guidance designed to cater to unique learning needs.
         We ensure every student receives the individual attention they deserve.
       </div>
-      <div></div>
     </div>
   );
 }
+
 function OptionOne() {
   return (
-    <div className="option">
-      <div className="option-head1">learn from the</div>
-      <div className="option-head2">experts</div>
-      <div className="option-info ">
-        learn from the finest faculty in jee/neet/cbse. our faculty consists of
-        {` the country's most seasoned and insightful educators.`}
+    <div className={styles.option}>
+      <div className={styles.optionHead1}>learn from the</div>
+      <div className={styles.optionHead2}>experts</div>
+      <div className={styles.optionInfo}>
+        Learn from the finest faculty in JEE/NEET/CBSE. Our faculty consists of
+        the country's most seasoned and insightful educators.
       </div>
     </div>
   );
 }
+
 function OptionTwo() {
   return (
-    <div className="option">
-      <div className="option-head1">clear doubts,</div>
-      <div className="option-head2">clear concepts</div>
-      <div className="option-info ">
-        we prioritise understanding over rote learning. our dedicated doubt
+    <div className={styles.option}>
+      <div className={styles.optionHead1}>clear doubts,</div>
+      <div className={styles.optionHead2}>clear concepts</div>
+      <div className={styles.optionInfo}>
+        We prioritise understanding over rote learning. Our dedicated doubt
         resolution sessions ensure all your queries are addressed for a clear
         path to success.
       </div>
     </div>
   );
 }
+
 function OptionThree() {
   return (
-    <div className="option ">
-      <div className="option-head1">premium learning,</div>
-      <div className="option-head2">guidance</div>
-      <div className="option-info ">
-        gain access to top-notch learning resources. our study materials are
+    <div className={styles.option}>
+      <div className={styles.optionHead1}>premium learning,</div>
+      <div className={styles.optionHead2}>guidance</div>
+      <div className={styles.optionInfo}>
+        Gain access to top-notch learning resources. Our study materials are
         meticulously curated by experts to provide comprehensive coverage of all
         topics.
       </div>
     </div>
   );
 }
+
 function OptionFour() {
   return (
-    <div className="option ">
-      <div className="option-head1">structured success</div>
-      <div className="option-head2 "> plan</div>
-      <div className="option-info ">
-        follow a structured study plan designed for assured success in jee neet
-        academics. our test series and question bank are crafted to boost exam
+    <div className={styles.option}>
+      <div className={styles.optionHead1}>structured success</div>
+      <div className={styles.optionHead2}>plan</div>
+      <div className={styles.optionInfo}>
+        Follow a structured study plan designed for assured success in JEE NEET
+        academics. Our test series and question bank are crafted to boost exam
         readiness.
       </div>
     </div>
@@ -107,18 +111,23 @@ const SwitchTabs = ({ data, onTabChange }) => {
   };
 
   return (
-    <div className="tabsContainer">
+    <div className={`${styles.switchTabs1Container}`}>
       {data.map((tab, index) => (
         <span
           key={index}
           ref={(el) => (tabsRefs.current[index] = el)}
-          className={`tabItem ${selectedTab === index ? "active" : ""}`}
+          className={`${styles.switchTab1Item} ${
+            selectedTab === index ? styles.active : ""
+          }`}
           onClick={(e) => activeTab(tab, index, e)}
         >
           {tab}
         </span>
       ))}
-      <div className="underline" style={underlineStyles}></div>
+      <div
+        className={styles.switchTab1underlineItem}
+        style={underlineStyles}
+      ></div>
     </div>
   );
 };
@@ -158,12 +167,12 @@ const SwitchTabs1 = ({ data, onTabChange }) => {
     <div className="bg-white no-scrollbar text-black h-11 relative w-screen">
       <div
         ref={containerRef}
-        className="flex space-x-4 whitespace-nowrap overflow-x-auto"
+        className="flex space-x-4  whitespace-nowrap overflow-x-auto"
       >
         {data.map((option, index) => (
           <span
             key={index}
-            className={`inline-flex items-center justify-center px-2 py-2 cursor-pointer ${
+            className={`inline-flex mx-[16px]  items-center justify-center px-2 py-2 cursor-pointer ${
               index === selectedTab
                 ? "text-blue-500 border-b-2 border-blue-500"
                 : "text-gray-400"
@@ -249,8 +258,8 @@ function ThirdSection() {
     dispatch(showOverlayMode(!showOverlay));
   };
   return (
-    <div className=" thirdSection1">
-      <div className=" sT   no-scrollbar   relative">
+    <div className={styles.thirdSectionWrapper}>
+      <div className={`${styles.switchTabs1Wrapper}   no-scrollbar `}>
         {isMobileView && (
           <div className=" mx-auto overflow-x-auto ">
             <SwitchTabs1 data={options} onTabChange={onTabChange} />
@@ -262,8 +271,8 @@ function ThirdSection() {
           </div>
         )}
       </div>
-      <div className=" thirdSection min-h-[118px] px-[162px] no-scrollbar ">
-        <div className="thirdSection-fc  rowww">
+      <div className={` ${styles.thirdSection} no-scrollbar `}>
+        <div className={styles.thirdSectionContentWrapper}>
           <Image
             src="/thirdSection1.png"
             height={svgWidth}
@@ -271,8 +280,8 @@ function ThirdSection() {
             alt="thirdSection"
             className=" max-md:w-screen  md:w-1/2"
           />
-          <div className=" thirdsection-content items-center ">
-            <div className=" text-start  max-md:h-max">
+          <div className={styles.thirdSectionContent}>
+            <div>
               {[OptionZero, OptionOne, OptionTwo, OptionThree, OptionFour].map(
                 (Component, index) => (
                   <div
@@ -286,14 +295,13 @@ function ThirdSection() {
                 )
               )}
             </div>
-            {/* <div className="  slof  "> */}
+
             <button
               onClick={startLearning}
-              className="slof-b  hover:space-x-2  hover:bg-blue-600 "
+              className={` ${styles.sLFFButton}  hover:space-x-2  hover:bg-blue-600`}
             >
               start learning for free <span className=" ml-[8px]">&#8599;</span>
             </button>
-            {/* </div> */}
           </div>
         </div>
       </div>

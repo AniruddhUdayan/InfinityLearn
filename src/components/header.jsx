@@ -144,7 +144,7 @@ function ResHeader({
 
   return (
     <div
-      className="md:hidden fixed  overflow-y-auto no-scrollbar 
+      className="xl:hidden fixed  overflow-y-auto no-scrollbar 
     flex-col top-0 left-0
      w-full h-screen  bg-white text-black z-50 flex "
     >
@@ -368,13 +368,13 @@ function Header() {
   return (
     <div>
       <nav
-        className={`bg-[#007BFF] z-50 max-lg:px-3 max-xl:px-3 
-        max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-4
-         px-[115px] w-screen max-md:border-b-0 border-b-[1px] border-whte border-gray-400 border-opacity-50`}
+        className={`bg-[#007BFF] min-h-[80px] z-50 max-lg:px-[20px] max-xl:px-3 
+        max-md:py-5 max-md:fixed top-0 left-0 right-0 max-md:pb-2 max-md:px-[20px]
+         px-[115px] w-screen max-md:border-b-0 border-b-[1px] sm:py-[8px]  border-[#2C91FF] `}
       >
-        <div className="flex justify-evenly smallerS  items-center">
+        <div className="flex my-auto justify-evenly smallerS  items-center">
           <Image
-            className="mx-6 lg:mx-0 max-md:hidden"
+            className="mx-[32px]  lg:mx-0 max-md:hidden"
             src="/images/logo/logo.svg"
             alt="My Logo"
             width={230}
@@ -389,18 +389,18 @@ function Header() {
           />
 
           <div className="flex-grow  z-30">
-            <ul className="flex text-white  mb-0 max-md:hidden justify-around ">
+            <ul className="flex text-white  mb-0 max-lg:hidden justify-around ">
               {items.map((item, index) => (
                 <div key={index} className="relative">
                   <li
-                    className={`flex  px-[17px] items-center group hover:cursor-pointer whitespace-nowrap 
+                    className={`flex  px-[17px]  items-center group hover:cursor-pointer whitespace-nowrap 
                      hover:border-white hover:border-[1px] text-[16px] border-solid  hover:rounded-3xl p-1
                      transform hover:scale-105 transition-transform duration-300`}
                     onClick={() => toggleSubMenu(index)}
                     onMouseEnter={() => hoverHandler1(index)}
                   >
                     <div className="px-2">{item}</div>
-                    <IoIosArrowDown size={15} />
+                    {index !== 2 && <IoIosArrowDown size={15} />}
                   </li>
                   {index === activeItem && foundItem && (
                     <ul
@@ -445,6 +445,7 @@ function Header() {
                                         toggleBooksCardVisibility(listItemIndex)
                                       }
                                     />
+                                    my-auto smaller{" "}
                                   </div>
                                   {visibleBooksCards.includes(
                                     listItemIndex
@@ -469,7 +470,7 @@ function Header() {
               ))}
             </ul>
           </div>
-          <div className="flex mx-7 max-xl:hidden max-lg:hidden max-md:hidden">
+          <div className="flex mx-7 max-lg:mx-0    max-md:hidden">
             <Link href="tel:1800419427">
               <Image
                 src="/header/call.svg"
@@ -478,24 +479,25 @@ function Header() {
                 alt="call.svg"
               />
             </Link>
-            <div className="flex flex-col">
+            <div className="flex max-lg:hidden flex-col whitespace-nowrap">
               <div className="text-yellow-300 text-[14px]">
-                need help? talk to experts
+                need help?{" "}
+                <span className=" max-lg:hidden"> talk to experts</span>
               </div>
               <div className="text-yellow-300 text-[16px]">1800-419-427</div>
             </div>
           </div>
           <Link href="https://student.infinitylearn.com/signin?page=signin">
             <button
-              className="rounded-[20px] w-auto whitespace-nowrap  max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
+              className="rounded-[20px] max-lg:mx-[36px] max-md:mx-[14px] w-auto whitespace-nowrap  max-md:w-fit ma max-md:rounded-3xl max-sm:bg-[#FFF] max-md:border-2 max-2xl:bg-white"
               style={{ height: 32 }}
             >
-              <div className="text-blue-500 sm:bg-white max-2xl:px-4 items-center max-sm:text-[#007BFF] font-semibold max-md:px-3 rounded-[20px] px-[20px]">
+              <div className="text-[#007BFF] sm:bg-white max-2xl:px-4 items-center max-sm:text-[#007BFF] font-semibold max-md:px-3 rounded-[20px] px-[20px]">
                 sign in
               </div>
             </button>
           </Link>
-          <div className="md:hidden  text-white hover:cursor-pointer ml-5">
+          <div className="lg:hidden max-md:mr-[9px] md:mr-[32px]  text-white hover:cursor-pointer ml-5">
             <SlMenu
               size={20}
               style={{ color: "white" }}
